@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Adaptive Quadrature</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:bold">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <link href="css/logoiconfont.css" rel="stylesheet">
+  <link rel="icon" href="img/green_logo.png" type = "image/png"> 
+  
+      <link rel="stylesheet" href="../../css/na_css.css">
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.4/math.min.js" type="text/javascript"></script>
+      <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<!--
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+
+<body>
+  <div id="pageloader">
+
+    <div class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+
+</div>
+  <div id="particles-js"></div>
+<div id="content">
+  <div id="top">
+	 <h1 style="color: yellow">Gian's Green Page of Numerical Analysis</h1>
+    <div id="submenu">
+      <p><a href="na_home.html" target="_blank"><span class="glyphicon glyphicon-globe" style="color:white"></span> <span style="color:white">Home</span></a> &nbsp; &nbsp; <i class="fas fa-question-circle" style="color:white"></i> <a href="na_faq.html" target="_blank"><span style="color:white">FAQ</span></a> &nbsp; &nbsp; <a href="na_disclaimer.html"><i class="fas fa-exclamation-triangle" style="color:white"  target="_blank"></i> <span style="color:white">Disclaimer</span></a></p>
+      </div>
+    </div>
+  </div>
+  <!--<div>
+    <div class="col-sm-6">
+	   <p><span class="red"><u>Work</u></span> | <span class="red"><u>Side Projects</u></span> | <span class="red"><u>Blog</u></span> | <span class="red"><u>Merch</u></span> | <span class="red"><u>Contact</u></span></p>
+    </div>
+    <div class="col-sm-6">
+      <p>LinkedIn</p>
+    </div>
+  </div>-->
+
+
+  <div id="body">
+
+    <h3> <i class="fas fa-arrow-circle-right" style="color:yellow"></i> <span class="subtitle">Review: Simpson's Rule</span> </h3>
+    <p>
+      The Adaptive Quadrature is an advanced method of numerical integration technique. And for this one, we will use the basic version of the Simpson's Rule. Before describing the method of Adaptive Quadrature, a prerequisite knowledge is the basic Simpson's Rule. I have written a write-up on it <a href="na_integration.html" target="_blank" style="color:red">here</a>. But if you know it already it already and you just would like a refresher then keep reading. Otherwise, skip to the next section.<br><br>
+
+      Here is the approximation formula for Simpson's Rule:
+        $$\int_a^b f(x)\,dx = \dfrac{h}{3} \Bigg[ f(a) + 4 f \Bigg( \dfrac{a+b}{2}\Bigg) + f(b)\Bigg]$$
+      where $h = (b-a)/2$. <br><br>
+
+      To give an example, use the Simpson's Rule approximation formula for finding
+        $$\int_0^{\ln(2)} e^{-x}\,dx$$
+      Clearly $h = (b-a)/2 = (\ln(2)-0)/2 \approx 0.346574$. Thus $f(a) = f(0) = 1$ and $f(b) = f(\ln(2)) = 0.5$.  For the midpoint $(a+b)/2 = (0+\ln(2))/2 = 0.346574$. Hence $f(0.346574) \approx 0.707107 \approx \sqrt{2}/2$:
+        $$\int_0^{\ln(2)} e^{-x}\,dx = \dfrac{\ln(2)}{6} \Bigg[ 1 + 4 \Bigg( \dfrac{\sqrt{2}}{2}\Bigg) + \dfrac{1}{2}\Bigg] = 0.500040$$
+      The exact value gives us $0.5$ (which you can easily check). The error is very much minimal $\approx 0.000040$. Here is a calculator to check. For logarithmic functions not in base $e$, you need to perform change of base to natural logarithmic function. Then for natural logarithmic function, use "log".<br><br>
+
+        <p align="center">
+          <span class="subtitle" style="color:orange">Simpson's Calculator</span> <br><br>
+          $\displaystyle \int\limits_I$<input id="func" class="inputNums" value="exp(-x)"></input> $\,dx = $ <span id="res" style="color:red">???</span> <br><br>
+
+          where $I = \Bigg[$<input id="pointA" class="inputNums" style="width:70px" value="0"></input>$,$<input id="pointB" class="inputNums" style="width:70px" value="log(2)"></input>$\Bigg]$<br><br><br>
+          
+          <!-- <button class="bttn" onclick="approxInt(1)">Composite Trapezoidal Rule</button> &nbsp; &nbsp; -->
+          <button class="bttn" onclick="approxInt(2,2)">Simpson Rule</button>
+          <br><br>
+          
+        </p>
+
+      </p>
+
+    <h3> <i class="fas fa-arrow-circle-right" style="color:yellow"></i> <span class="subtitle">Adaptive Simpson's Rule</span> </h3>
+    <p>
+      It has many names, "Adaptive Quadrature", "Adaptive Simpson's" or "Adaptive Simpson's Rule". Basically this is a recursive (meaning iteratively or repeatedly, but has subtle differences in Computing) algorithm that takes into account the error that the Simpson's Rule produces and whether or not it is "tolerable". This just means that there is some threshold $\mu$ that we will set so that if the error given off by Simpson's rule exceeds this threshold then we would have to partition the interval at hand into two separate intervals. And for each of these intervals, we apply Simpson's rule once again. The task is done recursively until Simpson's gives off a reasonable minimal error that does not overshoot the threshold. Here is an pseudocode of the algorithm I have typed up on $\LaTeX$:
+
+      <p align="center">
+          <img src="img/aq_algo.png" alt="Trapezoidal Rule" style="width:512px">
+        </p>
+
+        Let us examine this code real quick. The inputs needed by the Adaptive-Simpson algorithm are the function $f$, the interval $[a,b]$ and the tolerance threshold error $\mu$. We first take the midpoint of the interval $[a,b]$. Then we apply Simpson's Rule on the following intervals: (1) on the entire interval $[a,b]$, (2) on the first half of the partitioned interval $[a,(a+b)/2]$ and (3) on the second half of the partitioned interval $[(a+b)/2,b]$. We then calculate the error $\epsilon$ of the Simpson's result of the interval $[a,b]$ by subtracting this result and the sum of the Simpson's result for the intervals $[a,(a+b)/2]$ and $[(a+b)/2,b]$. This is the absolute error, so we have to take its absolute value. Then divide it by 15 (this is constant). Now we check, if the error $\epsilon$ is less than the threshold error $\mu$, then we are good and we can return the result of the Simpson's on $[a,b]$. Otherwise, we partition $[a,b]$ into (1) $[a,(a+b)/2]$ and (2) $[(a+b)/2,b]$. And then we apply the Adaptive-Simpson's on (1) and on (2), and then adding the result. The caveat of doing this though is we should use half of the threshold error $\mu$ that we have used for $[a,b]$. This algorithm is done recursively as we can see that this is an algorithm that calls itself throughout its method. Does this stop? Yes, that is when the stopping condition is satisfied when the error calculated is now less than the threshold error. <br><br>
+
+        Here is a calculator which simulates Adaptive Quadrature: <br><br>
+
+        <p align="center">
+          <br><br>
+          <span class="subtitle" style="color:orange">Adaptive Simpson's Calculator</span> <br><br>
+          $\displaystyle \int\limits_I$<input id="funcAS" class="inputNums" value="(exp(3x))(sin(2x))"></input> $\,dx = $ <span id="resu" style="color:red">???</span> <br><br>
+
+          where $I = \Bigg[$<input id="asa" class="inputNums" style="width:70px" value="0"></input>$,$<input id="asb" class="inputNums" style="width:70px" value="pi/4"></input>$\Bigg]$ and $\mu = $ <input id="tol" class="inputNums" style="width:50px" value="0.0000785"></input>. <br><br><br>
+          
+          <!-- <button class="bttn" onclick="approxInt(1)">Composite Trapezoidal Rule</button> &nbsp; &nbsp; -->
+          <button class="bttn" onclick="aq()">Calculate</button>
+          <br><br>
+          
+        </p>
+
+    </p>
+
+
+    <br><br>
+
+    <h3> <i class="fas fa-arrow-circle-right" style="color:yellow"></i> <span class="subtitle">References</span> </h3>
+    <ul>
+      <li class="customBulletRight"> <a href="https://www.nelsonbrain.com/shop/isbn/9781305253667" target="_blank" style="color:white"> R. Burden, D. Faires, and A. Burden. <i>Numerical Analysis</i>, 10th ed. Boston, MA: Cengage Learning, 2016.</a></li>
+      <!-- <li class="customBulletRight"> <a href="https://math.stackexchange.com/questions/866331/numerically-stable-algorithm-for-solving-the-quadratic-equation-when-a-is-very" target="_blank" style="color:white"> StackExchange. <i>Numerically Stable Quadratic Algorithm</i>.</a></li>
+      <li class="customBulletRight"> <a href="http://www.stat.umn.edu/geyer/3701/notes/arithmetic.html" target="_blank" style="color:white"> <i>Stat3701 Lecture Notes: Computer Arithmetic</i>.</a></li>
+      <li class="customBulletRight"> <a href="https://en.wikipedia.org/wiki/Loss_of_significance#Instability_of_the_quadratic_equation" target="_blank" style="color:white"> Wikipedia. <i>Loss of Significance</i>.</a></li> -->
+    </ul>
+
+    <br><br>
+
+    <h3> <i class="fas fa-arrow-circle-right" style="color:yellow"></i> <span class="subtitle">Leave a Message</span> </h3>
+    <section id="light" class="background1 section-padding">
+      <div class="container">
+        
+      <form id="contactForm" name="contactform" method="post" action="mailer.php" method="post">
+          <br>
+          <div class="form-group">
+              <label for="usr"><span style="color:red">*</span>Name:</label>
+              <input type="text" class="form-control" name="usr" style="max-width:90%">
+          </div>
+          <div class="form-group">
+              <label for="email"><span style="color:red">*</span>Email:</label>
+              <input type="email" class="form-control" name="email" style="max-width:90%">
+          </div>
+          <div class="form-group">
+              <label for="comment"><span style="color:red">*</span>Message:</label>
+              <textarea class="form-control" rows="5" name="comment" style="max-width:90%"></textarea>
+          </div>
+          <br>
+          <div class="left" class="col-sm-10">
+            <button id="butSubmit" type="submit" class="btn btn-primary" name="submit" style="" onclick="submitClear();">Submit</button>
+          </div>
+
+
+          </form>
+      </div><!-- /.container -->
+      <br><br>
+    </section>
+  </div>
+<!--   	<br><br>
+ -->
+
+    
+    <!-- <div id="footer">
+<p>GIAN CARLO ALIX &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://www.linkedin.com/in/gian-alix/"><i class="fab fa-linkedin" style="color:white"></i></a>  <a href="https://github.com/techGIAN"><i class="fab fa-github" style="color:white"></i></a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Last updated: <span id="myDate"></span>
+</p>
+  </div>
+<div id="pseudo">
+
+  </div> -->
+  <div id="pseudo" style="margin-top:10px; margin-bottom: 10px"> </div>
+    <footer id="footer">
+      <p>
+        GIAN CARLO ALIX &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://www.linkedin.com/in/gian-alix/"><i class="fab fa-linkedin" style="color:white"></i></a>  <a href="https://github.com/techGIAN"><i class="fab fa-github" style="color:white"></i></a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Last updated: <span id="myDate"></span></span>
+      </p>
+    </footer> 
+  
+  
+
+  <!--<footer>
+<p><a href="../index.html" style="color: white;">GIAN CARLO ALIX</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://www.linkedin.com/in/gian-alix/"><i class="fab fa-linkedin" style="color:white"></i></a>  <a href="https://github.com/techGIAN"><i class="fab fa-github" style="color:white"></i></a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Last updated: <span id="currDate"></span>
+</p>
+  </footer>
+<div id="pseudo">
+
+  </div>-->
+
+
+  <script src='https://cldup.com/S6Ptkwu_qA.js'></script>
+  <script src="../../js/index.js"></script>
+
+
+<script>
+
+      //use this to reset forms onload
+$('#contactForm')[0].reset();
+
+function submitClear() {
+  document.getElementById('contactForm').reset();
+  return true;
+}
+
+    (function() {
+    var pre = document.getElementsByTagName('pre'),
+        pl = pre.length;
+    for (var i = 0; i < pl; i++) {
+        pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+        var num = pre[i].innerHTML.split(/\n/).length;
+        for (var j = 0; j < num; j++) {
+            var line_num = pre[i].getElementsByTagName('span')[0];
+            line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+        }
+    }
+})();
+
+window.onload = start;
+
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip(); 
+});
+
+function start() {
+	load();
+	date();
+	footerScript();
+}
+
+function load() { // basic code to dismiss page transition after page has loaded
+ 
+    var minloadingtime = 300;
+    var maxloadingtime = 1000;
+     
+    var startTime = new Date();
+    var elapsedTime;
+    var dismissonloadfunc, maxloadingtimer;
+     
+    window.addEventListener('load', dismissonloadfunc = function(){ // when page loads
+        clearTimeout(maxloadingtimer) // cancel dismissal of transition after maxloadingtime time
+        elapsedTime = new Date() - startTime // get time elapsed once page has loaded
+        var hidepageloadertimer = (elapsedTime > minloadingtime)? 0 : minloadingtime - elapsedTime
+     
+        setTimeout(function(){
+            document.getElementById('pageloader').classList.add('dimissloader') // dismiss transition
+        }, hidepageloadertimer)
+     
+    }, false);
+     
+    maxloadingtimer = setTimeout(function(){ // force dismissal of page transition after maxloadingtime time
+        window.removeEventListener('load', dismissonloadfunc, false) // cancel onload event function call
+        document.getElementById('pageloader').classList.add('dimissloader') // dismiss transition
+    }, maxloadingtime);
+
+}
+
+function date() {
+	var n = new Date(document.lastModified);
+
+	var y = n.getFullYear();
+	var m = n.getMonth() + 1;
+	var d = n.getDate();
+
+ 	var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+	        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+	document.getElementById("myDate").innerHTML = months[m-1] + " " + d + ", " + y;
+}
+
+function footerScript() {
+    var bodyDiv = document.getElementById("body");
+    var footerTop = bodyDiv.offsetTop + bodyDiv.offsetHeight + 415;
+    document.getElementById("footer").style.top = footerTop + "px";
+    //document.getElementById("footer").style.bottom = "5px";
+    
+    var pseudoTop = footerTop + 95;
+    document.getElementById('pseudo').style.top = pseudoTop + "px";
+
+    // var bodyDiv = document.getElementById('body');
+    // var footerDiv = document.getElementById('footer');
+    // var pseudoDiv = document.getElementById('pseudo');
+    
+    //     //subtract 3020 to remove extra space for some unknown reason
+    // var footerTop = bodyDiv.offsetTop + bodyDiv.offsetHeight + 35;
+    // alert(footerTop)
+    // footerDiv.style.top = footerTop + "px";
+    
+    // var pseudoTop = footerDiv.offsetTop + footerDiv.offsetHeight + 95;
+    // pseudoDiv.style.top = pseudoTop + "px";
+}
+
+function simpson(f,a,b) {
+
+  const p = math.parser();
+
+  var F = "f(x) = " + f;
+  p.evaluate(F);
+
+  var FA = p.evaluate('f(' + a + ')');
+  var FB = p.evaluate('f(' + b + ')');
+
+  var mid = (a+b)/2;
+
+  var Fmid = p.evaluate('f(' + mid + ')');
+
+  var ans = (b-a)/6 * (FA + 4*Fmid + FB);
+  return ans;
+}
+
+function adaptiveSimpson(f, a, b, tol) {
+
+  var S = simpson(f, a, b);
+
+  var midpoint = (a+b)/2;
+  var S1 = simpson(f, a, midpoint);
+  var S2 = simpson(f, midpoint, b);
+
+  var err = Math.abs(S-(S1+S2))/15;
+
+  if (err < tol)
+    return S;
+  else
+    return adaptiveSimpson(f, a, midpoint, tol/2) + adaptiveSimpson(f, midpoint, b, tol/2);
+}
+
+
+function aq() {
+  var answer = document.getElementById("resu");
+
+  const parser = math.parser();
+
+  var A = parser.evaluate(document.getElementById("asa").value);
+  var B = parser.evaluate(document.getElementById("asb").value);
+  var MU = parser.evaluate(document.getElementById("tol").value);
+
+  var e1 = document.getElementById("asa").value.length == 0;
+  var e2 = document.getElementById("asb").value.length == 0;
+  var e3 = document.getElementById("tol").value.length == 0;
+  // var e4 = countDec(Number(document.getElementById("pointN").value)) != 0;
+  //var e3 = false;
+  var e4 = false;
+  var e5 = MU <= 0;
+  //var e6 = r == 2 && N % 2 == 1;
+  var e6 = false;
+
+  if (e1 || e2 || e3) {
+    alert("Missing input(s). Try again.");
+    return;
+  }
+
+  if (e4 || e5 || e6) {
+    alert("Make sure tolerance is a positive integer. Try again.");
+    return;
+  }
+  
+
+
+  var f = document.getElementById("funcAS").value;
+  var final = adaptiveSimpson(f, A, B, MU);
+
+
+
+  if (countDec(final) > 6)
+    final = Number(final.toFixed(6));
+
+  answer.innerHTML = final;
+}
+
+function approxInt(r,n) {
+
+  var answer = document.getElementById("res");
+
+  const parser = math.parser();
+
+  var A = parser.evaluate(document.getElementById("pointA").value);
+  var B = parser.evaluate(document.getElementById("pointB").value);
+  var N = n;
+  var f = document.getElementById("func").value;
+
+  var e1 = document.getElementById("pointA").value.length == 0;
+  var e2 = document.getElementById("pointB").value.length == 0;
+  // var e3 = document.getElementById("pointN").value.length == 0;
+  // var e4 = countDec(Number(document.getElementById("pointN").value)) != 0;
+  var e3 = false;
+  var e4 = false;
+  var e5 = N <= 0;
+  var e6 = r == 2 && N % 2 == 1;
+
+  if (e1 || e2 || e3) {
+    alert("Missing input(s). Try again.");
+    return;
+  }
+
+  if (e4 || e5 || e6) {
+    alert("Make sure n is an even positive integer. Try again.");
+    return;
+  }
+
+  f = "f(x) = " + f;
+
+  var summationT = 0;
+  var summationS1 = 0;
+  var summationS2 = 0;
+  var h = (B-A)/N;
+
+  parser.evaluate(f);
+  var evalA = parser.evaluate('f(' + A + ')');
+  var evalB = parser.evaluate('f(' + B + ')');
+
+  for (var j = 1; j <= N-1 && r == 1; j++) {
+    var newPoint = A + j*h;
+    var strEval = "f(" + newPoint + ")";
+    var eval = parser.evaluate(strEval);
+    summationT = summationT + eval;
+  }
+
+  for (var j = 1; j <= N/2-1 && r == 2; j++) {
+    var newPoint = A + 2*j*h;
+    var strEval = "f(" + newPoint + ")";
+    var eval = parser.evaluate(strEval);
+    summationS1 = summationS1 + eval;
+  }
+
+  for (var j = 1; j <= N/2 && r == 2; j++) {
+    var newPoint = A + (2*j-1)*h;
+    var strEval = "f(" + newPoint + ")";
+    var eval = parser.evaluate(strEval);
+    summationS2 = summationS2 + eval;
+  }
+
+  var component1 = h/(r+1);
+  var component2 = evalA + 2*summationT + evalB + 2*summationS1 + 4*summationS2;
+  var final = component1 * component2;
+
+  if (countDec(final) > 6)
+    final = Number(final.toFixed(6));
+
+  answer.innerHTML = final;
+}
+
+function eps(x) {
+  return (Math.abs(x) < 1e-10);
+}
+
+function countDec(x) {
+  if (Math.floor(x) == x) return 0;
+  else return x.toString().split(".")[1].length;
+}
+
+function gcd(x,y) {
+  x = Math.abs(x);
+  y = Math.abs(y);
+  while(y) {
+    var t = y;
+    y = x % y;
+    x = t;
+  }
+  return x;
+}
+
+function lcm(x,y) {
+  var prod = x*y;
+  return (prod/gcd(x,y))
+}
+
+function decimalToFraction(n) {
+  var num = n;
+  var denom = 1;
+
+  while (!Number.isInteger(num)) {
+    num = num*10;
+    denom = denom*10;
+  }
+
+  var g = gcd(num,denom);
+  num = num/g;
+  denom = denom/g;
+
+  var frac = [num, denom];
+  return frac;
+}
+
+
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

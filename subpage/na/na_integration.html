@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Numerical Integration</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:bold">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <link href="css/logoiconfont.css" rel="stylesheet">
+  <link rel="icon" href="img/green_logo.png" type = "image/png"> 
+  
+      <link rel="stylesheet" href="../../css/na_css.css">
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.4/math.min.js" type="text/javascript"></script>
+      <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<!--
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+
+<body>
+  <div id="pageloader">
+
+    <div class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+
+</div>
+  <div id="particles-js"></div>
+<div id="content">
+  <div id="top">
+	 <h1 style="color: yellow">Gian's Green Page of Numerical Analysis</h1>
+    <div id="submenu">
+      <p><a href="na_home.html" target="_blank"><span class="glyphicon glyphicon-globe" style="color:white"></span> <span style="color:white">Home</span></a> &nbsp; &nbsp; <i class="fas fa-question-circle" style="color:white"></i> <a href="na_faq.html" target="_blank"><span style="color:white">FAQ</span></a> &nbsp; &nbsp; <a href="na_disclaimer.html"><i class="fas fa-exclamation-triangle" style="color:white"  target="_blank"></i> <span style="color:white">Disclaimer</span></a></p>
+      </div>
+    </div>
+  </div>
+  <!--<div>
+    <div class="col-sm-6">
+	   <p><span class="red"><u>Work</u></span> | <span class="red"><u>Side Projects</u></span> | <span class="red"><u>Blog</u></span> | <span class="red"><u>Merch</u></span> | <span class="red"><u>Contact</u></span></p>
+    </div>
+    <div class="col-sm-6">
+      <p>LinkedIn</p>
+    </div>
+  </div>-->
+
+
+  <div id="body">
+
+    <h3> <i class="fas fa-arrow-circle-right" style="color:yellow"></i> <span class="subtitle">Numerical Integration</span> </h3>
+    <p>
+      Before anything else, let us begin with a quick warmup of your integration skills:
+        $$\int_1^2 \dfrac{1}{x}\,dx = ??? \hspace{20mm} \int_{\ln(4)}^{10} e^{-x}\,dx = ??? \hspace{20mm} \int (1+\tan^2(x))\,dx = ???$$
+      And here are the solutions and answers in case you are wondering:
+      <ul>
+        <li class="customBulletRight"> For the first one, know that the anti-derivative of $\frac{1}{x}$ does not follow the power rule since the exponent of $x$ is $-1$. We have learned instead that the derivative of $\ln(x)$ is $\dfrac{1}{x}$. And hence the anti-derivative of $\dfrac{1}{x}$ is $\ln(x)$. Thus we have:
+          $$\int_1^2 \dfrac{1}{x}\,dx = \ln(x) \Bigg|_1^2 = \ln(2) - \ln(1) = \ln(2) - 0 = \ln(2)$$
+        </li>
+        <li class="customBulletRight"> For the second one, this is simple as the derivative or anti-derivative of $e^x$ is simply itself. Thus, because we have a negative for the exponential, then by chain rule we take the sign into account as follows:
+          $$\int_{\ln(4)}^{10} e^{-x}\,dx = -e^{-x} \Bigg|_{\ln(4)}^{10} = -e^{-10} + e^{-\ln(4)} = -e^{-10} + 4^{-1} = -e^{-10} + \dfrac{1}{4}$$
+        </li>
+        <li class="customBulletRight"> Finally for the third one, recognize that Pythagorean identity for trigonometry is $\sec^2(x) = 1+\tan^2(x)$. Quite remarkable the anti-derivative of $\sec^2(x)$ is simply the tangent function. Since we are dealing with an indefinite integral in this question, then we do not evaluate at any point and leave it as is (and don't forget the constant of integration!)
+          $$\int (1+\tan^2(x))\,dx = \int \sec^2(x)\,dx = \tan(x) + C$$
+        </li>
+      </ul>
+      Ok, that was easy right? Suppose I give you instead these integrals:
+        $$\int_0^\pi \cos^4(2x)\,dx = ??? \hspace{20mm} \int_{1}^{\pi/2} \dfrac{\sin(x)}{x}\,dx = ??? \hspace{20mm} \int_{0.5}^{3.7} e^{-x^2}\,dx = ???$$
+      Clearly these integrals are harder to solve. The first one can be done but could take a longer time to do so. The second and third one are not even elementary so forget about it. By the way, non-elementary functions are those functions which cannot be integrated by usual means (usual in a sense such as the common techniques you have learned in your first year of Calculus such as Integration by Substitution, Integration by Parts, Partial Fraction Decomposition, Trigonometric Substitution among others, etc.) and hence its integral cannot be expressed by standard functions (which include polynomials, exponentials, trigonometric, etc.). The only way they can be expressed is through power series and if it was a definite integral, then we can numerically approximate them. And hoorah! This is what we shall be doing. This should serve as an early motivation of why we want to approximate the values of definite integrals. Either we are dealing with an elementary function that is just time-consuming or hard to integrate or evaluate, or it could be that the function at hand is a non-elementary function. So in either case, doing the usual integration techniques we know are pointless and getting the exact result is not even an option. We thus resort to approximating the value of the integral.<br><br>
+
+      There are several various methods of Numerical Integration Approximation. The most basic ones include the Trapezoidal Rule and the Simpson's Rule, both of which are covered in this page. You may have heard about the Trapezoidal Rule during your Calculus II class but I'll give a refresher and more in-depth information. <br><br>
+
+      <h3> <i class="fas fa-arrow-circle-right" style="color:yellow"></i> <span class="subtitle">The Trapezoidal Rule</span> </h3>
+      <p>
+        The numerical approximation that goes about in Trapezoidal Rule is that we pick the two endpoints of the interval and we will be finding the "area under the curve" between these two given points (how integration can be interpreted). And in essence if it "falls below the $x$-axis" (i.e. becomes negative), then it's "area over the curve" (i.e. simply negative value of the area if it was reflected onto the other side of the $x$-axis). So take this arbitrary function as an example:
+        <p align="center">
+          <img src="img/trapezoidal_static.png" alt="Trapezoidal Rule" style="width:256px">
+        </p>
+        So suppose that we want to find $\displaystyle \int_a^b f(x)\,dx$. If we would like to use the Trapezoidal Rule, this is simply equivalent to finding the area under the curve of $f(x)$ in the interval $[a,b]$ (i.e. the highlighted purple region). Unfortunately, we can see from the above picture that the approximation that the Trapezoidal Rule gives gives a poor estimate of what the actual exact value is. Notice that there is some region that is above the $f(x)$ that is highlighted when it should not be. This is the picture that we want instead: <br><br>
+        <p align="center">
+          <img src="img/trapezoidal_exact.png" alt="Trapezoidal Rule" style="width:256px">
+        </p>
+        Notice the region that should not be highlighted. In the trapezoidal rule, this is expressed as an "error". In layman's terms adding the error to the approximation gives you the exact result (noting that the approximation can be either over or under the exact value; this means that the error could either be negative or positive). So in this case in our arbitrary example, since the Trapezoidal Rule failed to capture the exact value (which in most cases and approximation methods will) and instead over-approximated it, then the error is also positive (and a negative value of the error has to be added in to correct the approximation in order to get the exact result). Similarly, there may be instances when Trapezoidal Rule can under-estimate the approximation. In that case, the error turns out to be negative and that a positive version of the error needs to be added in to correct the result. And by the way, the graphs you see above are hand-drawn myself in my iPad app <a href="https://www.gingerlabs.com/" target="_blank" style="color:red">Notability</a>; such an amazing app for taking notes. <br><br>
+
+        Before going any further allow me to introduce the Trapezoidal Rule:
+          $$\int_a^b f(x)\,dx = \dfrac{h}{2} \Bigg[ f(a)+f(b) \Bigg] - \dfrac{h^3}{12} f''(\xi)$$
+        where $h = b-a$ and $a < \xi < b$. To make it clearer, the formula below 
+          $$\int_a^b f(x)\,dx = \dfrac{h}{2} \Bigg[ f(a)+f(b) \Bigg]$$
+        is the approximation formula for the Trapezoidal Rule and the formula below
+          $$E(x) = - \dfrac{h^3}{12} f''(\xi)$$
+        happens to be the error. This means that the extra highlighted region in the above arbitrary example can be corrected by adding this error in. What makes this approximation formulas nice is that you wouldn't have to integrate anything. If anything, you only need to differentiate up to two times in order to get your results. It is indeed better and much easier to differentiate than to integrate. Perhaps we can have an example. Consider $f(x) = \cos^4(x)$. It is indeed better to differentiate this than to integrate, right? So let $a = 0$ and $b = \pi$. Thus $h = b-a = \pi-0 = \pi$. Also $f(a) = f(0) = \cos^4 (0) = 1^4 = 1$ and $f(b) = f(\pi) = \cos^4 (\pi) = (-1)^4 = 1$. Furthermore $f'(x) = -4\cos^3 (x) \sin(x) \Longrightarrow f''(x) = 12\cos^2 (x) \sin^2 (x) - 4\cos^4 (x)$. Hence approximating using Trapezoidal Rule we have:
+          $$\int_0^\pi f(x)\,dx = \dfrac{h}{2} \Bigg[ f(a)+f(b) \Bigg] = \dfrac{\pi}{2} \Bigg[ 1+1 \Bigg] = \pi$$
+        And the Trapezoidal error to be:
+          $$E(x) = - \dfrac{h^3}{12} f''(\xi) = - \dfrac{\pi^3}{12} \Bigg[ 12\cos^2 (\xi) \sin^2 (\xi) - 4\cos^4 (\xi) \Bigg] = -\pi^3 \cos^2 (\xi) \sin^2 (\xi) + \dfrac{\pi^3}{3} \cos^4 (\xi)$$
+        where $0 < \xi < \pi$. If we compute for the exact result using Definite Integration, we have:
+          $$\int_0^\pi \cos^4(x)\,dx = \dfrac{3\pi}{8}$$
+        And the absolute error is simply the absolute value of the difference between the exact result and the approximated result, which happens to be $5\pi/8$.
+        <p align="center">
+          <img src="img/cos4.png" alt="Trapezoidal Rule" style="width:256px">
+        </p>
+
+        Apparently, for one trapezoid alone, we are unable to find a good approximation for our integral. There are some areas that have not been taken into account for and some areas that were counted in but should not be. This is problematic as the approximation that we have found is poor. Fortunately though, we can extend the Trapezoidal Rule in a way such that if we added more partitions (i.e. more trapezoids to disect the area under the curve) then the error that we get tends to diminish and we will get better and better approximations the more partitions that we have. This animation for an aribitrary function should give an idea as to what I mean. Also, these were produced via Maple. You should go check it out.
+
+        <p align="center">
+          <img src="img/trapezoidal.gif" alt="Trapezoidal Rule" style="width:256px">
+        </p>
+
+        This is basically known as the <span style="color:orange">Composite Trapezoidal Rule</span>, because it builds its foundation from the Trapezoidal Rule and by adding in more and more trapezoids or partitions, we get a more refined approximation for our definite integral. Here is the approximation formula:
+          $$\int_a^b f(x)\,dx = \dfrac{h}{2} \Bigg[ f(a)+2\sum_{j=1}^{n-1}f(x_j)+f(b) \Bigg]$$
+        and the error formula to be
+          $$E(x) = - \dfrac{b-a}{12}h^2 f''(\eta)$$
+        where $h = \frac{b-a}{n}$ and $x_j = a+jh$ and $a < \eta < b$ for $j = 0,1,...,n$. Here $n$ is the number of trapezoids or partitions used. The $\eta$ here is similar to the $\xi$ from earlier - used to represent error. <br><br>
+
+        Consider an example. So let us use the same one as earlier with $f(x) = \cos^4(x)$ using the same parameters and we'll have $n=8$ partitions. The default is usually $n=1$ partition, in which case reduces to the basic Trapezoidal Rule. So now $h = (b-a)/n = (\pi-0)/4 = \pi/4$. And we will be evaluating on $f(x_0), f(x_1), f(x_2), f(x_3), f(x_4), f(x_5), f(x_6), f(x_7)$ where $x_0 = 0$, $x_1 = \pi/8$, $x_2 = \pi/4$, $x_3 = 3\pi/8$, $x_4 = \pi/2$, $x_5 = 5\pi/8$, $x_6 = 3\pi/4$, $x_7 = 7\pi/8$. You would notice that the partition points happens to disect the interval $[a,b]$ into $n$ equal interval widths. 
+          $$f(0) = f(\pi) = 1, f(\pi/8) = f(7\pi/8) = 0.7286, f(\pi/2) = 0, f(3\pi/8) = f(5\pi/8) = 0.0214, f(\pi/4)= f(3\pi/4) = 1/4$$
+        And so
+          $$
+            \begin{equation*}
+              \begin{split}
+                \sum_{j=1}^{n-1} f(x_j) &amp; = f(x_1) + f(x_2) + f(x_3) + f(x_4) + f(x_5) + f(x_6) + f(x_7) \\
+                &amp; = f \Bigg( \dfrac{\pi}{8} \Bigg) + f \Bigg( \dfrac{\pi}{4} \Bigg) + f \Bigg( \dfrac{3\pi}{8} \Bigg) + f \Bigg( \dfrac{\pi}{2} \Bigg) + f \Bigg( \dfrac{5\pi}{8} \Bigg) + f \Bigg( \dfrac{3\pi}{4} \Bigg) + f \Bigg( \dfrac{7\pi}{8} \Bigg) \\
+                &amp; = 0.7286 + \dfrac{1}{4} + 0.0214 + 0 +  0.0214+ \dfrac{1}{4} + 0.7286 = 2 \\
+              \end{split}
+            \end{equation*}
+          $$
+        Thus our approximated result is
+          $$\int_0^\pi \cos^4(x)\,dx = \dfrac{\pi}{16} \Bigg[ 1+2\cdot 2 +1 \Bigg] = \dfrac{3\pi}{8}$$
+        Notice, that this is a better result than what we got earlier. It is now similar to the exact result! It is not the same as equal per se but we know that as we get larger and larger values of $n$, the value tends to converge to the exact result that we get from definite integration. We see here that we get a better coverage:
+
+        <p align="center">
+          <img src="img/cos4_composite.png" alt="Trapezoidal Rule" style="width:256px">
+        </p>
+
+        <h3> <i class="fas fa-arrow-circle-right" style="color:yellow"></i> <span class="subtitle">The Simpson's Rule</span> </h3>
+        <p>
+          Another rule for approximating integration is what is known as the Simpson's Rule, wherein its basic form requires three points instead of two: the two endpoints and the midpoint. If in the Trapezoidal Rule, you notice that trapezoids are formed during the partitions, in Simpson's Rule you form "mini-parabolas" (or somewhat parabola-like figures). Here is an illustration of the Simpson's Rule for some arbitrary function $y=f(x)$ and notice that it is indeed more refined than the Trapezoidal Rule. We also get more and more refined results for larger values of $n$ (i.e. when we adapt the Composite version that is analogous to the Composite Trapezoidal Rule):
+
+          <p align="center">
+            <img src="img/simpson.gif" alt="Simpson Rule" style="width:256px">
+          </p>
+
+          When we examine the approximation formula, we shall notice that the error rate happens to make use of the fourth derivative. And one might observe that when applied to polynomials of degree three or less, the error happens to be 0 and you get the exact result. However, for Trapezoidal Rule since the error formula only deals with the second derivative, then only linear and constant functions give an exact result whenever the Trapezoidal Rule has been applied. Here is the approximation formula for Simpson's Rule:
+            $$\int_a^b f(x)\,dx = \dfrac{h}{3} \Bigg[ f(a) + 4 f \Bigg( \dfrac{a+b}{2}\Bigg) + f(b)\Bigg]$$
+          where $h = (b-a)/2$. And the error term being:
+            $$E(x) = - \dfrac{h^5}{90} f^{(4)}(\xi)$$
+          where $a < \xi < b$. And for the generalized composite version, we have the approximation formula:
+            $$\int_a^b f(x)\,dx = \dfrac{h}{3} \Bigg[ f(a) + 2 \sum_{j=1}^{n/2-1} f(x_{2j}) + 4 \sum_{j=1}^{n/2} f(x_{2j-1}) + f(b)\Bigg]$$
+          and then its error being:
+            $$E(x) = - \dfrac{b-a}{180}h^4 f^{(4)}(\mu)$$
+          with $h = (b-a)/n$  and $x_j = a+jh$ and $a < \mu < b$ for $j = 0,1,...,n$. Note however that (1) $n$ must be an even positive integer, and (2) when $n=2$, then the Composite Version is reduced to the Basic Version of the Simpson's Rule. <br><br>
+
+          To give an example, suppose we use the same example as above:
+            $$\int_0^\pi \cos^4(x)\,dx$$
+          We'll solve this one using the Simpson's Rule, for (a) $n=2$ the Basic Version, and (b) $n=8$ for the Composite Version. The table below gives the results with the comparison to the Trapezoidal results. Note that the exact result is $\dfrac{3\pi}{8} \approx 1.178097$, correct to 6 decimal places.<br><br>
+
+          <div style="margin-left:auto; margin-right:auto;">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+              <table class="table">
+                <thead>
+                  <tr style="color: yellow; font-size: 80%;">
+                    <th style="vertical-align: middle; text-align: center;"> Integral Rule </th>
+                    <th style="vertical-align: middle; text-align: center;"> Basic Version </th>
+                    <th style="vertical-align: middle; text-align: center;"> Composite Version <br>$(n=8)$ </th>
+                  </tr>
+                </thead>
+                <tbody style="font-size: 80%">
+                  <tr> 
+                    <td style="vertical-align: middle; text-align: center; color:orange;"> Trapezoidal Rule </td>
+                    <td style="vertical-align: middle; text-align: center;"> 3.141593 </td>
+                    <td style="vertical-align: middle; text-align: center;"> 1.178097 </td>
+                  </tr>
+                  <tr> 
+                    <td style="vertical-align: middle; text-align: center; color:orange;"> Simpson's Rule </td>
+                    <td style="vertical-align: middle; text-align: center;"> 1.047198</td>
+                    <td style="vertical-align: middle; text-align: center;"> 1.178097</td>
+                  </tr>
+                  <tr> 
+                    <td style="vertical-align: middle; text-align: center;">  </td>
+                    <td style="vertical-align: middle; text-align: center;"> </td>
+                    <td style="vertical-align: middle; text-align: center;"> </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-sm-3"></div> 
+          </div><br><br><br><br>
+
+        <br><br><br><br><br>
+
+
+
+        Try this numerical integral calculator I have developed. Note that if you would like to use the basic version of the rules, then you have to enter $n=1$ and $n=2$ for the  Trapezoidal Rule and Simpson's Rule respectively. Also note that you will get an error if you entered a non-integer, an odd, or a non-positive for $n$ if you are using the Simpson's Rule. The same rule applies for the Traprezoidal Rule except odd positive integers are allowed. In typing your functions, most functions are able to be inputted (polynomials, trigonometric, logarithmic, exponential, etc.). Also, careful about discontinuities and as this calculator is not meant for handling improper integrals. I will cover improper integral approximation in a future write-up. So for instance the integral of $\ln(x)$ in the interval $[0,1]$ is improper because the function is not defined at 0. Let me know for bugs. <br><br><br><br>
+
+        <p align="center">
+          <span class="subtitle" style="color:orange">Numerical Integral Calculator</span> <br><br>
+          $\displaystyle \int\limits_I$<input id="func" class="inputNums" value="(cos(x))^4"></input> $\,dx = $ <span id="res" style="color:red">1.570796</span> <br><br>
+
+          where $I = \Bigg[$<input id="pointA" class="inputNums" style="width:50px" value="0"></input>$,$<input id="pointB" class="inputNums" style="width:50px" value="pi"></input>$\Bigg]$ and $n = $ <input id="pointN" class="inputNums" style="width:50px" value="2"></input>. <br><br><br>
+          
+          <button class="bttn" onclick="approxInt(1)">Composite Trapezoidal Rule</button> &nbsp; &nbsp;
+          <button class="bttn" onclick="approxInt(2)">Composite Simpson Rule</button>
+          <br><br>
+          
+        </p>
+
+      </p>
+
+
+    <br><br>
+
+    <h3> <i class="fas fa-arrow-circle-right" style="color:yellow"></i> <span class="subtitle">References</span> </h3>
+    <ul>
+      <li class="customBulletRight"> <a href="https://www.nelsonbrain.com/shop/isbn/9781305253667" target="_blank" style="color:white"> R. Burden, D. Faires, and A. Burden. <i>Numerical Analysis</i>, 10th ed. Boston, MA: Cengage Learning, 2016.</a></li>
+      <!-- <li class="customBulletRight"> <a href="https://math.stackexchange.com/questions/866331/numerically-stable-algorithm-for-solving-the-quadratic-equation-when-a-is-very" target="_blank" style="color:white"> StackExchange. <i>Numerically Stable Quadratic Algorithm</i>.</a></li>
+      <li class="customBulletRight"> <a href="http://www.stat.umn.edu/geyer/3701/notes/arithmetic.html" target="_blank" style="color:white"> <i>Stat3701 Lecture Notes: Computer Arithmetic</i>.</a></li>
+      <li class="customBulletRight"> <a href="https://en.wikipedia.org/wiki/Loss_of_significance#Instability_of_the_quadratic_equation" target="_blank" style="color:white"> Wikipedia. <i>Loss of Significance</i>.</a></li> -->
+    </ul>
+
+    <br><br>
+
+    <h3> <i class="fas fa-arrow-circle-right" style="color:yellow"></i> <span class="subtitle">Leave a Message</span> </h3>
+    <section id="light" class="background1 section-padding">
+      <div class="container">
+        
+      <form id="contactForm" name="contactform" method="post" action="mailer.php" method="post">
+          <br>
+          <div class="form-group">
+              <label for="usr"><span style="color:red">*</span>Name:</label>
+              <input type="text" class="form-control" name="usr" style="max-width:90%">
+          </div>
+          <div class="form-group">
+              <label for="email"><span style="color:red">*</span>Email:</label>
+              <input type="email" class="form-control" name="email" style="max-width:90%">
+          </div>
+          <div class="form-group">
+              <label for="comment"><span style="color:red">*</span>Message:</label>
+              <textarea class="form-control" rows="5" name="comment" style="max-width:90%"></textarea>
+          </div>
+          <br>
+          <div class="left" class="col-sm-10">
+            <button id="butSubmit" type="submit" class="btn btn-primary" name="submit" style="" onclick="submitClear();">Submit</button>
+          </div>
+
+
+          </form>
+      </div><!-- /.container -->
+      <br><br>
+    </section>
+  </div>
+<!--   	<br><br>
+ -->
+
+    
+    <!-- <div id="footer">
+<p>GIAN CARLO ALIX &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://www.linkedin.com/in/gian-alix/"><i class="fab fa-linkedin" style="color:white"></i></a>  <a href="https://github.com/techGIAN"><i class="fab fa-github" style="color:white"></i></a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Last updated: <span id="myDate"></span>
+</p>
+  </div>
+<div id="pseudo">
+
+  </div> -->
+  <div id="pseudo" style="margin-top:10px; margin-bottom: 10px"> </div>
+    <footer id="footer">
+      <p>
+        GIAN CARLO ALIX &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://www.linkedin.com/in/gian-alix/"><i class="fab fa-linkedin" style="color:white"></i></a>  <a href="https://github.com/techGIAN"><i class="fab fa-github" style="color:white"></i></a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Last updated: <span id="myDate"></span></span>
+      </p>
+    </footer> 
+  
+  
+
+  <!--<footer>
+<p><a href="../index.html" style="color: white;">GIAN CARLO ALIX</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://www.linkedin.com/in/gian-alix/"><i class="fab fa-linkedin" style="color:white"></i></a>  <a href="https://github.com/techGIAN"><i class="fab fa-github" style="color:white"></i></a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Last updated: <span id="currDate"></span>
+</p>
+  </footer>
+<div id="pseudo">
+
+  </div>-->
+
+
+  <script src='https://cldup.com/S6Ptkwu_qA.js'></script>
+  <script src="../../js/index.js"></script>
+
+
+<script>
+
+      //use this to reset forms onload
+$('#contactForm')[0].reset();
+
+function submitClear() {
+  document.getElementById('contactForm').reset();
+  return true;
+}
+
+    (function() {
+    var pre = document.getElementsByTagName('pre'),
+        pl = pre.length;
+    for (var i = 0; i < pl; i++) {
+        pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+        var num = pre[i].innerHTML.split(/\n/).length;
+        for (var j = 0; j < num; j++) {
+            var line_num = pre[i].getElementsByTagName('span')[0];
+            line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+        }
+    }
+})();
+
+window.onload = start;
+
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip(); 
+});
+
+function start() {
+	load();
+	date();
+	footerScript();
+}
+
+function load() { // basic code to dismiss page transition after page has loaded
+ 
+    var minloadingtime = 300;
+    var maxloadingtime = 1000;
+     
+    var startTime = new Date();
+    var elapsedTime;
+    var dismissonloadfunc, maxloadingtimer;
+     
+    window.addEventListener('load', dismissonloadfunc = function(){ // when page loads
+        clearTimeout(maxloadingtimer) // cancel dismissal of transition after maxloadingtime time
+        elapsedTime = new Date() - startTime // get time elapsed once page has loaded
+        var hidepageloadertimer = (elapsedTime > minloadingtime)? 0 : minloadingtime - elapsedTime
+     
+        setTimeout(function(){
+            document.getElementById('pageloader').classList.add('dimissloader') // dismiss transition
+        }, hidepageloadertimer)
+     
+    }, false);
+     
+    maxloadingtimer = setTimeout(function(){ // force dismissal of page transition after maxloadingtime time
+        window.removeEventListener('load', dismissonloadfunc, false) // cancel onload event function call
+        document.getElementById('pageloader').classList.add('dimissloader') // dismiss transition
+    }, maxloadingtime);
+
+}
+
+function date() {
+	var n = new Date(document.lastModified);
+
+	var y = n.getFullYear();
+	var m = n.getMonth() + 1;
+	var d = n.getDate();
+
+ 	var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+	        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+	document.getElementById("myDate").innerHTML = months[m-1] + " " + d + ", " + y;
+}
+
+function footerScript() {
+    var bodyDiv = document.getElementById("body");
+    var footerTop = bodyDiv.offsetTop + bodyDiv.offsetHeight + 1735;
+    document.getElementById("footer").style.top = footerTop + "px";
+    //document.getElementById("footer").style.bottom = "5px";
+    
+    var pseudoTop = footerTop + 95;
+    document.getElementById('pseudo').style.top = pseudoTop + "px";
+
+    // var bodyDiv = document.getElementById('body');
+    // var footerDiv = document.getElementById('footer');
+    // var pseudoDiv = document.getElementById('pseudo');
+    
+    //     //subtract 3020 to remove extra space for some unknown reason
+    // var footerTop = bodyDiv.offsetTop + bodyDiv.offsetHeight + 35;
+    // alert(footerTop)
+    // footerDiv.style.top = footerTop + "px";
+    
+    // var pseudoTop = footerDiv.offsetTop + footerDiv.offsetHeight + 95;
+    // pseudoDiv.style.top = pseudoTop + "px";
+}
+
+function approxInt(r) {
+
+  var answer = document.getElementById("res");
+
+  const parser = math.parser();
+
+  var A = parser.evaluate(document.getElementById("pointA").value);
+  var B = parser.evaluate(document.getElementById("pointB").value);
+  var N = parser.evaluate(document.getElementById("pointN").value);
+  var f = document.getElementById("func").value;
+
+  var e1 = document.getElementById("pointA").value.length == 0;
+  var e2 = document.getElementById("pointB").value.length == 0;
+  var e3 = document.getElementById("pointN").value.length == 0;
+  var e4 = countDec(Number(document.getElementById("pointN").value)) != 0;
+  var e5 = N <= 0;
+  var e6 = r == 2 && N % 2 == 1;
+
+  if (e1 || e2 || e3) {
+    alert("Missing input(s). Try again.");
+    return;
+  }
+
+  if (e4 || e5 || e6) {
+    alert("Make sure n is an even positive integer. Try again.");
+    return;
+  }
+
+  f = "f(x) = " + f;
+
+  var summationT = 0;
+  var summationS1 = 0;
+  var summationS2 = 0;
+  var h = (B-A)/N;
+
+  parser.evaluate(f);
+  var evalA = parser.evaluate('f(' + A + ')');
+  var evalB = parser.evaluate('f(' + B + ')');
+
+  for (var j = 1; j <= N-1 && r == 1; j++) {
+    var newPoint = A + j*h;
+    var strEval = "f(" + newPoint + ")";
+    var eval = parser.evaluate(strEval);
+    summationT = summationT + eval;
+  }
+
+  for (var j = 1; j <= N/2-1 && r == 2; j++) {
+    var newPoint = A + 2*j*h;
+    var strEval = "f(" + newPoint + ")";
+    var eval = parser.evaluate(strEval);
+    summationS1 = summationS1 + eval;
+  }
+
+  for (var j = 1; j <= N/2 && r == 2; j++) {
+    var newPoint = A + (2*j-1)*h;
+    var strEval = "f(" + newPoint + ")";
+    var eval = parser.evaluate(strEval);
+    summationS2 = summationS2 + eval;
+  }
+
+  var component1 = h/(r+1);
+  var component2 = evalA + 2*summationT + evalB + 2*summationS1 + 4*summationS2;
+  var final = component1 * component2;
+
+  if (countDec(final) > 6)
+    final = Number(final.toFixed(6));
+
+  answer.innerHTML = final;
+}
+
+function eps(x) {
+  return (Math.abs(x) < 1e-10);
+}
+
+function countDec(x) {
+  if (Math.floor(x) == x) return 0;
+  else return x.toString().split(".")[1].length;
+}
+
+function gcd(x,y) {
+  x = Math.abs(x);
+  y = Math.abs(y);
+  while(y) {
+    var t = y;
+    y = x % y;
+    x = t;
+  }
+  return x;
+}
+
+function lcm(x,y) {
+  var prod = x*y;
+  return (prod/gcd(x,y))
+}
+
+function decimalToFraction(n) {
+  var num = n;
+  var denom = 1;
+
+  while (!Number.isInteger(num)) {
+    num = num*10;
+    denom = denom*10;
+  }
+
+  var g = gcd(num,denom);
+  num = num/g;
+  denom = denom/g;
+
+  var frac = [num, denom];
+  return frac;
+}
+
+
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

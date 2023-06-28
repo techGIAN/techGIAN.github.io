@@ -1,0 +1,209 @@
+#top {
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    background-color: white;
+}
+
+/*p {
+    color: red;
+}*/
+
+#dots {
+    /*clip-path: polygon(100% 0, 100% 33%, 19% 100%, 0 100%, 0 0);*/
+    /*clip-path: polygon(100% 0, 100% 31%, 79% 56%, 63% 45%, 21% 75%, 39% 85%, 23% 100%, 0 100%, 0 0);*/
+    /*clip-path: polygon(100% 0, 100% 13%, 50% 68%, 37% 59%, 16% 76%, 28% 85%, 13% 100%, 0 100%, 0 0);*/
+    /*clip-path: polygon(100% 0%, 0% 0%, 0% 99%, 19% 100%, 32% 84%, 19% 77%, 29% 59%, 46% 68%, 100% 18%);*/
+    /*clip-path: polygon(100% 0, 100% 11%, 14% 100%, 0 100%, 0 0);*/
+}
+
+#body {
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-top: 400px;
+}
+
+
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
+    margin-top:20px;
+  }
+  
+#myCarousel {
+    /*max-width: 60%;*/
+}
+
+.carouPic {
+    width: 720px;
+    height: 480px;
+}
+
+.cgibar {
+    max-width: 80%;
+    /*border: 2px solid blue;*/
+    background-image: linear-gradient(#ff6f00, #c90606);
+    height: 5px;
+    /*background-color: red;*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#myCarousel .carousel-caption {
+    text-shadow: 2px 2px #000000;
+}
+
+#msg {
+    border: 1px dashed black;
+    margin-left: auto;
+    margin-right: auto;
+    height: 480px;
+    width: 100%;
+}
+
+#msg .colorEdge {
+    min-height: 20px;
+    height: 420px;
+    /*height: auto;*/
+    width: 10px;
+    display: inline-block;
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+}
+
+#msg .text {
+    /*border: 2px dashed green;*/
+    float: right;
+    width: 95%;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+#profile {
+    border: 1px dashed black;
+    margin-left: auto;
+    margin-right: auto;
+    height: 250px;
+    width: 100%;
+}
+
+#profile .colorEdge {
+    min-height: 20px;
+    height: 200px;
+    /*height: auto;*/
+    width: 10px;
+    display: inline-block;
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+}
+
+#profile .text {
+    /*border: 2px dashed green;*/
+    float: right;
+    width: 95%;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+#tasks {
+    border: 1px dashed black;
+    height: 400px;
+    display: inline-block;
+    margin-right: 22px;
+    width: 32%;
+}
+
+#tasks .colorEdge {
+    min-height: 20px;
+    height: 340px;
+    /*height: auto;*/
+    width: 10px;
+    display: inline-block;
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+}
+
+#tasks .text {
+    /*border: 2px dashed green;*/
+    float: right;
+    width: 85%;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+#proj {
+    border: 1px dashed black;
+    height: 400px;
+    display: inline-block;
+    margin-right: 22px;
+    padding-right: 20px;
+    width: 32%;
+}
+
+#proj .colorEdge {
+    min-height: 20px;
+    height: 340px;
+    /*height: auto;*/
+    width: 10px;
+    display: inline-block;
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+}
+
+#proj .text {
+    /*border: 2px dashed green;*/
+    float: right;
+    width: 85%;
+    margin-top: 30px;
+    margin-left: 10px;
+    height: 340px;
+    overflow: scroll;
+}
+
+#blog {
+    border: 1px dashed black;
+    height: 400px;
+    display: inline-block;
+    width: 32%;
+}
+
+#blog .colorEdge {
+    min-height: 20px;
+    height: 340px;
+    /*height: auto;*/
+    width: 10px;
+    display: inline-block;
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+}
+
+#blog .text {
+    /*border: 2px dashed green;*/
+    float: right;
+    width: 85%;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+footer p {
+	color: black;
+	text-align: center;
+	font-family: 'Raleway';
+	font-weight: bold;
+	font-size: 105%;
+}
+
+#centerDiv {
+    float: center;
+}

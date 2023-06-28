@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Numerical Analysis Website FAQ</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:bold">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <link href="css/logoiconfont.css" rel="stylesheet">
+  <link rel="icon" href="img/green_logo.png" type = "image/png" style="width:10px"> 
+  
+      <link rel="stylesheet" href="../../css/na_css.css">
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<!--
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+
+<body>
+  <div id="pageloader">
+
+    <div class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+
+</div>
+  <div id="particles-js"></div>
+<div id="content">
+  <div id="top">
+	 <h1 style="color: yellow">Numerical Analysis</h1>
+    <div id="submenu">
+      <p><a href="na_home.html" target="_blank"><span class="glyphicon glyphicon-globe" style="color:white"></span> <span style="color:white">Home</span> </a> &nbsp; &nbsp; <i class="fas fa-question-circle" style="color:orange"></i> <span style="color:orange">FAQ</span> &nbsp; &nbsp; <a href="na_disclaimer.html"><i class="fas fa-exclamation-triangle" style="color:white"  target="_blank"></i> <span style="color:white">Disclaimer</span></a></p>
+      </div>
+    </div>
+  </div>
+  <!--<div>
+    <div class="col-sm-6">
+	   <p><span class="red"><u>Work</u></span> | <span class="red"><u>Side Projects</u></span> | <span class="red"><u>Blog</u></span> | <span class="red"><u>Merch</u></span> | <span class="red"><u>Contact</u></span></p>
+    </div>
+    <div class="col-sm-6">
+      <p>LinkedIn</p>
+    </div>
+  </div>-->
+
+
+  <div id="body">
+
+    <h3> <i class="fas fa-question" style="color:yellow"></i> <span class="subtitle">What and Why</span> </h3>
+    <p>
+      I recently have gotten some interest in numerical methods (or analysis, interchangeably). It is a field in Applied Math where modern approximation techniques are covered. It also explains how methods work, usually in an algorithmic form of way. At what certain conditions are they expected to work and what relevant theorems and remarks can be concluded. <br><br>
+
+      Let's take an example. <br><br>
+
+      We were taught in high school that the derivative of a function $f(x)$ at some point $x=x_0$ is simply $f'(x_0)$, which can easily be obtained by finding the derivative of the function $f(x)$ and then evaluating at point $x_0$. This would be easy for the easier and simplier functions such as say $f(x) = x^2$. We get $f'(x) = 2x$. And if say our $x_0 = 1$, then $f'(x_0) = 2(1) = 2$. (If you are not too familiar with the concepts and ideas of Calculus and derivatives, I highly recommend going over KhanAcademy's YouTube video by clicking <a href="https://www.youtube.com/watch?v=rAof9Ld5sOg" target="_blank" style="color:red">here</a>.) <br><br>
+
+      One problem one may face here is that $f(x)$ may be some complicated (or monstrous even) function that it may be infeasbile to find its derivative. Luckily, we may be able to define $f'(x_0)$ through the use of a numerical formula, that is to say an approximation to $f'(x_0)$ without having to calculate its derivative. Recall the limit definition of a derivative evaluated at $x=x_0$:
+        $$f'(x_0) = \lim_{h \to 0} \dfrac{f(x_0+h)-f(x_0)}{h}$$
+      where $h$ is the step size (usually for smaller values of $h$ tending to approach $h = 0$). Then we can approximate $f'(x_0)$ simply as:
+        $$f'(x_0) \approx \dfrac{f(x_0+h)-f(x_0)}{h}$$
+      where $h$ is the step size and we would like to use small values of $h$, such as $h=0.1,0.01,...$. <br><br>
+
+      Of course, since Numerical Analysis is all about approximations, nothing gives exact answers. There is always some error $\epsilon$ that exists, and this is why a part of the study of Numerical Analysis also deals with the study of error. <br><br>
+
+      What's nice about it is that since nothing in this world is exact (for instance human measurement can never be exact due to human errors or inaccurate measuring devices, so a length of 5 meters is not exactly 5 meters but could be a little more or less than that), then Numerical Analysis pretty much has an infinitely many practical uses and applications after all. <br><br>
+    </p>
+    <h3> <i class="fas fa-question" style="color:yellow"></i> <span class="subtitle">How</span> </h3>
+    <p>
+      I'd like to talk about how am I going to present and implement anything related to Numerical Analysis (which I plan on doing in case if you are not so sure what I'll be doing). Every now and then, I'll do a write up on one of the topics in Numerical Methods - similar to how I do things around in my <a href="http://galix.me/tech-blogz/tech.html" target="_blank" style="color:red">TechBlogz</a> where I do write ups of anything Math, CS or something technical. (Visit that page too if you haven't and would like to know more about what I write and what I like). <br><br>
+
+      Furthermore, I do not plan on just writing about something, but also an implementation of some application of some sort such as an animation, a graph, a mini calculator, etc. I'll see what I can come up.
+    </p>
+    <h3> <i class="fas fa-question" style="color:yellow"></i> <span class="subtitle">When</span> </h3>
+    <p>
+      You'll see something new every once in a while. I am not completely sure about scheduling, since I can become busy too.
+    </p>
+    <h3> <i class="fas fa-question" style="color:yellow"></i> <span class="subtitle">Who</span> </h3>
+    <p>
+      This is for anyone interested in learning about Numerical Methods. If you are not sure if these are the things you would like to learn about, see my first write up below. It is about the Quadratic Formula, which is pretty much basic and everyone in high school already knows. Think about it, when does this formula work and not work? What about accuracies? Is the formula even stable (to be defined in the article)? This should pretty much a good starting point for learning numerical approximations. <br><br>
+
+      Of course, so many great people have helped me learn and understand these concepts. I shall cite them at the end of each write-up and provide some additional resources (if my explanations are still too vague and needed some more, then the additional help I provide can certainly help for sure). <br><br>
+
+      <!-- <span style="color:red">Disclaimer: I am only a student in my Bachelor's doing this Numerical Analysis site as a side project, whose end goal is to be able to enlighten anyone who is interested in the field and does not know much of it and would like to learn more about it. I wouldn't say I am a SME but I am interested in it and that is why I like talking about it. If you have found any mistakes I have made (whether it is conceptual, spelling or grammatical) please let me know right away by sending me an email gian.alix@gmail.com. Refer to my site at your own risk! (but please cite me as well if ever you are writing a paper and somehow used me as your reference) Thanks so much! Enjoy the read!</span> -->
+    </p>
+  </div>
+  	<br><br>
+    
+    <div id="footer">
+<p>GIAN CARLO ALIX &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://www.linkedin.com/in/gian-alix/"><i class="fab fa-linkedin" style="color:white"></i></a>  <a href="https://github.com/techGIAN"><i class="fab fa-github" style="color:white"></i></a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Last updated: <span id="myDate"></span>
+</p>
+  </div>
+<div id="pseudo">
+
+  </div>
+  
+  
+
+  <!--<footer>
+<p><a href="../index.html" style="color: white;">GIAN CARLO ALIX</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://www.linkedin.com/in/gian-alix/"><i class="fab fa-linkedin" style="color:white"></i></a>  <a href="https://github.com/techGIAN"><i class="fab fa-github" style="color:white"></i></a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Last updated: <span id="currDate"></span>
+</p>
+  </footer>
+<div id="pseudo">
+
+  </div>-->
+
+
+  <script src='https://cldup.com/S6Ptkwu_qA.js'></script>
+  <script src="../../js/index.js"></script>
+
+
+<script>
+
+window.onload = start;
+
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip(); 
+});
+
+function start() {
+	load();
+	date();
+	footerScript();
+}
+
+function load() { // basic code to dismiss page transition after page has loaded
+ 
+    var minloadingtime = 300;
+    var maxloadingtime = 1000;
+     
+    var startTime = new Date();
+    var elapsedTime;
+    var dismissonloadfunc, maxloadingtimer;
+     
+    window.addEventListener('load', dismissonloadfunc = function(){ // when page loads
+        clearTimeout(maxloadingtimer) // cancel dismissal of transition after maxloadingtime time
+        elapsedTime = new Date() - startTime // get time elapsed once page has loaded
+        var hidepageloadertimer = (elapsedTime > minloadingtime)? 0 : minloadingtime - elapsedTime
+     
+        setTimeout(function(){
+            document.getElementById('pageloader').classList.add('dimissloader') // dismiss transition
+        }, hidepageloadertimer)
+     
+    }, false);
+     
+    maxloadingtimer = setTimeout(function(){ // force dismissal of page transition after maxloadingtime time
+        window.removeEventListener('load', dismissonloadfunc, false) // cancel onload event function call
+        document.getElementById('pageloader').classList.add('dimissloader') // dismiss transition
+    }, maxloadingtime);
+
+}
+
+function date() {
+	var n = new Date(document.lastModified);
+
+	var y = n.getFullYear();
+	var m = n.getMonth() + 1;
+	var d = n.getDate();
+
+ 	var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+	        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+	document.getElementById("myDate").innerHTML = months[m-1] + " " + d + ", " + y;
+}
+
+function footerScript() {
+    var bodyDiv = document.getElementById('body');
+    var footerTop = bodyDiv.offsetTop + bodyDiv.offsetHeight + 150;
+    document.getElementById('footer').style.top = footerTop + "px";
+    
+    var pseudoTop = footerTop + 55;
+    document.getElementById('pseudo').style.top = pseudoTop + "px";
+}
+
+
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

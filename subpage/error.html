@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Error 404</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:bold">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <link href="css/logoiconfont.css" rel="stylesheet">
+  
+      <link rel="stylesheet" href="../css/error.css">
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div id="pageloader">
+
+    <div class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+
+</div>
+  <div id="particles-js"></div>
+<div id="content">
+  <div id="top">
+	 <h1>Oops! Something went wrong...</h1>
+    <!--<div id="submenu">
+      <div id="submenuLeft">
+       <p><span class="red">Work</span> &nbsp; &nbsp; &nbsp; <span class="red">Side Projects</span> &nbsp; &nbsp; &nbsp; <span class="red">Blog</span> &nbsp; &nbsp; &nbsp; <span class="red">Merch</span> &nbsp; &nbsp; &nbsp; <span class="red">Contact</span></p>
+      </div>
+     <div id="submenuRight">
+        <p><a href="https://www.linkedin.com/in/gian-alix/"><i class="fab fa-linkedin" style="color:white"></i> LinkedIn</a> &nbsp; <a href="https://github.com/techGIAN"><i class="fab fa-github" style="color:white"></i> GitHub</a></p>
+      </div>
+    </div>-->
+  </div>
+  <!--<div>
+    <div class="col-sm-6">
+	   <p><span class="red"><u>Work</u></span> | <span class="red"><u>Side Projects</u></span> | <span class="red"><u>Blog</u></span> | <span class="red"><u>Merch</u></span> | <span class="red"><u>Contact</u></span></p>
+    </div>
+    <div class="col-sm-6">
+      <p>LinkedIn</p>
+    </div>
+  </div>-->
+
+
+  <div id="body">
+ 
+    <h3>Either the page you have requested could not be found or is still under construction.</h3>
+    <h6>Click <a href="javascript:history.back()"><span class="red"><u>here</u></span> </a> to go back.</h6>
+    <br>
+    
+  </div>
+
+    <br> <br>
+  </div>
+
+</div>
+  <script src='https://cldup.com/S6Ptkwu_qA.js'></script>
+  <script  src="../js/index.js"></script>
+
+
+<script>
+
+window.onload = load;
+
+function load() { // basic code to dismiss page transition after page has loaded
+ 
+    var minloadingtime = 300;
+    var maxloadingtime = 1000;
+     
+    var startTime = new Date();
+    var elapsedTime;
+    var dismissonloadfunc, maxloadingtimer;
+     
+    window.addEventListener('load', dismissonloadfunc = function(){ // when page loads
+        clearTimeout(maxloadingtimer) // cancel dismissal of transition after maxloadingtime time
+        elapsedTime = new Date() - startTime // get time elapsed once page has loaded
+        var hidepageloadertimer = (elapsedTime > minloadingtime)? 0 : minloadingtime - elapsedTime
+     
+        setTimeout(function(){
+            document.getElementById('pageloader').classList.add('dimissloader') // dismiss transition
+        }, hidepageloadertimer)
+     
+    }, false);
+     
+    maxloadingtimer = setTimeout(function(){ // force dismissal of page transition after maxloadingtime time
+        window.removeEventListener('load', dismissonloadfunc, false) // cancel onload event function call
+        document.getElementById('pageloader').classList.add('dimissloader') // dismiss transition
+    }, maxloadingtime);
+
+
+    var n = new Date(document.lastModified);
+
+  var y = n.getFullYear();
+  var m = n.getMonth() + 1;
+  var d = n.getDate();
+
+  var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  document.getElementById("myDate").innerHTML = months[m-1] + " " + d + ", " + y;
+
+ 
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

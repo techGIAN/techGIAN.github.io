@@ -17,8 +17,20 @@ h3 {
 }
 
 #pic {
-	width: 240px;
-	height: 320px;
+	/* width: 240px;
+	height: 320px; */
+	width: 50%;
+	height: 50%;
+	/* margin-left: auto;
+	margin-right: auto; */
+	float: right;
+	display: block;
+	border-radius: 50%;
+}
+
+#funkopic {
+	width: 80%;
+	height: 80%;
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
@@ -202,6 +214,15 @@ table th {
 
 .coloredLink:hover {
 	color: #f16d02;
+	text-decoration: none;
+}
+
+.coloredLinkRev {
+	color: #f3f1f0;
+}
+
+.coloredLinkRev:hover {
+	color: #093cbf;
 	text-decoration: none;
 }
 

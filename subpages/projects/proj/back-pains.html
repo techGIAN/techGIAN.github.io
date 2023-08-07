@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Back Pains</title>
+		<link rel="stylesheet" href="style.css" charset="utf-8"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:bold">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:light">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+		<link href="css/logoiconfont.css" rel="stylesheet">
+		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	</head>
+	<body onload="onload();" data-spy="scroll" data-target=".navbar" data-offset="50">
+		
+		<div id="loader"></div>
+		<div style="display:none;" id="myDiv" class="animate-bottom">
+			<div>
+		<header>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div id="navbar" class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://galix.me" target="_blank">GIAN CARLO ALIX</a>
+        </div>
+        <div id="navbar" class="navbar-collapse-collapse">
+          <ul class="nav navbar-nav navbar-right">
+          	<li class="hoverThis"><a href="http://galix.me/pb/pb.html" target="_blank">Home</a></li>
+          	<li class="hoverThis"><a href="archives.html" target="_blank">Archives</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    </header>
+
+	
+
+	<section id="projects" class="background1 section-padding">
+		<div class="container">
+			<h3><span style="color: #d12b19; border-bottom:1px dashed #171717; padding-bottom:3px">Back Pains and Posture Problems</span> </h3> 
+			<span class="glyphicon glyphicon-sort" style="color:#d12b19"></span> <span class="emph" style="color:#d12b19; font-size:75%; vertical-align: text-top;"> MY UPs &amp; DOWNs </span> &nbsp; | &nbsp; <span id="dateOfPost">Date Posted: October 12, 2020</span>
+
+			<div class="entryPic" style="display:block; margin-left: auto; margin-right: auto; overflow: hidden; margin-top: 1%;">
+				<img src="../img/back-pain.jpeg" style="max-width: 50%; width:50%; display:block; margin-left: auto; margin-right: auto;"> <br>
+				<div style="text-align: center;"><i>Photo by Jesper Aggergaard on <a href="http://unsplash.com" target="_blank">Unsplash.com</a></i></div>
+			</div>
+
+			<br>
+			<i>(Just an update post actually, it's been almost a month since I posted - due to many works and deadlines. But I'm well, hopfeully you are too, but today I'll talk about my back pains and posture problem; I'll keep it short. I did post the other day about <a href="./ct-2.html" target="_blank">Conspiracy Theories (Part 2)</a>, go check that out!)</i><br><br>
+
+			I’d like to share what I’ve been doing currently as I seem to be getting lower back pains after sitting for way too long in my computer chair, as I have so much studying and work for long periods of time, since all classes and work becomes “Work from Home”. <br><br>
+
+			Firstly, I went to my massage therapist to somehow get my lower back massaged to ease the pain. I did it twice but the pain didn’t go away. I can’t keep on coming back due to cost being expensive, and my insurance covering it has a limit. Secondly, I took some Tylenol, which are the pain reliever pills. But then again, it’s only temporary and I don’t wish to keep on taking such medicines for the rest of my life or my kidney and liver suffers.  Thirdly, I went to see my family doctor hoping I could be recommended with a specialist, but she only gave me a prescription to get a lower back support (lumbar support). And so I went to this store called Stakman’s where I was able to get this item (they have medical supplies and the item that I needed turned out to be pricy, and so I got my insurance to cover the costs but only half of it sadly). So now I’m using this lumbar support which helps my back (and my stomach too!). Fourth, I bought a laptop stand for my computer, which helps me a lot with posture so that I’m sitting straight with the lumbar support and I am looking straight on my computer - and to make and help things better, I bought a magic keyboard and a magic trackpad that helps me whenever I’m working (so that I don’t have to rely on my computer when it is on the stand). It is also compatible with my iPad and hence this is a win-win situation. <br><br>
+
+			It is hard while working from home, but hopefully soon, this will no longer be a problem for all of us and we go back to our old style of working. I will keep it short today and end there as I have more work to be done. <br><br>
+			
+			
+			<br>
+			<br>
+
+			<h4 class="colorScheme">Leave a Message</h4>
+      <hr align="left" width="400px" class="hrContact">
+		<form id="contactForm" name="contactform" method="post" action="mailer.php" method="post">
+
+	      <div class="form-group">
+	          <label for="usr"><span style="color:red">*</span>Name:</label>
+	          <input type="text" class="form-control" name="usr">
+	      </div>
+	      <div class="form-group">
+	          <label for="email"><span style="color:red">*</span>Email:</label>
+	          <input type="email" class="form-control" name="email">
+	      </div>
+	      <div class="form-group">
+	          <label for="comment"><span style="color:red">*</span>Message:</label>
+	          <textarea class="form-control" rows="5" name="comment"></textarea>
+	      </div>
+	      <div class="left" class="col-sm-10">
+	            <button id="butSubmit" type="submit" class="btn btn-primary" name="submit" style="" onclick="submitClear();">Submit</button>
+	        </div>
+
+
+      	</form>
+
+
+			<br>
+			<br>
+			<br>
+	</div>
+	</section>
+
+	<footer class="background2 footer-padding">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2 text-small text-center">
+					<hr>
+					<button id="buttonFooter" type="button" class="btn btn-primary btn-up-footer btn-lg round scroll-top">TOP</button>
+					<p id="foot" class="no-margin">Living the G Life: A Personal Blog (Archives) &nbsp; | &nbsp; GIAN CARLO ALIX &nbsp; | &nbsp; Last updated: October 12, 2020 <br> <a href="https://www.linkedin.com/in/gian-alix/"><i class="fab fa-linkedin" style="color:#bcc0c6"></i></a> &nbsp; <a href="http://galix.me" target="_blank"> <span class="glyphicon glyphicon-globe" style="color:#bcc0c6"></span> </a></p>
+				</div><!-- /.column -->
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</footer>
+</div>
+<div>
+	<script>
+$(document).ready(function(){
+  $('body').scrollspy({target: ".navbar", offset: 50});   
+  $("#navbar a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        window.location.hash = hash;
+      });
+    }  // End if
+  });
+});
+
+/* ---- nav smooth scroll ---- */
+$(document).ready(function() {
+    $('.scroll-link').on('click', function(event){
+        event.preventDefault();
+        var sectionID = $(this).attr("data-id");
+        scrollToID('#' + sectionID, 750);
+    });
+    $('.scroll-top').on('click', function(event) {
+        event.preventDefault();
+        $('html, body').animate({scrollTop:0}, 1200);       
+    });
+});
+
+/* ---- navbar offset ---- */
+function scrollToID(id, speed){
+    var offSet = 69;
+    var targetOffset = $(id).offset().top - offSet;
+    $('html,body').animate({scrollTop:targetOffset}, speed);
+}
+var myVar;
+
+function onload() {
+    myVar = setTimeout(showPage, 1500);
+
+    	/* color scheme*/
+   	// var schemes = document.getElementsByClassName("colorScheme");
+   	// for(var i = 0; i < schemes.length; i++) {
+   	// 	schemes[i].style.color = "blue";
+   	// }
+   	// var buttonFooter = document.getElementById("buttonFooter");
+   	// buttonFooter.style.backgroundColor = "blue";
+   	// buttonFooter.style.borderColor = "blue";
+
+   	// var buttonSubmit = document.getElementById("butSubmit");
+   	// buttonSubmit.style.backgroundColor = "blue";
+   	// buttonSubmit.style.borderColor = "blue";
+
+    //date
+    // var modDate = new Date(document.lastModified);
+    // var month = modDate.getMonth();
+    // var date = modDate.getDate();
+    // var year = modDate.getYear() + 1900;
+    // var months = ["January", "February", "March", "April", "May", "June", "July",
+    // 				"August", "September", "October", "November", "Decemeber"];
+    // var str = months[month] + " " + String("0" + date).slice(-2) + ", " + year;
+    // document.getElementById("modDate").innerHTML = str;
+    document.getElementById("modDate").innerHTML = document.getElementById("dateOfPost").innerHTML;
+}
+
+function show(idOfArrow, idOfText) {
+	var val = idOfText;
+	var arr = idOfArrow;
+	document.getElementById(idOfText).style.display = "block";
+
+	var currentSymbol = document.getElementById(idOfArrow);
+	var icon = document.createElement("span");
+	icon.className = "glyphicon glyphicon-triangle-bottom";
+
+	icon.setAttribute('id', arr);
+	icon.onclick = function() {
+		hide(arr, val);
+	};
+	currentSymbol.parentNode.replaceChild(icon, currentSymbol);
+}
+
+function hide(idOfArrow, idOfText) {
+
+	var val = idOfText;
+	var arr = idOfArrow;
+	document.getElementById(idOfText).style.display = "none";
+
+	var currentSymbol = document.getElementById(idOfArrow);
+
+	var icon = document.createElement("span");
+	icon.className = "glyphicon glyphicon-triangle-right";
+
+	icon.setAttribute('id', arr);
+	icon.onclick = function() {
+		show(arr, val);
+	};
+	currentSymbol.parentNode.replaceChild(icon, currentSymbol);
+}
+
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
+</script>
+
+	</body>
+</html>

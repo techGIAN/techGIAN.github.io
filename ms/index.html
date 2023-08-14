@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Gian Alix </title>
+		<title> Puzzle 1: Crack the Code! </title>
 		<link rel="icon" href="./../img/sunglasses-emoji.png" type = "image/x-icon">
 		<link rel="stylesheet" href="./index.css" charset="utf-8"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:bold">
@@ -24,6 +24,16 @@
 		  </script>
 		  <!-- <script src="https://use.fontawesome.com/c34aaa70b4.js"></script> -->
 		  <script src="https://kit.fontawesome.com/44620d7dcb.js" crossorigin="anonymous"></script>
+		  <script>
+			(function passcodeprotect() {
+				var password = prompt("Please enter the password.");
+				while (password !== "p061c614n") {
+				alert("Incorrect PassCode");
+				return passcodeprotect();
+				}
+			}());
+			// alert('Welcome To The TP..!');
+		  </script>
 	</head>
 	<body onload="onload();" data-spy="scroll" data-target=".navbar" data-offset="50">
 		
@@ -110,7 +120,7 @@
 		
 		<br>
 		<div style="float:left; width: 70%; overflow: hidden;">
-			Please enter the four-digit passcode on the safe box, then click orange "SUBMIT" button below. If it is correct, you will be verified and you can click the green "Next" button. If it is wrong, you can click "CLEAR" on the safe box and try again. If you need a hint, click the blue "HINT" button. <br><br>
+			Please enter the four-digit passcode on the safe box, then click orange "SUBMIT" button below. If it is correct, you will be verified and you can click the green "NEXT" button. If it is wrong, you can click "CLEAR" on the safe box and try again. If you need a hint, click the blue "HINT" button. <br><br>
 
 			<p id="msg" style="color: white;">
 				Message.

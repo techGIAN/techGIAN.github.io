@@ -169,47 +169,56 @@
 		</div>
 	</section>
 
-<section id="light" class="background1 section-padding">
+	<section id="light" class="background1 section-padding">
 		<div class="container">
-			<h3> <span style="border-bottom:1px dashed; padding-bottom:3px">Forest Fire Analytics</span> </h3> 
-			Date Completed: December 6, 2020
+			<h3> <span style="border-bottom:1px dashed; padding-bottom:3px">Epidemic Spreading with Trajectory Data Mining</span> </h3> 
+			Date Completed: November 1, 2022
 
 			<br>
 			<div>
 			<div class="entryPic" style="display:inline; float:left; width: 30%; overflow: hidden; margin-top: 1%;">
-				<img src="img/fire.gif" style="max-width: 95%; margin-bottom:1%"> <br><br>
-				<img src="img/link-removal.png" style="max-width: 95%; margin-bottom:1%"> <br>
+				<img src="img/risk-map.png" style="max-width: 95%; margin-bottom:1%"> <br><br>
+				<img src="img/stripe.png" style="max-width: 95%; margin-bottom:1%"> <br><br>
 			</div>
 		
 		<br>
 		<div style="float:left; width: 70%; overflow: hidden;">
 			<div>
-				<a href="https://globalnews.ca/tag/california-wildfires/" target="_blank">Forest fires</a> have been common environmental issues that have impacted millions of lives and natural resources. Thus, an in-depth study of the behavior of wildfires is critical in devising preventive strategies to control its rapid spread. However, despite a significant amount of work that has been done in the literature, developing an effective fire spread model is still a challenge. <br><br>
+				Conventional epidemic models include the tradtional <a href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology" target="_blank">SIR compartmental model</a>, but however these traditional methods lack the granularity needed for analyzing individual mobility and behaviors during an epidemic that would aid in understanding the relationship between individual decisions and epidemic spreading. In contrast to macroscopic models, microscopic epidemic models focus on individuals and their properties, such as their activity level, mobility behaviors, and impact of mobility behavior changes. Our microscopic spatiotemporal epidemic model allows to: (i) assess the risk of infection of an individual based on mobility patterns; (ii) assess the risk of infection associated with specific geographic areas and points-of-interest (POIs); (iii) assess
+				the risk of infection of a trip in an urban environment; (iv) provide trip recommendation for mitigating the risk of infection; and (v) assess targeted intervention strategies that aim to control the epidemic spreading. Our work provides an evidence-based data-driven model to inform individuals about the infection risks associated with their mobility behavior during a pandemic, providing at the same time safer alternatives. It can also inform public policy about the effectiveness of targeted intervention strategies that aim to contain or mitigate the epidemic spread compared to horizontal measures. <br><br>
 
-				Our goal is to design a model of forest fire propagation and be able to simulate the behavior of cascading fires in the forest. More specifically, we propose INCINERATE (INformation Cascades In <a href="https://networkx.org/" target="_blank">NEtworkX</a> Representing A Forest of Trees Engulfed by flames), a fire simulator in forest network graphs. A <a href="https://doi.org/10.1007/978-3-319-23105-1_4" target="_blank">Linear Threshold model</a>, together with various mathematical models from literature, were employed in this simulation that “determines” the behavior of fire propagation. We then propose fire prevention strategies in order to mitigate the damage of forest fires. In particular, we propose the FIGHTER (Forest fire Inhibition via a <a href="https://en.wikipedia.org/wiki/Girvan%E2%80%93Newman_algorithm" target="_blank">Girvan-Newman Heuristic</a> Through a neighborhood-based Edge-Removal Approach) algorithm, a neighborhood-based edge-removal scheme utilizing the Girvan-Newman heuristic. It has been found that our edge-removal algorithm in forest networks can reduce the impact of wildfires by as much as 85% than if there were no preventive measures.<br><br>
+				In addition, we have designed and developed STRIPE (Safe Trips during Epidemics), a mobility-based recommendation system that can provide safer trip recommendations to individuals. The recommendation model considers the risk of infection of alternative trips between an origin and destination. It also considers the risk of infection of specific points of interests (POIs) that occur at the microscale. In this paper, we present a high-level architecture of the system, its main features and system use cases. The broader impact of our research is that by helping individuals making informed decisions, we promote more responsible behaviors in the community as a whole that could effectively alleviate the impact of the epidemic. <br><br>
 
-				This paper discusses in-detail the models, algorithms and results of our experiments, as well as suggested further research directions.<br><br>
-
-				<i>Click below for the Github repository, paper and slides!</i> <br><br>
+				<i>Click below for the Github repository. Moreover, two of our papers got accepted and published in top-tier conferences! One is a demo paper in the <a href="https://doi.org/10.1109/MDM55031.2022.00063" target="_blank">IEEE MDM 2022</a> conference and the other is a workshop paper in the <a href="https://doi.org/10.1145/3557995.3566116" target="_blank">ACM SIGSPATIAL 2022</a> conference. Click below to read more!</i> <br><br>
 			</div>
 			<div class="row">
 				<div class="col-sm-1"></div>
 				<div class="col-sm-3">
-					<div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="readMoreLight" onclick="window.open('https://github.com/techGIAN/ForestFireAnalytics','_blank')" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> GITHUB REPO</button></div>
-				</div>
-				<div class="col-sm-2">
-					<div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="readMoreLight" onclick="window.open('./../../pdf/forest-fire.pdf','_blank')" target="_blank" class="btn btn-primary"><i class="far fa-file-pdf"></i> MANUSCRIPT</button></div>
+					<div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="readMoreLight" onclick="window.open('https://github.com/techGIAN/Epidemics-Projects','_blank')" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> GITHUB REPO</button></div>
 				</div>
 				<div class="col-sm-3">
-					<div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="readMoreLight" onclick="window.open('./../../pdf/forest-fire-beamer.pdf','_blank')" target="_blank" class="btn btn-primary"><i class="far fa-file-powerpoint"></i> BEAMER SLIDES</button></div>
+					<div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="readMoreLight" onclick="window.open('https://doi.org/10.1109/MDM55031.2022.00063','_blank')" target="_blank" class="btn btn-primary"><i class="far fa-file-pdf"></i> DEMO PAPER</button></div>
+				</div>
+				<div class="col-sm-3">
+					<div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="readMoreLight" onclick="window.open('https://doi.org/10.1145/3557995.3566116','_blank')" target="_blank" class="btn btn-primary"><i class="far fa-file-pdf"></i> WORKSHOP</button></div>
 				</div>
 				<div class="col-sm-2"></div>
 			</div>
+			<br><br>
+			<div class="row">
+				<div class="col-sm-2"></div>
+				<div class="col-sm-4">
+					<div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="readMoreLight" onclick="window.open('https://youtu.be/9-BkIsnR9uA','_blank')" target="_blank" class="btn btn-primary"><i class="fab fa-youtube"></i> PRESENTATION</button></div>
+				</div>
+				<div class="col-sm-3">
+					<div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="readMoreLight" onclick="window.open('./../../pdf/spatialepi22.pdf', '_blank')" target="_blank" class="btn btn-primary"><i class="far fa-file-powerpoint"></i> SLIDE DECK</button></div>
+				</div>
+				<div class="col-sm-3"></div>
+			</div>
 		</div>
 	</div>
-
-</div>
-</section>
+	</div>
+	</section>
 
 
 

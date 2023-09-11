@@ -64,44 +64,7 @@
 		</div><!-- /.container -->
 	</section>
 
-	<section id="light" class="background1 section-padding">
-		<div class="container">
-			<h3> <span style="border-bottom:1px dashed; padding-bottom:3px">Trajectory Similarity Learning using Set Representations</span> </h3> 
-			Date Completed: June 23, 2023
-
-			<br>
-			<div>
-			<div class="entryPic" style="display:inline; float:left; width: 30%; overflow: hidden; margin-top: 1%;">
-				<img src="img/st2box.png" style="max-width: 95%; margin-bottom:1%"> <br>
-			</div>
-		
-		<br>
-		<div style="float:left; width: 70%; overflow: hidden;">
-			<div>
-				Efficient and highly-accurate methods for trajectory similarity learning are well-sought after due to the many applications it can have in various domains such as transportation systems, urban planning, security, animal behavioral ecology, spatiotemporal epidemics, among others. There have been several works that attempt to address this particular problem of interest, yet suffer from major limitations. For example, traditional metrics such as <a href="https://doi.org/10.1109/TITS.2010.2048101" target="_blank">Hausdorff distance</a>, <a href="https://doi.org/10.1109/ICDE.1998.655778" target="_blank">Dynamic Time Warp (DTW)</a>, or <a href="https://doi.org/10.14778/3407790.3407818" target="_blank">Network-aware Edit Distance with Real Penalty (NetERP)</a>, rely on pointwise matching schemes that require quadratic time complexity, and as a consequence can be a severe bottleneck when working with massive trajectory datasets. Thus, neural network-based architectures such as <a href="https://doi.org/10.1109/ICDE.2018.00062" target="_blank">T2Vec</a> and <a href="https://doi.org/10.1109/IJCNN.2017.7966345" target="_blank">Traj2Vec</a> provided more efficient methods by first representing trajectories as embedding vectors on the low-dimension space and then compute similarity by some  <a href="https://en.wikipedia.org/wiki/Dot_product" target="_blank">dot product</a> construction of these vectors. However, the drawback of these works is that they leave out the temporal dimension in trajectories and are therefore sub-optimal in contexts for where real-time information is required. Thus, there is a need for a model that can address this issue, such as the current state-of-the-art <a href="https://doi.org/10.1145/3534678.3539375" target="_blank">ST2Vec</a>. However, the performance of the said model can still be improved. <br><br>
-
-				In line with this, we propose a method that is based on first representing trajectories as sets of road segments. Then treating each of these roads as an individual trajectory, for where we use some deep learning architecture to represent each of these on the latent space to capture the spatiotemporal information. Next, these embedding representations are collected together as sets that represent their original trajectories. And finally, pass these to a set-specific neural network for learning representations of these sets that can preserve various similarity measures, which will complete the pipeline of the model. In other words, the trajectory similarity problem is reduced to a set similarity problem. Based on empirical results, our proposed method has promising results in that it is highly-accurate -- it can improve model accuracy by as much as 38% from the state-of-the-art baselines (in terms of the <a href="https://en.wikipedia.org/wiki/Hit_rate" target="_blank">hitting ratio HR</a> metrics). The model is also superior in the <a href="https://en.wikipedia.org/wiki/Mean_absolute_error" target="_blank">Mean Absolute Error (MAE)</a> and the <a href="https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient" target="_blank">Kendall-Tau (KT)</a> metrics. Moreover, the method can also generalize to unseen trajectories. The proposed model is also versatile to any type of similarity measure (e.g., <a href="https://en.wikipedia.org/wiki/Overlap_coefficient" target="_blank">Overlapping Coefficient (OC)</a>, <a href="https://en.wikipedia.org/wiki/Cosine_similarity" target="_blank">Cosine Similarity (CS)</a>, etc.). Its robustness and stability proves that it is effective in any type of trajectory-related application. It also shows that it is an efficient method that can scale to larger trajectory datasets. <br><br>
-
-				<i>Unfortunately, the paper related to this work is currently still under review, and as such the Github repository of this model cannot be released publicly yet. Please stay tuned for when it becomes available.</i> <br><br>
-			</div>
-
-			<!-- <div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="readMoreLight" onclick="window.open('https://github.com/techGIAN/ST2Box','_blank')" target="_blank" class="btn btn-primary" disabled><i class="fab fa-github"></i> GITHUB REPO</button></div>
-			<div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="readMoreLight" onclick="window.open('https://doi.org/XX.XXXX/ICDMXXXXX.2023.XXXXX','_blank')" target="_blank" class="btn btn-primary" disabled><i class="far fa-file-pdf"></i> PUBLICATION</button></div> -->
-
-			<div class="row">
-				<div class="col-sm-1"></div>
-				<div class="col-sm-4">
-					<div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="readMoreLight" onclick="window.open('https://github.com/techGIAN/ST2Box','_blank')" target="_blank" class="btn btn-primary" disabled><i class="fab fa-github"></i> GITHUB REPO</button></div>
-				</div>
-				<div class="col-sm-4">
-					<div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="readMoreLight" onclick="window.open('https://doi.org/XX.XXXX/ICDMXXXXX.2023.XXXXX','_blank')" target="_blank" class="btn btn-primary" disabled><i class="far fa-file-pdf"></i> PUBLICATION</button></div>
-				</div>
-				<div class="col-sm-3"></div>
-			</div>
-		</div>
-	</div>
-	</div>
-	</section>
+	
 
 <section id="night" class="background1 section-padding">
 		<div class="container">

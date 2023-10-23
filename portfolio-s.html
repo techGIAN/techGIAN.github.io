@@ -64,41 +64,6 @@
 		</div><!-- /.container -->
 	</section>
 
-	<section id="night" class="background1 section-padding">
-		<div class="container">
-			<h3> <span style="border-bottom:1px dashed; padding-bottom:3px">Trajectory Pathlet Dictionary Construction using Deep Reinforcement Learning</span> </h3> 
-			Date Completed: January 16, 2023
-
-			<br>
-			<div>
-			<div class="entryPic" style="display:inline; float:left; width: 30%; overflow: hidden; margin-top: 1%;">
-				<img src="subpages/projects/img/pd.png" style="max-width: 95%; margin-bottom:1%"> <br><br>
-				<img src="subpages/projects/img/pathletrl.png" style="max-width: 95%; margin-bottom:1%"> <br><br>
-			</div>
-		
-		<br>
-		<div style="float:left; width: 70%; overflow: hidden;">
-			<div>
-				The recent and modern advancements for geo-based tracking technologies and location-based smart devices has led to vast amounts of mobility data coming from various moving objects, such as in vehicles like cars or taxis, as well as in human mobility such as pedestrians. These spatiotemporal-based trajectory data motivates various analytic tasks such as <a href="https://link.springer.com/chapter/10.1007/978-981-19-7874-6_48" target="_blank">trajectory prediction</a>, <a href="https://doi.org/10.48550/arXiv.1802.06971" target="_blank">clustering</a>, and <a href="https://doi.org/10.1016/j.ophoto.2022.100013" target="_blank">anomaly detection</a>. Of particular interest is the construction of small sets of building blocks that can represent a wide range of trajectories known as a <i>trajectory pathlet dictionary</i> or a <i>pathlet dictionary</i> (PD) for short. The <a href="https://doi.org/10.1145/2525314.2525443" target="_blank">pioneering work</a> that coined the term <i>pathlets</i>, or subpaths of the road network, constructed PDs using an <a href="https://en.wikipedia.org/wiki/Integer_programming" target="_blank">integer programming</a> optimization formulation and then reduced it to a problem that is solvable using <a href="https://www.geeksforgeeks.org/dynamic-programming/" target="_blank">dynamic programming</a>. Other works constructed pathlet dictionaries by framing the problem of interest as a <a href="https://dl.acm.org/doi/10.1145/3196959.3196972" target="_blank">subtrajectory clustering</a> problem. The downsides of these methods are that these methods construct dictionaries using traditional, non-learning based methods (i.e., without the use of deep learning), and that these dictionaries are constructed using a top-down heuristic. What that means is that all (overlapping) pathlets of sizes and configurations are first initialized, and then the candidate size is reduced by taking only the top-most (popular) ones; as a consequence, such methods require a massive amount of memory space to initialize such pathlets. <br><br>
-
-				We exploit on these weaknesses by proposing a bottom-up method that first initializes unit-length (edge-disjoint) pathlets, and then merging together adjacent, neighboring ones that altogether aim to satisfy a certain objective to reduce that candidate dictionary size. This objective function is based on <a href="https://en.wikipedia.org/wiki/Utility" target="_blank">utility theory</a>, i.e., the <i>utility</i> of a pathlet on the road network. Deciding which pathlets to merge together is a tricky task, and as such we relied on two proposed novel trajectory metrics (the trajectory representability and loss) to formulate the aformentioned objective function. This allows us to more comprehensively evaluate the generated dictionaries. Moreover, a <a href="https://huggingface.co/blog/deep-rl-intro" target="_blank">deep (reinforcement) learning method</a> that is based on a <a href="https://towardsdatascience.com/deep-q-learning-tutorial-mindqn-2a4c855abffc" target="_blank">Deep Q Network (DQN) policy</a> has been utilized for learning the best optimal sequence of actions (merge/unmerge of pathlets) to construct the said dictionary. In particular, its reward function is shaped around the utility which we aim to maximize. As a result, the problem of constructing pathlet dictionaries has been reduced to a utility maximization problem using deep reinforcement learning. We observed in our experiments that our proposed DRL method can outperform the null singleton model (the model that does not do any kind of pathlet merging), as well as state-of-the-art traditional baselines; these non-learning based models do not use deep learning methods and as a result perform poorly in comparison to our method that is based on reinforcement learning. This observation highlights the essence of deep learning. Our model can construct a dictionary that is up to 66% smaller than the dictionary of the baselines. Ablation studies have also shown that our proposed method can achieve convergence as early as 15 iterations of the model training compared to its ablation versions. Partial trajectory reconstruction experiments show that our proposed model can reconstruct up to 85% of the evaluation trajectories provided only 50% of the constructed pathlet dictionary (and reconstruct 100% of the evaluation trajectory data provided the whole PD). This is contrast to the random model that reconstructs only 50% of the evaluation trajectories and that is on the assumption that the entirety of the dictionary is used. This proves the effectivity of our proposed method. <br><br>
-
-				<i>Good news! The paper has been recently accepted at the ACM SIGSPATIAL 2023 for the full technical research paper track! I will share the link to our paper as soon as the proceedings have become available, and will share the Github repository as well as soon as the conference has finished. The event will be held in Hamburg, Germany this November 2023!</i> <br><br>
-			</div>
-			<div class="row">
-				<div class="col-sm-1"></div>
-				<div class="col-sm-4">
-					<div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="readMoreLight" onclick="window.open('https://github.com/techGIAN/PathletRL','_blank')" target="_blank" class="btn btn-primary" disabled><i class="fab fa-github"></i> GITHUB REPO</button></div>
-				</div>
-				<div class="col-sm-4">
-					<div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="readMoreLight" onclick="window.open('https://doi.org/XXXXXXX.XXXXXXX','_blank')" target="_blank" class="btn btn-primary" disabled><i class="far fa-file-pdf"></i> PUBLICATION</button></div>
-				</div>
-				<div class="col-sm-3"></div>
-			</div>
-		</div>
-	</div>
-	</div>
-	</section>	
 
 
 <section id="light" class="background1 section-padding">
@@ -169,6 +134,8 @@
 				<a href="https://www.cdc.gov/diabetes/basics/type2.html" target="_blank">Diabetes</a> continues to be a challenging disease, for the many complications it can have. The use of <a href="https://www.sciencedirect.com/science/article/pii/S1877050920308024?via%3Dihub" target="_blank">machine learning models</a> these days have proven to be effective tools for <a href="https://www.yorku.ca/xingao/predictive_diabetes.pdf" target="_blank">predicting diabetes risk</a>. Specifically, the model we use is a <a href="https://www.ibm.com/topics/logistic-regression#:~:text=Resources-,What%20is%20logistic%20regression%3F,given%20dataset%20of%20independent%20variables." target="_blank">logistic regression-based model</a> that is trained on thousands of Canadian diabetes patients. This web tool developed provides a user-friendly interface for predicting Type 2 Diabetes risk. The user can input their medical lab information, such as age, height and weight metrics, and blood sugar levels, and the risk calculator can be immediately display the calculated risk value. The development of this risk tool is intended to serve doctors and patients in predicting future disease risk and take on newly preventive measures.
 				<br><br>
 
+                <b>Technologies used:</b> HTML, CSS, JavaScript  <br><br>
+
 				<i>Click below to view the website of my developed risk tool. Our paper that details more about this web tool has also been accepted in the <a href="https://doi.org/10.3390/diabetology2030011" target="_blank">Diabetology</a> journal. Click below to read more!</i> <br><br>
 			</div>
 			<div class="row">
@@ -205,6 +172,8 @@
 				<a href="https://globalnews.ca/tag/california-wildfires/" target="_blank">Forest fires</a> have been common environmental issues that have impacted millions of lives and natural resources. Thus, an in-depth study of the behavior of wildfires is critical in devising preventive strategies to control its rapid spread. However, despite a significant amount of work that has been done in the literature, developing an effective fire spread model is still a challenge. <br><br>
 
 				Our goal is to design a model of forest fire propagation and be able to simulate the behavior of cascading fires in the forest. More specifically, we propose INCINERATE (INformation Cascades In <a href="https://networkx.org/" target="_blank">NEtworkX</a> Representing A Forest of Trees Engulfed by flames), a fire simulator in forest network graphs. A <a href="https://doi.org/10.1007/978-3-319-23105-1_4" target="_blank">Linear Threshold model</a>, together with various mathematical models from literature, were employed in this simulation that “determines” the behavior of fire propagation. We then propose fire prevention strategies in order to mitigate the damage of forest fires. In particular, we propose the FIGHTER (Forest fire Inhibition via a <a href="https://en.wikipedia.org/wiki/Girvan%E2%80%93Newman_algorithm" target="_blank">Girvan-Newman Heuristic</a> Through a neighborhood-based Edge-Removal Approach) algorithm, a neighborhood-based edge-removal scheme utilizing the Girvan-Newman heuristic. It has been found that our edge-removal algorithm in forest networks can reduce the impact of wildfires by as much as 85% than if there were no preventive measures.<br><br>
+
+                <b>Technologies used:</b> NetworkX (for forest graph construction and simulation of forest fire propagation spread) <br><br>
 
 				This paper discusses in-detail the models, algorithms and results of our experiments, as well as suggested further research directions.<br><br>
 
@@ -248,6 +217,8 @@
 
 			We are hoping that Medscan is able to help medical staff in obtaining the medical information needed. As a result, this solution that we are implementing aims to promote convenience and improve efficiency in the medical industry. <br><br>
 
+            <b>Technologies used:</b> ReactJS (front-end), React Native (front-end mobile), Node (backend), and Google Firebase (hosting/database) <br><br>
+
 			<i>The project was part of a collaborative team work at <a href="https://2019.hackthenorth.com/" target="_blank">2019's Hack the North</a>. Click below for the Github repository and Dev Posts!</i> <br><br>
 		</div>
 		<div class="row">
@@ -266,6 +237,38 @@
 </div>
 </section>
 
+<section id="light" class="background1 section-padding">
+	<div class="container">
+		<h3> <span style="border-bottom:1px dashed; padding-bottom:3px">PRIMEder: A Game That Tests Your Knowledge On Prime Numbers</span> </h3> 
+		Date Completed: October 08, 2018
+
+		<br>
+		<div>
+		<div class="entryPic" style="display:inline; float:left; width: 30%; overflow: hidden; margin-top: 1%;">
+            <a href="https://youtu.be/9mqXXRNdbfw" target="_blank"><img src="img/thumbnail.jpg" alt="demo vid" /></a>
+		</div>
+	
+	<br>
+	<div style="float:left; width: 70%; overflow: hidden;">
+		<div>
+			One of the very first apps and game that I have made. It was done when I was in my first year of university as a side project. I am really proud of it as showcases my ability to code, program, and develop some app that is highly-related to mathematics and testing knowledge of math (I am a huge Math nerd by the way!). So yes, the game just tests whether you know whether a certain positive integer is prime or not. It's easy for smaller numbers, but gets harder when the number are larger. There are certain modes of this game that adjusts the level of difficulty (e.g., timed mode, challenge mode, sudden death, etc.) <br><br>
+
+			<b>Technologies used:</b> Java, Android Studio <br><br>
+
+			<i>Click below for the Github repository, documentation and how to install and play the game yourself!</i> <br><br>
+		</div>
+		<div class="row">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-2">
+				<div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="readMoreLight" onclick="window.open('https://github.com/techGIAN/PRIMEder','_blank')" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> GITHUB REPO</button></div>
+			</div>
+			<div class="col-sm-6"></div>
+		</div>
+	</div>
+</div>
+
+</div>
+</section>
 
 
 

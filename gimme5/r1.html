@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Puzzle 3: STAR Finder! </title>
+		<title> Gimme 5: Round 1 </title>
 		<link rel="icon" href="./img/sunglasses-emoji.png" type = "image/x-icon">
 		<link rel="stylesheet" href="./r1.css" charset="utf-8"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:bold">
@@ -91,115 +91,39 @@
 	<section id="main" class="background1 section-padding">
 		<div class="container">
 			<!-- <h3> <span class="glyphicon glyphicon-education"></span> Education </h3> -->
-			<div class="entryPic" style="display:inline; float:left; width: 50%; overflow: hidden; margin-top: 1%;">
+			<div class="entryPic" style="display:inline; float:left; width: 100%; overflow: hidden; margin-top: 1%;">
 				<div id="board">
-					<div id="row1">
+					<div id="row1" style="width:100%; display:flex;">
 						<div id="c1" class="card" onclick="reveal(1)">
 							<div id="q1" class="non-select">?</div>
-							<img id="p1" src="./img/star.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+							<img id="p1" src="./img/star.png" style="width:240px; height:240px; margin-bottom:30px; visibility: hidden;">
 						</div>
 						<div id="c2" class="card" onclick="reveal(2)">
 							<div id="q2" class="non-select">?</div>
-							<img id="p2" src="./img/flip.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+							<img id="p2" src="./img/flip.png" style="width:240px; height:240px; margin-bottom:30px; visibility: hidden;">
 						</div>
 						<div id="c3" class="card" onclick="reveal(3)">
 							<div id="q3" class="non-select">?</div>
-							<img id="p3" src="./img/skull.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
-						</div>
-						<div id="c4" class="card" onclick="reveal(4)">
-							<div id="q4" class="non-select">?</div>
-							<img id="p4" src="./img/zero.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+							<img id="p3" src="./img/skull.png" style="width:240px; height:240px; margin-bottom:30px; visibility: hidden;">
 						</div>
 					</div>
-					<div style="background-color: white; color:white; font-size:10px;">a</div>
-					<div id="row2">
-						<div id="c5" class="card" onclick="reveal(5)">
+					<div style="background-color: white; color:white; font-size:10px; height:50px;">a</div>
+					<div id="row2" style="width:100%">
+						<div id="c5" class="card" onclick="reveal(5)" style="margin-left:150px;">
 							<div id="q5" class="non-select">?</div>
-							<img id="p5" src="./img/img1.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+							<img id="p5" src="./img/img1.png" style="width:240px; height:240px; margin-bottom:30px; visibility: hidden;">
 						</div>
 						<div id="c6" class="card" onclick="reveal(6)">
 							<div id="q6" class="non-select">?</div>
-							<img id="p6" src="./img/img2.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
-						</div>
-						<div id="c7" class="card" onclick="reveal(7)">
-							<div id="q7" class="non-select">?</div>
-							<img id="p7" src="./img/img3.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
-						</div>
-						<div id="c8" class="card" onclick="reveal(8)">
-							<div id="q8" class="non-select">?</div>
-							<img id="p8" src="./img/img4.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+							<img id="p6" src="./img/img2.png" style="width:240px; height:240px; margin-bottom:30px; visibility: hidden;">
 						</div>
 					</div>
-					<div style="background-color: white; color:white; font-size:10px;">a</div>
-					<div id="row3">
-						<div id="c9" class="card" onclick="reveal(9)">
-							<div id="q9" class="non-select">?</div>
-							<img id="p9" src="./img/img5.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
-						</div>
-						<div id="c10" class="card" onclick="reveal(10)">
-							<div id="q10" class="non-select">?</div>
-							<img id="p10" src="./img/img6.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
-						</div>
-						<div id="c11" class="card" onclick="reveal(11)">
-							<div id="q11" class="non-select">?</div>
-							<img id="p11" src="./img/img7.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
-						</div>
-						<div id="c12" class="card" onclick="reveal(12)">
-							<div id="q12" class="non-select">?</div>
-							<img id="p12" src="./img/img8.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
-						</div>
-					</div>
-					<div style="background-color: white; color:white; font-size:10px;">a</div>
-					<div id="row4">
-						<div id="c13" class="card" onclick="reveal(13)">
-							<div id="q13" class="non-select">?</div>
-							<img id="p13" src="./img/star.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
-						</div>
-						<div id="c14" class="card" onclick="reveal(14)">
-							<div id="q14" class="non-select">?</div>
-							<img id="p14" src="./img/flip.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
-						</div>
-						<div id="c15" class="card" onclick="reveal(15)">
-							<div id="q15" class="non-select">?</div>
-							<img id="p15" src="./img/flip.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
-						</div>
-						<div id="c16" class="card" onclick="reveal(16)">
-							<div id="q16" class="non-select">?</div>
-							<img id="p16" src="./img/flip.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
-						</div>
-					</div>
+					
 					
 				</div>
 			</div>
 		
-		<br>
-		<div style="float:left; width: 50%; overflow: hidden;">
-			Let's play the next game. Since we are celebrating our 4th monthsary, then I laid over a 4x4 board consisting a total of 16 cards. Underneath these cards is an image or an emoji. The goal is to find two of the cards when opened are stars (two because we are now in our 4th monthsary and there's two of us so 4 divided by 2 = 2; and then we want to open stars because you are the star in my life! ;) ). <br><br>
-
-			You open the cards one at a time by clicking on them. The game is complete once you open the two cards on the board that have the star symbol. You could open any one of the following cards during your game: <br><br>
-
-			<ul>
-				<li><b>Star</b> - there are two of these. Find them, these are your goal.</li>
-				<li><b>Our Picture</b> - there are eight of these. They don't add the value in this game, but they do add value in our relationship ;)</li>
-				<li><b>Zero</b> - there is one of this. He's like your guardian angel :) Open this card and you are given a free hint to where the stars are.</li>
-				<li><b>Rewind</b> - there are four of these. All opened cards on the board are flipped over. It's best to remember where the cards are!</li>
-				<li><b>Skull</b> - there is one of this. It's game over. The board is reset and all cards are reshuffled!</li>
-			</ul>
-
-			<br><br>
-
-			<p id="msg" style="color: white; font-weight: bold;">
-				Message.
-			</p>
-
-			<br><br>
-
-			<div class="row">
-				<!-- <div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="orangeLight" class="btn btn-primary" onclick="verify()" disabled>SUBMIT</button></div>
-				<div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="blueLight" class="btn btn-primary" onclick="hint()">HINT</button></div> -->
-				<div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="greenLight" class="btn btn-primary" onclick="location.href = './quiz.html';" disabled>NEXT</button></div>
-			</div>
-		</div>
+		
 			
 		</div>
 	</section>

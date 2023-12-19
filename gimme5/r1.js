@@ -48,7 +48,7 @@ var myVar;
 
 function onload() {
     myVar = setTimeout(showPage, 1500);
-    load_stargame();
+    // load_stargame();
 }
 
 function showPage() {

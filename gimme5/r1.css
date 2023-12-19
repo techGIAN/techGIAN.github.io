@@ -396,6 +396,7 @@ table th {
 	width: 260px;
 	height: 260px;
 	margin-right: 50px;
+	position: relative;
 }
 
 #board {
@@ -409,4 +410,25 @@ table th {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.for-caption {
+	position: absolute;
+	bottom:0;
+	left:0;
+	width: 250px;
+	height: 50px;
+	background-color: rgba(255, 255, 255, 0.7); /* Adjust the alpha value for transparency */
+	z-index: 2;
+}
+
+.img-caption {
+	position: absolute;
+	bottom: -13%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #000; /* Set the caption color */
+	font-size: 40px; /* Set the font size */
+	z-index: 3;
+	font-weight: bold;
 }

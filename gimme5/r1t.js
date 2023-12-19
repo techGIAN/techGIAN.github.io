@@ -393,13 +393,3 @@ function countdown_gameover(ct) {
     timeleft -= 1;
   }, 1000);
 }
-
-
-
-// ================================================
-
-function choose_cat(cat) {
-  new_loc = './r1' + cat + '.html';
-  location.replace(new_loc);
-}
-

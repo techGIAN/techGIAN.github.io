@@ -70,8 +70,19 @@
 	
 	<section id="main" class="background1 section-padding">
 		<div class="container">
-			<div class="titler" style="margin:auto; display:inline; float:left; width: 100%; overflow: hidden; margin-top: 1%;">
+			<div id="titler" onclick="countdown(45)">
 				TAO
+			</div>
+			<div id="secondRow" style="display:inline;">
+				<div id="timer">00:45:00</div>
+				<div class="small_spacing" style="color:white; float:left; width:5%">a</div>
+				<div id="playing">
+					<button class="button active" onclick="toggleButton(0)">PAPA</button>
+					<button class="button inactive" onclick="toggleButton(1)">MAMA</button>
+					<button class="button inactive" onclick="toggleButton(2)">GIO</button>
+				  </div>
+				<div class="small_spacing" style="color:white; float:left; width:5%">a</div>
+				<div id="diff_q">DIFF QUESTION</div>
 			</div>
 	
 		</div>

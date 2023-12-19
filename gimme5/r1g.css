@@ -433,10 +433,12 @@ table th {
 	font-weight: bold;
 }
 
-.titler {
+#titler {
 	margin:auto;
 	display:inline;
-	width: 880px;
+	/* width: 880px; */
+	width: 100%;
+	float:left;
 	height:100px;
 	overflow: hidden;
 	margin-top: 1%;
@@ -446,4 +448,75 @@ table th {
 	vertical-align: middle;
 	text-align: center;
 	font-size: 65px;
+}
+
+#timer {
+	margin:auto;
+	display:inline;
+	/* width: 880px; */
+	width: 30%;
+	float:left;
+	height:65px;
+	overflow: hidden;
+	margin-top: 1%;
+	background-color: #6ab3db;
+	border: 5px solid #523348;
+	font-weight: bold;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 40px;
+}
+
+/* #playing {
+	font-size: 30px;
+	font-weight: bold;
+	width: 30%;
+	float:left;
+} */
+
+#diff_q {
+	margin:auto;
+	display:inline;
+	/* width: 880px; */
+	width: 30%;
+	float:left;
+	height:65px;
+	overflow: hidden;
+	margin-top: 1%;
+	background-color: #6ab3db;
+	border: 5px solid #523348;
+	font-weight: bold;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 40px;
+}
+
+#playing {
+	border: 5px solid #523348;
+	display: flex;
+	float:left;
+	margin-top: 1%;
+	width: 30%; /* Adjust the width of the container as needed */
+	height: 65px;
+}
+
+.button {
+	flex: 1;
+	height: 65px; /* Adjust the height of the buttons as needed */
+	border: none;
+	cursor: pointer;
+	outline: none;
+	font-size: 20px;
+	font-weight: bold;
+	height:100%;
+}
+
+.active {
+	background-color: darkblue;
+	color: white;
+}
+
+.inactive {
+	background-color: #6ab3db;
+	color: black;
 }

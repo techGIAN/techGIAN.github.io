@@ -347,28 +347,28 @@ function near_loc(row, col) {
   return [row_new, col_new];
 }
 
-function countdown(ct) {
-  in_count_mode = true;
-  var timeleft = ct;
-  var downloadTimer = setInterval(function(){
-    if(timeleft <= 0){
-      clearInterval(downloadTimer);
-      document.getElementById("msg").style.color = "white";
-      document.getElementById("msg").innerHTML = "Message";
-      in_count_mode = false;
+// function countdown(ct) {
+//   in_count_mode = true;
+//   var timeleft = ct;
+//   var downloadTimer = setInterval(function(){
+//     if(timeleft <= 0){
+//       clearInterval(downloadTimer);
+//       document.getElementById("msg").style.color = "white";
+//       document.getElementById("msg").innerHTML = "Message";
+//       in_count_mode = false;
 
-      for (var i = 0; i < 16; i++) {
-        close_card(i+1);
-      }
-      stars_found = 0;
-    } else if (timeleft == 1) {
-      document.getElementById("msg").innerHTML = "REWIND: All cards will flip over in " + timeleft + " second.";
-    } else {
-      document.getElementById("msg").innerHTML = "REWIND: All cards will flip over in " + timeleft + " seconds.";
-    }
-    timeleft -= 1;
-  }, 1000);
-}
+//       for (var i = 0; i < 16; i++) {
+//         close_card(i+1);
+//       }
+//       stars_found = 0;
+//     } else if (timeleft == 1) {
+//       document.getElementById("msg").innerHTML = "REWIND: All cards will flip over in " + timeleft + " second.";
+//     } else {
+//       document.getElementById("msg").innerHTML = "REWIND: All cards will flip over in " + timeleft + " seconds.";
+//     }
+//     timeleft -= 1;
+//   }, 1000);
+// }
 
 function countdown_gameover(ct) {
   in_count_mode = true;
@@ -392,4 +392,54 @@ function countdown_gameover(ct) {
     }
     timeleft -= 1;
   }, 1000);
+}
+
+
+
+
+
+// =======
+function toggleButton(index) {
+  const buttons = document.querySelectorAll('.button');
+
+  buttons.forEach((button, i) => {
+    if (i === index) {
+      button.classList.add('active');
+      button.classList.remove('inactive');
+    } else {
+      button.classList.add('inactive');
+      button.classList.remove('active');
+    }
+  });
+}
+
+// let countdown = 45.0;
+// const timerElement = document.getElementById('timer');
+
+// function updateTimer() {
+//   countdown -= 0.01;
+//   timerElement.textContent = countdown.toFixed(2);
+
+//   if (countdown <= 0) {
+//     clearInterval(timerInterval);
+//     timerElement.textContent = 'Countdown complete';
+//   }
+// }
+
+// const timerInterval = setInterval(updateTimer, 10);
+
+
+function countdown(ct) {
+  in_count_mode = true;
+  var timeleft = ct;
+  var downloadTimer = setInterval(function(){
+    if(timeleft <= 0){
+      clearInterval(downloadTimer);
+      document.getElementById('timer').innerHTML = "00:00:00";
+    } 
+    
+    document.getElementById('timer').innerHTML = "00:" + timeleft.toFixed(2);
+
+    timeleft -= 0.01;
+  }, 10);
 }

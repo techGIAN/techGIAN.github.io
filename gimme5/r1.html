@@ -1,0 +1,314 @@
+<!--Old File-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Puzzle 3: STAR Finder! </title>
+		<link rel="icon" href="./img/sunglasses-emoji.png" type = "image/x-icon">
+		<link rel="stylesheet" href="./r1.css" charset="utf-8"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:bold">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:light">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+		<link href="css/logoiconfont.css" rel="stylesheet">
+		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="./r1.js"></script>
+		<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+		  </script>
+		  <script type="text/javascript"
+			src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		  </script>
+		  <!-- <script src="https://use.fontawesome.com/c34aaa70b4.js"></script> -->
+		  <script src="https://kit.fontawesome.com/44620d7dcb.js" crossorigin="anonymous"></script>
+		  <script>
+			// (function passcodeprotect() {
+			// 	var password = prompt("Please enter the password.");
+			// 	while (password !== "p061c614n") {
+			// 	alert("Incorrect PassCode");
+			// 	return passcodeprotect();
+			// 	}
+			// }());
+		  </script>
+	</head>
+	<body onload="onload();" data-spy="scroll" data-target=".navbar" data-offset="50">
+		
+		<div id="loader"></div>
+		<div style="display:none;" id="myDiv" class="animate-bottom">
+			<div>
+		<header>
+		<!-- <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div id="navbar" class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://techgian.github.io/">GIAN CARLO ALIX</a>
+        </div>
+        <div id="navbar" class="navbar-collapse-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="hoverThis"><a href="#skills">Skills</a></li>
+            <li class="hoverThis"><a href="#work">Work Experience</a></li>
+            <li class="hoverThis"><a href="#exp">Relevant Experience</a></li>
+            <li class="hoverThis"><a href="#achieve">Achievements</a></li>
+            <li class="hoverThis"><a href="#educ">Education</a></li>
+            <li class="hoverThis"><a href="#projects">Projects/Papers</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav> -->
+    </header>
+
+    <div class="jumbotron jumbotron-main" id="home"> <!--Define background color of jumbotron in css/bootstrap.min.css-->
+		<div class="container center-vertically-holder">
+			<div class="center-vertically">
+				<!--<div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">-->
+				<div class="col-sm-12 text-center">
+					<h1 class="scaleReveal" style="color:white;">
+						Gimme 5 <br>
+					</h1>
+					<h3 class="scaleReveal" style="color:white;">
+						Round 1
+					</h3>
+					<hr id="hrJumbo">
+					<a href="#about" data-id="about" class="scroll-link">
+						<div class="scroll-indicator rotateBottomReveal">
+							<span class="down"> <a id="navbar" class="dontChangeColor" href="#main"><i id="arrow" class="fas fa-arrow-circle-down fa-5x" style="color:white;"></i> </a> </span> <br> <h6 style="color:white;"> Scroll down!</h6>
+						</div>
+					</a>
+				</div><!-- /.column -->
+			</div><!-- /.vertical center -->
+		</div><!-- /.container -->
+	</div>
+
+	
+	<section id="main" class="background1 section-padding">
+		<div class="container">
+			<!-- <h3> <span class="glyphicon glyphicon-education"></span> Education </h3> -->
+			<div class="entryPic" style="display:inline; float:left; width: 50%; overflow: hidden; margin-top: 1%;">
+				<div id="board">
+					<div id="row1">
+						<div id="c1" class="card" onclick="reveal(1)">
+							<div id="q1" class="non-select">?</div>
+							<img id="p1" src="./img/star.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+						</div>
+						<div id="c2" class="card" onclick="reveal(2)">
+							<div id="q2" class="non-select">?</div>
+							<img id="p2" src="./img/flip.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+						</div>
+						<div id="c3" class="card" onclick="reveal(3)">
+							<div id="q3" class="non-select">?</div>
+							<img id="p3" src="./img/skull.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+						</div>
+						<div id="c4" class="card" onclick="reveal(4)">
+							<div id="q4" class="non-select">?</div>
+							<img id="p4" src="./img/zero.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+						</div>
+					</div>
+					<div style="background-color: white; color:white; font-size:10px;">a</div>
+					<div id="row2">
+						<div id="c5" class="card" onclick="reveal(5)">
+							<div id="q5" class="non-select">?</div>
+							<img id="p5" src="./img/img1.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+						</div>
+						<div id="c6" class="card" onclick="reveal(6)">
+							<div id="q6" class="non-select">?</div>
+							<img id="p6" src="./img/img2.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+						</div>
+						<div id="c7" class="card" onclick="reveal(7)">
+							<div id="q7" class="non-select">?</div>
+							<img id="p7" src="./img/img3.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+						</div>
+						<div id="c8" class="card" onclick="reveal(8)">
+							<div id="q8" class="non-select">?</div>
+							<img id="p8" src="./img/img4.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+						</div>
+					</div>
+					<div style="background-color: white; color:white; font-size:10px;">a</div>
+					<div id="row3">
+						<div id="c9" class="card" onclick="reveal(9)">
+							<div id="q9" class="non-select">?</div>
+							<img id="p9" src="./img/img5.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+						</div>
+						<div id="c10" class="card" onclick="reveal(10)">
+							<div id="q10" class="non-select">?</div>
+							<img id="p10" src="./img/img6.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+						</div>
+						<div id="c11" class="card" onclick="reveal(11)">
+							<div id="q11" class="non-select">?</div>
+							<img id="p11" src="./img/img7.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+						</div>
+						<div id="c12" class="card" onclick="reveal(12)">
+							<div id="q12" class="non-select">?</div>
+							<img id="p12" src="./img/img8.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+						</div>
+					</div>
+					<div style="background-color: white; color:white; font-size:10px;">a</div>
+					<div id="row4">
+						<div id="c13" class="card" onclick="reveal(13)">
+							<div id="q13" class="non-select">?</div>
+							<img id="p13" src="./img/star.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+						</div>
+						<div id="c14" class="card" onclick="reveal(14)">
+							<div id="q14" class="non-select">?</div>
+							<img id="p14" src="./img/flip.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+						</div>
+						<div id="c15" class="card" onclick="reveal(15)">
+							<div id="q15" class="non-select">?</div>
+							<img id="p15" src="./img/flip.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+						</div>
+						<div id="c16" class="card" onclick="reveal(16)">
+							<div id="q16" class="non-select">?</div>
+							<img id="p16" src="./img/flip.png" style="width:120px; height:120px; margin-bottom:30px; visibility: hidden;">
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		
+		<br>
+		<div style="float:left; width: 50%; overflow: hidden;">
+			Let's play the next game. Since we are celebrating our 4th monthsary, then I laid over a 4x4 board consisting a total of 16 cards. Underneath these cards is an image or an emoji. The goal is to find two of the cards when opened are stars (two because we are now in our 4th monthsary and there's two of us so 4 divided by 2 = 2; and then we want to open stars because you are the star in my life! ;) ). <br><br>
+
+			You open the cards one at a time by clicking on them. The game is complete once you open the two cards on the board that have the star symbol. You could open any one of the following cards during your game: <br><br>
+
+			<ul>
+				<li><b>Star</b> - there are two of these. Find them, these are your goal.</li>
+				<li><b>Our Picture</b> - there are eight of these. They don't add the value in this game, but they do add value in our relationship ;)</li>
+				<li><b>Zero</b> - there is one of this. He's like your guardian angel :) Open this card and you are given a free hint to where the stars are.</li>
+				<li><b>Rewind</b> - there are four of these. All opened cards on the board are flipped over. It's best to remember where the cards are!</li>
+				<li><b>Skull</b> - there is one of this. It's game over. The board is reset and all cards are reshuffled!</li>
+			</ul>
+
+			<br><br>
+
+			<p id="msg" style="color: white; font-weight: bold;">
+				Message.
+			</p>
+
+			<br><br>
+
+			<div class="row">
+				<!-- <div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="orangeLight" class="btn btn-primary" onclick="verify()" disabled>SUBMIT</button></div>
+				<div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="blueLight" class="btn btn-primary" onclick="hint()">HINT</button></div> -->
+				<div style="margin:auto; height:100%; bottom:0px; width:30%"><button id="greenLight" class="btn btn-primary" onclick="location.href = './quiz.html';" disabled>NEXT</button></div>
+			</div>
+		</div>
+			
+		</div>
+	</section>
+
+	<section id="projects" class="background1 section-padding">
+		<div class="container" style="height:500px;">
+			
+		</div>
+	</section>
+
+
+
+
+
+
+
+	
+
+	
+
+	<footer class="background2 footer-padding">
+		<div class="container" style="height:200px;">
+			
+		</div><!-- /.container -->
+	</footer>
+</div>
+<div>
+	<!-- <script>
+
+		//use this to reset forms onload
+$('#contactForm')[0].reset();
+
+    (function() {
+    var pre = document.getElementsByTagName('pre'),
+        pl = pre.length;
+    for (var i = 0; i < pl; i++) {
+        pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+        var num = pre[i].innerHTML.split(/\n/).length;
+        for (var j = 0; j < num; j++) {
+            var line_num = pre[i].getElementsByTagName('span')[0];
+            line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+        }
+    }
+})();
+
+$(document).ready(function(){
+  $('body').scrollspy({target: ".navbar", offset: 50});   
+  $("#navbar a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        window.location.hash = hash;
+      });
+    }  // End if
+  });
+});
+
+/* ---- nav smooth scroll ---- */
+$(document).ready(function() {
+    $('.scroll-link').on('click', function(event){
+        event.preventDefault();
+        var sectionID = $(this).attr("data-id");
+        scrollToID('#' + sectionID, 750);
+    });
+    $('.scroll-top').on('click', function(event) {
+        event.preventDefault();
+        $('html, body').animate({scrollTop:0}, 1200);       
+    });
+});
+
+/* ---- navbar offset ---- */
+function scrollToID(id, speed){
+    var offSet = 69;
+    var targetOffset = $(id).offset().top - offSet;
+    $('html,body').animate({scrollTop:targetOffset}, speed);
+}
+var myVar;
+
+function onload() {
+    myVar = setTimeout(showPage, 1500);
+    date();
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+  
+}
+
+function date() {
+	var n = new Date(document.lastModified);
+
+	var y = n.getFullYear();
+	var m = n.getMonth() + 1;
+	var d = n.getDate();
+
+ 	var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+	        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+  var today = new Date();
+  y = today.getFullYear();
+  m = today.getMonth() + 1;
+  d = today.getDate();
+  document.getElementById("myDate").innerHTML = months[m-1] + " " + d + ", " + y;
+}
+</script> -->
+
+	</body>
+</html>

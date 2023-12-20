@@ -431,16 +431,47 @@ function toggleButton(index) {
 var timeleft = 45;
 
 var questions = [
-  "(E) Mga superheroes sa comics"
+  "(E) Mga superheroes sa comics",
+  "(EAT) Mga parte ng katawan ng tao na may apat na letra",
+  "Mga sports na nilalaro by teams",
+  "Mga dahilan kung bakit nauubos ang pera ng tao",
+  "Mga bayani sa Pilipinas"
 ];
 
+var answers = [
+  ["Ironman", "Superman", "Hulk", "Catwoman", "Captain Marvel"],
+  ["Head", "Bone", "Puso", "Siko", "Knee"],
+  ["Basketball", "Volleyball", "Dragon Boat Racing", "Soccer/Football", "Baseball"],
+  ["Lulong sa sugal", "Gastos ng branded items", "Pagpapautang", "Pagbayad ng bills", "Hindi nag-iipon"],
+  ["Jose Rizal", "Andres Bonifacio", "Apolinario Mabini", "Gabriela Silang", "Juan Luna"]
+];
+
+var rnd_ix = -1;
 function start_game() {
-  // countdown(45);
+  countdown(45);
   var q_div = document.getElementById('question_div');
   q_div.style.color = 'black';
-  q_div.innerHTML = questions[0].toUpperCase();
+
+  rnd_idx = Math.floor(Math.random()*5);
+  q_div.innerHTML = questions[rnd_idx].toUpperCase();
+
   
 }
+
+function show_word(a_id) {
+  var word_div = document.getElementById("w" + a_id);
+  var word_to_reveal = answers[rnd_idx][a_id-1].toUpperCase();
+  word_div.innerHTML = word_to_reveal;
+  word_div.style.fontSize = "40px";
+
+  if (timeleft > 0) {
+    word_div.style.borderColor = "#32a852";
+  } else {
+    word_div.style.borderColor = "#c71035";
+  }
+
+}
+
 
 var tick_stops = ["00:45.00", "00:33.87", "00:22.74", "00:11.61"];
 function countdown(ct) {

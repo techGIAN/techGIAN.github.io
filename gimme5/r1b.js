@@ -436,20 +436,22 @@ function toggleButton(index) {
 var timeleft = 45;
 
 var questions = [
-  "(E) Mga superheroes sa comics",
-  "(EAT) Mga parte ng katawan ng tao na may apat na letra",
-  "Mga sports na nilalaro by teams",
-  "Mga dahilan kung bakit nauubos ang pera ng tao",
-  "Mga bayani sa Pilipinas"
+  "(E) Mga bagay na karaniwang matatagpuan sa casino",
+  "(E) Mga bagay na makikita sa kusina na 2 words",
+  "(EAT) Mga bagay na mahahanap sa bahay na nagsisimula sa letter ‘T’",
+  "Mga karaniwang laman ng balikbayan box",
+  "(T) Mga bagay sa bahay na nagtatapos sa letter ‘N’"
 ];
 
 var answers = [
-  ["Ironman", "Superman", "Hulk", "Catwoman", "Captain Marvel"],
-  ["Head", "Bone", "Puso", "Siko", "Knee"],
-  ["Basketball", "Volleyball", "Dragon Boat Racing", "Soccer/Football", "Baseball"],
-  ["Lulong sa sugal", "Gastos ng branded items", "Pagpapautang", "Pagbayad ng bills", "Hindi nag-iipon"],
-  ["Jose Rizal", "Andres Bonifacio", "Apolinario Mabini", "Gabriela Silang", "Juan Luna"]
+  ["Slot Machine", "Playing Cards", "Dice", "Roulette", "Poker Chips"],
+  ["Frying Pan", "Microwave Oven", "Rice Cooker", "Chopping Board", "Coffee Maker"],
+  ["Toothpaste", "Tasa", "Toaster", "Tabo", "Telepono"],
+  ["Sapatos", "Canned goods", "Damit", "Laruan", "Backpack"],
+  ["Sabon", "Sinturon", "Telebisyon", "Kalan", "Sapin"]
 ];
+
+
 
 var rnd_ix = -1;
 function start_game() {
@@ -488,7 +490,6 @@ function show_word(a_id) {
     play_audio('./media/correct.m4a', "correct");
     score += 1;
 
-
     if (score == 1) {
       first_word_time = "00:" + (45 - timeleft).toFixed(2);
       if (45 - timeleft < 10) {
@@ -506,6 +507,7 @@ function show_word(a_id) {
 function play_wrong() {
   play_audio("./media/wrong_beep.m4a", "wrong");
 }
+
 
 var first_word_time = "00:00:00";
 var downloadTimer;

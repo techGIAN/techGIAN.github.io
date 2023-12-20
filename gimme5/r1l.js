@@ -436,20 +436,22 @@ function toggleButton(index) {
 var timeleft = 45;
 
 var questions = [
-  "(E) Mga superheroes sa comics",
-  "(EAT) Mga parte ng katawan ng tao na may apat na letra",
-  "Mga sports na nilalaro by teams",
-  "Mga dahilan kung bakit nauubos ang pera ng tao",
-  "Mga bayani sa Pilipinas"
+  "Mga probinsya sa Canada",
+  "Mga lugar na nagsisimula sa letter ‘Q’",
+  "Mga bansa sa Asia na nagtatapos sa letter ‘A’",
+  "Mga probinsya sa Pilipinas sa may ‘Norte’/‘Sur’",
+  "Mga bansa na may ‘Land’"
 ];
 
 var answers = [
-  ["Ironman", "Superman", "Hulk", "Catwoman", "Captain Marvel"],
-  ["Head", "Bone", "Puso", "Siko", "Knee"],
-  ["Basketball", "Volleyball", "Dragon Boat Racing", "Soccer/Football", "Baseball"],
-  ["Lulong sa sugal", "Gastos ng branded items", "Pagpapautang", "Pagbayad ng bills", "Hindi nag-iipon"],
-  ["Jose Rizal", "Andres Bonifacio", "Apolinario Mabini", "Gabriela Silang", "Juan Luna"]
+  ["Ontario", "Alberta", "Saskachewan", "Newfoundland & Labrador", "British Columbia"],
+  ["Qatar", "Quebec", "Quezon", "Queens", "Queensland"],
+  ["China", "South Korea", "Mongolia", "Indonesia", "Cambodia"],
+  ["Camarines", "Ilocos", "Agusan", "Davao", "Lanao"],
+  ["Thailand", "Iceland", "Greenland", "Switzerland", "Finland"]
 ];
+
+
 
 var rnd_ix = -1;
 function start_game() {
@@ -480,14 +482,18 @@ var score = 0;
 function show_word(a_id) {
   var word_div = document.getElementById("w" + a_id);
   var word_to_reveal = answers[rnd_idx][a_id-1].toUpperCase();
+
+  if (word_to_reveal === "NEWFOUNDLAND & LABRADOR") {
+    word_div.style.fontSize = "30px";
+  } else {
+    word_div.style.fontSize = "40px";
+  }
   word_div.innerHTML = word_to_reveal;
-  word_div.style.fontSize = "40px";
 
   if (timeleft > 0) {
     word_div.style.borderColor = "#32a852";
     play_audio('./media/correct.m4a', "correct");
     score += 1;
-
 
     if (score == 1) {
       first_word_time = "00:" + (45 - timeleft).toFixed(2);
@@ -506,6 +512,7 @@ function show_word(a_id) {
 function play_wrong() {
   play_audio("./media/wrong_beep.m4a", "wrong");
 }
+
 
 var first_word_time = "00:00:00";
 var downloadTimer;

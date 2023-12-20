@@ -436,20 +436,23 @@ function toggleButton(index) {
 var timeleft = 45;
 
 var questions = [
-  "(E) Mga superheroes sa comics",
-  "(EAT) Mga parte ng katawan ng tao na may apat na letra",
-  "Mga sports na nilalaro by teams",
-  "Mga dahilan kung bakit nauubos ang pera ng tao",
-  "Mga bayani sa Pilipinas"
+  "(T) Mga hayop na nakakain",
+  "(EAT) Mga hayop na nagsisimula sa letter ‘A’",
+  "(T) Mga hayop na may apat na letra",
+  "(E) Mga hayop na nagsisimula sa letter ‘O’",
+  "(EAT) Mga hayop na nagtatapos sa letter ‘N’"
 ];
 
 var answers = [
-  ["Ironman", "Superman", "Hulk", "Catwoman", "Captain Marvel"],
-  ["Head", "Bone", "Puso", "Siko", "Knee"],
-  ["Basketball", "Volleyball", "Dragon Boat Racing", "Soccer/Football", "Baseball"],
-  ["Lulong sa sugal", "Gastos ng branded items", "Pagpapautang", "Pagbayad ng bills", "Hindi nag-iipon"],
-  ["Jose Rizal", "Andres Bonifacio", "Apolinario Mabini", "Gabriela Silang", "Juan Luna"]
+  ["Alimango", "Baka", "Pusit", "Tupa", "Manok"],
+  ["Aso", "Alimango", "Aardvark", "Ant", "Agila"],
+  ["Ibon", "Isda", "Pusa", "Tuko", "Baka"],
+  ["Octopus", "Owl", "Orangutan", "Ostrich", "Otter"],
+  ["Penguin", "Dolphin", "Chicken", "Ibon", "Leon"]
 ];
+
+
+
 
 var rnd_ix = -1;
 function start_game() {
@@ -488,7 +491,6 @@ function show_word(a_id) {
     play_audio('./media/correct.m4a', "correct");
     score += 1;
 
-
     if (score == 1) {
       first_word_time = "00:" + (45 - timeleft).toFixed(2);
       if (45 - timeleft < 10) {
@@ -506,6 +508,7 @@ function show_word(a_id) {
 function play_wrong() {
   play_audio("./media/wrong_beep.m4a", "wrong");
 }
+
 
 var first_word_time = "00:00:00";
 var downloadTimer;

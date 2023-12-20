@@ -403,3 +403,8 @@ function choose_cat(cat) {
   location.replace(new_loc);
 }
 
+function new_cat(c, n) {
+  var new_loc = './r1' + c + '.html';
+  document.getElementById('c' + n).style.visibility = "hidden";
+  window.open(new_loc, '_blank');
+}

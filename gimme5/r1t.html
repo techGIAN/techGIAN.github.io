@@ -74,7 +74,7 @@
 				TAO
 			</div>
 			<div id="secondRow" style="display:inline;">
-				<div id="timer">00:45:00</div>
+				<div id="timer" onclick="play_wrong()">00:45:00</div>
 				<div class="small_spacing" style="color:white; float:left; width:5%">a</div>
 				<div id="playing">
 					<button class="button active" onclick="toggleButton(0)">PAPA</button>
@@ -82,7 +82,7 @@
 					<button class="button inactive" onclick="toggleButton(2)">GIO</button>
 				  </div>
 				<div class="small_spacing" style="color:white; float:left; width:5%">a</div>
-				<div id="diff_q">DIFF QUESTION</div>
+				<div id="diff_q" onclick="reset_game()">DIFF QUESTION</div>
 			</div>
 			<div id="bodyRow" style="display:inline;">
 				<div id="question_div" style="color:#6ab3db;">
@@ -101,6 +101,7 @@
 					<div id="w5" class="word_ans" onclick="show_word(5)">5</div>
 				</div>
 			</div>
+			<div id="stats" style="font-weight:bold;">Score: </div>
 	
 		</div>
 	</section>

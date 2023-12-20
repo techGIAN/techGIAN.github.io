@@ -428,17 +428,40 @@ function toggleButton(index) {
 
 // const timerInterval = setInterval(updateTimer, 10);
 
+var timeleft = 45;
 
+var questions = [
+  "(E) Mga superheroes sa comics"
+];
+
+function start_game() {
+  // countdown(45);
+  var q_div = document.getElementById('question_div');
+  q_div.style.color = 'black';
+  q_div.innerHTML = questions[0].toUpperCase();
+  
+}
+
+var tick_stops = ["00:45.00", "00:33.87", "00:22.74", "00:11.61"];
 function countdown(ct) {
   in_count_mode = true;
-  var timeleft = ct;
+  timeleft = ct;
   var downloadTimer = setInterval(function(){
-    if(timeleft <= 0){
+
+    if(timeleft <= 0.01){
       clearInterval(downloadTimer);
       document.getElementById('timer').innerHTML = "00:00:00";
     } 
+    var t_left = "" + timeleft.toFixed(2);
+    if (timeleft < 10) {
+      t_left = "0" + t_left;
+    }
+    document.getElementById('timer').innerHTML = "00:" + t_left;
     
-    document.getElementById('timer').innerHTML = "00:" + timeleft.toFixed(2);
+    if (tick_stops.includes(document.getElementById('timer').innerHTML)) {
+      play_audio('./media/ticking.m4a');
+    }
+    // play_audio('./media/ticking.m4a');
 
     timeleft -= 0.01;
   }, 10);

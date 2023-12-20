@@ -520,3 +520,21 @@ table th {
 	background-color: #6ab3db;
 	color: black;
 }
+
+#question_div {
+	margin:auto;
+	display:flex;
+	align-items:center;
+	/* width: 880px; */
+	width: 40%;
+	float:left;
+	height:300px;
+	overflow: hidden;
+	margin-top: 1%;
+	background-color: #6ab3db;
+	border: 5px solid #523348;
+	font-weight: bold;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 50px;
+}

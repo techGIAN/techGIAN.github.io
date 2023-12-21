@@ -457,6 +457,7 @@ var answers = [
 var rnd_ix = -1;
 function start_game() {
   document.getElementById("titler").onclick = null;
+  document.getElementById("w1").setAttribute("onClick", "show_word(1)");
   choose_rand_words();
   countdown(180);
   load_next_word();
@@ -526,7 +527,8 @@ function choose_rand_words() {
       concat_list[i+offset] = shuffled_all_list[i];
     }
 
-    var new_concat_list = shuffle(concat_list);
+    var shuffled_concat_list = shuffle(concat_list);
+    var new_concat_list = shuffle([...new Set(shuffled_concat_list)]);
     var num_words = new_concat_list.length;
     var rand_ixs = five_rand_ix(num_words);
     random_words = rand_words(new_concat_list, rand_ixs);
@@ -697,6 +699,9 @@ function pass() {
 
 
 function load_next_word() {
+  if (document.getElementById("w4").innerHTML != "4") {
+    document.getElementById("diff_q").onclick = null;
+  }
   curr_word_ix += 1;
   document.getElementById("titler").innerHTML = guess_words_list[curr_word_ix-1].toUpperCase();
   document.getElementById("w" + curr_word_ix).setAttribute("onClick", "show_word(" + curr_word_ix + ")");

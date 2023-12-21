@@ -458,13 +458,18 @@ var answers = [
 var rnd_ix = -1;
 function start_game() {
   countdown(45);
+
+}
+
+function show_question() {
   var q_div = document.getElementById('question_div');
   q_div.style.color = 'black';
 
   rnd_idx = Math.floor(Math.random()*5);
   q_div.innerHTML = questions[rnd_idx].toUpperCase();
 
-
+  document.getElementById('words_div').style.visibility = "visible";
+  document.getElementById('questions_div').onclick = "";
 }
 
 function reset_game() {
@@ -522,6 +527,7 @@ function countdown(ct) {
     if(timeleft <= 0.01){
       clearInterval(downloadTimer);
       document.getElementById('timer').innerHTML = "00:00:00";
+      play_audio('./media/time-up.m4a');
     }
     if (score == 5) {
       clearInterval(downloadTimer);

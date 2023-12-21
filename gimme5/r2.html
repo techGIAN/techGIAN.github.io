@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Gimme 5: Round 1 </title>
+		<title> Gimme 5: Round 2 </title>
 		<link rel="icon" href="./img/sunglasses-emoji.png" type = "image/x-icon">
-		<link rel="stylesheet" href="./r1g.css" charset="utf-8"/>
+		<link rel="stylesheet" href="./r2.css" charset="utf-8"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:bold">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:light">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
@@ -15,7 +15,7 @@
   		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src="./r1p.js"></script>
+		<script src="./r2.js"></script>
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 		  </script>
@@ -65,16 +65,37 @@
     </nav> -->
     </header>
 
+	<div class="jumbotron jumbotron-main" id="home"> <!--Define background color of jumbotron in css/bootstrap.min.css-->
+		<div class="container center-vertically-holder">
+			<div class="center-vertically">
+				<!--<div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">-->
+				<div class="col-sm-12 text-center">
+					<h1 class="scaleReveal" style="color:white;">
+						Gimme 5 <br>
+					</h1>
+					<h3 class="scaleReveal" style="color:white;">
+						Round 2
+					</h3>
+					<hr id="hrJumbo">
+					<a href="#about" data-id="about" class="scroll-link">
+						<div class="scroll-indicator rotateBottomReveal">
+							<span class="down"> <a id="navbar" class="dontChangeColor" href="#main"><i id="arrow" class="fas fa-arrow-circle-down fa-5x" style="color:white;"></i> </a> </span> <br> <h6 style="color:white;"> Scroll down!</h6>
+						</div>
+					</a>
+				</div><!-- /.column -->
+			</div><!-- /.vertical center -->
+		</div><!-- /.container -->
+	</div>
 
 
 	
 	<section id="main" class="background1 section-padding">
 		<div class="container">
 			<div id="titler" onclick="start_game()">
-				PAGKAIN
+				ALL CATEGORIES
 			</div>
 			<div id="secondRow" style="display:inline;">
-				<div id="timer" onclick="play_wrong()">00:45:00</div>
+				<div id="timer" onclick="violation()">03:00:00</div>
 				<div class="small_spacing" style="color:white; float:left; width:5%">a</div>
 				<div id="playing">
 					<button class="button active" onclick="toggleButton(0)">PAPA</button>
@@ -82,23 +103,34 @@
 					<button class="button inactive" onclick="toggleButton(2)">GIO</button>
 				  </div>
 				<div class="small_spacing" style="color:white; float:left; width:5%">a</div>
-				<div id="diff_q" onclick="reset_game()">DIFF QUESTION</div>
+				<div id="diff_q" onclick="pass()">PASS</div>
 			</div>
 			<div id="bodyRow" style="display:inline;">
-				<div id="question_div" style="color:#6ab3db;" onclick="show_question()">
-					?
+				<div id="question_div" style="color:#6ab3db; display:inline;">
+					<div id="row1" class="row_choice">
+						<div id="tao" class="choice inactiveChoice" onclick="toggle(0, 'TAO')">TAO</div>
+						<div id="bagay" class="choice inactiveChoice" onclick="toggle(1, 'BAGAY')">BAGAY</div>
+					</div>
+					<div id="row2" class="row_choice">
+						<div id="hayop" class="choice inactiveChoice" onclick="toggle(2, 'HAYOP')">HAYOP</div>
+						<div id="lugar" class="choice inactiveChoice" onclick="toggle(3, 'LUGAR')">LUGAR</div>
+					</div>
+					<div id="row3" class="row_choice">
+						<div id="pagkain" class="choice inactiveChoice" onclick="toggle(4, 'PAGKAIN')">PAGKAIN</div>
+						<div id="allcat" class="choice activeChoice" onclick="toggle(5, 'ALL CATEGORIES')">ALL<br>CATEGORIES</div>
+					</div>
 				</div>
-				<div class="small_spacing" style="color:white; float:left; width:2%">a</div>
-				<div id="words_div" style="display:inline; visibility:hidden;">
+				<div class="small_spacing" style="color:white; float:left; width:0.5%">a</div>
+				<div id="words_div" style="display:inline;">
 					<div id="w1" class="word_ans" onclick="show_word(1)">1</div>
 					<div class="small_spacing" style="color:white; float:left; height:5px">a</div>
-					<div id="w2" class="word_ans" onclick="show_word(2)">2</div>
+					<div id="w2" class="word_ans" onclick="">2</div>
 					<div class="small_spacing" style="color:white; float:left; height:5px">a</div>
-					<div id="w3" class="word_ans" onclick="show_word(3)">3</div>
+					<div id="w3" class="word_ans" onclick="">3</div>
 					<div class="small_spacing" style="color:white; float:left; height:5px">a</div>
-					<div id="w4" class="word_ans" onclick="show_word(4)">4</div>
+					<div id="w4" class="word_ans" onclick="">4</div>
 					<div class="small_spacing" style="color:white; float:left; height:5px">a</div>
-					<div id="w5" class="word_ans" onclick="show_word(5)">5</div>
+					<div id="w5" class="word_ans" onclick="">5</div>
 				</div>
 			</div>
 			<div id="stats" style="font-weight:bold;">Score: </div>

@@ -93,10 +93,13 @@ function rand_zero_one() {
 
 
 var audio;
+var audio_id = 0;
 function play_audio(url, sound_made) {
   if (sound_made == "tick") {
     audio = new Audio(url);
     audio.play();
+    ticks[audio_id] = true;
+    audio_id += 1;
   } else{
     new Audio(url).play();
   }
@@ -433,7 +436,7 @@ function toggleButton(index) {
 
 // const timerInterval = setInterval(updateTimer, 10);
 
-var timeleft = 45;
+var timeleft = 180;
 
 var questions = [
   "(E) Mga superheroes sa comics",
@@ -453,8 +456,41 @@ var answers = [
 
 var rnd_ix = -1;
 function start_game() {
-  countdown(45);
+  choose_rand_words();
+  countdown(180);
+  load_next_word();
+}
 
+var guess_words_list = ["", "", "", "", ""];
+function choose_rand_words() {
+  var fileName = './words/hello.txt';
+
+  // var reader = new FileReader();
+
+  // var fileContent;
+  // reader.onload = function (e) {
+  //   fileContent = e.target.result;
+  //   alert(fileContent); // Display the content in an alert
+  // };
+  
+  
+  // // Read the specific file
+  // reader.readAsText(fileName);
+  if (fileName) {
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      const fileContent = e.target.result;
+      alert(fileContent); // Display the content in an alert
+    };
+
+    reader.readAsText(fileName);
+  }
+}
+
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function show_question() {
@@ -484,9 +520,13 @@ var score = 0;
 
 function show_word(a_id) {
   var word_div = document.getElementById("w" + a_id);
-  var word_to_reveal = answers[rnd_idx][a_id-1].toUpperCase();
+  var word_to_reveal = guess_words_list[a_id-1].toUpperCase();
   word_div.innerHTML = word_to_reveal;
   word_div.style.fontSize = "40px";
+
+  document.getElementById("w" + (curr_word_ix)).onclick = null;
+  
+  
 
   if (timeleft > 0) {
     word_div.style.borderColor = "#32a852";
@@ -494,27 +534,116 @@ function show_word(a_id) {
     score += 1;
 
 
-    if (score == 1) {
-      first_word_time = "00:" + (45 - timeleft).toFixed(2);
-      if (45 - timeleft < 10) {
-        first_word_time = "00:0" + (45 - timeleft).toFixed(2);
+    if (score >= 1) {
+      first_word_time = "0";
+      var timee = 180 - timeleft;
+      var min = Math.floor(timee/60);
+      first_word_time = first_word_time + min + ":";
+      var parti = timee - min*60;
+      if (parti < 10) {
+        first_word_time = first_word_time + "0" + parti.toFixed(2);
+      } else {
+        first_word_time = first_word_time +  parti.toFixed(2);
+      }
+
+      if (score == 1) {
+        var stats = document.getElementById('stats');
+        stats.innerHTML = stats.innerHTML + "" + score + ", First Word: " + first_word_time;
+      } else if (score ==2 ) {
+        var stats = document.getElementById('stats');
+        stats.innerHTML = stats.innerHTML + ", Second Word: " + first_word_time;
+      } else {
+        var stats = document.getElementById('stats');
+        stats.innerHTML = stats.innerHTML + ", Third Word: " + first_word_time;
       }
     }
 
-    document.getElementById('stats').innerHTML = "Score: " + score + ", First Word: " + first_word_time;
+    // document.getElementById('stats').innerHTML = "Score: " + score + ", First Word: " + first_word_time;
   } else {
     word_div.style.borderColor = "#c71035";
   }
 
+  load_next_word();
+
 }
 
-function play_wrong() {
+function offset(time_str, secs) {
+  var arr = time_str.split(":");
+  var sec_val = parseFloat(arr[1]) - secs;
+  if (sec_val >= 0) {
+    if (sec_val < 10) {
+      sec_val = "0" + sec_val.toFixed(2);
+    } else {
+      sec_val = sec_val.toFixed(2);
+    }
+    return arr[0] + ":" + sec_val;
+  } else {
+    sec_val += 60
+    if (sec_val < 10) {
+      sec_val = "0" + sec_val.toFixed(2);
+    } else {
+      sec_val = sec_val.toFixed(2);
+    }
+    var num = -1;
+    if (arr[0] == 2) {
+      num = 1;
+    } else {
+      num = 0;
+    }
+    return "0" + num + ":" + sec_val;
+  }
+}
+
+async function violation() {
   play_audio("./media/wrong_beep.m4a", "wrong");
+  timeleft -= 3;
+  for (var j = audio_id; j < ticks.length; j++) {
+    tick_stops[j] = offset(tick_stops[j], 3);
+  }
+  var slp = 250;
+  document.getElementById('timer').style.color = "red";
+  await sleep(slp);
+  document.getElementById('timer').style.color = "black";
+  await sleep(slp);
+  document.getElementById('timer').style.color = "red";
+  await sleep(slp);
+  document.getElementById('timer').style.color = "black";
+  await sleep(slp);
+  document.getElementById('timer').style.color = "red";
+  await sleep(slp);
+  document.getElementById('timer').style.color = "black";
 }
 
-var first_word_time = "00:00:00";
+var curr_word_ix = 0;
+
+function pass() {
+  var word_div = document.getElementById("w" + curr_word_ix);
+  var word_to_reveal = guess_words_list[curr_word_ix-1].toUpperCase();
+  word_div.innerHTML = word_to_reveal;
+  word_div.style.fontSize = "40px";
+  word_div.style.borderColor = "#c71035";
+  word_div.onclick = null;
+  play_audio("./media/wrong_beep.m4a", "wrong");
+  load_next_word();
+}
+
+
+
+function load_next_word() {
+  curr_word_ix += 1;
+  document.getElementById("titler").innerHTML = guess_words_list[curr_word_ix-1].toUpperCase();
+  document.getElementById("w" + curr_word_ix).setAttribute("onClick", "show_word(" + curr_word_ix + ")");
+}
+
+var first_word_time = "03:00:00";
 var downloadTimer;
-var tick_stops = ["00:45.00", "00:33.87", "00:22.74", "00:11.61"];
+// var tick_stops = ["00:45.00", "00:33.87", "00:22.74", "00:11.61"];
+var tick_stops = ["03:00.00", "02:48.87", "02:37.74", "02:26.61",
+  "02:15.48", "02:04.35", "01:53.22", "01:42.09",
+  "01:30.56", "01:19.43", "01:08.30", "00:55.17",
+  "00:44.04", "00:32.51", "00:21.38", "00:10.25"
+];
+var ticks = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
 function countdown(ct) {
 
   timeleft = ct;
@@ -525,15 +654,22 @@ function countdown(ct) {
       document.getElementById('timer').innerHTML = "00:00:00";
       play_audio('./media/time-up.m4a');
     }
-    if (score == 5) {
+    if (score == 3) {
       clearInterval(downloadTimer);
       audio.pause();
     } 
-    var t_left = "" + timeleft.toFixed(2);
-    if (timeleft < 10) {
-      t_left = "0" + t_left;
+    var min_left = Math.floor(timeleft/60);
+    var sec_left = timeleft - min_left*60;
+    if (sec_left < 10) {
+      sec_left = "0" + sec_left.toFixed(2);
+    } else {
+      sec_left = sec_left.toFixed(2);
     }
-    document.getElementById('timer').innerHTML = "00:" + t_left;
+    var t_left = "0" + min_left + ":" + sec_left;
+    // if (timeleft < 10) {
+    //   t_left = "0" + t_left;
+    // }
+    document.getElementById('timer').innerHTML = t_left;
     
     if (tick_stops.includes(document.getElementById('timer').innerHTML)) {
       play_audio('./media/ticking.m4a', "tick");
@@ -542,4 +678,19 @@ function countdown(ct) {
 
     timeleft -= 0.01;
   }, 10);
+}
+
+function toggle(index, category) {
+  document.getElementById('titler').innerHTML = category;
+  const buttons = document.querySelectorAll('.choice');
+
+  buttons.forEach((button, i) => {
+    if (i === index) {
+      button.classList.add('activeChoice');
+      button.classList.remove('inactiveChoice');
+    } else {
+      button.classList.add('inactiveChoice');
+      button.classList.remove('activeChoice');
+    }
+  });
 }

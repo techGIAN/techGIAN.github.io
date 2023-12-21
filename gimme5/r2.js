@@ -456,6 +456,7 @@ var answers = [
 
 var rnd_ix = -1;
 function start_game() {
+  document.getElementById("titler").onclick = null;
   choose_rand_words();
   countdown(180);
   load_next_word();
@@ -463,30 +464,96 @@ function start_game() {
 
 var guess_words_list = ["", "", "", "", ""];
 function choose_rand_words() {
-  var fileName = './words/hello.txt';
+  var cat = document.getElementById('titler').innerHTML;
 
-  // var reader = new FileReader();
+  var shuffled_tao_list = shuffle(tao_list);
+  var shuffled_bagay_list = shuffle(bagay_list);
+  var shuffled_hayop_list = shuffle(hayop_list);
+  var shuffled_lugar_list = shuffle(lugar_list);
+  var shuffled_pagkain_list = shuffle(pagkain_list);
+  var shuffled_all_list = shuffle(all_list);
 
-  // var fileContent;
-  // reader.onload = function (e) {
-  //   fileContent = e.target.result;
-  //   alert(fileContent); // Display the content in an alert
-  // };
-  
-  
-  // // Read the specific file
-  // reader.readAsText(fileName);
-  if (fileName) {
-    const reader = new FileReader();
+  var random_words;
+  if (cat == "TAO") {
+    var new_tao_list = shuffle(shuffled_tao_list);
+    var num_words = new_tao_list.length;
+    var rand_ixs = five_rand_ix(num_words);
+    random_words = rand_words(new_tao_list, rand_ixs);
+  } else if (cat == "BAGAY") {
+    var new_bagay_list = shuffle(shuffled_bagay_list);
+    var num_words = new_bagay_list.length;
+    var rand_ixs = five_rand_ix(num_words);
+    random_words = rand_words(new_bagay_list, rand_ixs);
+  } else if (cat == "HAYOP") {
+    var new_hayop_list = shuffle(shuffled_hayop_list);
+    var num_words = new_hayop_list.length;
+    var rand_ixs = five_rand_ix(num_words);
+    random_words = rand_words(new_hayop_list, rand_ixs);
+  } else if (cat == "LUGAR") {
+    var new_lugar_list = shuffle(shuffled_lugar_list);
+    var num_words = new_lugar_list.length;
+    var rand_ixs = five_rand_ix(num_words);
+    random_words = rand_words(new_lugar_list, rand_ixs);
+  } else if (cat == "PAGKAIN") {
+    var new_pagkain_list = shuffle(shuffled_pagkain_list);
+    var num_words = new_pagkain_list.length;
+    var rand_ixs = five_rand_ix(num_words);
+    random_words = rand_words(new_pagkain_list, rand_ixs);
+  } else {
+    var concat_size = shuffled_tao_list.length + shuffled_bagay_list.length + shuffled_hayop_list.length + shuffled_lugar_list.length + shuffled_pagkain_list.length +  shuffled_all_list.length;
+    var concat_list = Array(concat_size).fill("");
+    for (var i = 0; i < shuffled_tao_list.length; i++) {
+      concat_list[i] = shuffled_tao_list[i];
+    }
+    for (var i = 0; i < shuffled_bagay_list.length; i++) {
+      concat_list[i+shuffled_tao_list.length] = shuffled_bagay_list[i];
+    }
+    for (var i = 0; i < shuffled_hayop_list.length; i++) {
+      var offset = shuffled_tao_list.length + shuffled_bagay_list.length;
+      concat_list[i+offset] = shuffled_hayop_list[i];
+    }
+    for (var i = 0; i < shuffled_lugar_list.length; i++) {
+      var offset = shuffled_tao_list.length + shuffled_bagay_list.length + shuffled_hayop_list.length;
+      concat_list[i+offset] = shuffled_lugar_list[i];
+    }
+    for (var i = 0; i < shuffled_pagkain_list.length; i++) {
+      var offset = shuffled_tao_list.length + shuffled_bagay_list.length + shuffled_hayop_list.length + shuffled_lugar_list.length;
+      concat_list[i+offset] = shuffled_pagkain_list[i];
+    }
 
-    reader.onload = function (e) {
-      const fileContent = e.target.result;
-      alert(fileContent); // Display the content in an alert
-    };
+    for (var i = 0; i < shuffled_all_list.length; i++) {
+      var offset = shuffled_tao_list.length + shuffled_bagay_list.length + shuffled_hayop_list.length + shuffled_lugar_list.length + shuffled_pagkain_list.length;
+      concat_list[i+offset] = shuffled_all_list[i];
+    }
 
-    reader.readAsText(fileName);
+    var new_concat_list = shuffle(concat_list);
+    var num_words = new_concat_list.length;
+    var rand_ixs = five_rand_ix(num_words);
+    random_words = rand_words(new_concat_list, rand_ixs);
   }
+  guess_words_list = random_words;
 }
+
+function five_rand_ix(sz) {
+  var ixs = [-1, -1, -1, -1, -1];
+  for (var i = 0; i < 5; i++) {
+    do {
+      var ix = Math.floor(Math.random()*sz);
+    } while(ixs.includes(ix));
+    ixs[i] = ix;
+  }
+  return ixs;
+}
+
+function rand_words(arr, ixs) {
+  var words = ["", "", "", "", ""];
+  for (var i = 0; i < 5; i++) {
+    words[i] = arr[ixs[i]];
+  }
+  return words;
+}
+
+
 
 
 function sleep(ms) {
@@ -653,6 +720,7 @@ function countdown(ct) {
       clearInterval(downloadTimer);
       document.getElementById('timer').innerHTML = "00:00:00";
       play_audio('./media/time-up.m4a');
+      document.getElementById('timer').style.color = "red";
     }
     if (score == 3) {
       clearInterval(downloadTimer);

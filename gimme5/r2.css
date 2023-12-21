@@ -528,7 +528,7 @@ table th {
 	display:flex;
 	align-items:center;
 	/* width: 880px; */
-	width: 51%;
+	width: 55%;
 	float:left;
 	height:450px;
 	overflow: hidden;
@@ -565,7 +565,7 @@ table th {
 	display:inline-block;
 	align-items:center;
 	/* width: 880px; */
-	width: 48.5%;
+	width: 43%;
 	float:left;
 	height:450px;
 	overflow: hidden;

@@ -457,6 +457,12 @@ var answers = [
 var rnd_ix = -1;
 function start_game() {
   document.getElementById("titler").onclick = null;
+  document.getElementById("tao").onclick = null;
+  document.getElementById("bagay").onclick = null;
+  document.getElementById("hayop").onclick = null;
+  document.getElementById("lugar").onclick = null;
+  document.getElementById("pagkain").onclick = null;
+  document.getElementById("allcat").onclick = null;
   document.getElementById("w1").setAttribute("onClick", "show_word(1)");
   choose_rand_words();
   countdown(180);
@@ -586,6 +592,7 @@ function reset_game() {
   document.getElementById('stats').innerHTML = "Score: ";
 }
 var score = 0;
+var times_scored = ["", "", ""];
 
 function show_word(a_id) {
   var word_div = document.getElementById("w" + a_id);
@@ -602,7 +609,7 @@ function show_word(a_id) {
     play_audio('./media/correct.m4a', "correct");
     score += 1;
 
-
+    // alert(score);
     if (score >= 1) {
       first_word_time = "0";
       var timee = 180 - timeleft;
@@ -615,16 +622,22 @@ function show_word(a_id) {
         first_word_time = first_word_time +  parti.toFixed(2);
       }
 
+      var stats = document.getElementById('stats');
+      var msg = "";
       if (score == 1) {
-        var stats = document.getElementById('stats');
-        stats.innerHTML = stats.innerHTML + "" + score + ", First Word: " + first_word_time;
-      } else if (score ==2 ) {
-        var stats = document.getElementById('stats');
-        stats.innerHTML = stats.innerHTML + ", Second Word: " + first_word_time;
+        msg = "Score: 1, First Word: " + first_word_time;
+        times_scored[0] = first_word_time;
+        
+      } else if (score == 2) {
+        msg = "Score: 2, First Word: " +  times_scored[0] + ", Second Word: " + first_word_time;
+        times_scored[1] = first_word_time;
+
       } else {
-        var stats = document.getElementById('stats');
-        stats.innerHTML = stats.innerHTML + ", Third Word: " + first_word_time;
+        msg = "Score: 3, First Word: " +  times_scored[0] + ", Second Word: " + times_scored[1] + ", Third Word: " + first_word_time;
+        times_scored[2] = first_word_time;
       }
+
+      stats.innerHTML = msg;
     }
 
     // document.getElementById('stats').innerHTML = "Score: " + score + ", First Word: " + first_word_time;
@@ -721,11 +734,20 @@ function countdown(ct) {
   timeleft = ct;
   downloadTimer = setInterval(function(){
 
-    if(timeleft <= 0.01){
+    if(timeleft <= 0.01 || document.getElementById('w5').innerHTML != "5"){
       clearInterval(downloadTimer);
       document.getElementById('timer').innerHTML = "00:00:00";
-      play_audio('./media/time-up.m4a');
-      document.getElementById('timer').style.color = "red";
+      if (timeleft <= 0.01) {
+        document.getElementById('timer').style.color = "red";
+        play_audio('./media/time-up.m4a');
+      }
+      audio.pause();
+      
+      document.getElementById('w1').onclick = null;
+      document.getElementById('w2').onclick = null;
+      document.getElementById('w3').onclick = null;
+      document.getElementById('w4').onclick = null;
+      document.getElementById('w5').onclick = null;
     }
     if (score == 3) {
       clearInterval(downloadTimer);

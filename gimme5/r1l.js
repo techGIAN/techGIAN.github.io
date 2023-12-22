@@ -531,6 +531,7 @@ function countdown(ct) {
       clearInterval(downloadTimer);
       document.getElementById('timer').innerHTML = "00:00:00";
       play_audio('./media/time-up.m4a');
+      document.getElementById('timer').style.color = "red";
     }
     if (score == 5) {
       clearInterval(downloadTimer);

@@ -11,7 +11,7 @@ for txt_file in txt_files_in_folder:
         content = f.read()
     
     arr = content.split('\n')
-    arr = ['"' + word.upper() + '"' for word in arr]
+    arr = ['"' + word.strip().upper() + '"' for word in arr if word != ""]
     s = 'var ' + cat + '_list = [' + ', '.join(arr) + '];'
     
     file_path = './' + cat + '.js'

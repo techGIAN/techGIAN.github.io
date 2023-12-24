@@ -437,10 +437,10 @@ var timeleft = 45;
 
 var questions = [
   "Mga probinsya sa Canada",
-  "Mga lugar na nagsisimula sa letter ‘Q’",
-  "Mga bansa sa Asia na nagtatapos sa letter ‘A’",
-  "Mga probinsya sa Pilipinas sa may ‘Norte’/‘Sur’",
-  "Mga bansa na may ‘Land’"
+  "Mga lugar na nagsisimula sa letter 'Q'",
+  "Mga bansa sa Asia na nagtatapos sa letter 'A'",
+  "Mga probinsya sa Pilipinas na may 'Norte'/'Sur'",
+  "Mga bansa na may 'Land'"
 ];
 
 var answers = [

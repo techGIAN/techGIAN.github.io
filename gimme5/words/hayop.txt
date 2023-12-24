@@ -18,3 +18,33 @@ Balyena
 Biik
 Lamb
 Hipon
+Leopard
+Daga
+Buffalo
+Golden Retriever
+Pigeon
+Hen
+Dove
+Python
+Sheep
+Horse
+Reindeer
+Raccoon
+Bat
+Prawn
+Snail
+Sloth
+Pusa
+Aso
+Gorilla
+Fox
+Elepante
+Moth
+Langgam
+Whale Shark
+Gansa
+Palaka
+Grasshopper
+Seal
+Walrus
+Dolphin

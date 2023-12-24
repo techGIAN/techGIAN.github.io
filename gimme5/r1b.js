@@ -438,9 +438,9 @@ var timeleft = 45;
 var questions = [
   "(E) Mga bagay na karaniwang matatagpuan sa casino",
   "(E) Mga bagay na makikita sa kusina na 2 words",
-  "(EAT) Mga bagay na mahahanap sa bahay na nagsisimula sa letter ‘T’",
+  "(EAT) Mga bagay na mahahanap sa bahay na nagsisimula sa letter 'T'",
   "Mga karaniwang laman ng balikbayan box",
-  "(T) Mga bagay sa bahay na nagtatapos sa letter ‘N’"
+  "(T) Mga bagay sa bahay na nagtatapos sa letter 'N'"
 ];
 
 var answers = [

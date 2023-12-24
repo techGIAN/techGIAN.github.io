@@ -437,10 +437,10 @@ var timeleft = 45;
 
 var questions = [
   "(T) Mga hayop na nakakain",
-  "(EAT) Mga hayop na nagsisimula sa letter ‘A’",
+  "(EAT) Mga hayop na nagsisimula sa letter 'A'",
   "(T) Mga hayop na may apat na letra",
-  "(E) Mga hayop na nagsisimula sa letter ‘O’",
-  "(EAT) Mga hayop na nagtatapos sa letter ‘N’"
+  "(E) Mga hayop na nagsisimula sa letter 'O'",
+  "(EAT) Mga hayop na nagtatapos sa letter 'N'"
 ];
 
 var answers = [

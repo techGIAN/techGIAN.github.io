@@ -440,7 +440,7 @@ var questions = [
   "(E) Mga pagkain na kadalasang mahahanap sa menu ng isang Chinese restaurant",
   "(E) Mga cakes",
   "(EAT) Mga inumin na masarap kapag malamig ang panahon",
-  "(T) Mga pagkaing nagsisimula sa letter ‘G’"
+  "(T) Mga pagkaing nagsisimula sa letter 'G'"
 ];
 
 var answers = [

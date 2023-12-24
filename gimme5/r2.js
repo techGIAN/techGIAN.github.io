@@ -698,7 +698,7 @@ async function violation() {
 
 var curr_word_ix = 0;
 
-function pass() {
+async function pass() {
   var word_div = document.getElementById("w" + curr_word_ix);
   var word_to_reveal = guess_words_list[curr_word_ix-1].toUpperCase();
   word_div.innerHTML = word_to_reveal;
@@ -706,6 +706,20 @@ function pass() {
   word_div.style.borderColor = "#c71035";
   word_div.onclick = null;
   play_audio("./media/wrong_beep.m4a", "wrong");
+
+  var slp = 250;
+  document.getElementById('diff_q').style.color = "red";
+  await sleep(slp);
+  document.getElementById('diff_q').style.color = "black";
+  await sleep(slp);
+  document.getElementById('diff_q').style.color = "red";
+  await sleep(slp);
+  document.getElementById('diff_q').style.color = "black";
+  await sleep(slp);
+  document.getElementById('diff_q').style.color = "red";
+  await sleep(slp);
+  document.getElementById('diff_q').style.color = "black";
+
   load_next_word();
 }
 

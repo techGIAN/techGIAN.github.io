@@ -508,8 +508,24 @@ function show_word(a_id) {
 
 }
 
-function play_wrong() {
+async function play_wrong() {
   play_audio("./media/wrong_beep.m4a", "wrong");
+  var slp = 250;
+  document.getElementById('diff_q').style.color = "red";
+  await sleep(slp);
+  document.getElementById('diff_q').style.color = "black";
+  await sleep(slp);
+  document.getElementById('diff_q').style.color = "red";
+  await sleep(slp);
+  document.getElementById('diff_q').style.color = "black";
+  await sleep(slp);
+  document.getElementById('diff_q').style.color = "red";
+  await sleep(slp);
+  document.getElementById('diff_q').style.color = "black";
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 var first_word_time = "00:00:00";

@@ -2,6 +2,22 @@
     margin-top: -2%;
 }
 
+.alert {
+    color: red;
+}
+
 table, th, td {
     border: 1px solid;
+}
+
+#dates {
+    width: 700px;
+}
+
+#hwDates {
+    width: 100%;
+}
+
+#dates td {
+    padding: 1%;
 }

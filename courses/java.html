@@ -2,9 +2,52 @@
 <html>
     <head>
         <title>Introduction to Java</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.css">
         <link rel="stylesheet" href="course.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-java.min.js"></script>
+        <script src="course.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     </head>
     <body>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                Prism.highlightAll();
+                // Create copy button
+             var preElements = document.querySelectorAll('pre');
+             preElements.forEach(function (pre) {
+                 var code = pre.querySelector('code');
+                 
+                 var copyIcon = document.createElement('i');
+                 copyIcon.className = 'fas fa-copy copy-icon'; // Use className to set classes
+                 pre.appendChild(copyIcon);
+                 
+                 var copiedText = document.createElement('span');
+                copiedText.className = 'copied-text';
+                copiedText.textContent = 'Copied to clipboard!';
+                pre.appendChild(copiedText);
+                
+                copyIcon.addEventListener('click', function () {
+                    // Copy code text to clipboard
+                    var codeText = code.textContent;
+                    navigator.clipboard.writeText(codeText).then(function () {
+                        // Show copied text and hide icon temporarily
+                        copyIcon.style.display = 'none';
+                        copiedText.style.display = 'inline';
+                        
+                        // Revert to icon after 2 seconds
+                        setTimeout(function () {
+                            copyIcon.style.display = 'inline';
+                            copiedText.style.display = 'none';
+                        }, 2000);
+                    }).catch(function (error) {
+                        console.error('Failed to copy text: ', error);
+                    });
+                });
+             });
+            });
+        </script>
         <div style="margin:auto; width:50%; text-align:center;">
             <h1>Introduction to Java</h1> 
             <h3 id="term">(Summer 2024)</h3>
@@ -53,7 +96,7 @@
         <hr>
 
         <h3>Course Policies</h3>
-        <ol>
+        <ol style="line-height:1.5;">
             <li>Please come on time (~10-15 minutes before the start of the class time).</li>
             <li>Have your laptop computer ready fully-charged (or at least with battery); if your laptop is close to 0%, make sure to bring a charger to class (always bring a charger!).  <span class="alert">Note that a tablet or a phone cannot be used as a replacement for a laptop.</span></li>
             <li>Load Java/Eclipse IDE before the class begins (see <a href="#otherRes">Other Resources</a> section below for more information about software installation). </li>
@@ -144,29 +187,42 @@
             </tr>
         </table>
         <h4>Instructions for submission:</h4>
-        <ol>
-            <li>First create a folder with the following filename: <code>firstname-lastname-HWx</code>, where <code>x</code> is the HW number. So for example, I will name my folder as <code>Gian-Alix-HW1</code> for my first homework submission.</li>
+        <ol style="line-height:1.5;">
+            <li>First create a folder with the following filename: <code class="inline">firstname-lastname-HWx</code>, where <code class="inline">x</code> is the HW number. So for example, I will name my folder as <code class="inline">Gian-Alix-HW1</code> for my first homework submission.</li>
             <li>Place all files that you would like to submit to this folder (i.e., copy-paste). For each file of your homework submission, you will submit either one of the following file types:</li>
             <ul>
-                <li>A <code>.java</code> file - this will be the most common file type that you will be submitting. Navigate to the <code>/eclipse-workspace</code> directory in your system, then you will be able to find the file that your wish to submit in one of the project folders.</li>
-                <li>A <code>.pdf</code> file - there are some homework exercises that does not necessarily require a code solution, but perhaps a math solution or an explanation from you. In such cases, you can create a document (i.e., Microsoft Word, Google Doc, etc.), type your answers there, and then export it to PDF format.</li>
-                <li>A <code>.txt</code> file - I will be specifying if a simple txt file is needed for a specific homework submission</li>
+                <li>A <code class="inline">.java</code> file - this will be the most common file type that you will be submitting. Navigate to the <code class="inline">/eclipse-workspace</code> directory in your system, then you will be able to find the file that your wish to submit in one of the project folders.</li>
+                <li>A <code class="inline">.pdf</code> file - there are some homework exercises that does not necessarily require a code solution, but perhaps a math solution or an explanation from you. In such cases, you can create a document (i.e., Microsoft Word, Google Doc, etc.), type your answers there, and then export it to PDF format.</li>
+                <li>A <code class="inline">.txt</code> file - I will be specifying if a simple txt file is needed for a specific homework submission</li>
             </ul>
-            <li>Once all files that you would like to submit are now in the folder, compress it using any of the zipping softwares. For Windows such as: <a href="https://www.win-rar.com/start.html?&L=0">WinRar</a>, <a href="https://www.7-zip.org/">7zip</a>, or <a href="https://www.winzip.com/en/">WinZip</a> (no need to install if your machine already has one). For Mac, a compression utility software is already built-in so no need to install (simply right click on the folder, then click on <code>Compress</code>).</li>
+            <li>Once all files that you would like to submit are now in the folder, compress it using any of the zipping softwares. For Windows such as: <a href="https://www.win-rar.com/start.html?&L=0">WinRar</a>, <a href="https://www.7-zip.org/">7zip</a>, or <a href="https://www.winzip.com/en/">WinZip</a> (no need to install if your machine already has one). For Mac, a compression utility software is already built-in so no need to install (simply right click on the folder, then click on <code class="inline">Compress</code>).</li>
             <li>Upload the zipped folder to the following directory. Access it <a href="https://ossfiles.ca/index.php/s/dSmXPG9wFEB564r" target="_blank">here</a>. Feel free to upload as many times as you wish. Previously uploaded files are overwritten. Only the last submission will be graded.</li>
         </ol>
-        <p>Feel free to ask me questions about homework submission (especially if you're not sure how or where to find the <code>/eclipse-workspace</code> directory) and I will be able to help you.</p>
+        <p>Feel free to ask me questions about homework submission (especially if you're not sure how or where to find the <code class="inline">/eclipse-workspace</code> directory) and I will be able to help you.</p>
         <hr>
 
         <h3>Accessing Grades</h3>
         <p>The gradebook will be updated every Wednesday and you can access your grades at anytime using your grade code. You can sign up for your grade code <a href="https://forms.gle/XrQRnR64jsyTjJMY6" target="_blank">here</a> (you only need to do this once in this course), and you will receive the code within ~24-48 hours from the time that you signed up for it. This is what you will have to use to access your grade <a href="https://docs.google.com/spreadsheets/d/1F61a0ixVtGn-SoKtUiRqZynpg74UPbbQwcXQDhWbpiI/edit?usp=sharing" target="_blank">here</a>. Make sure to read the instructions in this Google Sheet on how to use it.</p>
         <hr>
 
+        <!-- <pre class="line-numbers"><code class="language-java">public static void main(String[] args) {
+    System.out.println("Hello World!");
+}</code></pre> -->
+        
         <h3>Announcements</h3>
         <i>This will be populated overtime. Announcements are posted as a stack, so the most recent announcements are on top.</i>
-        <ul>
-            <li><b>July 1st, 2024: </b> Please take some time to answer the following <a href="https://forms.gle/ZNEiAeeQNbDPipREA" target="_blank">diagnostic test</a>. Just try your best; if you do not know the answer, just make a guess instead of leaving it blank. Your grade will not be released (unless you opted to) and is only for my personal assessment only.</li>
-            <li><b>June 30th, 2024: </b> Welcome to the course! Make sure to spend some time going over this course webpage providing valuable information regarding this course. Bookmark this page so you can easily visit this page. Email me for any questions: <a href="mailto: galix@olympiadsmail.ca">galix@olympiadsmail.ca</a></li>
+        <ul style="line-height:1.5;">
+            <li>Testing
+                <pre class="line-numbers" style="width:25%;"><code class="language-java">public static void main(String[] args) {
+    System.out.println("Hello World!");
+}</code></pre>
+            </li>
+            <li><b>July 1st, 2024: </b>
+                Please take some time to answer the following <a href="https://forms.gle/ZNEiAeeQNbDPipREA" target="_blank">diagnostic test</a>. Just try your best; if you do not know the answer, just make a guess instead of leaving it blank. Your grade will not be released (unless you opted to) and is only for my personal assessment only.
+            </li>
+            <li><b>June 30th, 2024: </b>
+                Welcome to the course! Make sure to spend some time going over this course webpage providing valuable information regarding this course. Bookmark this page so you can easily visit this page. Email me for any questions: <a href="mailto: galix@olympiadsmail.ca">galix@olympiadsmail.ca</a>
+            </li>
         </ul>
         <hr>
 
@@ -339,8 +395,9 @@
 
         <h3 id="otherRes">Other Resources</h3>
         <p>For any other useful resources not found above, they will be posted below.</p>
-        <ul>
+        <ul style="line-height:1.5;">
             <li><a href="https://eclipseide.org/" target="_blank">The Eclipse IDE</a> - for this course, feel free to use other IDEs if they are already preinstalled in your machine. Here are other IDEs: <a href="https://www.jetbrains.com/idea/" target="_blank">IntelliJ</a>, <a href="https://netbeans.apache.org/front/main/index.html" target="_blank">Netbeans</a>, etc.  </li>
+            <li><a href="https://www.oracle.com/ca-en/java/technologies/downloads/" target="_blank">Java 22 JDK</a> - make sure you are able to install this on Week 1. To verify that the Java version and if it has been installed correctly in your machine, type <code class="inline">java --version</code> in your terminal/command prompt. See the following slides for more information about installation.</li>
             <li>...</li>
         </ul>
         <hr>

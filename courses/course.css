@@ -99,3 +99,10 @@ pre.line-numbers > code {
     right: 10px;
     color: #999;
 }
+
+.regularBox {
+    border: 1px solid;
+    padding: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+}

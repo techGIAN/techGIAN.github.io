@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.css">
         <link rel="stylesheet" href="course.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-java.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
         <script src="course.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     </head>
@@ -109,6 +109,7 @@
             <li>There will be coding exercises throughout the lectures. You are expected to try working on these exercises (as I do not necessarily give out the solutions). Because it will be hard to check if everybody is doing the work, then I will trust that you are actually working on these exercises.</li>
             <li>There are homeworks expected to be submitted weekly. They will be released every Tuesdays, and will be due the following Tuesday. More information about Homework submission in the Homeworks section below.</li>
             <li>There will be a midterm test and a final exam for this course. More information will be provided closer to the dates.</li>
+            <li>The use of any chatbots or AI such as ChatGPT is <span class="alert"><b>strongly discrouraged</b></span> in this course; and moreover, <span class="alert"><b>any work that is submitted that contains content of a generative AI is strictly not allowed</b></span>. <i>When caught, this incident will be reported to the school for disciplinary action.</i> </li>
             <li>...</li>
         </ol>
         <hr>
@@ -194,14 +195,14 @@
             <li>First create a folder with the following filename: <code class="inline">firstname-lastname-HWx</code>, where <code class="inline">x</code> is the HW number. So for example, I will name my folder as <code class="inline">Gian-Alix-HW1</code> for my first homework submission.</li>
             <li>Place all files that you would like to submit to this folder (i.e., copy-paste). For each file of your homework submission, you will submit either one of the following file types:</li>
             <ul>
-                <li>A <code class="inline">.java</code> file - this will be the most common file type that you will be submitting. Navigate to the <code class="inline">/eclipse-workspace</code> directory in your system, then you will be able to find the file that your wish to submit in one of the project folders.</li>
+                <li>A <code class="inline">.py</code> file - this will be the most common file type that you will be submitting. Navigate to the <code class="inline">/PycharmProjects</code> directory in your system, then you will be able to find the file that your wish to submit in one of the project folders.</li>
                 <li>A <code class="inline">.pdf</code> file - there are some homework exercises that does not necessarily require a code solution, but perhaps a math solution or an explanation from you. In such cases, you can create a document (i.e., Microsoft Word, Google Doc, etc.), type your answers there, and then export it to PDF format.</li>
                 <li>A <code class="inline">.txt</code> file - I will be specifying if a simple txt file is needed for a specific homework submission</li>
             </ul>
             <li>Once all files that you would like to submit are now in the folder, compress it using any of the zipping softwares. For Windows such as: <a href="https://www.win-rar.com/start.html?&L=0">WinRar</a>, <a href="https://www.7-zip.org/">7zip</a>, or <a href="https://www.winzip.com/en/">WinZip</a> (no need to install if your machine already has one). For Mac, a compression utility software is already built-in so no need to install (simply right click on the folder, then click on <code class="inline">Compress</code>).</li>
             <li>Upload the zipped folder to the following directory. Access it <a href="https://ossfiles.ca/index.php/s/SZAwXgmSDQ4dLNS" target="_blank">here</a>. Feel free to upload as many times as you wish. Previously uploaded files are overwritten. Only the last submission will be graded.</li>
         </ol>
-        <p>Feel free to ask me questions about homework submission (especially if you're not sure how or where to find the <code class="inline">/eclipse-workspace</code> directory) and I will be able to help you.</p>
+        <p>Feel free to ask me questions about homework submission (especially if you're not sure how or where to find the <code class="inline">/PycharmProjects</code> directory) and I will be able to help you.</p>
         <hr>
 
         <h3>Accessing Grades</h3>
@@ -245,7 +246,7 @@
                 </td>
                 <td>
                     <ul>
-                        <li>Introduction to Java</li>
+                        <li>Introduction to Python</li>
                         <li>Variables</li>
                     </ul>
                 </td>
@@ -260,9 +261,9 @@
                 </td>
                 <td>
                     <ul>
-                        <li>Introduction to the Course</li>
-                        <li>The PyCharm IDE</li>
-                        <li>Variables Slides</li>
+                        <li><a href="https://ossfiles.ca/index.php/s/Bm3YcYQXRGndDER" target="_blank">Introduction to the Course</a></li>
+                        <li><a href="https://ossfiles.ca/index.php/s/7Fks7Dcd2n2SsMR" target="_blank">The PyCharm IDE</a></li>
+                        <li><a href="https://ossfiles.ca/index.php/s/nTjHsTTX4LeGiXG" target="_blank">Variables</a> Slides</li>
                     </ul>
                 </td>
             </tr>
@@ -399,7 +400,7 @@
         <p>For any other useful resources not found above, they will be posted below.</p>
         <ul style="line-height:1.5;">
             <li>We will use the <a href="https://www.jetbrains.com/pycharm/" target="_blank">PyCharm IDE</a> for this course. You can use other IDEs if you prefer, but most support is provided to PyCharm users. </li>
-            <li><a href="https://www.python.org/downloads/" target="_blank">Python3</a> - make sure you are able to install this by Week 1. To verify the version and if Python has been installed correctly in your machine, type <code class="inline">python3 --version</code> or <code class="inline">python3 --V</code> in your terminal/command prompt. See the following slides for more information about installation.</li>
+            <li><a href="https://www.python.org/downloads/" target="_blank">Python3</a> - make sure you are able to install this by Week 1. To verify the version and if Python has been installed correctly in your machine, type <code class="inline">python3 --version</code> or <code class="inline">python3 --V</code> in your terminal/command prompt. See the following PDFs for more information about installation:  <a href="https://ossfiles.ca/index.php/s/sdBNKn3DfX5PGgD" target="_blank">for Windows</a>, <a href="https://ossfiles.ca/index.php/s/sR5mQKgLkZ64gkQ" target="_blank">for MacOS</a></li>
             <li>...</li>
         </ul>
         <hr>

@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	var dateMod = formattedDate.split(',')[0] + daySuffix;
 	var yearMod = formattedDate.split(',')[1];
 	var timeMod = formattedDate.split(',')[2];
-	var finalFormattedDate = dateMod + ", " + yearMod + " @ " + timeMod;
+	var finalFormattedDate = dateMod + ", " + yearMod;
 	
 	// Update the text content of the dtModifiedElement
 	dtModifiedElement.textContent = "Last updated: " + finalFormattedDate;

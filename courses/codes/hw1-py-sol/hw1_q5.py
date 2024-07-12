@@ -1,2 +1,5 @@
 print("Name\t\t\tAge\tFavorite Language\tFavorite Dessert")
 print("Albert Smith\t10\tJava\t\t\t\tIce-cream")
+print("Betty Lim\t\t9\tPython\t\t\t\tChocolate Fudge Cake")
+print("Calvin Chan\t\t11\tC++\t\t\t\t\tCheese Cake")
+print("Danny Taylor\t8\tJavaScript\t\t\tM&M")

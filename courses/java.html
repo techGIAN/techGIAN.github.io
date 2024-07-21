@@ -147,17 +147,17 @@
                 <td>July 16th, 2024</td>
                 <td>July 23rd, 2024</td>
                 <td>July 24th, 2024</td>
-                <td>July 25th, 2024</td>
-                <td>We will take up the solutions of the homework before the midterm.</td>
+                <td>July <s>25th</s> 22nd, 2024</td>
+                <td>We will take up the solutions of the homework <s>before the midterm.</s> at the beginning of Jul 22nd.</td>
             </tr>
             <tr>
                 <td><b>Homework 4</b>: Procedural Programming</td>
-                <td style="text-align:center;">Not available</td>
+                <td style="text-align:center;"><a href="https://ossfiles.ca/index.php/s/LqQ873Ne2p5NMAj" target="_blank">Click here</a></td>
                 <td>July 23rd, 2024</td>
                 <td>July 30th, 2024</td>
                 <td>July 31st, 2024</td>
                 <td>August 1st, 2024</td>
-                <td></td>
+                <td>Solutions are taken up on Jul 25th before the start of the midterm test.</td>
             </tr>
             <tr>
                 <td><b>Homework 5</b>: Arrays and Lists</td>
@@ -222,14 +222,39 @@
                 Please take some time to answer the following <a href="https://forms.gle/ZNEiAeeQNbDPipREA" target="_blank">diagnostic test</a>. Just try your best; if you do not know the answer, just make a guess instead of leaving it blank. Your grade will not be released (unless you opted to) and is only for my personal assessment only.
             </li> -->
             <li><b>Jul 21st, 2024: </b>
+                My tips for studying for the midterm:
+                <ul>
+                    <li>Review each of the slides from Week 1 to 4. Make sure you not only know the concepts, but also able to do the in-class exercises independently.</li>
+                    <li>Go over each of our Homeworks (and the solutions), make sure you are able to understand the solutions and able to do the questions yourself independently. (You can also redo them if you like!)</li>
+                    <li>Try doing the sample midterm questions. Some of the questions there are Part A-type questions, and some are Part B-type questions. Timing yourself can also help, so that you are able to manage your time during the test (I will have a timer during the timer so that everyone knows how much time you have left).</li>
+                    <li>It's good to prepare a new project already before the midterm begins to save time. For Part B of the test, you will initially be asked to create a new Java project in Eclipse <code class="inline">Firstname-Lastname-Midterm</code> with three <code class="inline">.java</code> classes: <code class="inline">Q1.java</code>, <code class="inline">Q2.java</code>, and <code class="inline">Q3.java</code></li>
+                </ul>
+            </li>
+            <li><b>Jul 21st, 2024: </b>
+                More announcements coming your way. Firstly, always refresh this page whenever you visit it so that the latest announcements get loaded. Next, here are the solutions to Part A of Homework 2: <a href="./codes/hw2-java-sol/HW2Q1.java" target="_blank">HW2Q1.java</a>, <a href="./codes/hw2-java-sol/HW2Q2.java" target="_blank">HW2Q2.java</a>, <a href="./codes/hw2-java-sol/HW2Q3.java" target="_blank">HW2Q3.java</a>, <a href="./codes/hw2-java-sol/HW2Q4.java" target="_blank">HW2Q4.java</a>. With the midterm right around the corner, I have decided to also post the solutions of Homework 3 ahead of time (don't worry, the due date to submit is still on Tue, Jul 23rd). But I trust that you would try the Homework 3 exercises first before comparing and looking at my solutions: <a href="./codes/hw3-java-sol/HW3Q1.java" target="_blank">HW3Q1.java</a>, <a href="./codes/hw3-java-sol/HW3Q2.java" target="_blank">HW3Q2.java</a>, <a href="./codes/hw3-java-sol/HW3Q3.java" target="_blank">HW3Q3.java</a>, <a href="./codes/hw3-java-sol/HW3Q4.java" target="_blank">HW3Q4.java</a>, <a href="./codes/hw3-java-sol/HW3Q5.java" target="_blank">HW3Q5.java</a>, <a href="./codes/hw3-java-sol/HW3Q6.java" target="_blank">HW3Q6.java</a>, <a href="./codes/hw3-java-sol/HW3Q7.java" target="_blank">HW3Q7.java</a>. The solutions will be taken up at the beginning of class tomorrow, however. Homework 4 has also just been posted ahead of time; again no changes to the due date (it's just a short homework!)
+            </li>
+            <li><b>Jul 21st, 2024: </b>
                 I have already posted the solutions to some in-class exercises from last Thursday's class (see Topics and Resources section). Also, please try to do an advanced reading on the upcoming material for Monday (Procedural Programming); as it will be the last topic that will be covered to be included in the midterm on Thursday. There is one question from the homework about checking if an integer is odd. If we want to check if an integer is odd, the following code is wrong:
                     <pre class="line-numbers" style="width:40%;"><code class="language-java">public static void main(String[] args) {
-    // Assume n is the integer; you could try for positive n integers (e.g., 7, 15, 23, etc.) which gives a correct answer but negative integers don't work (e.g., -7, -15, -23, etc.)
+    // Assume n is the integer; you could try for positive n integers (e.g., 7, 15, 23, etc.)
+    // which gives a correct answer but negative integers don't work (e.g., -7, -15, -23, etc.)
     if (n % 2 == 1) {
         System.out.println("The integer is odd.");
     }
 }</code></pre>
-                Here's a workaround. Option 1: check <code class="inline">n % 2 != 0</code> in your <code class="inline">if</code> statement. Option 2: What you check instead is <code class="inline">absN</code>, where <code class="inline">absN = Math.abs(n)</code>. 
+                Here's a workaround. Option 1: check <code class="inline">n % 2 != 0</code> in your <code class="inline">if</code> statement. Option 2: What you check instead is <code class="inline">absN</code>, where <code class="inline">absN = Math.abs(n)</code>.
+                    <pre class="line-numbers" style="width:40%;"><code class="language-java">public static void main(String[] args) {
+    // Option 1
+    if (n % 2 != 0) {
+        System.out.println("The integer is odd.");
+    }
+
+    // Option 2
+    int absN = Math.abs(n);
+    if (absN % 2 == 1) {
+        System.out.println("The integer is odd.");
+    }
+}</code></pre>
             </li>
             <li><b>Jul 17th, 2024: </b>
                 <span class="alert"><b>Important Announcement about the Upcoming Midterm Test:</b> This will happen next week Thursday, July 25th which will cover all material that we have learned in this course from Week 1 all the way up to Week 4. We'll talk about the <a href="https://ossfiles.ca/index.php/s/EMRjH9YgYozi6pk" target="_blank">full details</a> of this in-class tomorrow. For Part B of the test, you will initially be asked to create a new Java project in Eclipse <code class="inline">Firstname-Lastname-Midterm</code> with three <code class="inline">.java</code> classes: <code class="inline">Q1.java</code>, <code class="inline">Q2.java</code>, and <code class="inline">Q3.java</code>. Here is a list of some <a href="https://ossfiles.ca/index.php/s/Pf3i5DmjN7SoNY9" target="_blank">sample midterm questions</a> (I don't have solutions; I'll post solutions here in the next few days only if I have time to make them). I can assure you that if you are able to solve these questions independently, you will have smooth sailing during the test.</span>

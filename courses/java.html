@@ -221,6 +221,16 @@
             <!-- <li><b>July 1st, 2024: </b>
                 Please take some time to answer the following <a href="https://forms.gle/ZNEiAeeQNbDPipREA" target="_blank">diagnostic test</a>. Just try your best; if you do not know the answer, just make a guess instead of leaving it blank. Your grade will not be released (unless you opted to) and is only for my personal assessment only.
             </li> -->
+            <li><b>Jul 21st, 2024: </b>
+                I have already posted the solutions to some in-class exercises from last Thursday's class (see Topics and Resources section). Also, please try to do an advanced reading on the upcoming material for Monday (Procedural Programming); as it will be the last topic that will be covered to be included in the midterm on Thursday. There is one question from the homework about checking if an integer is odd. If we want to check if an integer is odd, the following code is wrong:
+                    <pre class="line-numbers" style="width:40%;"><code class="language-java">public static void main(String[] args) {
+    // Assume n is the integer; you could try for positive n integers (e.g., 7, 15, 23, etc.) which gives a correct answer but negative integers don't work (e.g., -7, -15, -23, etc.)
+    if (n % 2 == 1) {
+        System.out.println("The integer is odd.");
+    }
+}</code></pre>
+                Here's a workaround. Option 1: check <code class="inline">n % 2 != 0</code> in your <code class="inline">if</code> statement. Option 2: What you check instead is <code class="inline">absN</code>, where <code class="inline">absN = Math.abs(n)</code>. 
+            </li>
             <li><b>Jul 17th, 2024: </b>
                 <span class="alert"><b>Important Announcement about the Upcoming Midterm Test:</b> This will happen next week Thursday, July 25th which will cover all material that we have learned in this course from Week 1 all the way up to Week 4. We'll talk about the <a href="https://ossfiles.ca/index.php/s/EMRjH9YgYozi6pk" target="_blank">full details</a> of this in-class tomorrow. For Part B of the test, you will initially be asked to create a new Java project in Eclipse <code class="inline">Firstname-Lastname-Midterm</code> with three <code class="inline">.java</code> classes: <code class="inline">Q1.java</code>, <code class="inline">Q2.java</code>, and <code class="inline">Q3.java</code>. Here is a list of some <a href="https://ossfiles.ca/index.php/s/Pf3i5DmjN7SoNY9" target="_blank">sample midterm questions</a> (I don't have solutions; I'll post solutions here in the next few days only if I have time to make them). I can assure you that if you are able to solve these questions independently, you will have smooth sailing during the test.</span>
             </li>
@@ -379,8 +389,8 @@
                     <ul>
                         <li><a href="https://ossfiles.ca/index.php/s/5DFfDp932SDHKoq" target="_blank">Branching Slides</a></li>
                         <li><a href="https://ossfiles.ca/index.php/s/y5dnqrPm6RJcWaj" target="_blank">Branching Handout Solutions - Jul 15th</a></li>
-                        <li><a href="./codes/Grades.java" target="_blank">Grades.java</a>, <a href="./codes/Elements.java" target="_blank">Elements.java</a>, <a href="./codes/DayOfWeek.java" target="_blank">DayOfWeek.java</a>, <a href="./codes/MovieTicket.java" target="_blank">MovieTicket.java</a></li>
                         <li><a href="https://ossfiles.ca/index.php/s/9CbgpraYREjmeaL" target="_blank">Loops Slides</a></li>
+                        <li><a href="./codes/Grades.java" target="_blank">Grades.java</a>, <a href="./codes/Elements.java" target="_blank">Elements.java</a>, <a href="./codes/DayOfWeek.java" target="_blank">DayOfWeek.java</a>, <a href="./codes/MovieTicket.java" target="_blank">MovieTicket.java</a>, <a href="./codes/SpecialStrings.java" target="_blank">SpecialStrings.java</a>, <a href="./codes/StepSize.java" target="_blank">StepSize.java</a></li>
                     </ul>
                 </td>
             </tr>

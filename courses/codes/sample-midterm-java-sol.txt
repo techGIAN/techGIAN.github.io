@@ -1,0 +1,251 @@
+Sample Midterm Solutions
+=========================
+
+Note that these are sample solutions only....
+If you spot a mistake, please contact me right away!
+Also sorry for being sloppy ^_^
+
+
+
+Q1.
+
+See PDF: https://ossfiles.ca/index.php/s/rSYwZyasFcxZd5C
+
+Q2.
+
+The output is a = 10; b = 20
+Note that we do not swap the values of a and b because Java methods cannot update values of primitive data types like integers.
+
+Q3.
+
+Here is a list of some issues in this code (if you spot others, let me know!):
+* The boolean values are supposed to be true and false instead of True or False.
+* We can use a flag variable called isLeap, so we only have one return statement (based on the good practices that we learned last Monday) - for better flow of the program.
+* The logic is not correct. The idea is you check first if the year is a multiple of 400, then by 100, then by 4. In the code given to us, suppose that the year = 2100. The year 2100 is not a leap year because while it is divisible by 4, it is divisible by 100 but not by 400. So that code will return true and is incorrect.
+
+public static boolean isLeapYear (int year) {
+    boolean isLeap = false;
+    if (year % 400 == 0) {
+        isLeap = true;
+    } else if (year % 100 == 0) {
+        isLeap = false;
+    } else if (year % 4 == 0) {
+        isLeap = true;
+    } else {
+        isLeap = false;
+    }
+    return isLeap;
+}
+
+Q4.
+
+public static void main(String[] args) { 
+    Scanner sc = new Scanner(System.in); 
+    System.out.print(“Enter the first length: ”); 
+    double a = Double.parseDouble(sc.nextLine()); 
+    System.out.print(“Enter the second length: ”); 
+    double b = Double.parseDouble(sc.nextLine()); 
+    System.out.print(“Enter the third length: ”); 
+    double c = Double.parseDouble(sc.nextLine()); 
+    System.out.print(“Enter the fourth length: ”); 
+    double d = Double.parseDouble(sc.nextLine()); 
+ 
+    double P = a + b + c + d; 
+    System.out.println(“The perimeter is ” + P + “units.”); 
+} 
+
+
+Q5.
+
+public class Q5 {
+
+    public static void main(String[] args) {
+        printCubes1();              // for the solution to Q5a
+        printCubes1AltSol();        // alternate solution to Q5a
+        printCubes2();              // for the solution to Q5b
+    }
+
+    public static void printCubes1() {
+        for (int i = 1; i <= 240; i++) {
+            double dec = i / 100.0;
+            double cube = dec * dec * dec;
+            System.out.println(String.format("%.6f", cube));
+        }
+    }
+
+    public static void printCubes1AltSol() {
+        printCubes2(240);
+    }
+
+    public static void printCubes2(int x) {
+        for (int i = 1; i <= x; i++) {
+            double dec = i / 100.0;
+            double cube = dec * dec * dec;
+            System.out.println(String.format("%.6f", cube));
+        }
+    }
+
+}
+
+Q6.
+
+You are allowed to create a submethod. Here's my solution
+
+public class Q6 {
+
+    public static void main(String[] args) {
+        // tests the triangleArea
+        double a = 3;
+        double b = 4;
+        double c = 5;
+        triangleArea(a, b, c);
+
+        // tests the triangleArea
+        double a = 6;
+        double b = 14;
+        double c = 7;
+        triangleArea(a, b, c);
+    }
+
+    /*
+    *   A method that determines if a given triangle is valid.
+    *   Params: a, b, and c - double values that represent the side lengths of a triangle
+    *   Returns: isValid -  a boolean that returns true if the triangle is valid with the given sidelengths and false otherwise
+    */
+    public static boolean isValid(double a, double b, double c) {
+        boolean isValid = false;
+
+        // check if a, b, and c are positive
+        // also check if the sum of any two sides is greater than the third side
+        if (a > 0 && b > 0 && c > 0 && a + b > c && a + c > b && b + c > a) {
+            isValid = true;
+        }
+
+        return isValid;
+    }
+
+    /*
+    *   A method that calculate the area of a triangle if it is valid. Prints the area if so, and print Invalid if it is not valid.
+    *   Params: a, b, and c - double values that represent the side lengths of a triangle
+    *   Returns: (nothing)
+    */
+    public static void triangleArea(double a, double b, double c) {
+        if (isValid(a, b, c)) {
+            double s = (a + b + c)/2.0;
+            double area = Math.pow(s * (s-a) * (s-b) * (s-c), 0.5);
+            System.out.println(String.format("The triangle with sides a = %.2f, b = %.2f, and c = %.2f has area %.2f sq. units.", a, b, c, area));
+        } else {
+            System.out.println(String.format("The triangle with sides a = %.2f, b = %.2f, and c = %.2f is not valid.", a, b, c));
+        }
+    }
+}
+
+
+Q7.
+
+import java.util.Scanner;
+
+public class Q7 {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the sphere's radius: ");
+        double r = sc.nextDouble();
+        double S = surfaceArea(r);
+        System.out.println(String.format("Your sphere has volume %.4f sq. units", S));
+    }
+
+    /*
+    *   A method that calculates the surface area of a sphere with radius r
+    *   Params: r - a double that represents the radius of a sphere
+    *   Returns: its surface area
+    */
+    public static double surfaceArea(double r) {
+        return 4 * Math.PI * r * r;
+    }
+
+}
+
+Q8.
+
+This method is a primality checker. Given an integer n, determine if the number is prime. The method checks if:
+* n is a multiple of 2
+* n is a mulitple of 3
+...
+* n is a multiple of sqrt(n)
+
+The moment we see that n is multiple of something, then it is not prime. 
+
+So return true if it is prime, and false otherwise.
+
+
+Q9.
+
+Definitely many possible solutions; anything works as long as it is correct.
+
+a)
+
+This is a 10x10 grid but we only print the upper triangular +'s. Unfortunately, we need nested loops:
+
+// each iteration is a row (i is the number of crosses)
+for (int i = 10; i >= 1; i--) {
+    int k = 10 - i;     // the number of initial spaces
+    for (int j = 0; j < k; j++) {
+        System.out.print(" ");
+    }
+    for (int n = 0; n < i; n++) {       // print the +
+        System.out.print("+");
+    }
+    System.out.println();
+}
+
+b)
+
+// Too complicated at this time.... We'll do this again when we cover recursion later on, maybe 1-2 weeks after the midterm... 
+
+
+c) 
+
+We have 1 star, 3 stars, 5 starts, 7 stars, then 9, then back to 7, 5, 3, 1
+
+// the first half
+for (int i = 0; i < 5; i++) {
+    int stars = 2*i + 1;            // the number of stars in each row
+    int spaces = 9 - stars;         // the number of spaces in each row
+    int halfSpaces = spaces / 2;     // number of left and right space
+
+    for (int j = 0; j < halfSpaces; j++) {
+        System.out.print(" ");      // spaces
+    }
+
+    for (int j = 0; j < stars; j++) {
+        System.out.print("*");      // stars
+    }
+
+    for (int j = 0; j < halfSpaces; j++) {  
+        System.out.print(" ");      // spaces
+    }
+
+    System.out.println();
+}
+
+// the second half
+for (int i = 3; i >= 0; i--) {
+    int stars = 2*i + 1;            // the number of stars in each row
+    int spaces = 9 - stars;         // the number of spaces in each row
+    int halfSpaces = spaces / 2;     // number of left and right space
+
+    for (int j = 0; j < halfSpaces; j++) {
+        System.out.print(" ");      // spaces
+    }
+
+    for (int j = 0; j < stars; j++) {
+        System.out.print("*");      // stars
+    }
+
+    for (int j = 0; j < halfSpaces; j++) {  
+        System.out.print(" ");      // spaces
+    }
+
+    System.out.println();
+}

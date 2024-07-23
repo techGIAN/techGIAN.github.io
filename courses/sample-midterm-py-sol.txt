@@ -1,0 +1,173 @@
+Sample Midterm Solutions
+=========================
+
+Note that these are sample solutions only....
+If you spot a mistake, please contact me right away!
+Also sorry for being sloppy ^_^
+
+
+
+Q1.
+
+See PDF: https://ossfiles.ca/index.php/s/rSYwZyasFcxZd5C
+
+Q2.
+
+The output is a = 10; b = 20
+Note that we do not swap the values of a and b because Python is unable update values of integers through function calls.
+
+
+Q3.
+
+Here is a list of some issues in this code (if you spot others, let me know!):
+* The boolean values are supposed to be True and False instead of true or false.
+* We can use a flag variable called is_leap, so we only have one return statement (based on the good practices that we learned last class) - for better flow of the program.
+* The logic is not correct. The idea is you check first if the year is a multiple of 400, then by 100, then by 4. In the code given to us, suppose that the year = 2100. The year 2100 is not a leap year because while it is divisible by 4, it is divisible by 100 but not by 400. So that code will return true and is incorrect.
+
+def is_leap_year(year):
+    is_leap = False
+    if year % 400 == 0:
+        is_leap = True
+    elif year % 100 == 0:
+        is_leap = False
+    elif year % 4 == 0:
+        is_leap = True
+    else:
+        is_leap = False
+    return is_leap
+
+Q4.
+
+a = float(input(“Enter the first length: “)) 
+b  = float(input(“Enter the second length: “)) 
+c = float(input(“Enter the third length: “)) 
+d = float(input(“Enter the fourth length: “)) 
+ 
+p = a  + b + c + d 
+print("The quadrilateral’s perimeter is %.2f units” %  P)
+
+Q5.
+
+def printCubes1():
+    # Note that we are not allowed to use 0.01, 0.02, ..., 2.40 in range
+    for i in range(1, 241):
+        num = (i / 100) ** 3
+        print("%.6f" % num)
+
+def printCubes2(x):
+    for i in range(1, x+1):
+        num = (i / 100) ** 3
+        print("%.6f" % num)
+
+Q6.
+
+Notice here I made 2 subfunctions:
+
+def isValid(a, b, c):
+    is_valid = False
+    if a > 0 and b > 0 and c > 0 and (a + b) > c and (a + c) > b and (b + c) > a:
+        is_valid = True
+    return is_valid
+
+def triangle_area(a, b, c):
+    output = "The triangle with sides a = " + str(a) + ", b = " + str(b) + ", and c = " + str(c) 
+    if isValid(a, b, c):
+        s = (a + b + c)/2
+        A = (s * (s-a) * (s-b) * (s-c)) ** 0.5
+        output += "has area"
+        print("The triangle with sides a = %.2f, b = %.2f, and c = %.2f has area %.2f sq. units." % (a, b, c, A))
+    else:
+        print("The triangle with sides a = %.2f, b = %.2f, and c = %.2f is not vaid." % (a, b, c))
+
+triangle_area(3, 4, 5)
+triangle_area(6, 14, 7)
+
+Q7.
+
+The question had a typo in the output. It should be surface area not volume.
+
+import math
+
+def surfaceArea(r):
+    return 4 * math.pi * r * r
+
+radius = float(input("Please enter the radius: "))
+S = surfaceArea(radius)
+print("Your sphere has surface area %.4f sq. units." % S)
+
+Q8. 
+
+This method is a primality checker. Given an integer n, determine if the number is prime. The method checks if:
+* n is a multiple of 2
+* n is a mulitple of 3
+...
+* n is a multiple of sqrt(n)
+
+The moment we see that n is multiple of something, then it is not prime. 
+
+So return true if it is prime, and false otherwise.
+
+
+
+Q9.
+
+Definitely many possible solutions; anything works as long as it is correct.
+
+a)
+
+This is a 10x10 grid but we only print the upper triangular +'s. Unfortunately, we need nested loops:
+
+# each iteration is a row (i is the number of crosses)
+for i in range(10, 0, -1):
+    k = 10 - i;     # the number of initial spaces
+    for _ in range(k):
+        print(" ", end='')
+
+    for _ in range(i):       # print the +
+        print("+", end='')
+    
+    print()
+
+b)
+
+// Too complicated at this time.... We'll do this again when we cover recursion later on, maybe 1-2 weeks after the midterm... 
+
+
+c) 
+
+We have 1 star, 3 stars, 5 starts, 7 stars, then 9, then back to 7, 5, 3, 1
+
+# the first half
+for i in range(5):
+    stars = 2*i + 1;            # the number of stars in each row
+    spaces = 9 - stars;         # the number of spaces in each row
+    halfSpaces = spaces // 2;     # number of left and right space
+
+    for _ in range(halfSpaces):
+        print(" ", end='')
+
+    for _ in range(stars):
+        print("*", end='')
+
+    for _ in range(halfSpaces):
+        print(" ", end='')
+
+    print()
+
+
+# the second half
+for i in range(3, -1, -1):
+    stars = 2*i + 1;            # the number of stars in each row
+    spaces = 9 - stars;         # the number of spaces in each row
+    halfSpaces = spaces // 2;     # number of left and right space
+
+    for _ in range(halfSpaces):
+        print(" ", end='')
+
+    for _ in range(stars):
+        print("*", end='')
+
+    for _ in range(halfSpaces):
+        print(" ", end='')
+
+    print()

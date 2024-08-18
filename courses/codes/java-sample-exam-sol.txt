@@ -1,0 +1,156 @@
+Here is a sketch of the solutions only.
+
+==========
+Question 1.
+==========
+
+Only (d) and (e) are correct. (a) is wrong because lists can actually be expanded, (b) is wrong since string search is not just for poems and advertisements, and (c) is wrong because it should be void instead of null.
+
+==========
+Question 2.
+==========
+
+i) C
+ii) A
+iii) D
+iv) E
+v) H
+
+==========
+Question 3.
+==========
+
+(a)
+Both are able to store multiple values in a single variable, i.e., a collection of ordered objects with no restriction to uniqueness. Values within an array or list can be accessed using indices using the square bracket notation for arrays and using the get() method for lists. Lists are expandable easily; but arrays are not so easy to do so - it requires creating a new array of a larger size, then copying over the elements of the old to the new array, then reassigning the value of the new array to the old array's variable.
+
+(b)
+In a black box testing, tests are designed according to the specification of the software; typically tested on typical inputs, boundary inputs and random inputs
+
+(c)
+You can use it for catching exceptions. Here's when NOT to use it:
+* incorrect file format
+* typo errors
+* misspelled commands
+* numeric overflow/underflow
+
+==========
+Question 4.
+==========
+
+String pattern = "[A-Z]{4}\\s\\d{3}";
+
+
+==========
+Question 5.
+==========
+
+This is the recursive version for the Collatz program (recall this program when it was first introduced during the topic on while loops)
+So should print:
+12
+6
+3
+10
+5
+16
+8
+4
+2
+1
+
+
+==========
+Question 6.
+==========
+
+The 2D array can hold whatever numerical values and can be of any size, here's a sample:
+
+int[][] L = {
+    {1, 2, 3},
+    {4, 5, 6}
+};
+
+So here's the iterative program:
+
+public class SumOfAllPaths {
+
+    public static int sumOfAllPaths(int[][] L) {
+        int rows = L.length;
+        int cols = L[0].length;
+        
+        int[][] table = new int[rows][cols];
+        int[][] paths = new int[rows][cols];
+        
+        table[0][0] = L[0][0];
+        paths[0][0] = 1;
+        
+        for (int j = 1; j < cols; j++) {
+            table[0][j] = table[0][j - 1] + L[0][j] * paths[0][j - 1];
+            paths[0][j] = paths[0][j - 1];
+        }
+        
+        for (int i = 1; i < rows; i++) {
+            table[i][0] = table[i - 1][0] + L[i][0] * paths[i - 1][0];
+            paths[i][0] = paths[i - 1][0];
+        }
+        
+        for (int i = 1; i < rows; i++) {
+            for (int j = 1; j < cols; j++) {
+                paths[i][j] = paths[i - 1][j] + paths[i][j - 1];
+                table[i][j] = table[i - 1][j] + table[i][j - 1] + L[i][j] * paths[i][j];
+            }
+        }
+        
+        return table[rows - 1][cols - 1];
+    }
+
+    public static void main(String[] args) {
+        int[][] L = {
+            {1, 2, 3},
+            {4, 5, 6}
+        };
+        
+        int result = sumOfAllPaths(L);
+        System.out.println("The sum of all possible path's values is: " + result);
+    }
+}
+
+
+
+
+
+Here's the recursive version:
+
+public class SumOfAllPathsRecursive {
+
+    public static int sumPaths(int[][] L, int i, int j, int currentSum) {
+        if (i == L.length - 1 && j == L[0].length - 1) {
+            return currentSum + L[i][j];
+        }
+
+        int sumRight = 0, sumDown = 0;
+
+        if (i < L.length - 1) {
+            sumDown = sumPaths(L, i + 1, j, currentSum + L[i][j]);
+        }
+
+        if (j < L[0].length - 1) {
+            sumRight = sumPaths(L, i, j + 1, currentSum + L[i][j]);
+        }
+
+        return sumRight + sumDown;
+    }
+
+    public static int totalPathSums(int[][] L) {
+        return sumPaths(L, 0, 0, 0);
+    }
+
+    public static void main(String[] args) {
+        int[][] L = {
+            {1, 2, 3},
+            {4, 5, 6}
+        };
+
+        int result = totalPathSums(L);
+        System.out.println("The sum of all possible path's values is: " + result);
+    }
+}

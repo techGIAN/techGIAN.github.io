@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Computing Contest Course Level 1</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.css">
+        <link rel="stylesheet" href="course.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+        <script src="course.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    </head>
+    <body>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                Prism.highlightAll();
+                // Create copy button
+             var preElements = document.querySelectorAll('pre');
+             preElements.forEach(function (pre) {
+                 var code = pre.querySelector('code');
+                 
+                 var copyIcon = document.createElement('i');
+                 copyIcon.className = 'fas fa-copy copy-icon'; // Use className to set classes
+                 pre.appendChild(copyIcon);
+                 
+                 var copiedText = document.createElement('span');
+                copiedText.className = 'copied-text';
+                copiedText.textContent = 'Copied to clipboard!';
+                pre.appendChild(copiedText);
+                
+                copyIcon.addEventListener('click', function () {
+                    // Copy code text to clipboard
+                    var codeText = code.textContent;
+                    navigator.clipboard.writeText(codeText).then(function () {
+                        // Show copied text and hide icon temporarily
+                        copyIcon.style.display = 'none';
+                        copiedText.style.display = 'inline';
+                        
+                        // Revert to icon after 2 seconds
+                        setTimeout(function () {
+                            copyIcon.style.display = 'inline';
+                            copiedText.style.display = 'none';
+                        }, 2000);
+                    }).catch(function (error) {
+                        console.error('Failed to copy text: ', error);
+                    });
+                });
+             });
+            });
+        </script>
+        <div style="margin:auto; width:50%; text-align:center;">
+            <h1>Computing Contest Course Level 1</h1> 
+            <h3 id="term">(Fall 2024)</h3>
+        </div>
+        <b>Instructor:</b> Mr. Gian Alix <br>
+        <b>Email:</b> <a href="mailto: galix@olympiadsmail.ca">galix@olympiadsmail.ca</a> <br>
+        <b>Class Times: </b> Saturdays, 4:40 - 6:40 PM <br>
+        <b>Location: </b> Unit XXX, Room YY <br>
+        <b>Term Duration: </b> This course will run weekly for <i>sixteen weeks</i>, starting from September 10th, 2024 to January 12th, 2025. <br>
+        <hr>
+        
+        <h3>Course Description</h3>
+        <p>This course is mainly designed for students who intend on participating in computing contests, such as University of Waterloo's <a href="https://cemc.uwaterloo.ca/contests/ccc" target="_blank">Canadian Computing Competition (CCC)</a>. The contents of this course will help aid the students prepare for the upcoming contests. The first half of the course is mostly a review of the topics covered in the Introduction to Programming courses (e.g., branching statements, loops, recursion, simple linear data structures like arrays and lists, etc.); contest-like problems that utilize these topics are also covered. The second half of this course focuses on more advanced topics of computing that also come up in programming contests, such as stacks, queues, trees, and simple sorting algorithms. Overall, while the course is geared towards students who intend on joining computing contests, it is also open to anyone with basic programming background who intends on expanding programming knowledge, improving problem-solving skills, and/or solving programming challenges. Students who complete this course will gain eligibility to take on the second level of the CCC course. </p>
+        <p><b>Course Prerequisites: </b> Introduction to Programming (either in Python, Java, or C++) </p>
+        <p class="alert"><i><b>Note: </b> Please contact your instructor if you have not completed the prerequisites for this course.</i> </p>
+        <hr>
+
+        <h3>About the Contests</h3>
+        <p>I highly recommend visiting this <a href="https://cemc.uwaterloo.ca/contests/ccc" target="_blank">website</a> for more information about the contests. The next contest date will be on February 19th, 2025 (during the Winter 2025 term). Please reach out to me closer to the date (~1 month before) if you're interested in signing up. </p>
+        <hr>
+
+        <h3>Course Webpage</h3>
+        <p>Please bookmark the following link as it will be frequently used and updated throughout the duration of the course: <a href="https://techgian.github.io/courses/ccclv1" target="_blank">https://techgian.github.io/courses/ccclv1</a></p>
+        <hr>
+
+        <h3>Important Dates - Fall 2024</h3>
+        <table id="dates">
+            <tr>
+                <td><b>September 10th, 2024 (Tuesday)</b></td>
+                <td>First day of Classes at Meritus Academy</td>
+            </tr>
+            <tr>
+                <td><b>September 14th, 2024 (Saturday)</b></td>
+                <td>First day of Classes for our CCC Level 1</td>
+            </tr>
+            <tr>
+                <td><b>October 14th, 2024 (Monday)</b></td>
+                <td>Thanksgiving Holiday (we still have classes on October 12th)</td>
+            </tr>
+            <tr>
+                <td><b>November 2nd, 2024 (Saturday)</b></td>
+                <td>Midterm Test</td>
+            </tr>
+            <tr>
+                <td><b>December 21st, 2024 (Saturday)</b>  </td>
+                <td>Last day of CCC Level 1 Classes for Year 2024</td>
+            </tr>
+            <tr>
+                <td><b>December 22nd, 2024 (Sunday)</b>  </td>
+                <td>Last day of Classes at Meritus Academy for Year 2024</td>
+            </tr>
+            <tr>
+                <td><b>December 23rd, 2024 (Monday) to January 6th, 2025 (Monday)</b>  </td>
+                <td>Winter Break for School Year 2024-2025</td>
+            </tr>
+            <tr>
+                <td><b>January 7th, 2025 (Tuesday)</b>  </td>
+                <td>Resume of Fall 2024 Term Classes at Meritus Academy</td>
+            </tr>
+            <tr>
+                <td><b>January 11th, 2025 (Saturday)</b>  </td>
+                <td>Final Test / Resume of CCC Level 1 Class for the Fall 2024 Term / Last Day of Fall 2024 Term Class for our CCC Level 1</td>
+            </tr>
+            <tr>
+                <td><b>January 12th, 2025 (Sunday)</b>  </td>
+                <td>Last Day of Fall 2024 Term Classes at Meritus Academy</td>
+            </tr>
+        </table>
+        <!-- <p class="alert"><i><b>Note: </b> The holidays observed in this Fall 2024 term are <b>October 14th, 2024</b> (Thanksgiving) and <b>August 5th, 2024</b> (Civic Holiday), and both of which are Mondays. We will still be conducting our classes at our usual time during these days. If you plan to be away on any of these days, please notify your instructor ahead of time. It is strongly recommended to attend the makeup sessions in such cases to avoid falling behind.</i> </p> -->
+        <hr>
+
+        <h3>Course Policies</h3>
+        <ol style="line-height:1.5;">
+            <li>Please come on time (~10-15 minutes before the start of the class time).</li>
+            <li>Have your laptop computer ready fully-charged (or at least with battery); if your laptop is close to 0%, make sure to bring a charger to class (always bring a charger!).  <span class="alert">Note that a tablet or a phone cannot be used as a replacement for a laptop.</span></li>
+            <li>Load your IDEs before the class begins (it's up to you which programming language/IDE you choose to code in; there is an inherent expectation that you can set this up on your own since everyone taking the course is expected to have completed an intro to programming course). </li>
+            <li>Phones (and other electronic devices aside from laptops) away during class! If you need to use them, ask your instructor for permission (e.g., for taking photos of codes during homework takeup, for answering important phone calls from parents, for other urgent matters, etc.).</li>
+            <li>The class is meant to be interactive. Participate in class discussions, and make sure to ask questions when you are not certain about something.</li>
+            <li>Feel free to approach and ask your instructor questions before the class starts, during the break(s), and after class. You can also contact your instructor anytime through email (see his contact at the header of this course webpage)</li>
+            <li>There will be coding exercises throughout the lectures. You are expected to try working on these exercises (as I do not necessarily give out the solutions) in-class. I will usually walk around to check on everybody.</li>
+            <li>There are homeworks expected to be submitted weekly. They will be released every Saturdays, and will be due the following Saturday. More information about Homework submission in the Homeworks section below.</li>
+            <li>There will be a midterm test and a final test for this course. More information will be provided closer to the dates.</li>
+            <li>Absences are not encouraged as this course can be fast-paced at times. If there are any absences (planned or unplanned), please write to me via email as soon as possible. Then try to attend the makeup class; another teacher will be teaching it (it is an online class every Sundays, 4:40-6:40 PM). Please reach out to the school (<a href="mailto: info@olympiads.ca">info@olympiads.ca</a>) for the Zoom link. There will also be a Zoom class recording if in case you missed that online class (just reach out to the school again for the Zoom recording). </li>
+            <li>The use of any chatbots or AI such as ChatGPT is <span class="alert"><b>strongly discrouraged</b></span> in this course; and moreover, <span class="alert"><b>any work that is submitted that contains content of a generative AI is strictly not allowed</b></span>. <i>When caught, this incident will be reported to the school for disciplinary action.</i> </li>
+            <li>...</li>
+        </ol>
+        <hr>
+
+        <h3>Homework Submission</h3>
+        <p>The following table summarizes the important dates about homeworks, as well as access to the homework questions (the marked date is the due date for me to grade all Homeworks and give back marks/feedback).</p>
+        <table class="tableWidthSpan100">
+            <tr>
+                <th>Homework</th>
+                <th>Link</th>
+                <th>Post Date</th>
+                <th>Take Up Date</th>
+                <th>Due Date</th>
+                <th>Marked Date</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td><b>Homework 1</b>: Branching and Boolean</td>
+                <td style="text-align:center;"><a href="https://ossfiles.ca/index.php/s/Q2MRpFgYDeMfPjL" target="_blank">Click here</a></td>
+                <td>September 7th, 2024</td>
+                <td>September 21st, 2024</td>
+                <td>September 22nd, 2024</td>
+                <td>Septmeber 28th, 2024</td>
+                <td>Homework 1 posted before the term begins.</td>
+            </tr>
+            <tr>
+                <td><b>Homework 2</b>: Loops</td>
+                <td style="text-align:center;">Not available</td>
+                <td>September 14th, 2024</td>
+                <td>September 28th, 2024</td>
+                <td>September 29th, 2024</td>
+                <td>October 5th, 2024</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 3</b>: Encoding</td>
+                <td style="text-align:center;">Not available</td>
+                <td>September 21st, 2024</td>
+                <td>October 5th, 2024</td>
+                <td>October 6th, 2024</td>
+                <td>October 12th, 2024</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 4</b>: Arrays</td>
+                <td style="text-align:center;">Not available</td>
+                <td>September 28th, 2024</td>
+                <td>October 12th, 2024</td>
+                <td>October 13th, 2024</td>
+                <td>October 19th, 2024</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 5</b>: Lists</td>
+                <td style="text-align:center;">Not available</td>
+                <td>October 5th, 2024</td>
+                <td>October 19th, 2024</td>
+                <td>October 20th, 2024</td>
+                <td>October 26th, 2024</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 6</b>: Procedural Programming</td>
+                <td style="text-align:center;">Not available</td>
+                <td>October 12th, 2024</td>
+                <td>October 26th, 2024</td>
+                <td>October 27th, 2024</td>
+                <td>November 2nd, 2024</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 7</b>: Recursion</td>
+                <td style="text-align:center;">Not available</td>
+                <td>October 19th, 2024</td>
+                <td>November 2nd, 2024</td>
+                <td>November 3rd, 2024</td>
+                <td>November 9th, 2024</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 8</b>: Midterm Test</td>
+                <td style="text-align:center;">Not available</td>
+                <td>November 2nd, 2024</td>
+                <td>November 9th, 2024</td>
+                <td>November 2nd, 2024</td>
+                <td>November 9th, 2024</td>
+                <td>There is no Homework 8 since it is a test day.</td>
+            </tr>
+            <tr>
+                <td><b>Homework 9</b>: Stacks and Queues</td>
+                <td style="text-align:center;">Not available</td>
+                <td>November 2nd, 2024</td>
+                <td>November 16th, 2024</td>
+                <td>November 17th, 2024</td>
+                <td>November 23rd, 2024</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 10</b>: Searching Algorithms</td>
+                <td style="text-align:center;">Not available</td>
+                <td>November 9th, 2024</td>
+                <td>November 23rd, 2024</td>
+                <td>November 24th, 2024</td>
+                <td>November 30th, 2024</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 11</b>: Sorting Algorithms</td>
+                <td style="text-align:center;">Not available</td>
+                <td>November 16th, 2024</td>
+                <td>November 30th, 2024</td>
+                <td>December 1st, 2024</td>
+                <td>December 7th, 2024</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 12</b>: Hashing</td>
+                <td style="text-align:center;">Not available</td>
+                <td>November 23rd, 2024</td>
+                <td>December 7th, 2024</td>
+                <td>December 8th, 2024</td>
+                <td>December 14th, 2024</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 13</b>: Object-Oriented Programming</td>
+                <td style="text-align:center;">Not available</td>
+                <td>November 30th, 2024</td>
+                <td>December 14th, 2024</td>
+                <td>December 15th, 2024</td>
+                <td>December 21st, 2024</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 14</b>: Trees</td>
+                <td style="text-align:center;">Not available</td>
+                <td>December 7th, 2024</td>
+                <td>December 21st, 2024</td>
+                <td>December 22nd, 2024</td>
+                <td>December 23rd, 2024</td>
+                <td>I will be sure to get all submitted homeworks marked before you go on Winter break.</td>
+            </tr>
+            <tr>
+                <td><b>Homework 15</b>: Linked Lists</td>
+                <td style="text-align:center;">Not available</td>
+                <td>December 14th, 2024</td>
+                <td>January 11th, 2025</td>
+                <td>January 12th, 2025</td>
+                <td>January 13th, 2025</td>
+                <td>January 12th, 2025 is the very last day to hand in any homeworks for the course.</td>
+            </tr>
+            <tr>
+                <td><b>Homework 16</b>: Final Test</td>
+                <td style="text-align:center;">Not available</td>
+                <td>January 11th, 2025</td>
+                <td>January 11th, 2025</td>
+                <td>January 11th, 2025</td>
+                <td>January 13th, 2025</td>
+                <td>No Homework 16 since it is Test day. But we'll take up the solutions of the final test right after you submit.</td>
+            </tr>
+        </table>
+        <h4>Instructions for submission:</h4>
+        If you took my class previously, there will be some slight changes to how you submit homeworks. For each homework you submit, you will do the following steps.
+        <ul style="line-height:1.5;">
+            <li><b>Step 0:</b> This step may only need to be done once throughout the course. Setup Classkick. See below section for instructions regarding Classkick. </li>
+            <li><b>Step 1:</b> First create a folder with the following filename: <code class="inline">firstname-lastname-homework-X</code>, where <code class="inline">X</code> is the HW number. So for example, I will name my folder as <code class="inline">Gian-Alix-homework-01</code> for my first homework submission.</li>
+            <li><b>Step 2:</b> Place all files that you would like to submit to this folder.</li>
+            <li><b>Step 3:</b> Once all files that you would like to submit are now in the folder, compress it using any of the zipping softwares. For Windows such as: <a href="https://www.win-rar.com/start.html?&L=0">WinRar</a>, <a href="https://www.7-zip.org/">7zip</a>, or <a href="https://www.winzip.com/en/">WinZip</a> (no need to install if your machine already has one). For Mac, a compression utility software is already built-in so no need to install (simply right click on the folder, then click on <code class="inline">Compress</code>).</li>
+            <li><b>Step 4:</b> Go to Classkick. Take a screenshot of your codes and paste them in the homework submission page. It also has the link for submitting the compressed folder; please upload the compressed folder to that link. </li>
+            <li><b>Step 5:</b> Feel free to upload as many times as you wish. Previously uploaded files are overwritten. Only the last submission will be graded.</li>
+        </ul>
+        <p>Feel free to ask me questions about homework submission (especially if you're not sure how or where to find the <code class="inline">/PycharmProjects</code> directory) and I will be able to help you.</p>
+
+        <h4>Setting Up Classkick with CCC Level 1 Class</h4>
+        If you have a Classkick account (possibly from a previous class that you took), then go <a href="https://app.classkick.com/account/login" target="_blank">here</a> to login. If you forgot your password, you can also click that link to try to recover your account. Once logged in, you will see a green circle on the top right corner. Add the following homework Classkick code for the first homework: <code class="inline">N9S 8IB</code>. By doing this, you would have gained access to future homeworks (no need to always input the Classkick homework code). <br><br>
+
+        If you do not have a Classkick account, create one <a href="https://app.classkick.com/#/signup/student" target="_blank">here</a>. First specify the following Classkick code: <code class="inline">N9S 8IB</code>. Then click on <code class="inline">Sign Up with Username/Email</code>. Create a username that contains your name; write the username and password down in your notebook so you wouldn't forget. By doing this, you would have gained access to future homeworks (no need to always input the Classkick homework code). <br><br>
+
+        In both cases, it is expected that your account will be a "Portfolio" account instead of a "Basic" account. It is this that ensures that you do not need to input the Classkick homework code in order to receive future homeworks. I'll check this during the first day of classes to ensure everyone's account is correct.
+        <hr>
+
+        <h3>Accessing Grades and Feedback</h3>
+        <p>For those who took my class before, you should be familiar with the grade codes/grade book. I am scrapping that this term, as you can easily access the grades/feedback via Classkick.</p>
+        <hr>
+
+        <!-- <pre class="line-numbers"><code class="language-java">public static void main(String[] args) {
+    System.out.println("Hello World!");
+}</code></pre> -->
+        
+        <h3>Announcements</h3>
+        <i>This will be populated overtime. Announcements are posted as a stack, so the most recent announcements are on top.</i>
+        <ul style="line-height:1.5;">
+            <!-- <li>Testing
+                <pre class="line-numbers" style="width:40%;"><code class="language-python">print("\"\\\"\"\\\"\"\\nn")</code></pre>
+</li> -->
+            <!-- <li><b>July 1st, 2024: </b>
+                Please take some time to answer the following <a href="https://forms.gle/ZNEiAeeQNbDPipREA" target="_blank">diagnostic test</a>. Just try your best; if you do not know the answer, just make a guess instead of leaving it blank. Your grade will not be released (unless you opted to) and is only for my personal assessment only.
+            </li> -->
+            <li><b>September 3rd, 2024: </b>
+                Welcome to the course! Make sure to spend some time going over this course webpage providing valuable information regarding this course. Bookmark this page so you can easily visit this page. Email me for any questions: <a href="mailto: galix@olympiadsmail.ca">galix@olympiadsmail.ca</a>
+            </li>
+        </ul>
+        <hr>
+
+        <h3>Topics and Resources</h3>
+        <p>This will be populated overtime.</p>
+        <table class="tableWidthSpan100">
+            <tr>
+                <th>Date</th>
+                <th>Topics</th>
+                <th>Objectives</th>
+                <th>Resources</th>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 1</b><br>
+                    (September 9th - September 15th, 2024)
+                </td>
+                <td>
+                    <ul>
+                        <li>Introduction to the CCC Course</li>
+                        <li>Review: Branching and Boolean</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Recall boolean expressions (either <code class="inline">true</code> or <code class="inline">false</code> statements)</li>
+                        <li>Review the use of <code class="inline">if</code> statements</li>
+                        <li>Solve contest problems related to branching statements, by coding/implementing solutions either in Python, Java, or C++</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <!-- <li><a href="https://ossfiles.ca/index.php/s/Bm3YcYQXRGndDER" target="_blank">Introduction to the Course</a></li> -->
+                        <li>Introduction to the Course</li>
+                        <li><a href="https://ossfiles.ca/index.php/s/MDQ4qBJ8tdfGBnw" target="_blank">Branching and Boolean (Review)</a></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 2</b><br>
+                    (September 16th - September 22nd, 2024)
+                </td>
+                <td>
+                    <ul>
+                        <li>Review: Loops</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Review on writing iterative programs using <code class="inline">for</code> and <code class="inline">while</code> loops</li>
+                        <li>Examine contest problems that can be solved iteratively</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 3</b><br>
+                    (September 23rd - September 29th, 2024)
+                </td>
+                <td>
+                    <ul>
+                        <li>Encoding</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+    
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 4</b><br>
+                    (September 30th - October 6th, 2024) <br>
+                </td>
+                <td>
+                    <ul>
+                        <li>Review: Arrays / Tuples</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 5</b><br>
+                    (October 7th - October 13th, 2024)
+                </td>
+                <td>
+                    <ul>
+                        <li>Review: Lists</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 6</b><br>
+                    (October 14th - October 20th, 2024)
+                </td>
+                <td>
+                    <ul>
+                        <li>Review: Procedural Programming</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 7</b><br>
+                    (October 21st - October 27th, 2024)
+                </td>
+                <td>
+                    <ul>
+                        <li>Review: Recursion</li>
+                        <li>Improving Code</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 8</b><br>
+                    (October 28th - November 3rd, 2024) <br>
+                    <span class="alert"><b>MIDTERM TEST: </b>November 2nd (Saturday)</span>
+                </td>
+                <td>
+                    <ul>
+                        -
+                    </ul>
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 9</b><br>
+                    (November 4th - November 10th, 2024)
+                </td>
+                <td>
+                    <ul>
+                        <li>Stacks and Queues</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 10</b><br>
+                    (November 11th - November 17th, 2024)
+                </td>
+                <td>
+                    <ul>
+                        <li>Searching Algorithms</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 11</b><br>
+                    (November 18th - November 24th, 2024)
+                </td>
+                <td>
+                    <ul>
+                        <li>Simple Sorting Algorithms</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 12</b><br>
+                    (November 25th - December 1st, 2024)
+                </td>
+                <td>
+                    <ul>
+                        <li>Hashing</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 13</b><br>
+                    (December 2nd - December 8th, 2024)
+                </td>
+                <td>
+                    <ul>
+                        <li>Object-Oriented Programming</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 14</b><br>
+                    (December 9th - December 15th, 2024)
+                </td>
+                <td>
+                    <ul>
+                        <li>Trees</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 15</b><br>
+                    (December 16th - December 22nd, 2024)
+                </td>
+                <td>
+                    <ul>
+                        <li>Linked Lists</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <span class="alert"><i>Winter Break: December 23rd, 2024 - January 5th, 2025</i></span>
+                </td>
+                <td>
+                    <ul>
+                        -
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        -
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        -
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 16</b><br>
+                    (January 6th - January 12th, 2025) <br>
+                    <span class="alert"><b>FINAL TEST: </b>January 11th (Saturday)</span>
+                </td>
+                <td>
+                    <ul>
+                        <li>Course Wrap-up</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        
+                    </ul>
+                </td>
+            </tr>
+        </table>
+        <hr>
+
+        <h3 id="otherRes">Other Resources</h3>
+        <p>For any other useful resources not found above, they will be posted below.</p>
+        <ul style="line-height:1.5;">
+            <li>Online compilers from Programiz: <a href="https://www.programiz.com/python-programming/online-compiler/" target="_blank">Python</a>, <a href="https://www.programiz.com/java-programming/online-compiler/" target="_blank">Java</a>, <a href="https://www.programiz.com/cpp-programming/online-compiler/" target="_blank">C++</a> </li>
+            <li><a href="https://dmoj.ca" target="_blank">DMOJ</a> - a treasury of computing contest problems for various levels</li>
+            <li><a href="https://cemc.uwaterloo.ca/contests/ccc" target="_blank">CCC of Waterloo</a> - Link to the Canadian Computing Competition at the University of Waterloo; click for more details</li>
+            <li>...</li>
+        </ul>
+        <hr>
+
+        <!-- <p style="text-align:center;"><b><i>Last updated: June 24th, 2024 @ 3:21 PM</i></b></p> -->
+        <p id="dtModified" style="text-align:center;"><b>Loading...</b></p>
+
+
+    </body>
+</html>

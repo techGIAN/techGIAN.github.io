@@ -1,1 +1,0 @@
-var helloVar = "hello";

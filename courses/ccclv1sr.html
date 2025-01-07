@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Computing Contest Course Level 1 Sr</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.css">
+        <link rel="stylesheet" href="course.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+        <script src="course.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    </head>
+    <body>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                Prism.highlightAll();
+                // Create copy button
+             var preElements = document.querySelectorAll('pre');
+             preElements.forEach(function (pre) {
+                 var code = pre.querySelector('code');
+                 
+                 var copyIcon = document.createElement('i');
+                 copyIcon.className = 'fas fa-copy copy-icon'; // Use className to set classes
+                 pre.appendChild(copyIcon);
+                 
+                 var copiedText = document.createElement('span');
+                copiedText.className = 'copied-text';
+                copiedText.textContent = 'Copied to clipboard!';
+                pre.appendChild(copiedText);
+                
+                copyIcon.addEventListener('click', function () {
+                    // Copy code text to clipboard
+                    var codeText = code.textContent;
+                    navigator.clipboard.writeText(codeText).then(function () {
+                        // Show copied text and hide icon temporarily
+                        copyIcon.style.display = 'none';
+                        copiedText.style.display = 'inline';
+                        
+                        // Revert to icon after 2 seconds
+                        setTimeout(function () {
+                            copyIcon.style.display = 'inline';
+                            copiedText.style.display = 'none';
+                        }, 2000);
+                    }).catch(function (error) {
+                        console.error('Failed to copy text: ', error);
+                    });
+                });
+             });
+            });
+        </script>
+        <div style="margin:auto; width:50%; text-align:center;">
+            <h1>Computing Contest Course Level 1 Senior</h1> 
+            <h3 id="term">(Winter 2025)</h3>
+        </div>
+        <b>Instructor:</b> Mr. Gian Alix <br>
+        <b>Email:</b> <a href="mailto: galix@olympiadsmail.ca">galix@olympiadsmail.ca</a> <br>
+        <b>Class Times: </b> Saturdays, 4:40 - 6:40 PM <br>
+        <b>Location: </b> In-Person <br>
+        <b>Term Duration: </b> This course will run weekly for <i>twenty-two weeks</i>, starting from January 18th, 2025 to June 14th, 2025. <br>
+        <hr>
+        
+        <h3>Course Description</h3>
+        <p>This course is mainly designed for students who intend on participating in computing contests, such as University of Waterloo's <a href="https://cemc.uwaterloo.ca/contests/ccc" target="_blank">Canadian Computing Competition (CCC)</a>. The contents of this course will help aid the students tackle challenging computing problems from various computing contests. Compared with CCC Level 1 Jr, this course covers more advanced concepts (including but not limited to disjoint sets, graph search algorithms, advancing sorting algorithms, minimum spanning trees, introductory dynamic programming, counting, number theory, combinatorics, heaps, and segment trees); and discussions on these topics are complemented by examining computing contest problems. Overall, while the course is geared towards students who intend on writing computing contests, it is also open to anyone with basic programming background who intends on expanding programming knowledge, improving problem-solving skills, and/or solving programming challenges. Students who complete this course will gain eligibility to take on the second level of the CCC course. </p>
+        <p><b>Course Prerequisites: </b> Computer Contest Course Level 1 (taken in Fall 2024) </p>
+        <p class="alert"><i><b>Note: </b> Please contact your instructor if you have not completed the prerequisites for this course.</i> </p>
+        <hr>
+
+        <h3>About the Contests</h3>
+        <p>I highly recommend visiting this <a href="https://cemc.uwaterloo.ca/contests/ccc" target="_blank">website</a> for more information about the contests. The next contest date will be on February 19th, 2025. Please reach out to the secretaries if you are interested in registering for the contest. </p>
+        <hr>
+
+        <h3>Course Webpage</h3>
+        <p>Please bookmark the following link as it will be frequently used and updated throughout the duration of the course: <a href="https://techgian.github.io/courses/ccclv1sr" target="_blank">https://techgian.github.io/courses/ccclv1sr</a></p>
+        <p class="alert"><i>Visit this page twice a week (on two different occassions) for updates. The website is weird for some reason. So once you visit the page, it doesn't reflect the changes right away. You may need to refresh the browser upon visiting to ensure all changes are reflected.</i> </p>
+        <p class="alert"><b>Course Organization:</b> For those who have taken my class last semester, you will notice that there have some slight changes to its course webpage organization. </p>
+        <hr>
+
+        <h3>Who Should Take This Course?</h3>
+        <ul>
+            <li>If you have taken CCC Level 1 in-person or online during Fall 2024 term, you should take this class.</li>
+            <li>If you have taken CCC Level 1 course in a term prior to Fall 2024, you are recommended to take CCC Level 2 (please see secretaries).</li>
+            <li>If you have not taken CCC Level 1 course before, but have taken Intro to Programming course (either in Java, Python, or C++)  or have programming background, you are recommended to take CCC Level 1 Jr instead (please see secretaries).</li>
+            <li>If you have no programming background, please take our Intro to Programming first (either in Java, Python, or C++). Please see secretaries.</li>
+        </ul>
+        <hr>
+
+        <h3>Important Dates - Winter 2025</h3>
+        <table id="dates">
+            <tr>
+                <td><b>January 18th, 2025 (Saturday)</b></td>
+                <td>First day of CCC Level 1 Sr Classes</td>
+            </tr>
+            <tr>
+                <td><b>February 17th, 2025 (Saturday)</b></td>
+                <td>Family Day (We still have our Saturday classes on the February 15th weekend)</td>
+            </tr>
+            <tr>
+                <td><b><span class="alert">March 8th, 2025 (Saturday)</span></b></td>
+                <td><span class="alert">Test 1</span></td>
+            </tr>
+            <tr>
+                <td><b>March 10th - 14th, 2025 (Monday to Friday)</b></td>
+                <td>March Break (We still have our Saturday classes on March 8th and 15th)</td>
+            </tr>
+            <tr>
+                <td><b>April 18th, 2025 (Friday)</b>  </td>
+                <td>Good Friday (Meritus Academy still have classes on this day)</td>
+            </tr>
+            <tr>
+                <td><b>April 21st, 2025 (Monday)</b>  </td>
+                <td>Easter Monday (We still have our Saturday classes on April 19th)</td>
+            </tr>
+            <tr>
+                <td><b><span class="alert">May 3rd, 2025 (Saturday)</span></b></td>
+                <td><span class="alert">Test 2</span></td>
+            </tr>
+            <tr>
+                <td><b>May 19th, 2025 (Monday)</b>  </td>
+                <td>Victoria Day (We still have our Saturday classes on May 17th)</td>
+            </tr>
+            <tr>
+                <td><b><span class="alert">June 14th, 2025 (Saturday)</span></b></td>
+                <td><span class="alert">Final Exam</span></td>
+            </tr>
+            <tr>
+                <td><b>June 14th, 2025 (Saturday)</b>  </td>
+                <td>Last day of CCC Level 1 Sr Classes</td>
+            </tr>
+            <tr>
+                <td><b>June 15th, 2025 (Sunday)</b>  </td>
+                <td>Last Day of Winter 2025 Term Classes at Meritus Academy</td>
+            </tr>
+        </table>
+        <p class="alert"><i><b>Note: </b> Notice that there will be several holidays and no-classes during the Winter 2025 term. However, we will still be conducting our classes at our usual time during the Saturday weekend of those days. If you plan to be away on any of the days of our classes, please notify your instructor ahead of time. It is strongly recommended to attend the makeup sessions in such cases to avoid falling behind.</i> </p>
+        <hr>
+
+        <h3>Course Policies</h3>
+        <ol style="line-height:1.5;">
+            <li>Please come on time (~10-15 minutes before the start of the class time).</li>
+            <li>Have your laptop computer ready fully-charged (or at least with battery); if your laptop is close to 0%, make sure to bring a charger to class (always bring a charger!).  <span class="alert">Note that a tablet or a phone cannot be used as a replacement for a laptop.</span></li>
+            <li>Load your IDEs before the class begins (it's up to you which programming language/IDE you choose to code in; there is an inherent expectation that you can set this up on your own since everyone taking the course is expected to have completed an intro to programming course). </li>
+            <li>Phones (and other electronic devices aside from laptops) away during class! If you need to use them, ask your instructor for permission (e.g., for taking photos of codes during homework takeup, for answering important phone calls from parents, for other urgent matters, etc.).</li>
+            <li>The class is meant to be interactive. Participate in class discussions, and make sure to ask questions when you are not certain about something.</li>
+            <li>Feel free to approach and ask your instructor questions before the class starts, during the break(s), and after class. You can also contact your instructor anytime through email (see his contact at the header of this course webpage)</li>
+            <li>There will be coding exercises throughout the lectures. You are expected to try working on these exercises (as I do not necessarily give out the solutions) in-class. I will usually walk around to check on everybody.</li>
+            <li>There are homeworks expected to be submitted weekly. They will be released every Saturdays, and will be due the following Saturday. More information about Homework submission in the Homeworks section below.</li>
+            <li>There will be two tests and a final exam for this course. More information will be provided closer to the dates.</li>
+            <li>Absences are not encouraged as this course can be fast-paced at times. If there are any absences (planned or unplanned), please write to me via email as soon as possible. Then try to attend the makeup class; another teacher will be teaching it (it is an online class every Sundays, 4:40-6:40 PM). Please reach out to the school (<a href="mailto: info@olympiads.ca">info@olympiads.ca</a>) for the Zoom link. There will also be a Zoom class recording if in case you missed that online class (just reach out to the school again for the Zoom recording). </li>
+            <li>The use of any chatbots or AI such as ChatGPT is <span class="alert"><b>strongly discrouraged</b></span> in this course; and moreover, <span class="alert"><b>any work that is submitted that contains content of a generative AI is strictly not allowed</b></span>. <i>When caught, this incident will be reported to the school for disciplinary action.</i> </li>
+            <li>...</li>
+        </ol>
+        <hr>
+
+        <h3>Course Materials</h3>
+            The course is split into five parts. Each part is its own directory, and each directory with its own password. Your teacher will share the password with you at the beginning of class. If you forget or do not know the password, please email your teacher asking for the password for a specific part. Once you receive the password, please keep a copy of the passwords in your notebook. Homeworks and slides can be found here:
+            <ul>
+                <li><a href="https://ossfiles.ca/index.php/s/42ALRzeP3JK57HY" target="_blank">Part One</a></li>
+                <li>Part Two</li>
+                <li>Part Three</li>
+                <li>Part Four</li>
+                <li>Part Five</li>
+            </ul>
+            Once you have accessed the materials, please download the PDFs. It's better to view the slides in your PDF viewer (like Preview or Adobe Reader) or possibly in the browser, than on OnlyOffice of OSSFiles.
+        <hr>
+
+        <h3>Homework Submission</h3>
+        <p>Please see the above course materials section for a link to the Honework Questions.</p>
+        <p>The following table summarizes the important dates about homeworks. The <b>Post Date</b> is a deadline for me to upload your HW. The <b>Due Date</b> is a deadline for submitting Homework (Attempt 1), at 4:00 PM (Classkick HW submission portal and OSSFiles portal are frozen). HW are then be graded before the <b>Marked Date</b>, which is my deadline to deliver the grade and feedback on Classkick. Afterwhich, Classkick (and OSSFiles) unfreezes and you can resubmit any Homework (including missed HW or resubmitting corrections for Attempt 2). Then we takeup the solutions in class a week after it is due (<b>Takeup Date</b>). </p>
+        <table class="tableWidthSpan100">
+            <tr>
+                <th>Homework</th>
+                <th>Post Date</th>
+                <th>Due Date</th>
+                <th>Marked Date</th>
+                <th>Takeup Date</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td><b>Homework 1</b>: Complexity Analysis</td>
+                <td style="text-align: center">Jan 11th, 2025</td>
+                <td style="text-align: center">Jan 25th, 2025</td>
+                <td style="text-align: center">Jan 30th, 2025</td>
+                <td style="text-align: center">Feb 01st, 2025</td>
+                <td>Homework 1 posted before the term begins.</td>
+            </tr>
+            <tr>
+                <td><b>Homework 2</b>: Stacks and Queues</td>
+                <td style="text-align: center">Jan 18th, 2025</td>
+                <td style="text-align: center">Feb 01st, 2025</td>
+                <td style="text-align: center">Feb 06th, 2025</td>
+                <td style="text-align: center">Feb 08th, 2025</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 3</b>: Priority Queues and Heaps</td>
+                <td style="text-align: center">Jan 25th, 2025</td>
+                <td style="text-align: center">Feb 08th, 2025</td>
+                <td style="text-align: center">Feb 13th, 2025</td>
+                <td style="text-align: center">Feb 15th, 2025</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 4</b>: Advanced Sorting Algorithms</td>
+                <td style="text-align: center">Feb 01st, 2025</td>
+                <td style="text-align: center">Feb 15th, 2025</td>
+                <td style="text-align: center">Feb 20th, 2025</td>
+                <td style="text-align: center">Feb 22nd, 2025</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 5</b>: Trees</td>
+                <td style="text-align: center">Feb 08th, 2025</td>
+                <td style="text-align: center">Feb 22nd, 2025</td>
+                <td style="text-align: center">Feb 27th, 2025</td>
+                <td style="text-align: center">Mar 01st, 2025</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 6</b>: Augmented Trees</td>
+                <td style="text-align: center">Feb 15th, 2025</td>
+                <td style="text-align: center">Mar 01st, 2025</td>
+                <td style="text-align: center">Mar 06th, 2025</td>
+                <td style="text-align: center">Mar 08th, 2025</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 7</b>: Graphs</td>
+                <td style="text-align: center">Feb 22nd, 2025</td>
+                <td style="text-align: center">Mar 08th, 2025</td>
+                <td style="text-align: center">Mar 13th, 2025</td>
+                <td style="text-align: center">Mar 15th, 2025</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 8</b>: Test 1</td>
+                <td style="text-align: center">-</td>
+                <td style="text-align: center">-</td>
+                <td style="text-align: center">-</td>
+                <td style="text-align: center">-</td>
+                <td>There is no Homework 8 since it is a test day.</td>
+            </tr>
+            <tr>
+                <td><b>Homework 9</b>: Breadth First Search</td>
+                <td style="text-align: center">Mar 08th, 2025</td>
+                <td style="text-align: center">Mar 22nd, 2025</td>
+                <td style="text-align: center">Mar 27th, 2025</td>
+                <td style="text-align: center">Mar 29th, 2025</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 10</b>: Depth First Search</td>
+                <td style="text-align: center">Mar 15th, 2025</td>
+                <td style="text-align: center">Mar 29th, 2025</td>
+                <td style="text-align: center">Apr 03rd, 2025</td>
+                <td style="text-align: center">Apr 05th, 2025</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 11</b>: Single-Source Shortest Path</td>
+                <td style="text-align: center">Mar 22nd, 2025</td>
+                <td style="text-align: center">Apr 05th, 2025</td>
+                <td style="text-align: center">Apr 10th, 2025</td>
+                <td style="text-align: center">Apr 12th, 2025</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 12</b>: Bellman-Ford Algorithm</td>
+                <td style="text-align: center">Mar 29th, 2025</td>
+                <td style="text-align: center">Apr 12th, 2025</td>
+                <td style="text-align: center">Apr 17th, 2025</td>
+                <td style="text-align: center">Apr 19th, 2025</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 13</b>: Floyd-Warshall Algorithm</td>
+                <td style="text-align: center">Apr 05th, 2025</td>
+                <td style="text-align: center">Apr 19th, 2025</td>
+                <td style="text-align: center">Apr 24th, 2025</td>
+                <td style="text-align: center">Apr 26th, 2025</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 14</b>: Minimum Spanning Trees</td>
+                <td style="text-align: center">Apr 12th, 2025</td>
+                <td style="text-align: center">Apr 26th, 2025</td>
+                <td style="text-align: center">May 01st, 2025</td>
+                <td style="text-align: center">May 03rd, 2025</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 15</b>: Disjoint Sets</td>
+                <td style="text-align: center">Apr 19th, 2025</td>
+                <td style="text-align: center">May 03rd, 2025</td>
+                <td style="text-align: center">May 08th, 2025</td>
+                <td style="text-align: center">May 10th, 2025</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 16</b>: Test 2</td>
+                <td style="text-align: center">-</td>
+                <td style="text-align: center">-</td>
+                <td style="text-align: center">-</td>
+                <td style="text-align: center">-</td>
+                <td>No Homework 16 since it is a test day. </td>
+            </tr>
+            <tr>
+                <td><b>Homework 17</b>: Counting and Combinatorics</td>
+                <td style="text-align: center">May 03rd, 2025</td>
+                <td style="text-align: center">May 17th, 2025</td>
+                <td style="text-align: center">May 22nd, 2025</td>
+                <td style="text-align: center">May 24th, 2025</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 18</b>: Basic Number Theory</td>
+                <td style="text-align: center">May 10th, 2025</td>
+                <td style="text-align: center">May 24th, 2025</td>
+                <td style="text-align: center">May 29th, 2025</td>
+                <td style="text-align: center">May 31st, 2025</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 19</b>: Introduction to Greedy Algorithms</td>
+                <td style="text-align: center">May 17th, 2025</td>
+                <td style="text-align: center">May 31st, 2025</td>
+                <td style="text-align: center">Jun 05th, 2025</td>
+                <td style="text-align: center">Jun 07th, 2025</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Homework 20</b>: Introduction to Dynamic Programming</td>
+                <td style="text-align: center">May 24th, 2025</td>
+                <td style="text-align: center">Jun 07th, 2025</td>
+                <td style="text-align: center">Jun 12th, 2025</td>
+                <td style="text-align: center" style="text-align: center">-</td>
+                <td>No time for takeup, so video solutions will be shared.</td>
+            </tr>
+            <tr>
+                <td><b>Homework 21</b>: Introduction to Computational Geometry</td>
+                <td style="text-align: center">May 31st, 2025</td>
+                <td style="text-align: center">Jun 14th, 2025</td>
+                <td style="text-align: center">Jun 19th, 2025</td>
+                <td style="text-align: center">-</td>
+                <td>HW 21 due on the last day of class. No time for takeup, so video solutions will be shared.</td>
+            </tr>
+            <tr>
+                <td><b>Homework 22</b>: Final Exam</td>
+                <td style="text-align: center">-</td>
+                <td style="text-align: center">-</td>
+                <td style="text-align: center">-</td>
+                <td style="text-align: center">-</td>
+                <td>No Homework 22 since it is Final Exam day. The last day to hand in any missed HW is June 15th, 2025.</td>
+            </tr>
+        </table>
+        <h4>Part 1 (Concepts)</h4>
+        You are given a one page on Classkick (more info on Classkick below) to write your answers to the conceptual questions. Show all work as needed. It must fit that one page; otherwise, your answers are too long and you may need to cut down. Another option is to type your answers in a Word Processor, and then take a screenshot and paste there. Another alternative is to write your answers on a piece of paper and then attach it there. Regardless of your method, you still need to be able to fit your work in that single page.
+
+        <h4>Part 2 (Contest Problem)</h4>
+        Read the contest problem carefully, including the input and output specifications, and analyze as well the sample input and output. Then code a solution for the problem being asked (either in Python, Java, or C++). See below for instructions for how to submit your solutions:
+        <ul style="line-height:1.5;">
+            <li><b>Step 0:</b> This step may only need to be done once throughout the course. Setup Classkick. See below section for instructions regarding Classkick. </li>
+            <li><b>Step 1:</b> First create a folder with the following filename: <code class="inline">firstname-lastname-homework-X-Sr</code>, where <code class="inline">X</code> is the HW number. So for example, I will name my folder as <code class="inline">Gian-Alix-homework-01-Sr</code> for my first homework submission. <span class="alert"><i>If you took my CCC class last Fall 2024 term, this folder name format is not that different, with the exception of the "Sr" suffix in the filename.</i></span></li>
+            <li><b>Step 2:</b> Place all files that you would like to submit to this folder. Your solution to each problem should be in a separate file. So if there are three contest problems in the HW for example, then the folder should contain three files, with each file containing the solution to each homework question.</li>
+            <li><b>Step 3:</b> Once all files that you would like to submit are now in the folder, compress it using any of the zipping softwares. For Windows such as: <a href="https://www.win-rar.com/start.html?&L=0">WinRar</a>, <a href="https://www.7-zip.org/">7zip</a>, or <a href="https://www.winzip.com/en/">WinZip</a> (no need to install if your machine already has one). For Mac, a compression utility software is already built-in so no need to install (simply right click on the folder, then click on <code class="inline">Compress</code>). So after compressing, your filename should be something like <code class="inline">Gian-Alix-homework-01-Sr.zip</code></li>
+            <li><b>Step 4:</b> Go to Classkick. Take a screenshot of your codes and paste them in the homework submission page. It also has the link for submitting the compressed folder; please upload the compressed folder to that link. </li>
+            <li><b>Step 5:</b> Feel free to upload as many times as you wish. Previously uploaded files are overwritten. Only the last submission will be graded.</li>
+        </ul>
+        <p>Feel free to ask me questions about homework submission (especially if you're not sure how or where to find the project directory) and I will be able to help you.</p>
+
+        <h4>Setting Up Classkick with CCC Level 1 Class</h4>
+        If you have a Classkick account (possibly from a previous class that you took), then go <a href="https://app.classkick.com/account/login" target="_blank">here</a> to login. If you forgot your password, you can also click that link to try to recover your account. Once logged in, you will see a green circle on the top right corner. Add the following homework Classkick code for the first homework: <code class="inline">P2W 49D</code>. By doing this, you would have gained access to future homeworks (no need to always input the Classkick homework code). <br><br>
+
+        If you do not have a Classkick account, create one <a href="https://app.classkick.com/#/signup/student" target="_blank">here</a>. First specify the following Classkick code: <code class="inline">P2W 49D</code>. Then click on <code class="inline">Sign Up with Username/Email</code>. Create a username that contains your name; write the username and password down in your notebook so you wouldn't forget. By doing this, you would have gained access to future homeworks (no need to always input the Classkick homework code). <br><br>
+
+        In both cases, it is expected that your account will be a "Portfolio" account instead of a "Basic" account. It is this that ensures that you do not need to input the Classkick homework code in order to receive future homeworks. I'll check this during the first day of classes to ensure everyone's account is correct. If it is not setup correctly, that is ok; I will let you know and we can fix it together.
+        <hr>
+
+        <h3>Accessing Grades and Feedback</h3>
+        <p>All grades and feedback will be posted on Classkick. I will release announcements whenever I complete marking. </p>
+
+        <h3>Grading Scheme</h3>
+        <p>Your grade for Part 1 will be added with Part 2. For Part 1, the highest possible score can always vary, depending on the Homework (grading scheme taken up during Homework Takeup). For Part 2, the highest possible score for each problem is always out of 5:</p>
+        <ul>
+            <li><b>5 points</b> - If the Online Judge (OJ) deems the answer is correct (passes ALL test cases <i>given a reasonable amount of time</i>). I won't write feedback if you got 5 points - that's how good you are! :) .</li>
+            <li><b>4 points</b> - Minor issues. Maybe 1 or 2 failed test cases. But that's ok, I tell you this.</li>
+            <li><b>3 points</b> - Around half of the test cases passed, and the rest fail. </li>
+            <li><b>2 points</b> - Major issues. Very few test cases passed (possibly 1?) </li>
+            <li><b>1 point</b> - Wrong Answer (WA). No test case passed. Any kind of error (syntax, runtime, etc.) caught by the online compiler. </li>
+            <li><b>0 point</b> - No attempt. </li>
+        </ul>
+
+        <p>Majority of the homework questions are actually <i>contest problems</i> and an OJ is grading them. Unfortunately, it's part of the contest that the judge won't tell you what are the set of inputs that fail -- sometimes, it doesn't even tell you how many fail!</p>
+
+        <p>Another advice that I have when submitting solutions to these problems is that the OJ is very picky! Don't output text that is not required. So for example, don't print <code class="inline">"Please input an integer: "</code> when prompting for an input (unless specified otherwise by the problem!). You also have to be careful with capitalization/lower-case (output to the console must be case-senstive). Don't add extra or remove any characters such as punctuations like spaces, periods, etc. <span class="alert">The expected output of the OJ must match your actual output. </span>Code with efficient runtime is also expected in computing competitions.</p>
+
+        <h3>Total Score</h3>
+        For each Homework, I tally your total scores. If it is 75% (or above) in terms of percentage, then you will be marked "P" in the report card for that Homework. If it is below that, then it is "I". If no submission attempt made, then it will be blank.If you need to resubmit to fix corrections (up to Attempt 2) or submitting a missed HW, then the filename should then have a format be <code class="inline">Gian-Alix-homework-01-Sr-resubmitted.zip</code>
+        <hr>
+
+        <h3>DMOJ Online Judge</h3>
+            You are not required to create an account in <a href="https://dmoj.ca" target="_blank">DMOJ</a>. But if you have one, you can use it to login to DMOJ to be able to submit solutions (viewing problems does not require an account though!). It is not required for you to submit your solutions to DMOJ; <span class="alert">you still have to submit your solutions according to the method of submitting HW in this course!</span>. The sample input/output in the HW specifications may not be enough to check the correctness of your code solutions, so visiting DMOJ may be able to help.
+        <hr>
+
+        <!-- <pre class="line-numbers"><code class="language-java">public static void main(String[] args) {
+    System.out.println("Hello World!");
+}</code></pre> -->
+        
+        <h3>Announcements</h3>
+        <i>This will be populated overtime. Announcements are posted as a stack, so the most recent announcements are on top. <span class="alert"><b>Always refresh the page upon visiting the page! Visit this website at least on two different occassions each week!</b></span></i>
+        <ul style="line-height:1.5;">
+            <!-- <li>Testing
+                <pre class="line-numbers" style="width:40%;"><code class="language-python">print("\"\\\"\"\\\"\"\\nn")</code></pre>
+</li> -->
+            <!-- <li><b>July 1st, 2024: </b>
+                Please take some time to answer the following <a href="https://forms.gle/ZNEiAeeQNbDPipREA" target="_blank">diagnostic test</a>. Just try your best; if you do not know the answer, just make a guess instead of leaving it blank. Your grade will not be released (unless you opted to) and is only for my personal assessment only.
+            </li> -->
+            <!-- <li><b>January 6th, 2025: </b>
+                As a friendly reminder from Meritus Academy, classes resume this week and that Winter enrollment is ongoing for those who are interested in registering for our school's Winter courses. Please reach out to the secretaries soon.
+            </li>
+            <li><b>January 5th, 2025: </b>
+                Three students have received a +5 bonus point for next Saturday's Final Exam. They were able to successfully receive 11 "P"s out of the 15 possible homeworks. 
+            </li>
+            <li><b>January 3rd, 2025: </b>
+                All HWs up to HW 14 are now graded. HW 15 will be graded after next week's class. If you have past HWs that you'd like to me grade, you have until Jan 12th, 2025 to hand them in. After that, no other HWs will be accepted. Moreover, if you need me to mark past HWs, you need to use Classkick's raise hand functionality as a friendly reminder. 
+            </li>
+            <li><b>January 2nd, 2025: </b>
+                Agenda on January 11th: first take up the solutions of HW 15, then do a quick course wrap-up. Afterwhich, we take a break; during the break, you will be given a link to do a quick course survey. Then we will then have the final exam. 
+            </li>
+            <li><b>January 2nd, 2025: </b>
+                Happy New Year everyone! See Topics and Resources section for more materials added that can help prepare for the exam next week. I will be sure to finish grading all homeworks in the next few days or so. I'll see you all on January 11th!
+            </li>
+            <li><span class="alert"><b>December 20th, 2024: </b></span>
+                <span class="alert"><b>Reminder again that the Winter Break starts on December 23rd, up until January 6th, 2025. When we come back on January 11th, 2025 for our last class in this course, we will do our Final Exam. <a href="https://ossfiles.ca/index.php/s/eCeKWdkwbCGt3yN" target="_blank">Here</a> are the important information about the exam. We will talk about it in-class tomorrow.</b></span>
+            </li>
+            <li><b>December 18th, 2024: </b>
+                I highly commend one student who tried (and submitted) the Bank Account In-class Exercise. I won't mention their name as they might not like to be the centre of attention, but they got a +5 bonus points from me for the Final Exam for being the only one to do it (you know who you are :D ). I haven't checked their code if they got the answer right, but I want to reward students who have attempted at least. Anyways, here are the solutions: <a href="./codes/BankAccount.java" target="_blank">BankAccount.java</a> and <a href="./codes/bank_account.py" target="_blank">bank_account.py</a>
+            <li><b>December 18th, 2024: </b>
+                As promised, here is a video taking up the solutions to HW 13: <a href="https://ossfiles.ca/index.php/s/qEqnGT8NzA5TGw3" target="_blank">for Java</a>, <a href="https://ossfiles.ca/index.php/s/sQW243XwZg2pj4E" target="_blank">for Python</a>. Here are the solutions to the code: <a href="./codes/LightSol/Light.java" target="_blank">Light.java</a> and <a href="./codes/LightSol/Light.py" target="_blank">Light.py</a>. Unfortunately, we do not have the time to cover these solutions in-class this Saturday. So please take some time to go over these videos and code solutions.
+            <li><b>December 9th, 2024: </b>
+                For the Light HW, please read the HW specs carefully. Make sure to update only <code class="inline">Light.java</code> or <code class="inline">Light.py</code>, and only modify those codes with the <code class="inline">to-do</code>. The test files must not be updated by any means, although you have to submit both <code class="inline">Light</code> and test files as part of your HW 13 submission.
+            <li><b>December 8th, 2024: </b>
+                Not sure why the starter codes were different from the ones I have shown, but please use the following starter codes for your HW 13 (Light OOP HW): <a href="./codes/Light.java" target="_blank">Light.java</a>,  <a href="./codes/TestLight.java" target="_blank">TestLight.java</a>, <a href="./codes/Light.py" target="_blank">Light.py</a>,  <a href="./codes/test_light.py" target="_blank">test_light.py</a>.
+            <li><b>December 5th, 2024: </b>
+                For HW 13, make sure to download the <a href="./codes/LightStarterCode.zip" target="_blank">starter code</a> as you will be needing it for that HW. Your final submission for HW 13 will only include a zipped folder of two Java files: <code class="inline">Light.java</code> and <code class="inline">TestLight.java</code> (for students coding in Java), and then a zipped folder of two Python files: <code class="inline">Light.py</code> and <code class="inline">test_light.py</code> (for students coding in Python). Read the instructions carefully from the HW 13 spec (e.g., only <code class="inline">Light.java</code> and <code class="inline">Light.py</code> needs to be modified, and all those that have <code class="inline">to-do</code> would need to be modified)
+            <li><b>December 3rd, 2024: </b>
+                This announcement provides some bonus points to students who can get a total of at least 11 Homeworks with "P" grades by Dec 23rd. It will be a +5 bonus points towards the Final Exam next month. 
+            <li><b>December 2nd, 2024: </b>
+                HW 11 (and any other older HW and corrections) are now graded. Send me an email to get some updates on how many "P" grades that you have so far.
+            <li><b>November 27th, 2024: </b>
+                All homeworks up to HW 15 are now posted in the course webpage. The submission links on Classkick and OSSFiles are now open, in case anybody wants to get a head start on the homeworks. 
+            <li><b>November 26th, 2024: </b>
+                I highly recommend checking out <a href="https://visualgo.net/en" target="_blank">VisuAlgo.net</a>. It provides some good visualizations for data structures and algorithms. For example, did you know that you can provide your own input list or array of positive integers. And then VisuAlgo can sort those numbers for you! Just choose the sorting algorithm (<code class="inline">InsertionSort</code>, <code class="inline">SelectionSort</code>, or <code class="inline">BubbleSort</code>), and it will show you the steps, the whole process for how you sort it using these algorithms. Click <a href="https://visualgo.net/en/sorting" target="_blank">here</a> for the example. Really useful especially when we start talking about linked lists, trees, and graphs!
+            </li>
+            <li><b>November 25th, 2024: </b>
+                HW 10 has now been graded. Also, the typo for the Selection Sort Python code from the slides is now fixed. Finally, I have misspoken last Saturday (Nov 23rd) when I said our topic for next Saturday (Nov 30th) was on Object-Oriented Programming (OOP). What I meant was that on Nov 30th, we will cover Hashing, and then OOP the following Saturday (Dec 7th).
+            </li>
+            <li><b>November 19th, 2024: </b>
+                HW 9 (and any other older HW) have now been graded. Please see Classkick for your grades. If you submit any HW from the past and you did not see your grade, make sure to use the "Raise Hand" functionality of Classkick so that I will be notified that you submitted something from a past HW. Please click the hand icon on the upper right corner of the Classkick on the HW that you'd like me to look at. I will not be browsing through each student to check if any HW was submitted - it is your responsibility to submit HW and notify me (using the Classkick's Raise Hand functionality) for any submission of past HW. Raising hand is not required if it is HW submitted before the due date.
+            </li>
+            <li><b>November 18th, 2024: </b>
+                Homeworks 12-13 are now posted ahead of time, as well as on Classkick/OSSFiles. Grades for previous Homeworks will be posted on Classkick in a few days.
+            </li>
+            <li><b>November 17th, 2024: </b>
+                The midterm survey link is now closed, thank you again for all those who filled out the survey. Seeing that most of you filled it out, I'm happy to announce that everyone in this class (assuming you did not drop past Nov 17th) will receive a +5 bonus points for the upcoming Final Exam in January! 
+            </li>
+            <li><b>November 14th, 2024: </b>
+                I have already updated the Homeworks and Slides for the next two weeks. So this weekend, we'll be covering searching algorithms, following that up with sorting algorithms the following Saturday. The Classkick and OSSFiles submission directory for these HWs will be available by the end of the night. There are an few more resources that I promised last Saturday that I'll upload; they should be coming up tonight or tomorrow. Lastly, the survey will continue to be open until Saturday, Nov 16th. So if you have not done so, please take a few minutes to fill that out (again, the bonus points for Final Exam are still offered up until that day only! We still have not reached our 80% quota).
+            </li>
+            <li><b>November 9th, 2024: </b>
+                Thanks again for everyone who filled out the midterm survey. I have sent an email to everyone who sent me a screenshot of the acknowledgment, and that each has received a +2 bonus points for the Final Exam. Out of the 15 students in the class, not everyone has done it yet but that's ok. Again, 80% of the class must do the survey (which is 12 students) so that everyone gets a +5 for the Final Exam. The midterm survey closes on Saturday, Nov 16th.
+            </li>
+            <li><b>November 7th, 2024: </b>
+                The midterm survey by the way is anonymous (no need to provide name), but if you choose otherwise, you will be incentivized with additional +2 bonus points for the exam. Please do not feel obligated to give your name just for the bonus. Thanks! I will see you all on Saturday!
+            </li>
+            <li><span class="alert"><b>November 7th, 2024: </b></span>
+                <span class="alert"><b>Please take 5 minutes of your time to complete the <a href="https://forms.gle/c3rgeXvSL9qzXER76" target="_blank">midterm survey</a> that will help us improve our CCC course. A +5 bonus points for the Final Exam will be given to the entire class if 80% of students fill out the form. After completing the survey, please screenshot the acknowledgement receipt after clicking "Submit" and send it to me via email (<a href="mailto: galix@olympiadsmail.ca">galix@olympiadsmail.ca</a>).</b></span>
+            </li>
+            <li><b>November 3rd, 2024: </b>
+                Sidenote: The OJ for the midterm is not the same OJ as DMOJ just cause these questions during our midterm was not in a previous contest nor posted on the DMOJ website.
+            </li>
+            <li><b>November 3rd, 2024: </b>
+                The base score for this midterm is 50, then Q1 is worth 25 and Q2 is worth another 25. If your code for Q1 does not compile, you get a 0/25 (same goes for Q2). To get your Q1 score (same method for Q2 score), let <code class="inline">x</code> be the number of test cases you passed (as determined by the OJ) and let <code class="inline">t</code> be the number of total test cases (<code class="inline">t</code> = 6 for Q1 and <code class="inline">t</code> = 13 for Q2). Then the question score out of 25 is (<code class="inline">x</code> + 1)/(<code class="inline">t</code> + 1) * 25 * <code class="inline">EB</code>. For Q1 (and Q2), the <code class="inline">EB</code> = 1.5 (efficiency bonus) is granted if your code rated high in terms of average runtime efficiency (as calculated by the OJ), when ranked amongst your peers (top 3 Python coders and top 2 in Java coders; since there are 9 Python coders and 6 Java coders). The same <code class="inline">EB</code> = 1.5 for Q2. If you did not get the <code class="inline">EB</code>, that's ok -- your <code class="inline">EB</code> = 1. It is possible that your Q1 (or Q2) score exceeds 25. So for the final calculation of the midterm score, just add 50 + Q1 score + Q2 score + Bonus points accumulated in the term. The max score for the midterm is 100, and so if your score exceeds this, it shall get capped and the remainder is carried over as bonus points towards the Final Exam. (Note that the final midterm grade truncates the decimal part.)
+            </li>
+            <li><b>November 2nd, 2024: </b>
+                Midterm tests have already been marked, and grades already available on Classkick (please send me an email for any questions on the grading or any remarking request). I will explain in another announcement how midterm scores are computed. But so far, I'm actually glad and impressed by everyone's performance this evening! The class average was 78%, and if this was a homework this is a "P"! So good job everyone and keep up the good work!
+            </li>
+            <li><b>November 2nd, 2024: </b>
+                Daylight Savings Announcement: Don't forget that it's Daylight Savings tonight, so don't forget to set your clocks one hour back!
+            </li>
+            <li><b>November 1st, 2024: </b>
+                People who got at least 5/7 P's in the Homeworks have now been determined (remember that a P score for homeworks uses a 75% threshold) and an email has been sent to them to notify that they qualified for the +5 bonus points for tomorrow's midterm. I'll see you all tomorrow for the midterm!
+            </li>
+            <li><b>November 1st, 2024: </b>
+                There seems to be a bug with the Online Judge for HW 6 Q2 (Fraction Action). And so if you did the question (and followed the instructions for submitting/uploading), you will see in your Classkick that I gave you a 5/5 for that. Apologies for any inconvenience that it has caused.
+            </li>
+            <li><span class="alert"><b>October 31st, 2024: </b></span>
+                <span class="alert"><b>As a reminder to all, the midterm test is this Saturday right after we take up HW 7 solutions. It will cover all material from Week 1 to 7. Please review the slide deck for other important information about the test. Can't make it to the test? Please let me know via email right away! </b></span>
+            </li>
+            <li><b>October 31st, 2024: </b>
+                Happy Halloween everyone, and hopefully you're enjoying Trick-or-Treating. Anyways, since our test is coming up soon, I have decided to post HW 7 solutions ahead of time (see the solution in the Topics and Resources section). The deadline will still be Nov 3rd, with us taking it up first on Saturday (Nov 2nd). However, the next progress report is coming soon, and so grades including HW 7 as well as the midterm test might also be added in to this progress report, just as a heads up for everyone. I will be grading more homeworks by Nov 1st -- again 5/7 P's are needed by that day (12:01 PM) for the +5 bonus for the upoming midterm.
+            </li>
+            <li><span class="alert"><b>October 26th, 2024: </b></span>
+                <span class="alert"><b>I apologize, there is a typo in the code that I have taken up in class today for Homework 6, Question 1 (Poetry). I have attached the correct code now and posted it in the Topics and Resources section, alongside the solutions from tonight's handout on Recursion.</b></span>
+            </li>
+            <li><b>October 24th, 2024: </b>
+                I plan to also give a +5 bonus points for the midterm for anyone who can complete (meaning "P") at least 5 of the 7 homeworks before the day of the test (Nov 1st, 2024, due 12:01 PM). 
+            </li>
+            <li><b>October 24th, 2024: </b>
+                For anyone who would like to request for some update on which of their homeworks are pass ("P"), incomplete ("I"), or blank, please send me an email right away -- the progress reports are coming soon! Also, if you would like to get an update of how much bonus points you have accumulated (goes towards your midterm, overflows to the final exam), please send me an email as well!
+            </li>
+            <li><b>October 24th, 2024: </b>
+                Homework 5 (and any other past homework) are now graded. The grades should now be available. If you believe that you submitted homework but were not graded by me, please use the "raise hand" functionality on Classkick.
+            </li>
+            <li><b>October 24th, 2024: </b>
+                There were some typos noticed in the mock test, so <a href="https://ossfiles.ca/index.php/s/p2MDDkdac4EJ2FJ" target="_blank">here</a> is the corrected version, and here are the <a href="./codes/CCCLv1-Mock-Test-Solutions.zip" target="_blank">solutions</a> in Java and Python for reference. I am not able to complete the marking in time, so please refer to the solutions. Instead, I decided to give bonus points to everyone who attempted the problems <b>AND</b> followed the correct method of submission (solution of each question in separate file + putting both files in a single compressed folder with filename <code class="inline">firstname-lastname-mocktest.zip</code> + code screenshots on Classkick). The same procedure will be done during the midterm (with the exception of the filename and submission path). +1 bonus point can be given for Q1 and +1 bonus point for Q2. 
+            </li>
+            <li><span class="alert"><b>October 24th, 2024: </b></span>
+                <span class="alert"><b>Please click the following link with regards to the midterm notice from last class: <a href="https://ossfiles.ca/index.php/s/PAQt2QWn9qwMrBt" target="_blank">here</a></b></span>
+            </li>
+            <li><b>October 16th, 2024: </b>
+                Hope everyone had a great Thanksgiving weekend! I am now back and HW 4 is now graded (> 7.5 is a "P" and < 7.5 is an "I"). The HWs 5-7 questions, OSSFiles Directory submission, and Classkick links are also available (decided to just upload early). The midterm test is coming soon, so I will discuss more about the test this weekend.     
+            </li>
+            <li><b>October 9th, 2024: </b>
+                HWs 1-3 are now graded. I have also prepared the first progress report cards, which I already sent to the school. In your Classkick, please check the chat. I indicated "P" (no need to fix corrections), "I" (need to fix corrections), or "Blank" (need to submit HW). Again, you need to submit screenshots to Classkick, and also put all HW files (each HW question solution is its own file) in a single folder with the folder name <code class="inline">firstname-lastname-homework-X.zip</code> (or <code class="inline">firstname-lastname-homework-X-corrections.zip</code> if it is resubmitting). Please use the "raise hand" functionality on Classkick once you have submitted HW or corrections; this will signal me to check up on your homework, and revise the grade.    
+            </li>
+            <li><span class="alert"><b>October 9th, 2024: </b></span>
+                <span class="alert"><b>As a notice to all, I will be away this Saturday, October 12th. However, there will still be classes on that day, and a supply teacher was kind enough to take charge this weekend.</b></span>
+            </li>
+            <li><b>October 8th, 2024: </b>
+                For those who attempted the <a href="https://ossfiles.ca/index.php/s/priYZBdqGFjTpwE" target="_blank">challenge problems</a> last Saturday, amazing work to you all!  All solutions can be found <a href="./codes/ccclv1_class4_handout-sol.zip" target="_blank">here</a>. 
+            </li>
+            <li><b>October 7th, 2024: </b>
+                As discussed last Saturday, please see the following <a href="./codes/ccc_lv1_hw3_huffman_solutions.zip" target="_blank">link</a> that contains solutions to the HW 3 for the Huffman Coding that we took up. I won't be finished marking HW 3 up until Thursday (October 10th) maybe? 
+            </li>
+            <li><b>October 2nd, 2024: </b>
+                HW 2's are now graded. Please verify if you are able to view your score/feedbacks onto Classkick. Again, you'll get a "P" if your total is >11.25 and "I" if < 11.25. Please fix your corrections if you got an "I" (no need to do so for "P"), and then resubmit on Classkick and OSSFiles, then use the "raise hand" functionality notifying me that you have done your correction and would like a regrade. Here is a <a href="https://ossfiles.ca/index.php/s/bQnmmDKriwxaFtC" target="_blank">document</a> that gives some tips about solving homework contest problems.
+            </li>
+            <li><b>September 25th, 2024: </b>
+                Additional instruction for the homeworks going forward: Your solution to each problem should be in a separate file. So if there are three questions in the HW for example, then the compressed folder should contain three files, with each file containing the solution to each homework question. It would be highly appreciated if you do your homeworks like this. If you already submitted HW 2 that only contains one singular file, then it's ok; no need to redo it - just ensure that you'll have separate files for each homework question in the future.
+            </li>
+            <li><b>September 24th, 2024: </b>
+                Homework 1 is now graded. The grades and feedback can be viewed over on Classkick.  
+                <ul>
+                    <li>If you did not receive your grade (equivalent to a blank), I attached a feedback note explaining why you didn't receive it and what you can do. </li>
+                    <li>Q1 of Homework 1 is a bit of a give away, but is still worth 5 points.</li>
+                    <li>For any question/problem in each homework, it is worth 5 points (no matter how easy or challenging it may be, just to simplify grading). I will announce if there is a question/problem that deviates from this rule.</li>
+                    <li>For each homework, your score is totalled and you will receive a "P" (pass) on your report card if you scored 75% or above, and "I" (incomplete) for lower than 75%. For HW 1, all those who scored 11.25 or above out of 15 will get a "P" and those who did the homework but got less than 11.25 will receive an "I".</li>
+                    <li>See the above section under "Homeworks" regarding the grading scheme.</li>
+                    <li><b>Only for those who got an "I":</b> you are given a chance to fix your corrections and reupload your homework using the filename <code class="inline">firstname-lastname-homework-X-corrections</code>. So for example <code class="inline">Gian-Alix-homework-1-corrections.zip</code>, and don't forget to reupload the screenshots on Classkick. To help me know that you did the corrections and would like a remark, please use the "raise your hand" feature on Classkick.</li>
+                    <li>Any corrections and late homeworks are still acceptable.</li>
+                </ul>
+            </li>
+            <li><b>September 23rd, 2024: </b>
+                Homework 3 and 4 are now available (sometimes, I get a little excited and upload homeworks earlier than expected!). Also the Classkick page for Homework 3 is already available (for Homework 4 Classkick links, it will be available this weekend).
+            </li>
+            <li><b>September 17th, 2024: </b>
+                Homework 2 is now available. Upload link for the homework is also accessible on Classkick (note: the HW 1 link submission is different from the HW 2 link).
+            </li>
+            <li><b>September 16th, 2024: </b>
+                For those who attempted the optional homework (the handout I have given out at the end of class last Sep 14th), you can submit it <a href="https://ossfiles.ca/index.php/s/MFLwxozeczHfTPJ" target="_blank">here</a>. It's ok if it works or does not work as expected (something better than nothing). I will discuss the incentives in class this Saturday. This is due on Sep 21st, 4:30 PM (before class starts)
+            </li> -->
+            <li><b>January 07th, 2024: </b>
+                Welcome to the course! Make sure to spend some time going over this course webpage providing valuable information regarding this course. Bookmark this page so you can easily visit this page. Email me for any questions: <a href="mailto: galix@olympiadsmail.ca">galix@olympiadsmail.ca</a>
+            </li>
+        </ul>
+        <hr>
+
+        <h3>Weekly Section</h3>
+        This will be populated weekly.
+        <hr>
+        <button type="button" class="collapsible">Week 01: January 13th, 2025 to January 19th, 2025</button>
+        <div class="content">
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-file-pdf" style="color: #b51a00;"></i> <a href="https://ossfiles.ca/index.php/s/gCawkifSndpeDeR" target="_blank">Course Outline</a> <br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-calendar-check" style="color: #ff9300;"></i> <b>Agenda:</b></p>
+                <ul>
+                    <li>Write the Diagnostic Test.</li>
+                    <li>Introduce the course.</li>
+                    <li>Cover Computational Complexity.</li>
+                </ul>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-bell" style="color: #FFD43B;"></i> <b>Reminder:</b> Course materials for PartOne can be found <a href="https://ossfiles.ca/index.php/s/42ALRzeP3JK57HY" target="_blank">here</a>. We will use this for the next four weeks, until February 09th, 2025.
+            </p>
+        </div>
+        <hr>
+        <button type="button" class="collapsible">Week 02: January 20th, 2025 to January 26th, 2025</button>
+        <div class="content">
+            <p>
+                
+            </p>
+        </div>
+        <hr>
+        <button type="button" class="collapsible">Week 03: January 27th, 2025 to February 02nd, 2025</button>
+        <div class="content">
+            <p>
+                
+            </p>
+        </div>
+        <hr>
+        <button type="button" class="collapsible">Week 04: February 03rd, 2025 to February 09th, 2025</button>
+        <div class="content">
+            <p>
+                
+            </p>
+        </div>
+        <hr>
+
+        <h3 id="otherRes">Other Resources</h3>
+        <ul style="line-height:1.5;">
+            <li>Online compilers from Programiz: <a href="https://www.programiz.com/python-programming/online-compiler/" target="_blank">Python</a>, <a href="https://www.programiz.com/java-programming/online-compiler/" target="_blank">Java</a>, <a href="https://www.programiz.com/cpp-programming/online-compiler/" target="_blank">C++</a> </li>
+            <li><a href="https://dmoj.ca" target="_blank">DMOJ</a> - a treasury of computing contest problems for various levels</li>
+            <li><a href="https://cemc.uwaterloo.ca/contests/ccc" target="_blank">CCC of Waterloo</a> - Link to the Canadian Computing Competition at the University of Waterloo; click for more details</li>
+            <li>Review Materials - these are slides from the Intro to Programming Course offered at Meritus Academy; feel free to brush up if you ever need a refresher (<a href="https://ossfiles.ca/index.php/s/LoBBADsqEA28LW5" target="_blank">for Java</a> and <a href="https://ossfiles.ca/index.php/s/ebT8PFffmABZBAE" target="_blank">for Python</a>) - they are password-protected so please send me an email for the password (or let me know in-class)</li>
+            <li><a href="https://www.oracle.com/ca-en/java/technologies/downloads/" target="_blank">Java 22 JDK</a> - make sure you are able to install this on Week 1 for Java users. To verify that the Java version and if it has been installed correctly in your machine, type <code class="inline">java --version</code> in your terminal/command prompt. </li>
+            <li><a href="https://www.python.org/downloads/" target="_blank">Python3</a> - make sure you are able to install this by Week 1 for Python users. To verify the version and if Python has been installed correctly in your machine, type <code class="inline">python3 --version</code> or <code class="inline">python3 --V</code> in your terminal/command prompt. See the following PDFs for more information about installation:  <a href="https://ossfiles.ca/index.php/s/sdBNKn3DfX5PGgD" target="_blank">for Windows</a>, <a href="https://ossfiles.ca/index.php/s/sR5mQKgLkZ64gkQ" target="_blank">for MacOS</a></li>
+            <li>Here is a <a href="https://ossfiles.ca/index.php/s/bQnmmDKriwxaFtC" target="_blank">document</a> that gives some tips about solving homework contest problems.</li>
+            <li><a href="https://visualgo.net/en" target="_blank">VisuAlgo.net</a> - highly recommended for visualizing a data structure or an algorithm. </li>
+            <li>...</li>
+        </ul>
+        <hr>
+
+        <!-- <p style="text-align:center;"><b><i>Last updated: June 24th, 2024 @ 3:21 PM</i></b></p> -->
+        <p id="dtModified" style="text-align:center;"><b>Loading...</b></p>
+
+
+    </body>
+</html>

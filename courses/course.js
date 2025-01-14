@@ -117,36 +117,36 @@
 }());
 
 document.addEventListener('DOMContentLoaded', function() {
-	// var dtModifiedElement = document.getElementById('dtModified');
+	var dtModifiedElement = document.getElementById('dtModified');
 	
-	// // Get last modified date of the current document
-	// var lastModifiedDate = new Date(document.lastModified);
+	// Get last modified date of the current document
+	var lastModifiedDate = new Date(document.lastModified);
 	
-	// // Format the date as desired
-	// var options = { 
-	// 	year: 'numeric', 
-	// 	month: 'short', // Use short month format (e.g., Jul)
-	// 	day: '2-digit',  // Use 2-digit day format (e.g., 01)
-	// 	hour: '2-digit', 
-	// 	minute: '2-digit', 
-	// 	hour12: true 
-	// };
-	// var formattedDate = lastModifiedDate.toLocaleDateString('en-US', options);
+	// Format the date as desired
+	var options = { 
+		year: 'numeric', 
+		month: 'short', // Use short month format (e.g., Jul)
+		day: '2-digit',  // Use 2-digit day format (e.g., 01)
+		hour: '2-digit', 
+		minute: '2-digit', 
+		hour12: true 
+	};
+	var formattedDate = lastModifiedDate.toLocaleDateString('en-US', options);
 	
-	// // Get the day suffix (st, nd, rd, th)
-	// var day = lastModifiedDate.getDate();
-	// var daySuffix = getDaySuffix(day);
+	// Get the day suffix (st, nd, rd, th)
+	var day = lastModifiedDate.getDate();
+	var daySuffix = getDaySuffix(day);
 	
-	// // Construct final formatted string
-	// // var finalFormattedDate = 'Last updated: ' + formattedDate.replace(',', '') + daySuffix + ' @ ' + formattedDate.slice(12);
-	// var dateMod = formattedDate.split(',')[0] + daySuffix;
-	// var yearMod = formattedDate.split(',')[1];
-	// var timeMod = formattedDate.split(',')[2];
-	// var finalFormattedDate = dateMod + ", " + yearMod;
+	// Construct final formatted string
+	// var finalFormattedDate = 'Last updated: ' + formattedDate.replace(',', '') + daySuffix + ' @ ' + formattedDate.slice(12);
+	var dateMod = formattedDate.split(',')[0] + daySuffix;
+	var yearMod = formattedDate.split(',')[1];
+	var timeMod = formattedDate.split(',')[2];
+	var finalFormattedDate = dateMod + ", " + yearMod;
 	
-	// // Update the text content of the dtModifiedElement
-	// dtModifiedElement.textContent = "Last updated: " + finalFormattedDate;
-	// dtModifiedElement.style.fontWeight = "bold";
+	// Update the text content of the dtModifiedElement
+	dtModifiedElement.textContent = "Last updated: " + finalFormattedDate;
+	dtModifiedElement.style.fontWeight = "bold";
 
 
 

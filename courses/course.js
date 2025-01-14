@@ -148,6 +148,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	dtModifiedElement.textContent = "Last updated: " + finalFormattedDate;
 	dtModifiedElement.style.fontWeight = "bold";
 
+
+
 	var coll = document.getElementsByClassName("collapsible");
 	var i;
 	for (i = 0; i < coll.length; i++) {

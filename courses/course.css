@@ -165,3 +165,10 @@ pre.line-numbers > code {
   .active:after {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
   }
+
+  .python-icon {
+    background: linear-gradient(to right, #306998 50%, #FFD43B 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 100px; /* Adjust size as needed */
+  }

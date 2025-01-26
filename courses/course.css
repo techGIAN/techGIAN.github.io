@@ -122,53 +122,47 @@ pre.line-numbers > code {
     font-size: 1em;
     font-weight: bold;
     font-family: "Times New Roman";
-  }
+}
 
-  #current {
+#current {
     background-color: #ccc;
-  }
-  
-  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-  .active, .collapsible:hover {
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
     background-color: #ccc;
-  }
+}
 
 
-  
-  /* Style the collapsible content. Note: hidden by default */
-  .content {
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
     padding: 0 18px;
     display: none;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
     background-color: #f1f1f1;
-  }
+}
 
-  .current {
+.current {
     padding: 0 18px;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
     background-color: #f1f1f1;
-  }
+}
 
-  
 
-  .collapsible:after {
+
+.collapsible:after {
     content: '\02795'; /* Unicode character for "plus" sign (+) */
     font-size: 13px;
     color: white;
     float: right;
     margin-left: 5px;
-  }
-  
-  .active:after {
-    content: "\2796"; /* Unicode character for "minus" sign (-) */
-  }
+}
 
-  .python-icon {
-    background: linear-gradient(to right, #306998 50%, #FFD43B 50%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 100px; /* Adjust size as needed */
-  }
+.active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+

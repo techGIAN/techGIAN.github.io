@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Math Grade 11 Curriculum</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.css">
+        <link rel="stylesheet" href="./course.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+        <script src="./course.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    </head>
+    <body>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                Prism.highlightAll();
+                // Create copy button
+             var preElements = document.querySelectorAll('pre');
+             preElements.forEach(function (pre) {
+                 var code = pre.querySelector('code');
+                 
+                 var copyIcon = document.createElement('i');
+                 copyIcon.className = 'fas fa-copy copy-icon'; // Use className to set classes
+                 pre.appendChild(copyIcon);
+                 
+                 var copiedText = document.createElement('span');
+                copiedText.className = 'copied-text';
+                copiedText.textContent = 'Copied to clipboard!';
+                pre.appendChild(copiedText);
+                
+                copyIcon.addEventListener('click', function () {
+                    // Copy code text to clipboard
+                    var codeText = code.textContent;
+                    navigator.clipboard.writeText(codeText).then(function () {
+                        // Show copied text and hide icon temporarily
+                        copyIcon.style.display = 'none';
+                        copiedText.style.display = 'inline';
+                        
+                        // Revert to icon after 2 seconds
+                        setTimeout(function () {
+                            copyIcon.style.display = 'inline';
+                            copiedText.style.display = 'none';
+                        }, 2000);
+                    }).catch(function (error) {
+                        console.error('Failed to copy text: ', error);
+                    });
+                });
+             });
+            });
+        </script>
+        <div style="margin:auto; width:50%; text-align:center;">
+            <h1>Math Grade 10 Curriculum</h1> 
+            <h3 id="term">(Winter 2025)</h3>
+        </div>
+        <b>Instructor:</b> Mr. Gian Alix <br>
+        <b>Email:</b> <a href="mailto: galix@olympiadsmail.ca">galix@olympiadsmail.ca</a> <br>
+        <b>Class Times: </b> Thursdays, 6:30-9:00 PM <br>
+        <b>Location: </b> In-Person <br>
+        <b>Term Duration: </b> This course will run weekly for <i>sixteen weeks</i>, starting from February 06th, 2025 to May 22nd, 2025. <br>
+        <hr>
+        <!-- <hr> -->
+        <button type="button" class="collapsible" style="color:#7246eb;">Course Description</button>
+        <div class="content">
+            <p>
+                The Grade 11 Math curriculum is part of designed to:
+
+                <ul>
+                    <li>consolidate and extend students’ knowledge with functions and number system</li>
+                    <li>connect trigonometry to real-world applications</li>
+                    <li>investigate mathematical models and concepts in personal finance</li>
+                    <li>prepare students for G12 Advanced Functions (MHF4U)</li>
+                </ul>
+
+                <b>Course Prerequisites: </b> Math Grade 10 Curriculum
+
+                <br><br>
+
+                <span class="alert"><i><b>Note: </b> Please contact your instructor if you have not completed the prerequisites for this course.</i> </span>
+            </p>
+        </div>
+        <!-- <hr>
+        <button type="button" class="collapsible" style="color:#7246eb;">About the Contests</button>
+        <div class="content">
+            <p>
+                We have the Pythagoras Contest that will be held on Apr 09th, 2025 this year. Please reach out to the secretaries for information on registration for the contest. 
+            </p>
+        </div> -->
+        <hr>
+        <button type="button" class="collapsible" style="color:#7246eb;">Course Webpage</button>
+        <div class="content">
+            <p>
+                Please bookmark the following link as it will be frequently used and updated throughout the duration of the course: <a href="https://techgian.github.io/courses/mcu10" target="_blank">https://techgian.github.io/courses/mcu11</a>
+
+                <br><br>
+
+                <span class="alert"><i>Visit this page twice a week (on two different occassions) for updates. The website is weird for some reason. So once you visit the page, it doesn't reflect the changes right away. You may need to refresh the browser upon visiting to ensure all changes are reflected.</i> </span>
+
+                <br><br>
+
+                <span class="alert"><i><b>Disclaimer:</b>This page is mostly used if I have some out-of-class announcement (e.g., some correction on the Homework, a clarification with an upcoming test, etc.), and it is not meant to be a replacement of the Olympiads website or the course outline.  </i></span>
+            </p>
+        </div>
+        <hr>
+        <button type="button" class="collapsible" style="color:#7246eb;">Important Dates</button>
+        <div class="content">
+            <p>
+                <table id="dates">
+                    <tr>
+                        <td><b>February 06th, 2025 (Thursday)</b></td>
+                        <td>First day of Math Grade 11 Curriculum Classes</td>
+                    </tr>
+                    <tr>
+                        <td><b>February 17th, 2025 (Monday)</b></td>
+                        <td>Family Day </td>
+                    </tr>
+                    <tr>
+                        <td><b>March 10th - 14th, 2025 (Monday to Friday)</b></td>
+                        <td>March Break (We still have our Thursday classes on March 13th)</td>
+                    </tr>
+                    <tr>
+                        <td><b><span class="alert">March 27th, 2025 (Thursday)</span></b></td>
+                        <td><span class="alert">Midterm Test</span></td>
+                    </tr>
+                    <tr>
+                        <td><b>April 18th, 2025 (Friday)</b>  </td>
+                        <td>Good Friday (Meritus Academy still have classes on this day)</td>
+                    </tr>
+                    <tr>
+                        <td><b>April 21st, 2025 (Monday)</b>  </td>
+                        <td>Easter Monday </td>
+                    </tr>
+                    <tr>
+                        <td><b>May 19th, 2025 (Monday)</b>  </td>
+                        <td>Victoria Day </td>
+                    </tr>
+                    <tr>
+                        <td><b><span class="alert">May 22nd, 2025 (Thursday)</span></b></td>
+                        <td><span class="alert">Last Day of Math Grade 11 Curriculum Classes / Final Exam</span></td>
+                    </tr>
+                    <tr>
+                        <td><b>June 15th, 2025 (Sunday)</b>  </td>
+                        <td>Last Day of Winter 2025 Term Classes at Meritus Academy</td>
+                    </tr>
+                </table>
+
+                <br>
+
+                <span class="alert"><i><b>Note: </b> Notice that there will be several holidays and no-classes during the Winter 2025 term. If you plan to be away on any of the days of our classes, please notify your instructor ahead of time. It is strongly recommended to attend the makeup sessions (and keep up with homeworks) in such cases to avoid falling behind.</i></span>
+            </p>
+        </div>
+        <hr>
+        <button type="button" class="collapsible" style="color:#7246eb;">Course Materials</button>
+        <div class="content">
+            <p>
+                Please visit the Olympiads website and login using your Olympiads account to access the electronic handouts and homeworks. But the teacher will also be providing physical paper copies of the handouts during class.
+            </p>
+        </div>
+        <!-- <hr>
+        <button type="button" class="collapsible" style="color:#7246eb;">In-class Quiz Information</button>
+        <div class="content">
+            <p>
+                To improve calculation skills with speed and accuracy, 5 to 10 minutes every class will be used to train for quick computation. Students are required to finish a set of basic math questions within a certain time limit. Consistent training like this will not only help students handle competitions better, it will also be critical for future excellence in more advanced math courses. <br><br>
+
+                <i>The in-class quizzes will start on Class 5 (Feb 15th, 2025), and there will be a quiz weekly (except on Test days).</i>
+            </p>
+        </div> -->
+        <hr>
+        <button type="button" class="collapsible" style="color:#7246eb;">Homework Information</button>
+        <div class="content">
+            <p>
+                <h4>Homework Submission</h4>
+
+                Please <span class="alert">access the Olympiads website</span> and <span class="alert">login using your Olympiads account</span> to download/print the homework. Once printed, please answer the homework; please write <span class="alert">clearly and legibly</span>. <br><br>
+
+                <span class="alert">When submitting homework, all homework sheets must be stapled together with names and handed to your teacher when you come to class. All homeworks must be handed in at the beginning of class before the teacher takes up the solutions (teacher will provide blank copies for you to take notes as he takes it up). Any missed homework/resubmission may only be handed in the following week.</span> <br><br>
+                
+                <b>Reminder</b>: <span class="alert">Make sure to download the correct homework!</span> For example, on the week after Class 01 before Class 02, you must download the file that has the <code class="inline">Class 01 Homework</code> filename (or something like that). <span class="alert">A common mistake that students make is that they download the wrong homework.</span> To align yourself on the dates, please refer to the course outline. <br><br>
+
+                <hr>
+<!-- 
+                <h4>Feedback from Homeworks</h4>
+        
+                I hand back Homework graded one week after they are submitted. For each graded Homework, I tally the score. <span class="alert">If it is 80% and up, the grade is a "P". If it is less, then it is an "I". No submission means "Blank".</span> These are the three marks that I will be recording on my gradebook, which I forward to the school. The school will then forward to your parents as part of the report card. <br><br>
+
+                Getting three "I"s means a "call-home". <span class="alert">It's ok to get an "I" in a Homework, as long as you fix your corrections.</span> Fixing your corrections allows your grade to increase, which could eventually change the "I" grade to a "P" grade. Once you get back a graded Homework that has an "I" grade, it is highly recommended to fix the corrections right away. See instructions below on the procedure to do it. <br><br>
+
+                <hr> -->
+<!-- 
+                <h4>Fixing Corrections Instructions</h4>
+                
+                    <b>Important</b>: <span class="alert">If you get a "P", you do not need to fix your corrections</span> (actually you can but you do not need to hand it in because I will not grade that). <br><br>
+
+                    For those who did not do the Homework yet (i.e. "Blank"), it is not counted as "fixing corrections". <br><br>
+
+                    For those who got an "I", then here's how to fix your corrections. It may be different with another teacher but this is how Mr. Alix expects you to do it so everyone will be consistently the same. <span class="alert">Grab a piece of paper, then write your correct solutions and answers in that paper. Make sure to label appropriately. Then staple that sheet onto the back of your graded Homework. Then hand it to Mr. Alix.</span>  <br><br>
+
+                    <span class="alert"><b>Note</b>: It still counts as an "I" if you do not follow this procedure for fixing corrections.</span> <br><br>
+
+                <hr> -->
+
+                <h4>Other Important Things to Keep in Mind While Doing the Homework</h4>
+                    
+                    <ul>
+                        <li>Late homeworks are accepted.</li>
+                        <li>Make sure to show all your work. Getting the correct answer even without work will not get marks.</li>
+                        <li>When solving Math problems, always end with a concluding sentence. It must have this "therefore" symbol: "&therefore;" and then followed by a <span class="alert">meaningful conclusion sentence</span>. For example, "&therefore; <i>The answer is three.</i>" is not meaningful if the question asks "<i>How many apples does Alice have?</i>". The better answer is: "&therefore; <i>Alice has three apples.</i>"</li>
+                        <li>Do not forget to write your units in your final answer. Also, it must be the correct units. For example, if a square's side length is 6 metres, then its area is 36 sq. metres and not just 36 metres.</li>
+                        <li>Box your final answer so I know what your answer is.</li>
+                        <li>Proper math format is required.</li>
+                    </ul>
+<!-- 
+                <hr>
+
+                <h4>Common Abbreviations in Grading</h4>
+                    
+                    <i>I will add more legends if needed...</i>
+
+                    <ul>
+                        <li><b>MF</b> - incorrect Math format / Math format error</li>
+                        <li><b>SW</b> - show work (you did not show your work, or perhaps only showed partial work)</li>
+                        <li><b>CSWPU</b> - concluding sentence with proper units is required</li>
+                        <li><b>PU</b> - proper units is required</li>
+                        <li><b>CS</b> - concluding sentence is required</li>
+                        <li><b>...</b></li>
+                    </ul> -->
+        </div>
+        <hr>
+        <button type="button" class="collapsible" style="color:#7246eb;">Math Points (MPs)</button>
+        <div class="content">
+            <p>
+                <i>Note that the MP system is a reward/incentive system that exists only in Mr. Alix's class, and therefore students cannot earn or use MPs in another MCu11 class.</i>
+                <ul style="line-height:1.5;">
+                    <li>
+                        Math Points (MPs) can be earned in various ways throughout the course. Here are some ways one can earn MPs:
+                        <ul>
+                            <li>Boardwork - i.e., solving a question on the board</li>
+                            <li>Group activities - i.e., winning in mini-games in the class as a group</li>
+                            <li>Class participation - i.e., answering a challenging question such as the warm-up</li>
+                            <li>Homeworks/Tests - i.e., perfect score in a homework/tests</li>
+                            <li>etc.</li>
+                        </ul>
+                        Other ways of earning MPs will be announced later throughout the course.
+                    </li>
+                    <li>The amount of MPs vary, and will also be announced.</li>
+                    <li>MPs can be exchanged for prizes, such as candies, chocolates, or even score boosts in tests. List of prizes and their cost will be revealed later in the course (Class 4). Prizes can only be claimed on Classes 4, 8, 12, and 16 (Feb 27th, Mar 27th, Apr 24th, and May 22nd). <span class="alert"><i>Class 8 (Mar 27th) and Class 16 (May 22nd) are test days, and so you must be able to claim the prizes before the test begins.</i></span></li>
+                    <li>Mr. Alix will keep track of everyone's MPs throughout the course.</li>
+                    <li>MPs are non-transferrable to another student.</li>
+                </ul>
+            </p>
+        </div>
+        <hr>
+        <button type="button" class="collapsible" style="color:#7246eb;">Announcements</button>
+        <div class="content">
+            <p>
+                <i>This will be populated overtime. Most recent announcements are on top.</i>
+                <ul style="line-height:1.5;">
+                    <li><b>February 02nd, 2024: </b>
+                        Welcome to the course! Make sure to spend some time going over this course webpage providing valuable information regarding this course. Bookmark this page so you can easily visit this page. Email me for any questions: <a href="mailto: galix@olympiadsmail.ca">galix@olympiadsmail.ca</a>
+                    </li>
+                </ul>
+            </p>
+        </div>
+        <hr>
+        
+
+        <!-- <h3 id="otherRes">Other Resources</h3>
+        <ul style="line-height:1.5;">
+            <li>Online compilers from Programiz: <a href="https://www.programiz.com/python-programming/online-compiler/" target="_blank">Python</a>, <a href="https://www.programiz.com/java-programming/online-compiler/" target="_blank">Java</a>, <a href="https://www.programiz.com/cpp-programming/online-compiler/" target="_blank">C++</a> </li>
+            <li><a href="https://dmoj.ca" target="_blank">DMOJ</a> - a treasury of computing contest problems for various levels</li>
+            <li><a href="https://cemc.uwaterloo.ca/contests/ccc" target="_blank">CCC of Waterloo</a> - Link to the Canadian Computing Competition at the University of Waterloo; click for more details</li>
+            <li>Review Materials - these are slides from the Intro to Programming Course offered at Meritus Academy; feel free to brush up if you ever need a refresher (<a href="https://ossfiles.ca/index.php/s/LoBBADsqEA28LW5" target="_blank">for Java</a> and <a href="https://ossfiles.ca/index.php/s/ebT8PFffmABZBAE" target="_blank">for Python</a>) - they are password-protected so please send me an email for the password (or let me know in-class)</li>
+            <li><a href="https://www.oracle.com/ca-en/java/technologies/downloads/" target="_blank">Java 22 JDK</a> - make sure you are able to install this on Week 1 for Java users. To verify that the Java version and if it has been installed correctly in your machine, type <code class="inline">java --version</code> in your terminal/command prompt. </li>
+            <li><a href="https://www.python.org/downloads/" target="_blank">Python3</a> - make sure you are able to install this by Week 1 for Python users. To verify the version and if Python has been installed correctly in your machine, type <code class="inline">python3 --version</code> or <code class="inline">python3 --V</code> in your terminal/command prompt. See the following PDFs for more information about installation:  <a href="https://ossfiles.ca/index.php/s/sdBNKn3DfX5PGgD" target="_blank">for Windows</a>, <a href="https://ossfiles.ca/index.php/s/sR5mQKgLkZ64gkQ" target="_blank">for MacOS</a></li>
+            <li>Here is a <a href="https://ossfiles.ca/index.php/s/bQnmmDKriwxaFtC" target="_blank">document</a> that gives some tips about solving homework contest problems.</li>
+            <li><a href="https://visualgo.net/en" target="_blank">VisuAlgo.net</a> - highly recommended for visualizing a data structure or an algorithm. </li>
+            <li>...</li>
+        </ul>
+        <hr> -->
+
+        <!-- <p style="text-align:center;"><b><i>Last updated: June 24th, 2024 @ 3:21 PM</i></b></p> -->
+        <p id="dtModified" style="text-align:center;"><b>Loading...</b></p>
+
+
+    </body>
+</html>

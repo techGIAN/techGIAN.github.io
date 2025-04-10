@@ -6,6 +6,10 @@
     color: red;
 }
 
+.goodNews {
+    color: #098239;
+}
+
 table, th, td {
     border: 1px solid;
 }

@@ -167,6 +167,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 });
 
+
+
 // Function to get day suffix (st, nd, rd, th)
 function getDaySuffix(day) {
 	if (day >= 11 && day <= 13) {
@@ -179,3 +181,27 @@ function getDaySuffix(day) {
 		default: return 'th';
 	}
 }
+
+function showTab(tabId) {
+    // Hide all tab contents
+    const contents = document.querySelectorAll('.tab-content');
+    contents.forEach(c => c.classList.remove('active'));
+
+    // Remove active class from all buttons
+    const buttons = document.querySelectorAll('.tab-button');
+    buttons.forEach(b => b.classList.remove('active'));
+
+    // Show selected tab content
+    document.getElementById('content-' + tabId).classList.add('active');
+
+    // Highlight the clicked tab button
+    const clickedButton = Array.from(buttons).find(b => b.textContent === 'Tab ' + tabId);
+    if (clickedButton) {
+      clickedButton.classList.add('active');
+    }
+  }
+
+  // Show Tab A by default on load
+  window.onload = function () {
+    showTab('A');
+  };

@@ -187,7 +187,7 @@ pre.line-numbers > code {
 }
 
 .tab-button.active {
-    background-color: dodgerblue !important;
+    background-color: dodgerblue;
     color: white;
 }
 

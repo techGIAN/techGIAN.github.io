@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Copy to Clipboard - Bootstrap 3.4</title>
+
+  <!-- Bootstrap 3.4 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- Font Awesome (for clipboard icon) -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+  <style>
+    .copy-icon {
+      cursor: pointer;
+      font-size: 1.2em;
+      color: #555;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    #customToast {
+      position: fixed;
+      background-color: #5cb85c;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      display: none;
+      z-index: 9999;
+    }
+
+    .spacer {
+      height: 1000px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h3>Scroll down and click the clipboard icon</h3>
+
+    <div class="spacer"></div>
+
+    <div class="well" style="position: relative;">
+      <pre><code id="myCode">const x = 10;
+console.log(x);</code></pre>
+      <i class="fas fa-clipboard copy-icon" title="Copy to clipboard"></i>
+    </div>
+
+    <div class="spacer"></div>
+  </div>
+
+  <!-- ✅ Toast must be placed outside any layout container -->
+  <div id="customToast">✅ Copied to clipboard!</div>
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      var $toast = $('#customToast');
+
+      $('.copy-icon').click(function () {
+        var code = $('#myCode').text().trim();
+
+        navigator.clipboard.writeText(code).then(function () {
+          // Calculate top position relative to current scroll/zoom
+          var scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+          $toast.css({
+            top: scrollY + 20 + 'px',
+            right: '20px'
+          });
+
+          // Show toast
+          $toast.stop(true, true).fadeIn(200);
+
+          // Hide toast after 2 seconds
+          setTimeout(function () {
+            $toast.fadeOut(500);
+          }, 2000);
+        }).catch(function () {
+          alert('Failed to copy.');
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

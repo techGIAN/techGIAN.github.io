@@ -58,339 +58,363 @@
         <b>Location: </b> Online Class (reach out to your Olympiads account for the Zoom link) <br>
         <b>Term Duration: </b> This course will run for <i>eight weeks</i>, starting from June 30th to August 24th (faster pace than the regular term)
         <hr>
+
+        <div class="tabs">
+            <button class="tab-button" onclick="showTab('A')">Course Description</button>
+            <button class="tab-button" onclick="showTab('B')">Course Webpage</button>
+            <button class="tab-button" onclick="showTab('C')">Class Times</button>
+            <button class="tab-button" onclick="showTab('D')">Important Dates</button>
+            <button class="tab-button" onclick="showTab('E')">Course Policies</button>
+            <button class="tab-button" onclick="showTab('F')">Homework Submission</button>
+            <button class="tab-button" onclick="showTab('G')">Weekly Content</button>
+            <button class="tab-button" onclick="showTab('H')">Other Resources</button>
+        </div>
         
-        <h3>Course Description</h3>
-        <p>This course is designed as an introductory programming course specifically in the programming language Java. In this course, students will learn basic programming concepts, such as variables, operators, conditional statements, writing iterative programs, simple data structures (e.g., arrays, lists, sets, maps), recursion, basic object-oriented programming, and software testing. By the end of the course, students will gain programming skills needed in various courses such as AP-Computer Science and Computing Contest Courses. <b>No prior programming experience needed.</b></p>
-        <p><b>Course Prerequisites: </b> Grade 9 Math - Curriculum </p>
-        <p class="alert"><i><b>Note: </b> Please contact your instructor if you have not completed the prerequisites for this course.</i> </p>
-        <hr>
-
-        <h3>Course Webpage</h3>
-        <p>Please bookmark the following link as it will be frequently used and updated throughout the duration of the course: <a href="https://techgian.github.io/courses/java" target="_blank">https://techgian.github.io/courses/java</a></p>
-        <hr>
-
-        <h3>Class Times</h3>
-        <p>Our classes run online every Mondays and Thursdays, from 9:00-11:00 AM. If for whatever reason, you cannot make it to class, please do reach out to your teacher by emailing him <a href="mailto: galix@olympiadsmail.ca">galix@olympiadsmail.ca</a>. In addition, please try to attend a make-up class:</p>
-        <ul style="line-height:1.5;">
-            <li>If you miss a Monday class, we have an in-person class that runs Monday evenings (7:00-9:00 PM). Alternatively, we have an online class that runs Tuesday evenings (7:00-9:00 PM); please reach out to the school for the Zoom link.</li>
-            <li>If you miss a Thursday class, we have an in-person class that runs Thursday evenings (7:00-9:00 PM). Alternatively, we have an online class that runs Friday evenings (7:00-9:00 PM); please reach out to the school for the Zoom link.</li>
-            <li>If you are unable to make it to any of the other two make-up classes, feel free to reach out to the school for a video recording of the class.</li>
-        </ul>
-        <hr>
-
-        <h3>Important Dates</h3>
-        <table id="dates">
-            <tr>
-                <td><b>June 30th, 2025 (Monday)</b></td>
-                <td>First day of Classes</td>
-            </tr>
-            <tr>
-                <td><b>July 1st, 2024 (Tuesday)</b></td>
-                <td>Canada Day</td>
-            </tr>
-            <tr>
-                <td><b>July 24th, 2024 (Thursday)</b></td>
-                <td>Midterm Test</td>
-            </tr>
-            <tr>
-                <td><b>August 4th, 2024 (Monday)</b></td>
-                <td>Civic Holiday</td>
-            </tr>
-            <tr>
-                <td><b>August 18th, 2024 (Monday)</b></td>
-                <td>Last day of Lecture</td>
-            </tr>
-            <tr>
-                <td><b>August 21st, 2024 (Thursday)</b></td>
-                <td>Final Exam / Last day of Java Classes</td>
-            </tr>
-            <tr>
-                <td><b>August 24th, 2024 (Sunday)</b>  </td>
-                <td>Last day of Summer 2024 Classes at Meritus Academy</td>
-            </tr>
-        </table>
-        <p class="alert"><i><b>Note: </b> The holidays observed in this Summer 2025 term are <b>July 1st, 2025</b> (Canada Day) and <b>August 4th, 2025</b> (Civic Holiday). Meritus Academy is still open on these days, and we will still be conducting our classes at our usual time during these holidays. If you plan to be away on any of these days, please notify your teacher ahead of time (send an email to <a href="mailto: galix@olympiadsmail.ca">galix@olympiadsmail.ca</a>). It is strongly recommended to attend the makeup sessions in such cases to avoid falling behind.</i> </p>
-        <hr>
-
-        <h3>Course Policies</h3>
-        <ol style="line-height:1.5;">
-            <li>This class requires that you have <span class="alert">stable internet connection</span>, as well as access to a <span class="alert">web camera</span> throughout the <i>duration of the lecture</i>. Please log in to Zoom ~10-15 minutes before the start of the class time. The Zoom link can be found in your Olympiads account; if you have any trouble accessing the link, please reach out to the school <a href="mailto: info@olympiads.ca">info@olympiads.ca</a>. </li>
-            <li>Load Java/Eclipse IDE before the class begins. Your teacher will go over the installation of the required software on the first day of class. If you miss it, please watch the video recording of the class as I will guide you through the installation process. Also see <a href="#otherRes">Other Resources</a> section below for more information about software installation. </li>
-            <li>The only electronic device permitted are laptops/desktop computers. Devices such as phones, mobile devices, gaming consoles, and tablets must be put away. If you feel the need to use them, please ask your instructor for permission.</li>
-            <li>Lecture materials like slides are provided by the school. They can be found in your Olympiads account; reach out to the school if you have trouble accessing them. Please download a copy to your local at the beginning of the class (note that they will be taken down from the Olympiads website at any point in time, so download a copy!). I will provide other necessary learning resources in this class like supplementary codes.</li>
-            <li>During class, please focus your attention on the teacher and avoid visiting unnecessary websites like YouTube, Facebook, social media platforms, or game sites. </li>
-            <li>The class is meant to be interactive. Participate in class discussions, and make sure to ask questions when you are not certain about something. Either type your question in the chatbox, OR click the "raise hand" button on your Zoom -- the instructor will call you and then you can feel free to unmute yourself and speak.</li>
-            <li>There will be coding exercises throughout the lectures. You are expected to try working on these exercises (as I do not necessarily give out the solutions). Because it will be hard to check if everybody is doing the work, then I will trust that you are actually working on these exercises. For those exercises that I provide solutions, that doesn't mean that you shouldn't try it; please still try and do your best because "doing" is the best way of "learning" coding and getting better at it.</li>
-            <li>There are homeworks expected to be submitted every class. More information about the Homeworks in the Homework section.</li>
-            <li>There will be a midterm test and a final exam for this course. More information will be provided closer to the dates.</li>
-            <li>The use of any chatbots or AI such as ChatGPT is <span class="alert"><b>strongly discrouraged</b></span> in this course; and moreover, <span class="alert"><b>any work that is submitted that contains content of a generative AI is strictly not allowed</b></span>. <i>When caught, this incident will be reported to the school for disciplinary action.</i> </li>
-            <li>...</li>
-        </ol>
-        <hr>
-
-        <h3>Homework Submission</h3>
-        <p>The school provides you copy of the Homework questions. Please see your Olympiads account. I will also post the questions on Classkick.</p>
-        <table class="tableWidthSpan100">
-            <tr>
-                <th>Homework</th>
-                <th>Post Date</th>
-                <th>Due Date</th>
-                <th>Graded Date</th>
-                <th>Take Up Date</th>
-            </tr>
-            <tr>
-                <td><b>Homework 01</b>: Introduction to Java Programming</td>
-                <td>June 26th, 2025</td>
-                <td>July 03rd, 2025</td>
-                <td>July 06th, 2025</td>
-                <td>July 07th, 2025</td>
-            </tr>
-            <tr>
-                <td><b>Homework 02</b>: Variables</td>
-                <td>June 30th, 2025</td>
-                <td>July 06th, 2025</td>
-                <td>July 09th, 2025</td>
-                <td>July 10th, 2025</td>
-            </tr>
-            <tr>
-                <td><b>Homework 03</b>: Operations</td>
-                <td>July 03rd, 2025</td>
-                <td>July 10th, 2025</td>
-                <td>July 13th, 2025</td>
-                <td>July 14th, 2025</td>
-            </tr>
-            <tr>
-                <td><b>Homework 04</b>: Integers</td>
-                <td>July 07th, 2025</td>
-                <td>July 13th, 2025</td>
-                <td>July 16th, 2025</td>
-                <td>July 17th, 2025</td>
-            </tr>
-            <tr>
-                <td><b>Homework 05</b>: Branching</td>
-                <td>July 11th, 2025</td>
-                <td>July 17th, 2025</td>
-                <td>July 20th, 2025</td>
-                <td>July 21st, 2025</td>
-            </tr>
-            <tr>
-                <td><b>Homework 06</b>: Loops</td>
-                <td>July 14th, 2025</td>
-                <td>July 20th, 2025</td>
-                <td>July 23rd, 2025</td>
-                <td>July 24th, 2025</td>
-            </tr>
-            <tr>
-                <td><b>Homework 07</b>: Procedural Programming</td>
-                <td>July 17th, 2025</td>
-                <td>July 24th, 2025</td>
-                <td>July 27th, 2025</td>
-                <td>July 31st, 2025</td>
-            </tr>
-            <tr>
-                <td><b>Midterm Test</b>: (No Homework 08)</td>
-                <td>July 24th, 2025</td>
-                <td>July 24th, 2025</td>
-                <td>July 27th, 2025</td>
-                <td>July 28th, 2025</td>
-            </tr>
-            <tr>
-                <td><b>Homework 09</b>: Arrays and Lists</td>
-                <td>July 24th, 2025</td>
-                <td>July 31st, 2025</td>
-                <td>August 03rd, 2025</td>
-                <td>August 04th, 2025</td>
-            </tr>
-            <tr>
-                <td><b>Homework 10</b>: Sets</td>
-                <td>July 28th, 2025</td>
-                <td>August 03rd, 2025</td>
-                <td>August 06th, 2025</td>
-                <td>August 07th, 2025</td>
-            </tr>
-            <tr>
-                <td><b>Homework 11</b>: Maps</td>
-                <td>July 31st, 2025</td>
-                <td>August 07th, 2025</td>
-                <td>August 10th, 2025</td>
-                <td>August 11th, 2025</td>
-            </tr>
-            <tr>
-                <td><b>Homework 12</b>: Recursion</td>
-                <td>August 04th, 2025</td>
-                <td>August 10th, 2025</td>
-                <td>August 13th, 2025</td>
-                <td>August 14th, 2025</td>
-            </tr>
-            <tr>
-                <td><b>Homework 13</b>: String Search</td>
-                <td>August 07th, 2025</td>
-                <td>August 14th, 2025</td>
-                <td>August 17th, 2025</td>
-                <td>August 18th, 2025</td>
-            </tr>
-            <tr>
-                <td><b>Homework 14</b>: Object-Oriented Programming</td>
-                <td>August 11th, 2025</td>
-                <td>August 17th, 2025</td>
-                <td>August 20th, 2025</td>
-                <td>August 21st, 2025</td>
-            </tr>
-            <tr>
-                <td><b>Homework 15</b>: Errors and Software Testing (No Homework 15)</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td><b>Final Exam</b>: (No Homework 16)</td>
-                <td>August 21st, 2025</td>
-                <td>August 21st, 2025</td>
-                <td>August 24th, 2025</td>
-                <td>-</td>
-            </tr>
-        </table>
-        <h4>Instructions for submission:</h4>
-        <ol style="line-height:1.5;">
-            <li>First create a folder with the following filename: <code class="inline">firstname-lastname-homework-xx</code>, where <code class="inline">xx</code> is the HW number. So for example, I will name my folder as <code class="inline">Gian-Alix-homework-01</code> for my first homework submission.</li>
-            <li>Navigate to the <code class="inline">/eclipse-workspace</code> directory in your system, then you will be able to find the Java files that your wish to submit in one of the project folders.</li>
-            <li>Copy-paste all files that you would like to submit to the <code class="inline">firstname-lastname-homework-xx</code> folder.</li>
-            <li>Remember that each question should be in its own file.</li>
-            <li>Once all files that you would like to submit are now in the folder, compress it using any of the zipping softwares. For Windows such as: <a href="https://www.win-rar.com/start.html?&L=0">WinRar</a>, <a href="https://www.7-zip.org/">7zip</a>, or <a href="https://www.winzip.com/en/">WinZip</a> (no need to install if your machine already has one). For Mac, a compression utility software is already built-in so no need to install (simply right click on the folder, then click on <code class="inline">Compress</code>).</li>
-            <li>Upload the zipped folder to the OSSFiles directory specified on the Classkick Homework; remember that each Homework gets a different link! </li>
-            <li>Feel free to upload as many times as you wish. Previously uploaded files are overwritten. Only the last submission will be graded.</li>
-        </ol>
-        <p>Feel free to ask me questions about homework submission (especially if you're not sure how or where to find the <code class="inline">/eclipse-workspace</code> directory) and I will be able to help you.</p>
-        <hr>
-
-        <h4>Setting Up Classkick</h4>
-        If you have a Classkick account (possibly from a previous class that you took), then go <a href="https://app.classkick.com/account/login" target="_blank">here</a> to login. If you forgot your password, you can also click that link to try to recover your account. Once logged in, you will see a field on the top right corner where you can enter a Classkick code:
-        <img src="img/classkick-code.png" alt="ClasskickCode" title="Classkick Code Field" height="100">
-        Add the following homework Classkick code for the first homework: <code class="inline">RJV RIZ</code>. By doing this, you would have gained access to future homeworks (no need to always input the Classkick homework code). <br><br>
-
-        If you do not have a Classkick account, create one <a href="https://app.classkick.com/#/signup/student" target="_blank">here</a>. First specify the following Classkick code: <code class="inline">RJV RIZ</code>. Then click on <code class="inline">Sign Up with Username/Email</code>. Create a username that contains your name; write the username and password down in your notebook so you wouldn't forget. By doing this, you would have gained access to future homeworks (no need to always input the Classkick homework code). <br><br>
-
-        In both cases, it is expected that your account will be a "Portfolio" account instead of a "Basic" account. It is this that ensures that you do not need to input the Classkick homework code in order to receive future homeworks. I'll check this during the first day of classes to ensure everyone's account is correct. If it is not setup correctly, that is ok; I will let you know and we can fix it together.
-        <hr>
-
-        <h3>More Information About the Homeworks</h3>
-        There are three status for Homeworks, which you should see on the first page of any homework posted on Classkick:
-        <ul style="line-height:1.5;">
-            <li><b>Homework open</b> - depicted by a yellow background, which means that the Homework is available to be edited/submitted to and the deadline has not yet passed.</li>
-            <li><b>Grading in process</b> - depicted by an orange background, which means that the due date has already passed and your teacher is currently grading it; currently not editable</li>
-            <li><b>Marked</b> - depicted by an green background, which means that your teacher has already graded it. Your teacher will make it editable again if in case you need to fix your corrections. </li>
-        </ul>
-        For each question of the Homework, it is either a 0/1. Then you will be graded with a Pass (50% or above) or Incomplete (below 50%) or No HW for not handing in the HW. Note that you also need to follow the instructions carefully to get a Pass. Your teacher will be providing feedback on Classkick.
-        <hr>
-
-        <h3>Weekly Section</h3>
-        This will be populated weekly. Note that Class 1 and Class 2 are in Week 1, Class 3 and Class 4 are in Week 2, etc.
-        <hr>
-        <button type="button" class="collapsible" id="current">Week 01: June 30th, 2025 to July 06th, 2025</button>
-        <div class="current">
-             <p style="word-wrap: break-word; overflow-wrap: break-word;">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-file-alt" style="color: #4f7a28;"></i> <b>Topics Covered:</b>
-                <ul>
-                    <li><b>Class 01 (June 30th):</b> Introduction to Java Programming</li>
-                    <li><b>Class 02 (July 03rd):</b> Variables</li>
-                </ul>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-file-pdf" style="color: #b51a00;"></i> <a href="https://ossfiles.ca/index.php/s/ZNPaTsBXPYCHqSY" target="_blank">Course Outline</a> <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-file-powerpoint" style="color: #ff6a00;"></i> <a href="https://ossfiles.ca/index.php/s/4skayg79gHZaZen" target="_blank">Introduction Slide</a> <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-brands fa-java"></i> <a href="https://ossfiles.ca/index.php/s/WZsTxJECXz2biNN" target="_blank">The Eclipse IDE and Java Installation Instructions</a> <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-link" style="color:#6494e8;"></i> <a href="https://eclipseide.org" target="_blank">The Eclipse IDE site</a>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-link" style="color:#6494e8;"></i> <a href="https://www.oracle.com/ca-en/java/technologies/downloads/" target="_blank">Latest Java version site</a>
-                <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-calendar-check" style="color: #ff9300;"></i> <b>Agenda and Objectives:</b></p>
-                <ul>
-                    <li>Install the necessary softwares for programming in Java</li>
-                    <li>Write our first Java and mathematical programs</li>
-                    <li>Implement Java code that uses variables and mathematical operators</li>
-                    <li>Work with user inputs and process it for meaningful formatted outputs</li>
-                    <li>Debug our first program</li>
-                    <li>Use performance profiling to measure the running time of our code</li>
-                </ul>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-bell" style="color: #FFD43B;"></i> <b>Reminder:</b> Please ensure that you have Java and Eclipse installed in your machines.
-            </p>
+        <div id="content-A" class="tab-content">
+            <h3>Course Description</h3>
+            <p>This course is designed as an introductory programming course specifically in the programming language Java. In this course, students will learn basic programming concepts, such as variables, operators, conditional statements, writing iterative programs, simple data structures (e.g., arrays, lists, sets, maps), recursion, basic object-oriented programming, and software testing. By the end of the course, students will gain programming skills needed in various courses such as AP-Computer Science and Computing Contest Courses. <b>No prior programming experience needed.</b></p>
+            <p><b>Course Prerequisites: </b> Grade 9 Math - Curriculum </p>
+            <p class="alert"><i><b>Note: </b> Please contact your instructor if you have not completed the prerequisites for this course.</i> </p>
+            <hr>
         </div>
-        <hr>
-        <button type="button" class="collapsible">Week 02: July 07th, 2025 to July 13th, 2025</button>
-        <div class="content">
-            <p style="word-wrap: break-word; overflow-wrap: break-word;">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-file-alt" style="color: #4f7a28;"></i> <b>Topics Covered:</b>
-                <ul>
-                    <li><b>Class 03 (July 07th):</b> Operations</li>
-                    <li><b>Class 04 (July 10th):</b> Integers</li>
-                </ul>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-calendar-check" style="color: #ff9300;"></i> <b>Agenda:</b>
-                <ul>
-                    <li>Be able to write comments as a way of documenting and adding notes to our Java programs</li>
-                    <li>Identify various operator types including arithmetic operators, assignment operators, comparison operators, logical operators, and bitwise operators</li>
-                    <li>Recall the various number base systems (e.g., Base 10 Decimal System, Base 2 Binary System, Base 8 Octal System, Base 16 Hexadecimal System, etc.)</li>
-                    <li>Represent base 10 integers in other bases, and vice-versa</li>
-                    <li>Do mathematical arithmetic with integers in a base other than 10</li>
-                    <li>Convert integers from base 10 to base 2 (and vice-versa) using the way of computer representation by hand</li>
-                    <li>Perform mathematical operations using computer representation by hand</li>
-                </ul>
-            </p>
-        </div>
-        <hr>
-        <button type="button" class="collapsible">Week 03: July 14th, 2025 to July 20th, 2025</button>
-        <div class="content">
-            <p>
 
-            </p>
+        <div id="content-B" class="tab-content">
+            <h3>Course Webpage</h3>
+            <p>Please bookmark the following link as it will be frequently used and updated throughout the duration of the course: <a href="https://techgian.github.io/courses/java" target="_blank">https://techgian.github.io/courses/java</a></p>
+            <hr>
         </div>
-        <hr>
-        <button type="button" class="collapsible">Week 04: July 21st, 2025 to July 27th, 2025</button>
-        <div class="content">
-            <p>
-                
-            </p>
-        </div>
-        <hr>
-        <button type="button" class="collapsible">Week 05: July 28th, 2025 to August 03rd, 2025</button>
-        <div class="content">
-            <p>
-                
-            </p>
-        </div>
-        <hr>
-        <button type="button" class="collapsible">Week 06: August 04th, 2025 to August 10th, 2025</button>
-        <div class="content">
-            <p>
-                
-            </p>
-        </div>
-        <hr>
-        <button type="button" class="collapsible">Week 07: August 11th, 2025 to August 17th, 2025</button>
-        <div class="content">
-            <p>
-                
-            </p>
-        </div>
-        <hr>
-        <button type="button" class="collapsible">Week 08: August 18th, 2025 to August 24th, 2025</button>
-        <div class="content">
-            <p>
-                
-            </p>
 
+        <div id="content-C" class="tab-content"><h3>Class Times</h3>
+            <p>Our classes run online every Mondays and Thursdays, from 9:00-11:00 AM. If for whatever reason, you cannot make it to class, please do reach out to your teacher by emailing him <a href="mailto: galix@olympiadsmail.ca">galix@olympiadsmail.ca</a>. In addition, please try to attend a make-up class:</p>
+            <ul style="line-height:1.5;">
+                <li>If you miss a Monday class, we have an in-person class that runs Monday evenings (7:00-9:00 PM). Alternatively, we have an online class that runs Tuesday evenings (7:00-9:00 PM); please reach out to the school for the Zoom link.</li>
+                <li>If you miss a Thursday class, we have an in-person class that runs Thursday evenings (7:00-9:00 PM). Alternatively, we have an online class that runs Friday evenings (7:00-9:00 PM); please reach out to the school for the Zoom link.</li>
+                <li>If you are unable to make it to any of the other two make-up classes, feel free to reach out to the school for a video recording of the class.</li>
+            </ul>
+            <hr>
         </div>
-        <hr>
+        
+        <div id="content-D" class="tab-content"><h3>Important Dates</h3>
+            <table id="dates">
+                <tr>
+                    <td><b>June 30th, 2025 (Monday)</b></td>
+                    <td>First day of Classes</td>
+                </tr>
+                <tr>
+                    <td><b>July 1st, 2024 (Tuesday)</b></td>
+                    <td>Canada Day</td>
+                </tr>
+                <tr>
+                    <td><b>July 24th, 2024 (Thursday)</b></td>
+                    <td>Midterm Test</td>
+                </tr>
+                <tr>
+                    <td><b>August 4th, 2024 (Monday)</b></td>
+                    <td>Civic Holiday</td>
+                </tr>
+                <tr>
+                    <td><b>August 18th, 2024 (Monday)</b></td>
+                    <td>Last day of Lecture</td>
+                </tr>
+                <tr>
+                    <td><b>August 21st, 2024 (Thursday)</b></td>
+                    <td>Final Exam / Last day of Java Classes</td>
+                </tr>
+                <tr>
+                    <td><b>August 24th, 2024 (Sunday)</b>  </td>
+                    <td>Last day of Summer 2024 Classes at Meritus Academy</td>
+                </tr>
+            </table>
+            <p class="alert"><i><b>Note: </b> The holidays observed in this Summer 2025 term are <b>July 1st, 2025</b> (Canada Day) and <b>August 4th, 2025</b> (Civic Holiday). Meritus Academy is still open on these days, and we will still be conducting our classes at our usual time during these holidays. If you plan to be away on any of these days, please notify your teacher ahead of time (send an email to <a href="mailto: galix@olympiadsmail.ca">galix@olympiadsmail.ca</a>). It is strongly recommended to attend the makeup sessions in such cases to avoid falling behind.</i> </p>
+            <hr>
+        </div>
+        
+        <div id="content-E" class="tab-content"><h3>Course Policies</h3>
+            <ol style="line-height:1.5;">
+                <li>This class requires that you have <span class="alert">stable internet connection</span>, as well as access to a <span class="alert">web camera</span> throughout the <i>duration of the lecture</i>. Please log in to Zoom ~10-15 minutes before the start of the class time. The Zoom link can be found in your Olympiads account; if you have any trouble accessing the link, please reach out to the school <a href="mailto: info@olympiads.ca">info@olympiads.ca</a>. </li>
+                <li>Load Java/Eclipse IDE before the class begins. Your teacher will go over the installation of the required software on the first day of class. If you miss it, please watch the video recording of the class as I will guide you through the installation process. Also see <a href="#otherRes">Other Resources</a> section below for more information about software installation. </li>
+                <li>The only electronic device permitted are laptops/desktop computers. Devices such as phones, mobile devices, gaming consoles, and tablets must be put away. If you feel the need to use them, please ask your instructor for permission.</li>
+                <li>Lecture materials like slides are provided by the school. They can be found in your Olympiads account; reach out to the school if you have trouble accessing them. Please download a copy to your local at the beginning of the class (note that they will be taken down from the Olympiads website at any point in time, so download a copy!). I will provide other necessary learning resources in this class like supplementary codes.</li>
+                <li>During class, please focus your attention on the teacher and avoid visiting unnecessary websites like YouTube, Facebook, social media platforms, or game sites. </li>
+                <li>The class is meant to be interactive. Participate in class discussions, and make sure to ask questions when you are not certain about something. Either type your question in the chatbox, OR click the "raise hand" button on your Zoom -- the instructor will call you and then you can feel free to unmute yourself and speak.</li>
+                <li>There will be coding exercises throughout the lectures. You are expected to try working on these exercises (as I do not necessarily give out the solutions). Because it will be hard to check if everybody is doing the work, then I will trust that you are actually working on these exercises. For those exercises that I provide solutions, that doesn't mean that you shouldn't try it; please still try and do your best because "doing" is the best way of "learning" coding and getting better at it.</li>
+                <li>There are homeworks expected to be submitted every class. More information about the Homeworks in the Homework section.</li>
+                <li>There will be a midterm test and a final exam for this course. More information will be provided closer to the dates.</li>
+                <li>The use of any chatbots or AI such as ChatGPT is <span class="alert"><b>strongly discrouraged</b></span> in this course; and moreover, <span class="alert"><b>any work that is submitted that contains content of a generative AI is strictly not allowed</b></span>. <i>When caught, this incident will be reported to the school for disciplinary action.</i> </li>
+                <li>...</li>
+            </ol>
+            <hr>
+        </div>
+        
+        <div id="content-F" class="tab-content">
+            <h3>Homework Submission</h3>
+            <p>The school provides you copy of the Homework questions. Please see your Olympiads account. I will also post the questions on Classkick.</p>
+            <table class="tableWidthSpan100">
+                <tr>
+                    <th>Homework</th>
+                    <th>Post Date</th>
+                    <th>Due Date</th>
+                    <th>Graded Date</th>
+                    <th>Take Up Date</th>
+                </tr>
+                <tr>
+                    <td><b>Homework 01</b>: Introduction to Java Programming</td>
+                    <td>June 26th, 2025</td>
+                    <td>July 03rd, 2025</td>
+                    <td>July 06th, 2025</td>
+                    <td>July 07th, 2025</td>
+                </tr>
+                <tr>
+                    <td><b>Homework 02</b>: Variables</td>
+                    <td>June 30th, 2025</td>
+                    <td>July 06th, 2025</td>
+                    <td>July 09th, 2025</td>
+                    <td>July 10th, 2025</td>
+                </tr>
+                <tr>
+                    <td><b>Homework 03</b>: Operations</td>
+                    <td>July 03rd, 2025</td>
+                    <td>July 10th, 2025</td>
+                    <td>July 13th, 2025</td>
+                    <td>July 14th, 2025</td>
+                </tr>
+                <tr>
+                    <td><b>Homework 04</b>: Integers</td>
+                    <td>July 07th, 2025</td>
+                    <td>July 13th, 2025</td>
+                    <td>July 16th, 2025</td>
+                    <td>July 17th, 2025</td>
+                </tr>
+                <tr>
+                    <td><b>Homework 05</b>: Branching</td>
+                    <td>July 11th, 2025</td>
+                    <td>July 17th, 2025</td>
+                    <td>July 20th, 2025</td>
+                    <td>July 21st, 2025</td>
+                </tr>
+                <tr>
+                    <td><b>Homework 06</b>: Loops</td>
+                    <td>July 14th, 2025</td>
+                    <td>July 20th, 2025</td>
+                    <td>July 23rd, 2025</td>
+                    <td>July 24th, 2025</td>
+                </tr>
+                <tr>
+                    <td><b>Homework 07</b>: Procedural Programming</td>
+                    <td>July 17th, 2025</td>
+                    <td>July 24th, 2025</td>
+                    <td>July 27th, 2025</td>
+                    <td>July 31st, 2025</td>
+                </tr>
+                <tr>
+                    <td><b>Midterm Test</b>: (No Homework 08)</td>
+                    <td>July 24th, 2025</td>
+                    <td>July 24th, 2025</td>
+                    <td>July 27th, 2025</td>
+                    <td>July 28th, 2025</td>
+                </tr>
+                <tr>
+                    <td><b>Homework 09</b>: Arrays and Lists</td>
+                    <td>July 24th, 2025</td>
+                    <td>July 31st, 2025</td>
+                    <td>August 03rd, 2025</td>
+                    <td>August 04th, 2025</td>
+                </tr>
+                <tr>
+                    <td><b>Homework 10</b>: Sets</td>
+                    <td>July 28th, 2025</td>
+                    <td>August 03rd, 2025</td>
+                    <td>August 06th, 2025</td>
+                    <td>August 07th, 2025</td>
+                </tr>
+                <tr>
+                    <td><b>Homework 11</b>: Maps</td>
+                    <td>July 31st, 2025</td>
+                    <td>August 07th, 2025</td>
+                    <td>August 10th, 2025</td>
+                    <td>August 11th, 2025</td>
+                </tr>
+                <tr>
+                    <td><b>Homework 12</b>: Recursion</td>
+                    <td>August 04th, 2025</td>
+                    <td>August 10th, 2025</td>
+                    <td>August 13th, 2025</td>
+                    <td>August 14th, 2025</td>
+                </tr>
+                <tr>
+                    <td><b>Homework 13</b>: String Search</td>
+                    <td>August 07th, 2025</td>
+                    <td>August 14th, 2025</td>
+                    <td>August 17th, 2025</td>
+                    <td>August 18th, 2025</td>
+                </tr>
+                <tr>
+                    <td><b>Homework 14</b>: Object-Oriented Programming</td>
+                    <td>August 11th, 2025</td>
+                    <td>August 17th, 2025</td>
+                    <td>August 20th, 2025</td>
+                    <td>August 21st, 2025</td>
+                </tr>
+                <tr>
+                    <td><b>Homework 15</b>: Errors and Software Testing (No Homework 15)</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td><b>Final Exam</b>: (No Homework 16)</td>
+                    <td>August 21st, 2025</td>
+                    <td>August 21st, 2025</td>
+                    <td>August 24th, 2025</td>
+                    <td>-</td>
+                </tr>
+            </table>
+            <h4>Instructions for submission:</h4>
+            <ol style="line-height:1.5;">
+                <li>First create a folder with the following filename: <code class="inline">firstname-lastname-homework-xx</code>, where <code class="inline">xx</code> is the HW number. So for example, I will name my folder as <code class="inline">Gian-Alix-homework-01</code> for my first homework submission.</li>
+                <li>Navigate to the <code class="inline">/eclipse-workspace</code> directory in your system, then you will be able to find the Java files that your wish to submit in one of the project folders.</li>
+                <li>Copy-paste all files that you would like to submit to the <code class="inline">firstname-lastname-homework-xx</code> folder.</li>
+                <li>Remember that each question should be in its own file.</li>
+                <li>Once all files that you would like to submit are now in the folder, compress it using any of the zipping softwares. For Windows such as: <a href="https://www.win-rar.com/start.html?&L=0">WinRar</a>, <a href="https://www.7-zip.org/">7zip</a>, or <a href="https://www.winzip.com/en/">WinZip</a> (no need to install if your machine already has one). For Mac, a compression utility software is already built-in so no need to install (simply right click on the folder, then click on <code class="inline">Compress</code>).</li>
+                <li>Upload the zipped folder to the OSSFiles directory specified on the Classkick Homework; remember that each Homework gets a different link! </li>
+                <li>Feel free to upload as many times as you wish. Previously uploaded files are overwritten. Only the last submission will be graded.</li>
+            </ol>
+            <p>Feel free to ask me questions about homework submission (especially if you're not sure how or where to find the <code class="inline">/eclipse-workspace</code> directory) and I will be able to help you.</p>
+            <hr>
 
-        <h3 id="otherRes">Other Resources</h3>
-        <p>For any other useful resources not found above, they will be posted below.</p>
-        <ul style="line-height:1.5;">
-            <li><a href="https://eclipseide.org/" target="_blank">The Eclipse IDE</a> - for this course, feel free to use other IDEs if they are already preinstalled in your machine. Here are other IDEs: <a href="https://www.jetbrains.com/idea/" target="_blank">IntelliJ</a>, <a href="https://netbeans.apache.org/front/main/index.html" target="_blank">Netbeans</a>, etc.  </li>
-            <li><a href="https://www.oracle.com/ca-en/java/technologies/downloads/" target="_blank">Java 24 JDK</a> - make sure you are able to install this on Week 1. To verify that the Java version and if it has been installed correctly in your machine, type <code class="inline">java --version</code> in your terminal/command prompt. See the following slides for more information about installation.</li>
-            <li><a href="https://www.programiz.com/java-programming/online-compiler/" target="_blank">Programiz</a> - an online Java compiler</li>
-            <!-- <li><a href="https://ossfiles.ca/index.php/s/mDKP4YPpZrKzRpE" target="_blank">Guide</a> for creating a new project in Eclipse (useful especially in tests)</li> -->
-            <!-- <li><a href="https://ossfiles.ca/index.php/s/kapoGXZb5aRYi4p" target="_blank">Instructions for submitting the Test</a> - What we will use for both midterm and final test (there's a different link for the final test)</li> -->
-            <!-- <li><a href="https://ossfiles.ca/index.php/s/MLQmRze4A8zZDZm" target="_blank">Final Exam Project Import and Submission Information</a> - You need to familiarize yourself with this ahead of time.</li> -->
-            <li>...</li>
-        </ul>
-        <hr>
+            <h4>Setting Up Classkick</h4>
+            If you have a Classkick account (possibly from a previous class that you took), then go <a href="https://app.classkick.com/account/login" target="_blank">here</a> to login. If you forgot your password, you can also click that link to try to recover your account. Once logged in, you will see a field on the top right corner where you can enter a Classkick code:
+            <img src="img/classkick-code.png" alt="ClasskickCode" title="Classkick Code Field" height="100">
+            Add the following homework Classkick code for the first homework: <code class="inline">RJV RIZ</code>. By doing this, you would have gained access to future homeworks (no need to always input the Classkick homework code). <br><br>
+
+            If you do not have a Classkick account, create one <a href="https://app.classkick.com/#/signup/student" target="_blank">here</a>. First specify the following Classkick code: <code class="inline">RJV RIZ</code>. Then click on <code class="inline">Sign Up with Username/Email</code>. Create a username that contains your name; write the username and password down in your notebook so you wouldn't forget. By doing this, you would have gained access to future homeworks (no need to always input the Classkick homework code). <br><br>
+
+            In both cases, it is expected that your account will be a "Portfolio" account instead of a "Basic" account. It is this that ensures that you do not need to input the Classkick homework code in order to receive future homeworks. I'll check this during the first day of classes to ensure everyone's account is correct. If it is not setup correctly, that is ok; I will let you know and we can fix it together.
+            <hr>
+
+            <h3>More Information About the Homeworks</h3>
+            There are three status for Homeworks, which you should see on the first page of any homework posted on Classkick:
+            <ul style="line-height:1.5;">
+                <li><b>Homework open</b> - depicted by a yellow background, which means that the Homework is available to be edited/submitted to and the deadline has not yet passed.</li>
+                <li><b>Grading in process</b> - depicted by an orange background, which means that the due date has already passed and your teacher is currently grading it; currently not editable</li>
+                <li><b>Marked</b> - depicted by an green background, which means that your teacher has already graded it. Your teacher will make it editable again if in case you need to fix your corrections. </li>
+            </ul>
+            For each question of the Homework, it is either a 0/1. Then you will be graded with a Pass (50% or above) or Incomplete (below 50%) or No HW for not handing in the HW. Note that you also need to follow the instructions carefully to get a Pass. Your teacher will be providing feedback on Classkick.
+            <hr>
+        </div>
+        
+        <div id="content-G" class="tab-content">
+            <h3>Weekly Section</h3>
+            This will be populated weekly. Note that Class 1 and Class 2 are in Week 1, Class 3 and Class 4 are in Week 2, etc.
+            <hr>
+            <button type="button" class="collapsible" id="current">Week 01: June 30th, 2025 to July 06th, 2025</button>
+            <div class="current">
+                <p style="word-wrap: break-word; overflow-wrap: break-word;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-file-alt" style="color: #4f7a28;"></i> <b>Topics Covered:</b>
+                    <ul>
+                        <li><b>Class 01 (June 30th):</b> Introduction to Java Programming</li>
+                        <li><b>Class 02 (July 03rd):</b> Variables</li>
+                    </ul>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-file-pdf" style="color: #b51a00;"></i> <a href="https://ossfiles.ca/index.php/s/ZNPaTsBXPYCHqSY" target="_blank">Course Outline</a> <br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-file-powerpoint" style="color: #ff6a00;"></i> <a href="https://ossfiles.ca/index.php/s/4skayg79gHZaZen" target="_blank">Introduction Slide</a> <br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-brands fa-java"></i> <a href="https://ossfiles.ca/index.php/s/WZsTxJECXz2biNN" target="_blank">The Eclipse IDE and Java Installation Instructions</a> <br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-link" style="color:#6494e8;"></i> <a href="https://eclipseide.org" target="_blank">The Eclipse IDE site</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-link" style="color:#6494e8;"></i> <a href="https://www.oracle.com/ca-en/java/technologies/downloads/" target="_blank">Latest Java version site</a>
+                    <br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-calendar-check" style="color: #ff9300;"></i> <b>Agenda and Objectives:</b></p>
+                    <ul>
+                        <li>Install the necessary softwares for programming in Java</li>
+                        <li>Write our first Java and mathematical programs</li>
+                        <li>Implement Java code that uses variables and mathematical operators</li>
+                        <li>Work with user inputs and process it for meaningful formatted outputs</li>
+                        <li>Debug our first program</li>
+                        <li>Use performance profiling to measure the running time of our code</li>
+                    </ul>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-bell" style="color: #FFD43B;"></i> <b>Reminder:</b> Please ensure that you have Java and Eclipse installed in your machines.
+                </p>
+            </div>
+            <hr>
+            <button type="button" class="collapsible">Week 02: July 07th, 2025 to July 13th, 2025</button>
+            <div class="content">
+                <p style="word-wrap: break-word; overflow-wrap: break-word;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-file-alt" style="color: #4f7a28;"></i> <b>Topics Covered:</b>
+                    <ul>
+                        <li><b>Class 03 (July 07th):</b> Operations</li>
+                        <li><b>Class 04 (July 10th):</b> Integers</li>
+                    </ul>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-calendar-check" style="color: #ff9300;"></i> <b>Agenda:</b>
+                    <ul>
+                        <li>Be able to write comments as a way of documenting and adding notes to our Java programs</li>
+                        <li>Identify various operator types including arithmetic operators, assignment operators, comparison operators, logical operators, and bitwise operators</li>
+                        <li>Recall the various number base systems (e.g., Base 10 Decimal System, Base 2 Binary System, Base 8 Octal System, Base 16 Hexadecimal System, etc.)</li>
+                        <li>Represent base 10 integers in other bases, and vice-versa</li>
+                        <li>Do mathematical arithmetic with integers in a base other than 10</li>
+                        <li>Convert integers from base 10 to base 2 (and vice-versa) using the way of computer representation by hand</li>
+                        <li>Perform mathematical operations using computer representation by hand</li>
+                    </ul>
+                </p>
+            </div>
+            <hr>
+            <button type="button" class="collapsible">Week 03: July 14th, 2025 to July 20th, 2025</button>
+            <div class="content">
+                <p>
+
+                </p>
+            </div>
+            <hr>
+            <button type="button" class="collapsible">Week 04: July 21st, 2025 to July 27th, 2025</button>
+            <div class="content">
+                <p>
+                    
+                </p>
+            </div>
+            <hr>
+            <button type="button" class="collapsible">Week 05: July 28th, 2025 to August 03rd, 2025</button>
+            <div class="content">
+                <p>
+                    
+                </p>
+            </div>
+            <hr>
+            <button type="button" class="collapsible">Week 06: August 04th, 2025 to August 10th, 2025</button>
+            <div class="content">
+                <p>
+                    
+                </p>
+            </div>
+            <hr>
+            <button type="button" class="collapsible">Week 07: August 11th, 2025 to August 17th, 2025</button>
+            <div class="content">
+                <p>
+                    
+                </p>
+            </div>
+            <hr>
+            <button type="button" class="collapsible">Week 08: August 18th, 2025 to August 24th, 2025</button>
+            <div class="content">
+                <p>
+                    
+                </p>
+
+            </div>
+            <hr>
+        </div>
+
+        <div id="content-H" class="tab-content">
+            <h3 id="otherRes">Other Resources</h3>
+            <p>For any other useful resources not found above, they will be posted below.</p>
+            <ul style="line-height:1.5;">
+                <li><a href="https://eclipseide.org/" target="_blank">The Eclipse IDE</a> - for this course, feel free to use other IDEs if they are already preinstalled in your machine. Here are other IDEs: <a href="https://www.jetbrains.com/idea/" target="_blank">IntelliJ</a>, <a href="https://netbeans.apache.org/front/main/index.html" target="_blank">Netbeans</a>, etc.  </li>
+                <li><a href="https://www.oracle.com/ca-en/java/technologies/downloads/" target="_blank">Java 24 JDK</a> - make sure you are able to install this on Week 1. To verify that the Java version and if it has been installed correctly in your machine, type <code class="inline">java --version</code> in your terminal/command prompt. See the following slides for more information about installation.</li>
+                <li><a href="https://www.programiz.com/java-programming/online-compiler/" target="_blank">Programiz</a> - an online Java compiler</li>
+                <!-- <li><a href="https://ossfiles.ca/index.php/s/mDKP4YPpZrKzRpE" target="_blank">Guide</a> for creating a new project in Eclipse (useful especially in tests)</li> -->
+                <!-- <li><a href="https://ossfiles.ca/index.php/s/kapoGXZb5aRYi4p" target="_blank">Instructions for submitting the Test</a> - What we will use for both midterm and final test (there's a different link for the final test)</li> -->
+                <!-- <li><a href="https://ossfiles.ca/index.php/s/MLQmRze4A8zZDZm" target="_blank">Final Exam Project Import and Submission Information</a> - You need to familiarize yourself with this ahead of time.</li> -->
+                <li>...</li>
+            </ul>
+            <hr>
+        </div>
 
         <p id="dtModified" style="text-align:center;"><b>Loading...</b></p>
 

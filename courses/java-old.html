@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Introduction to Java</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.css">
+        <link rel="stylesheet" href="course.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-java.min.js"></script>
+        <script src="course.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    </head>
+    <body>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                Prism.highlightAll();
+                // Create copy button
+             var preElements = document.querySelectorAll('pre');
+             preElements.forEach(function (pre) {
+                 var code = pre.querySelector('code');
+                 
+                 var copyIcon = document.createElement('i');
+                 copyIcon.className = 'fas fa-copy copy-icon'; // Use className to set classes
+                 pre.appendChild(copyIcon);
+                 
+                 var copiedText = document.createElement('span');
+                copiedText.className = 'copied-text';
+                copiedText.textContent = 'Copied to clipboard!';
+                pre.appendChild(copiedText);
+                
+                copyIcon.addEventListener('click', function () {
+                    // Copy code text to clipboard
+                    var codeText = code.textContent;
+                    navigator.clipboard.writeText(codeText).then(function () {
+                        // Show copied text and hide icon temporarily
+                        copyIcon.style.display = 'none';
+                        copiedText.style.display = 'inline';
+                        
+                        // Revert to icon after 2 seconds
+                        setTimeout(function () {
+                            copyIcon.style.display = 'inline';
+                            copiedText.style.display = 'none';
+                        }, 2000);
+                    }).catch(function (error) {
+                        console.error('Failed to copy text: ', error);
+                    });
+                });
+             });
+            });
+        </script>
+        <div style="margin:auto; width:50%; text-align:center;">
+            <h1>Introduction to Java</h1> 
+            <h3 id="term">(Summer 2024)</h3>
+        </div>
+        <b>Instructor:</b> Mr. Gian Alix <br>
+        <b>Email:</b> <a href="mailto: galix@olympiadsmail.ca">galix@olympiadsmail.ca</a> <br>
+        <b>Class Times: </b> Mondays and Thursdays, 7:00 - 9:00 PM <br>
+        <b>Location: </b> Unit 306, Room 15 <br>
+        <b>Term Duration: </b> This course will run for <i>eight weeks</i>, starting from July 1st to August 25th (faster pace than the regular term)
+        <hr>
+        
+        <h3>Course Description</h3>
+        <p>This course is designed as an introductory programming course specifically in the programming language Java. In this course, students will learn basic programming concepts, such as variables, operators, conditional statements, writing iterative programs, simple data structures (e.g., arrays, lists, sets), recursion, basic object-oriented programming, and software testing. By the end of the course, students will gain programming skills needed in various courses such as AP-Computer Science, Computing Contest Courses, and ICS 3U. <b>No prior programming experience needed.</b></p>
+        <p><b>Course Prerequisites: </b> Grade 9 Math - Curriculum </p>
+        <p class="alert"><i><b>Note: </b> Please contact your instructor if you have not completed the prerequisites for this course.</i> </p>
+        <hr>
+
+        <h3>Course Webpage</h3>
+        <p>Please bookmark the following link as it will be frequently used and updated throughout the duration of the course: <a href="https://techgian.github.io/courses/java" target="_blank">https://techgian.github.io/courses/java</a></p>
+        <hr>
+
+        <h3>Important Dates</h3>
+        <table id="dates">
+            <tr>
+                <td><b>July 1st, 2024 (Monday)</b></td>
+                <td>First day of Classes</td>
+            </tr>
+            <tr>
+                <td><b>July 25th, 2024 (Thursday)</b></td>
+                <td>Midterm Test</td>
+            </tr>
+            <tr>
+                <td><b>August 19th, 2024 (Monday)</b></td>
+                <td>Last day of Lecture</td>
+            </tr>
+            <tr>
+                <td><b>August 22nd, 2024 (Thursday)</b></td>
+                <td>Final Exam / Last day of Java Classes</td>
+            </tr>
+            <tr>
+                <td><b>August 25th, 2024 (Sunday)</b>  </td>
+                <td>Last day of Summer 2024 Classes at Meritus Academy</td>
+            </tr>
+        </table>
+        <p class="alert"><i><b>Note: </b> The holidays observed in this Summer 2024 term are <b>July 1st, 2024</b> (Canada Day) and <b>August 5th, 2024</b> (Civic Holiday), and both of which are Mondays. We will still be conducting our classes at our usual time during these days. If you plan to be away on any of these days, please notify your instructor ahead of time. It is strongly recommended to attend the makeup sessions in such cases to avoid falling behind.</i> </p>
+        <hr>
+
+        <h3>Course Policies</h3>
+        <ol style="line-height:1.5;">
+            <li>Please come on time (~10-15 minutes before the start of the class time).</li>
+            <li>Have your laptop computer ready fully-charged (or at least with battery); if your laptop is close to 0%, make sure to bring a charger to class (always bring a charger!).  <span class="alert">Note that a tablet or a phone cannot be used as a replacement for a laptop.</span></li>
+            <li>Load Java/Eclipse IDE before the class begins (see <a href="#otherRes">Other Resources</a> section below for more information about software installation). </li>
+            <li>Phones (and other electronic devices aside from laptops) away during class! If you need to use them, ask your instructor for permission.</li>
+            <li>The class is meant to be interactive. Participate in class discussions, and make sure to ask questions when you are not certain about something.</li>
+            <li>Feel free to approach and ask your instructor questions before the class starts, during the break(s), and after class. You can also contact your instructor anytime through email (see his contact at the header of this course webpage)</li>
+            <li>There will be coding exercises throughout the lectures. You are expected to try working on these exercises (as I do not necessarily give out the solutions) in-class. I will usually walk around to check on everybody.</li>
+            <li>There are homeworks expected to be submitted weekly. They will be released every Tuesdays, and will be due the following Tuesday. More information about Homework submission in the Homeworks section below.</li>
+            <li>There will be a midterm test and a final exam for this course. More information will be provided closer to the dates.</li>
+            <li>The use of any chatbots or AI such as ChatGPT is <span class="alert"><b>strongly discrouraged</b></span> in this course; and moreover, <span class="alert"><b>any work that is submitted that contains content of a generative AI is strictly not allowed</b></span>. <i>When caught, this incident will be reported to the school for disciplinary action.</i> </li>
+            <li>...</li>
+        </ol>
+        <hr>
+
+        <h3>Homework Submission</h3>
+        <p>The school posts homework questions on the Meritus website, but the ones that I would like you to solve instead will be posted here (the questions are slightly modified so pay attention that you work on these questions instead). They will be posted here in this section every Tuesday (the first one will be posted on July 2nd, 2024 and is due next Tuesday on July 9th, 2024):</p>
+        <table class="tableWidthSpan100">
+            <tr>
+                <th>Homework</th>
+                <th>Link</th>
+                <th>Post Date</th>
+                <th>Due Date</th>
+                <th>Graded HW</th>
+                <th>Take Up Date</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td><b>Homework 1</b>: Introduction to Java and Variables</td>
+                <td style="text-align:center;"><a href="https://ossfiles.ca/index.php/s/xYBftgw5EC8oZTR" target="_blank">Click here</a></td>
+                <td>July 2nd, 2024</td>
+                <td>July 9th, 2024</td>
+                <td>July 10th, 2024</td>
+                <td>July 11th, 2024</td>
+                <td>See below for instructions on how to submit.</td>
+            </tr>
+            <tr>
+                <td><b>Homework 2</b>: Operators and Integers</td>
+                <td style="text-align:center;"><a href="https://ossfiles.ca/index.php/s/iFzm4YbRorHr4Bt" target="_blank">Click here</a></td>
+                <td>July 9th, 2024</td>
+                <td>July 16th, 2024</td>
+                <td>July 17th, 2024</td>
+                <td>July 18th, 2024</td>
+                <td>For Part B, either hand me a physical copy by Mon (Jul 15th) or include a digital PDF of your solutions in your zipped submission.</td>
+            </tr>
+            <tr>
+                <td><b>Homework 3</b>: Branching and Loops</td>
+                <td style="text-align:center;"><a href="https://ossfiles.ca/index.php/s/jACnxpGarDPkCCE" target="_blank">Click here</a></td>
+                <td>July 16th, 2024</td>
+                <td>July 23rd, 2024</td>
+                <td>July 24th, 2024</td>
+                <td>July <s>25th</s> 22nd, 2024</td>
+                <td>We will take up the solutions of the homework <s>before the midterm.</s> at the beginning of Jul 22nd.</td>
+            </tr>
+            <tr>
+                <td><b>Homework 4</b>: Procedural Programming</td>
+                <td style="text-align:center;"><a href="https://ossfiles.ca/index.php/s/LqQ873Ne2p5NMAj" target="_blank">Click here</a></td>
+                <td>July <s>23rd</s> 21st, 2024</td>
+                <td>July 30th, 2024</td>
+                <td>July 31st, 2024</td>
+                <td><s>August 1st</s> Jul 25th, 2024</td>
+                <td>Solutions are taken up on Jul 25th before the start of the midterm test.</td>
+            </tr>
+            <tr>
+                <td><b>Homework 5</b>: Arrays and Lists</td>
+                <td style="text-align:center;"><a href="https://ossfiles.ca/index.php/s/xiKcP935cMkZq4s" target="_blank">Click here</a></td>
+                <td>July <s>30th</s> 29th, 2024</td>
+                <td>August 6th, 2024</td>
+                <td>August <s>7th</s> ???, 2024</td>
+                <td>August 8th, 2024</td>
+                <td>Homework 5 solutions to be taken up by the supply teacher on August 8th at the start of class.</td>
+            </tr>
+            <tr>
+                <td><b>Homework 6</b>: Sets and Recursion</td>
+                <td style="text-align:center;"><a href="https://ossfiles.ca/index.php/s/jJRw7bF5QwY65a2" target="_blank">Click here</a></td>
+                <td><s>August 6th</s> July 29th, 2024</td>
+                <td>August 13th, 2024</td>
+                <td>August 14th, 2024</td>
+                <td>August 15th, 2024</td>
+                <td>Posted ahead of time; no changes to other dates</td>
+            </tr>
+            <tr>
+                <td><b>Homework 7</b>: String Search and Object-Oriented Programming</td>
+                <td style="text-align:center;"><a href="https://ossfiles.ca/index.php/s/2ExFg2ZbNDtnnPW" target="_blank">Click here</a></td>
+                <td><s>August 13th</s> July 29th, 2024</td>
+                <td>August 20th, 2024</td>
+                <td>August 21st, 2024</td>
+                <td>August <s>22nd</s> 19th, 2024</td>
+                <td>If we have time, Homework 7 solutions will be taken up <s>before the exam</s> at the beginning of Aug 19th class.</td>
+            </tr>
+        </table>
+        <h4>Instructions for submission:</h4>
+        <ol style="line-height:1.5;">
+            <li>First create a folder with the following filename: <code class="inline">firstname-lastname-HWx</code>, where <code class="inline">x</code> is the HW number. So for example, I will name my folder as <code class="inline">Gian-Alix-HW1</code> for my first homework submission.</li>
+            <li>Place all files that you would like to submit to this folder (i.e., copy-paste). For each file of your homework submission, you will submit either one of the following file types:</li>
+            <ul>
+                <li>A <code class="inline">.java</code> file - this will be the most common file type that you will be submitting. Navigate to the <code class="inline">/eclipse-workspace</code> directory in your system, then you will be able to find the file that your wish to submit in one of the project folders.</li>
+                <li>A <code class="inline">.pdf</code> file - there are some homework exercises that does not necessarily require a code solution, but perhaps a math solution or an explanation from you. In such cases, you can create a document (i.e., Microsoft Word, Google Doc, etc.), type your answers there, and then export it to PDF format.</li>
+                <li>A <code class="inline">.txt</code> file - I will be specifying if a simple txt file is needed for a specific homework submission</li>
+            </ul>
+            <li>Once all files that you would like to submit are now in the folder, compress it using any of the zipping softwares. For Windows such as: <a href="https://www.win-rar.com/start.html?&L=0">WinRar</a>, <a href="https://www.7-zip.org/">7zip</a>, or <a href="https://www.winzip.com/en/">WinZip</a> (no need to install if your machine already has one). For Mac, a compression utility software is already built-in so no need to install (simply right click on the folder, then click on <code class="inline">Compress</code>).</li>
+            <li>Upload the zipped folder to the following directory. Access it <a href="https://ossfiles.ca/index.php/s/dSmXPG9wFEB564r" target="_blank">here</a>. Feel free to upload as many times as you wish. Previously uploaded files are overwritten. Only the last submission will be graded.</li>
+        </ol>
+        <p>Feel free to ask me questions about homework submission (especially if you're not sure how or where to find the <code class="inline">/eclipse-workspace</code> directory) and I will be able to help you.</p>
+        <hr>
+
+        <h3>Accessing Grades</h3>
+        <p>The gradebook will be updated every Wednesday and you can access your grades at anytime using your grade code. You can sign up for your grade code <a href="https://forms.gle/HZoYqqXqKpeyZCLs6" target="_blank">here</a> (you only need to do this once in this course), and you will receive the code within ~24-48 hours from the time that you signed up for it. This is what you will have to use to access your grade <a href="https://docs.google.com/spreadsheets/d/1F61a0ixVtGn-SoKtUiRqZynpg74UPbbQwcXQDhWbpiI/edit?usp=sharing" target="_blank">here</a>. Make sure to read the instructions in this Google Sheet on how to use it.</p>
+        <hr>
+
+        <!-- <pre class="line-numbers"><code class="language-java">public static void main(String[] args) {
+    System.out.println("Hello World!");
+}</code></pre> -->
+        
+        <h3>Announcements</h3>
+        <i>This will be populated overtime. Announcements are posted as a stack, so the most recent announcements are on top.</i>
+        <ul style="line-height:1.5;">
+            <!-- <li>Testing
+                <pre class="line-numbers" style="width:40%;"><code class="language-java">public static void main(String[] args) {
+    System.out.println("Hello World!");
+}</code></pre>
+            </li> -->
+            <!-- <li><b>July 1st, 2024: </b>
+                Please take some time to answer the following <a href="https://forms.gle/ZNEiAeeQNbDPipREA" target="_blank">diagnostic test</a>. Just try your best; if you do not know the answer, just make a guess instead of leaving it blank. Your grade will not be released (unless you opted to) and is only for my personal assessment only.
+            </li> -->
+            <li><b>Aug 20th, 2024: </b>
+                Here are a few announcements before our class this Thursday:
+                <ul>
+                    <li>I have uploaded the Car example that we had in class last week. See the Topics and Resources section.</li>
+                    <li>See attached for the <a href="https://create.kahoot.it/share/java-final-exam-review/be35abc8-2c92-43a1-a90c-3087038f2005" target="_blank">Kahoot Review Quiz</a> in preparation for the exam.</li>
+                    <li>Please try to come to class early on Thursday, to get extra time for the exam. I would recommend to take 15-30 minutes for Questions 1-7, then the rest of the time for Question 8. Be familiarized with this <a href="https://ossfiles.ca/index.php/s/MLQmRze4A8zZDZm" target="_blank">resource</a> prior to the exam.</li>
+                    <li>Please submit all homeworks by Aug 22nd.</li>
+                    <li>The Fall term registration has now started. Please visit the school website to look at the Fall timetable and book an appointment to reserve your spot. After writing the exam this week, you will now be eligible to take higher Computer Science courses such as the Computing Contest Course and AP Computer Science. I'll see you all on Thursday!</li>
+                </ul>
+            </li>
+            <li><b>Aug 19th, 2024: </b>
+                Please familiarize yourself with importing projects onto your IDE and how you submit, in preparation for this week's Final Exam. This will help you to feel more comfortable coming into the exam. See the resource <a href="https://ossfiles.ca/index.php/s/MLQmRze4A8zZDZm" target="_blank">here</a>.
+            </li>
+            <li><b>Aug 18th, 2024: </b>
+                Hope everyone is enjoying the last weekend for the term. Anyways, here are my announcements before our class this Monday:
+                <ul>
+                    <li>Solutions to Homework 7 are posted here: <a href="./codes/hw7-java-sol.zip" target="_blank">hw7-java-sol.zip</a> (we'll take it up tomorrow at the beginning of class)</li>
+                    <li>Solutions to Sample Final Exam are posted here: <a href="./codes/java-sample-exam-sol.txt" target="_blank">java-sample-exam-sol.txt</a></li>
+                    <li>Tomorrow, we'll cover the very last topic of the course - on Errors and Software Testing after taking up the HW 7; that is to be followed by a quick course wrap-up, and then finally we'll have our very last Kahoot quiz which will serve as a review in preparation for the Final Exam on Thursday (note that this quiz will cover questions from the very beginning of this course!).</li>
+                    <li><span class="alert">The school has given us teachers a deadline for submitting grades to the school. As such, they asked us to tell students that the last day to submit any late homeworks/homeworks with corrections is on Aug 22nd. Any homeworks submitted after will not be graded.</span></li>
+                </ul>
+            </li>
+            <li><b>Aug 14th, 2024: </b>
+                Hello everyone, I am now back from my trip and I would be present in class to teach again on the 15th. We are just a few classes away from the end of this course but I would like to give a few announcements which I'll also deliver at the beginning of class tomorrow:
+                <ul>
+                    <li>Solutions to Homework 5 are posted here: <a href="./codes/hw5-java-sol/HW5Q1.java" target="_blank">HW5Q1.java</a>, <a href="./codes/hw5-java-sol/HW5Q2.java" target="_blank">HW5Q2.java</a></li>
+                    <li>Solutions to Homework 6 are posted here: <a href="./codes/hw6-java-sol/HW6Q1.java" target="_blank">HW6Q1.java</a>, <a href="./codes/hw6-java-sol/HW6Q2.java" target="_blank">HW6Q2.java</a>, <a href="./codes/hw6-java-sol/HW6Q3.java" target="_blank">HW6Q3.java</a>, <a href="./codes/hw6-java-sol/HW6Q4.java" target="_blank">HW6Q4.java</a>, <a href="./codes/hw6-java-sol/HW6Q5.java" target="_blank">HW6Q5.java</a> (we will take up the solutions tomorrow at the start of class)</li>
+                    <li>Homework 7 solutions will be taken up on Monday at the start of class; solutions are to be posted here before the start of Monday's class.</li>
+                    <li>Here is a <a href="https://ossfiles.ca/index.php/s/Zet64MxCRB4pPpS" target="_blank">sample final exam</a> in preparation for next week's final exam (solutions will be posted early next week but try out the questions first). Similar to the midterm test, a portion of it will be written component and another portion will be coding component. Many of the rules are kept the same but with some slight changes, see full rules for the exam <a href="https://ossfiles.ca/index.php/s/iaeGefC25JfSt9q" target="_blank">here.</a></li>
+                    <li>All homeworks submitted up until Aug 13th have now been graded.</li>
+                    <li>I am still feeling a bit jetlagged and won't be able to respond to your emails right away. But I should be able to get back up by the end of the week, so I thank you for your understanding. See you all tomorrow!</li>
+                </ul>
+            </li>
+            <li><b>Aug 2nd, 2024: </b>
+                Just as a reminder that I will be away next week (we still have classes though, a supply teacher will be coming in). Please continue to do your homeworks and submit them while I am away; I will take a look at them when I get back. For any emails sent after 4 PM on Monday, they will be replied to when I get back. The codes of our in-class exercises as well as the annotated slides from last 
+                Monday have now been posted; please see the Topics and Resources section. Enjoy your weekend everyone!
+            </li>
+            <li><b>Jul 29th, 2024: </b>
+                Hello everyone! This webpage will undergo many changes, and I will also make announcements:
+                <ol>
+                    <li>Midterm grades are already posted in our grade book. Please check it out and supply it with your grade code to know your grade. There are two parts: Part A (out of 35) and B (out of 65). Midterm report cards have already been submitted to the school (which you expect to see either this week or next week); the grade I have reported is basically the sum of Part A and Part B, plus any bonus percentages that you have accumulated from the beginning of the course up until Jul 22nd class. Any unused bonus percentages gets carried over to the final exam. I will hand back your graded midterms today in class, plus any other feedbacks from Part B.</li>
+                    <li>As we are nearing towards the end of this course (only less than a month away), I have decided to not only grade homeworks on Wednesdays but also grade homeworks as soon as I receive them. You should expect to receive your grade (view on gradebook) ~24-72 hours from the time that you uploaded your homework to OSSFiles. I still have some homeworks that have been submitted late last week, but I will get to marking them soon as I just have gotten extra busy this weekend marking midterms, so I do apologize.</li>
+                    <li>I will be away starting Aug 5th (in the evening after our class), and won't be back until Aug 14th. Any emails that are sent after 4 PM of Aug 5th until Aug 14th would not be read/responded to until I get back. As such, any homeworks submitted during this time won't get marked and until I come back. A supply teacher for those days (Aug 8th and Aug 12th class) will take charge while I am away; please continue your hard work and dedication in-class as well as submitting homeworks.</li>
+                    <li>Because I will be away for almost a week, I have decided to post all materials for the course up until Week 8, this includes Homeworks 5-7. Again, no changes to the due dates of the homeworks.</li>
+                </ol>
+            </li>
+            <li><b>Jul 24th, 2024: </b>
+                Any homeworks that have been submitted up until Jul 23rd have already been graded. They should reflect now on the grade book (please supply it with your grade code), and it should also reflect on your upcoming report cards next week:
+                <ul>
+                    <li>Homework 1 grade is the grade in HW1 and HW2 of the report card.</li>
+                    <li>Homework 2 grade is the grade in HW3 and HW4 of the report card.</li>
+                    <li>Homework 3 grade is the grade in HW5 and HW6 of the report card.</li>
+                    <li>Homework 4 grade is the grade in HW7 of the report card.</li>
+                </ul>
+                I'll see everyone tomorrow for the midterm. Please try to come on time; we'll spend the first 10-15 minutes taking up Homework 4 and any other last minute questions about the midterm that you may have.
+            </li>
+            <li><b>Jul 22nd, 2024: </b>
+                I'll itemize my list of announcements:
+                <ol>
+                    <li>The midterm is coming up soon. Please try out the sample midterm first before having a look at the <a href="./codes/sample-midterm-java-sol.txt" target="_blank">solutions</a></li>
+                    <li>As pointed out by one of your classmates, I made a mistake with the homework that I posted. So HW 4 is now reposted. Also, I'm uploading here the solutions to prepare you for the midterm. See <a href="./codes/Geometry.java" target="_blank">Geometry.java</a>, which we will take up for the first few minutes of class on Thursday</li>
+                    <li>The in-class exercises from today's class has already been posted (see Topics and Resources section). Note that it's the entire project. So unzip it, and you will see the codes in the <code class="inline">/src</code> folder.</li>
+                    <li>As requested by some students, here is the Kahoot quiz that we did today including the answers: <a href="https://create.kahoot.it/share/java-midterm-review/c3051612-c0ea-4d68-8bf6-0fefa2feef31" target="_blank">Midterm Review Kahoot Quiz</a></li>
+                    <li>Make sure you are able to know how to create a new project in Eclipse, as this is going to be part of the test on Thursday. Please refer to the following <a href="https://ossfiles.ca/index.php/s/mDKP4YPpZrKzRpE" target="_blank">guide</a> if still unsure.</li>
+                    <li><span class="alert">I am posting this in advanced, but this is how you will submit Part B of the midterm: <a href="https://ossfiles.ca/index.php/s/kapoGXZb5aRYi4p" target="_blank">instructions for submitting Part B</a>. It's basically this link is where you will submit: <a href="https://ossfiles.ca/index.php/s/YJLWDWfxpf3mEMt" target="_blank">https://ossfiles.ca/index.php/s/YJLWDWfxpf3mEMt</a>. The link will expire on Jul 25th, at 9:00 PM.</span></li>
+                    <li>The first report cards might come in soon. I have handed in the grade book to the school last Wed (so any homework submissions after that might not have reflected in the first report card). The more important report card would be the next one, which will cover all homeworks we have so far + the midterm test grade. Again, Homework 1 is equivalent to Class 1 and 2 HW in the report card; Homework 2 is equivalent to Class 3 and 4 HW in the report card; Homework 3 is equivalent to Class 5 and 6 HW in the report card; Homework 4 is equivalent to Class 7 of HW in the report card. I'll do my best to try to get grades up ready early next week.</li>
+                </ol>
+            </li>
+            <li><b>Jul 21st, 2024: </b>
+                My tips for studying for the midterm:
+                <ul>
+                    <li>Review each of the slides from Week 1 to 4. Make sure you not only know the concepts, but also able to do the in-class exercises independently.</li>
+                    <li>Go over each of our Homeworks (and the solutions), make sure you are able to understand the solutions and able to do the questions yourself independently. (You can also redo them if you like!)</li>
+                    <li>Try doing the sample midterm questions. Some of the questions there are Part A-type questions, and some are Part B-type questions. Timing yourself can also help, so that you are able to manage your time during the test (I will have a timer during the timer so that everyone knows how much time you have left).</li>
+                    <li>It's good to prepare a new project already before the midterm begins to save time. For Part B of the test, you will initially be asked to create a new Java project in Eclipse <code class="inline">Firstname-Lastname-Midterm</code> with three <code class="inline">.java</code> classes: <code class="inline">Q1.java</code>, <code class="inline">Q2.java</code>, and <code class="inline">Q3.java</code></li>
+                </ul>
+            </li>
+            <li><b>Jul 21st, 2024: </b>
+                More announcements coming your way. Firstly, always refresh this page whenever you visit it so that the latest announcements get loaded. Next, here are the solutions to Part A of Homework 2: <a href="./codes/hw2-java-sol/HW2Q1.java" target="_blank">HW2Q1.java</a>, <a href="./codes/hw2-java-sol/HW2Q2.java" target="_blank">HW2Q2.java</a>, <a href="./codes/hw2-java-sol/HW2Q3.java" target="_blank">HW2Q3.java</a>, <a href="./codes/hw2-java-sol/HW2Q4.java" target="_blank">HW2Q4.java</a>. With the midterm right around the corner, I have decided to also post the solutions of Homework 3 ahead of time (don't worry, the due date to submit is still on Tue, Jul 23rd). But I trust that you would try the Homework 3 exercises first before comparing and looking at my solutions: <a href="./codes/hw3-java-sol/HW3Q1.java" target="_blank">HW3Q1.java</a>, <a href="./codes/hw3-java-sol/HW3Q2.java" target="_blank">HW3Q2.java</a>, <a href="./codes/hw3-java-sol/HW3Q3.java" target="_blank">HW3Q3.java</a>, <a href="./codes/hw3-java-sol/HW3Q4.java" target="_blank">HW3Q4.java</a>, <a href="./codes/hw3-java-sol/HW3Q5.java" target="_blank">HW3Q5.java</a>, <a href="./codes/hw3-java-sol/HW3Q6.java" target="_blank">HW3Q6.java</a>, <a href="./codes/hw3-java-sol/HW3Q7.java" target="_blank">HW3Q7.java</a>. The solutions will be taken up at the beginning of class tomorrow, however. Homework 4 has also just been posted ahead of time; again no changes to the due date (it's just a short homework!)
+            </li>
+            <li><b>Jul 21st, 2024: </b>
+                I have already posted the solutions to some in-class exercises from last Thursday's class (see Topics and Resources section). Also, please try to do an advanced reading on the upcoming material for Monday (Procedural Programming); as it will be the last topic that will be covered to be included in the midterm on Thursday. There is one question from the homework about checking if an integer is odd. If we want to check if an integer is odd, the following code is wrong:
+                    <pre class="line-numbers" style="width:40%;"><code class="language-java">public static void main(String[] args) {
+    // Assume n is the integer; you could try for positive n integers (e.g., 7, 15, 23, etc.)
+    // which gives a correct answer but negative integers don't work (e.g., -7, -15, -23, etc.)
+    if (n % 2 == 1) {
+        System.out.println("The integer is odd.");
+    }
+}</code></pre>
+                Here's a workaround. Option 1: check <code class="inline">n % 2 != 0</code> in your <code class="inline">if</code> statement. Option 2: What you check instead is <code class="inline">absN</code>, where <code class="inline">absN = Math.abs(n)</code>.
+                    <pre class="line-numbers" style="width:40%;"><code class="language-java">public static void main(String[] args) {
+    // Option 1
+    if (n % 2 != 0) {
+        System.out.println("The integer is odd.");
+    }
+
+    // Option 2
+    int absN = Math.abs(n);
+    if (absN % 2 == 1) {
+        System.out.println("The integer is odd.");
+    }
+}</code></pre>
+            </li>
+            <li><b>Jul 17th, 2024: </b>
+                <span class="alert"><b>Important Announcement about the Upcoming Midterm Test:</b> This will happen next week Thursday, July 25th which will cover all material that we have learned in this course from Week 1 all the way up to Week 4. We'll talk about the <a href="https://ossfiles.ca/index.php/s/EMRjH9YgYozi6pk" target="_blank">full details</a> of this in-class tomorrow. For Part B of the test, you will initially be asked to create a new Java project in Eclipse <code class="inline">Firstname-Lastname-Midterm</code> with three <code class="inline">.java</code> classes: <code class="inline">Q1.java</code>, <code class="inline">Q2.java</code>, and <code class="inline">Q3.java</code>. Here is a list of some <a href="https://ossfiles.ca/index.php/s/Pf3i5DmjN7SoNY9" target="_blank">sample midterm questions</a> (I don't have solutions; I'll post solutions here in the next few days only if I have time to make them). I can assure you that if you are able to solve these questions independently, you will have smooth sailing during the test.</span>
+            </li>
+            <li><b>Jul 17th, 2024: </b>
+                Please read the following <a href="https://ossfiles.ca/index.php/s/qS7njFdgmbki332" target="_blank">handout</a> in advance in preparation for tomorrow's class; we will take it up at the very end of tomorrow's class. Print or download the PDF file onto your local (I also will provide physical copies in class tomorrow); please download as well this starter code <a href="./codes/Restaurant.java" target="_blank">Restaurant.java</a>.
+            </li>
+            <li><b>Jul 17th, 2024: </b>
+                Because we might not have enough time to do the things we need to do in our class on Friday, I would not be able to cover solutions of Homework 2 Part B; I will instead post it <a href="https://ossfiles.ca/index.php/s/LWpbaJiMS95HQqm" target="_blank">here</a> (if you have questions about the solutions, please ask me during class). But I will still cover solutions of Homework 2 Part A at the beginning of class on Friday.
+            </li>
+            <li><b>Jul 17th, 2024: </b>
+                The gradebook has already been updated. For those who got a "P" for Homework 2, no need to resubmit corrections. For those who got an "I", make sure to submit your corrections (so that I could change your "I" to "P"). A common observation for Homework 2 is that some students still submit the wrong file format (don't submit <code class="inline">.java</code> files directly to the homework submission link; instead put them all in a folder then compress it and then submit that compressed folder to the homework submission link). Another common mistake is not naming the files correctly (specifically, I should see your name on the file; otherwise I would not know who submitted the homework since everybody uses the same homework submission link). Finally, there are still some students who are doing the wrong homework (will get an "I" on the report card). If you are not sure if you submitted correctly, feel free to resubmit or ask me for help.
+            </li>
+            <li><b>Jul 17th, 2024: </b>
+                Part A of Homework 2 has already been marked. Same as in Homework 1, each of the four Java programs is worth 1 pt each. So Part A is worth 4 points. Combined this with Part B that is worth 15 points, so Homework 2 is out of 19. To get a pass, you need to score 10/19 for this Homework; I will post the grades later tonight when I get home. I will also email students individually if I have any concerns regarding their submitted homework.
+            </li>
+            <li><b>Jul 17th, 2024: </b>
+                To those who have handed in their physical copy of Homework 2 Part B solutions and answers, they now have been graded and I will hand them back to you tomorrow in-class. Part B is worth 15 points: Question 5 is worth 3 points (1 pt for converting 37 to binary, 1 pt for converting -37 to binary, 1 pt for verfication); Question 6 is worth 12 points, with each equivalent to 4 points (2 pts for converting each of the two numbers to binaries, 1 pt for the binary arithmetic, and 1 pt for the verification).
+            </li>
+            <li><b>Jul 16th, 2024: </b>
+                In-class exercise solutions for some in-class exercises yesterday (this includes Ex. 6 and 7) have been posted already (see Topics and Resources section). Homework 3 is already posted (due on Jul 23rd). The sample midterm, including midterm test info/notice, will be posted here within the next few days (Thu, Jul 18th is the latest before our class begins).
+            </li>
+            <li><b>Jul 15th, 2024: </b>
+                Apologies as there was a typo in tonight's handout. As a result, I have decided that the first place team will instead earn 3% bonus instead of 2% bonus for the midterm; all those who got 1% (those who have handed in their handout tonight and got the right answers) will instead get 2%. For those who attempted and did not get the right answer (and were not able to hand in), that's ok, bring it next class and hand it to me by then for a 1% bonus for the midterm (I will only accept on Jul 18th). For reference, <a href="https://ossfiles.ca/index.php/s/y5dnqrPm6RJcWaj" target="_blank">here</a> is the solutions.
+            </li>
+            <li><b>Jul 12th, 2024: </b>
+                For students who were not in class yesterday, I'll post the solutions to Homework 1: <a href="./codes/hw1-java-sol/HW1Q1.java" target="_blank">HW1Q1.java</a>, <a href="./codes/hw1-java-sol/HW1Q2.java" target="_blank">HW1Q2.java</a>, <a href="./codes/hw1-java-sol/HW1Q3.java" target="_blank">HW1Q3.java</a>, <a href="./codes/hw1-java-sol/HW1Q4.java" target="_blank">HW1Q4.java</a>, <a href="./codes/hw1-java-sol/HW1Q5.java" target="_blank">HW1Q5.java</a>
+            </li>
+            <li><b>Jul 12th, 2024: </b>
+                I highly recommend trying out the <a href="https://ossfiles.ca/index.php/s/3XBXwjoJcx7AgmL" target="_blank">practice exercise</a> first before looking at the <a href="https://ossfiles.ca/index.php/s/s5an6AsXQQcwWTF" target="_blank">solutions</a> (not to be handed in). This practice exercise can help you answer Part B of Homework 2. 
+            </li>
+            <li><b>Jul 10th, 2024: </b>
+                Hello everyone! Just an update regarding Homework 1. They now have been marked. So for those who have submitted anytime up until Jul 09th, you are able to see your grade in our <a href="https://docs.google.com/spreadsheets/d/1F61a0ixVtGn-SoKtUiRqZynpg74UPbbQwcXQDhWbpiI/edit?gid=0#gid=0" target="_blank">gradebook</a>. You just have to type in your grade code on cell <code class="inline">A2</code> of the Google sheet (if you don't have a grade code yet, then sign up for one <a href="https://forms.gle/HZoYqqXqKpeyZCLs6" target="_blank">here</a>; you will be using this throughout the course so you only need to sign up once). Here are some information about the grading:
+                <ul>
+                    <li>The gradebook doesn't show any written feedback. So if you would like to get some comments from me, please send me an email. If you also want to know which questions you got right or wrong, please send me an email as well.</li>
+                    <li>For each question, the grading scheme is either 1pt (if you get the right answer/result/output) or 0pt (otherwise) -- so total of 5/5 for this Homework 1. You get either a "P" (pass) or an "I" (incomplete) for this homework (for this course, a score above 50% is needed to get a "P"). If you get an "I", you are required to resubmit the corrected homework under the following filename: <code class="inline">firstname-lastname-HW1-corrections.zip</code> to the following <a href="https://ossfiles.ca/index.php/s/dSmXPG9wFEB564r" target="_blank">directory</a>. There is no deadline but you are expected to complete this as soon as possible. You can resubmit solutions to all questions but only the ones you didn't get correctly is what I would need. If you are not sure how to code the questions, it's ok because I will take up the solutions to the homework questions at the begininng of class tomorrow (Jul 11th).</li>
+                    <li>This Homework 1 is equivalent to two class homeworks. So when you receive your first report cards, you (or your parents/guardians) might see that the HW1 and HW2 of the report card have the same grade, HW3 and HW 4 of that report card have the same grade, etc. (Basically HW1 and HW2 in that report card corresponds to our Homework 1 in this course webapge; HW3 and HW4 in that report card corresponds to Homework 2 in this course webpage, etc.)</li>
+                    <li>A common observation that I see that some students do not submit with the correct filename and do not submit the correct file type. OSS Files sends wrong file types directly to the trash, and if you submit a file with the wrong filename, then I won't be able to locate your homework (it's like saying you handed in homework to the teacher without your name on it and the teacher won't know whose work it is).</li>
+                    <li>Another thing I noticed is that some students are doing the homeworks that have been posted from the Olympiads website. Again, it is not updated -- so instead do the homeworks posted in this course webpage. This is the one for <a href="https://ossfiles.ca/index.php/s/xYBftgw5EC8oZTR" target="_blank">Homework 1</a> and for <a href="https://ossfiles.ca/index.php/s/iFzm4YbRorHr4Bt" target="_blank">Homework 2 (due on Jul 16th)</a> </li>
+                    <li>If you have submitted past Jul 09th, it is ok to submit late (no penalty) but I just won't be able to grade it right away.</li>
+                    <li>Should you have other questions with regards to the grading, please contact me via email.</li>
+                </ul>
+            </li>
+            <li><b>Jul 09th, 2024: </b>
+                Many updates have been made, so I will break it down for you:
+                <ul>
+                    <li>Homework 1 is due today. If unable to submit Homework 1 today, that's ok -- I accept late homework (but try not to fall behind with homeworks!). For those who have submitted their Homework 1, thank you -- I will mark them (grades will be available by Wednesday/Thursday) and then we can take up the solutions in-class on Thursday.</li>
+                    <li>Solutions to the in-class exercises yesterday have been posted already (see Topics and Resources section)</li>
+                    <li>The second homework has already been posted. You should be able to answer questions from Part A already based on our lecture yesterday. For Part B, I'll talk more about it this coming Thursday. I'll also talk about the submission process for Part B on Thursday since it is a little bit different than Homework 1 submission.</li>
+                    <li>Week 3 materials already posted in our Topics and Resources section, for those who would like to do some advanced reading.</li>
+                    <li>If you need an online Java compiler (for example, you require a quick access to Java on a computer that does not have Java/Eclipse), I highly recommend this from <a href="https://www.programiz.com/java-programming/online-compiler/" target="_blank">Programiz</a>. But it shouldn't replace the use of Eclipse during our in-class exercises, homeworks, and tests. I will also post this link in our Other Resources section. </li>
+                </ul>
+            </li>
+            <li><b>Jul 07th, 2024: </b>
+                Hope everyone is enjoying their weekend. I am delighted to see that many students have already submitted their homeworks ahead of the scheduled deadline. So great job and keep it up! I just would like to remind everyone that the file that you will submit must be <code class="inline">firstname-lastname-HW1.zip</code> (or possibly <code class="inline">firstname-lastname-HW1.rar</code>, just as long as it is a <i>compressed folder</i>). As an example, <code class="inline">Gian-Alix-HW1.zip</code>. Right after submitting, you will get a success message that the compressed folder was submitted. <span class="alert">Only the compressed files will be accepted and marked; all other files are automatically sent to the trash.</span> Remember that it is important to submit with the correct filename, because otherwise I will not be able to find your homework submission. If there are still uncertainties, please see me in-class on Monday regarding the submission.
+            </li>
+            <li><b>Jul 04th, 2024: </b> Solutions to some of the in-class exercises today have been posted (found in the <i>Topics and Resources</i> section). If you need some help running these Java files on your Eclipse, let me know in-class and I can help. Here is the one-liner solution for In-class Exercise 7 (which we skipped today):  
+                <pre class="line-numbers" style="width:40%;"><code class="language-java">System.out.println("2\t3\t5\t7\t11\t13\t17\t19\t23\t31");</code></pre>
+            </li>
+            <li><b>Jul 03rd, 2024: </b>For slides and homeworks, don't forget that there are two versions: (1) the one posted at the Olympiads Website, and (2) the one posted here in our course webpage. The ones posted at the Olympiads website are unfortunately not up to date. Please refer to this course webpage instead for the slides and the homeworks.</li>
+            <li><b>June 30th, 2024: </b>
+                Welcome to the course! Make sure to spend some time going over this course webpage providing valuable information regarding this course. Bookmark this page so you can easily visit this page. Email me for any questions: <a href="mailto: galix@olympiadsmail.ca">galix@olympiadsmail.ca</a>
+            </li>
+        </ul>
+        <hr>
+
+        <h3>Topics and Resources</h3>
+        <p>This will be populated overtime.</p>
+        <table class="tableWidthSpan100">
+            <tr>
+                <th>Date</th>
+                <th>Topics</th>
+                <th>Objectives</th>
+                <th>Resources</th>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 1</b><br>
+                    (July 1st-7th, 2024)
+                </td>
+                <td>
+                    <ul>
+                        <li>Introduction to Java</li>
+                        <li>Variables</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Install the necessary softwares for programming in Java</li>
+                        <li>Write our first Java and mathematical programs</li>
+                        <li>Implement Java code that uses variables and mathematical operators</li>
+                        <li>Work with user inputs and process it for meaningful formatted outputs</li>
+                        <li>Debug our first program</li>
+                        <li>Use performance profiling to measure the running time of our code</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><a href="https://ossfiles.ca/index.php/s/rEjkwsT6imcsYyn" target="_blank">Introduction to the Course</a></li>
+                        <li><a href="https://ossfiles.ca/index.php/s/ApTEiy5g5HAdDCe" target="_blank">The Eclipse IDE</a></li>
+                        <li><a href="https://ossfiles.ca/index.php/s/E7WeKwpxFLkJbXX" target="_blank">Variables Slides</a></li>
+                        <li><a href="./codes/Quadratic.java" target="_blank">Quadratic.java</a>, <a href="./codes/Cosines.java" target="_blank">Cosines.java</a>, <a href="./codes/Profiling.java" target="_blank">Profiling.java</a></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 2</b><br>
+                    (July 8th-14th, 2024)
+                </td>
+                <td>
+                    <ul>
+                        <li>Operators</li>
+                        <li>Integers</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Be able to write comments as a way of documenting and adding notes to our Java programs</li>
+                        <li>Identify various operator types including arithmetic operators, assignment operators, comparison operators, logical operators, and bitwise operators</li>
+                        <li>Recall the various number base systems (e.g., Base 10 Decimal System, Base 2 Binary System, Base 8 Octal System, Base 16 Hexadecimal System, etc.)</li>
+                        <li>Represent base 10 integers in other bases, and vice-versa</li>
+                        <li>Do mathematical arithmetic with integers in a base other than 10</li>
+                        <li>Convert integers from base 10 to base 2 (and vice-versa) using the way of computer representation by hand</li>
+                        <li>Perform mathematical operations using computer representation by hand</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><a href="https://ossfiles.ca/index.php/s/q7QysbwscKXEeYt" target="_blank">Operators Slides</a></li>
+                        <li><a href="./codes/Cylinder.java" target="_blank">Cylinder.java</a>, <a href="./codes/Gravitation.java" target="_blank">Gravitation.java</a>, <a href="./codes/Temperature.java" target="_blank">Temperature.java</a>, <a href="./codes/IsOdd.java" target="_blank">IsOdd.java</a></li>
+                        <li><a href="https://ossfiles.ca/index.php/s/2kmn4Ki26ZeftcB" target="_blank">Integers Slides</a></li>
+                        <li><a href="https://ossfiles.ca/index.php/s/QewxWTE7Dx49CBT" target="_blank">Integers Practice Exercises</a></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 3</b><br>
+                    (July 15th-21st, 2024)
+                </td>
+                <td>
+                    <ul>
+                        <li>Branching</li>
+                        <li>Loops</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Recall boolean expressions (either <code class="inline">true</code> or <code class="inline">false</code> statements)</li>
+                        <li>Be able to read and program code with <code class="inline">if</code>, <code class="inline">if-else</code>, <code class="inline">if-else if-else</code>, and <code class="inline">switch-case</code> statements</li>
+                        <li>Recognize the importance of iterative programs</li>
+                        <li>Be able to program iterative programs in Java using <code class="inline">for</code>, <code class="inline">while</code>, and <code class="inline">do-while</code> loops</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><a href="https://ossfiles.ca/index.php/s/5DFfDp932SDHKoq" target="_blank">Branching Slides</a></li>
+                        <li><a href="https://ossfiles.ca/index.php/s/y5dnqrPm6RJcWaj" target="_blank">Branching Handout Solutions - Jul 15th</a></li>
+                        <li><a href="https://ossfiles.ca/index.php/s/9CbgpraYREjmeaL" target="_blank">Loops Slides</a></li>
+                        <li><a href="./codes/RestaurantSolution.java" target="_blank">Solutions to the Restaurant Exercise (Jul 18th)</a></li>
+                        <li><a href="./codes/Grades.java" target="_blank">Grades.java</a>, <a href="./codes/Elements.java" target="_blank">Elements.java</a>, <a href="./codes/DayOfWeek.java" target="_blank">DayOfWeek.java</a>, <a href="./codes/MovieTicket.java" target="_blank">MovieTicket.java</a>, <a href="./codes/SpecialStrings.java" target="_blank">SpecialStrings.java</a>, <a href="./codes/StepSize.java" target="_blank">StepSize.java</a></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 4</b><br>
+                    (July 22nd-28th, 2024) <br>
+                    <span class="alert"><b>MIDTERM TEST: </b>July 25th (Thursday)</span>
+                </td>
+                <td>
+                    <ul>
+                        <li>Procedural Programming</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Recognize the importance of methods and to be able to write methods (and call them) in Java</li>
+                        <li>Understand some basic packages and scope modifiers in Java, including the best practices to keep in mind when coding methods</li>
+                        <li>Apply the knowledge and skills (both theory and code) of Java/Eclipse/programming learned in the last four weeks in the midterm test </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><a href="https://ossfiles.ca/index.php/s/2r8RsDoCTrRN5TT" target="_blank">Procedural Programming Slides</a></li>
+                        <li><a href="./codes/ProceduralProgramming.zip" target="_blank">ProceduralProgramming.zip</a></li>
+                        <li><a href="https://ossfiles.ca/index.php/s/Pf3i5DmjN7SoNY9" target="_blank">Sample Midterm Questions</a>, <a href="./codes/sample-midterm-java-sol.txt" target="_blank">Sample Midterm Solutions</a></li>
+                        <li><a href="https://create.kahoot.it/share/java-midterm-review/c3051612-c0ea-4d68-8bf6-0fefa2feef31" target="_blank">Midterm Review Kahoot Quiz</a></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 5</b><br>
+                    (July 29th - August 4th, 2024)
+                </td>
+                <td>
+                    <ul>
+                        <li>Arrays</li>
+                        <li>Lists</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Realize the importance of data structures when storing, processing, accessing, working on calculations, and displaying aggregate data</li>
+                        <li>Know the use of arrays/lists and nested arrays/lists, how they can be used and how to code with these data structures</li>
+                        <li>Learn how arrays/lists can be used in conjunction with previously learned concepts such as <code class="inline">if</code> statments and loops.</li>
+                        <li>Recognize the key differences between arrays and lists</li>
+                        <li>Perform other important operations on arrays/lists such as length, adding/removing from arrays/lists, membership, etc.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><a href="https://ossfiles.ca/index.php/s/sBtFj5feP5jdaHf" target="_blank">Arrays Slides</a>, <a href="https://ossfiles.ca/index.php/s/mCk6yydEkXKJSMi" target="_blank">Arrays Annotated Slides</a></li>
+                        <li><a href="https://ossfiles.ca/index.php/s/FtiWSE3GHzZcHec" target="_blank">Lists Slides</a></li>
+                        <li><a href="./codes/ListEx1.java" target="_blank">ListEx1.java</a>, <a href="./codes/ListEx2.java" target="_blank">ListEx2.java</a>, <a href="./codes/ListEx3.java" target="_blank">ListEx3.java</a>, <a href="./codes/ListEx4.java" target="_blank">ListEx4.java</a>, <a href="./codes/ListEx5.java" target="_blank">ListEx5.java</a>, <a href="./codes/ListEx6.java" target="_blank">ListEx6.java</a></li>
+                        <li>Handout solutions: <a href="https://ossfiles.ca/index.php/s/KxDSep2FSYxtBDN" target="_blank">Arrays</a>, <a href="https://ossfiles.ca/index.php/s/jDBQ2QfdrFRzpJo" target="_blank">Lists</a></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 6</b><br>
+                    (August 5th-11th, 2024)
+                </td>
+                <td>
+                    <ul>
+                        <li>Sets</li>
+                        <li>Recursion</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Realize data structures that can hold unique values, a feature not present in arrays/lists</li>
+                        <li>Use various key operations relevant to a set data structure - adding/removing elements, union, intersection, difference set operations, etc.</li>
+                        <li>Understand the concept of recursion through coding of some examples and tracing through code</li>
+                        <li>Implement recursive functions, as well as iterative functions of a given recursive function (and vice-versa)</li>
+                        <li>Know the key differences between iteration and recursion, the advantages and disadvantages for both, and when it is best to use either-or</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><a href="https://ossfiles.ca/index.php/s/NYQqozJPL2oa5z6" target="_blank">Sets Slides</a></li>
+                        <li><a href="./codes/SetExercises.java" target="_blank">SetExercises.java</a></li>
+                        <li><a href="https://ossfiles.ca/index.php/s/L9jn2Gf6PSpCabo" target="_blank">Trivia Game</a></li>
+                        <li><a href="https://ossfiles.ca/index.php/s/zNg2ZC6mqKceAM7" target="_blank">Recursion Slides</a></li>
+                        <li><a href="https://ossfiles.ca/index.php/s/pPamQa9H2tYqaLf" target="_blank">power function - tracing</a></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 7</b><br>
+                    (August 12th-18th, 2024)
+                </td>
+                <td>
+                    <ul>
+                        <li>String Search</li>
+                        <li>Object-Oriented Programming</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Work with strings (variables specifically that contain text/String values). In particular, performing search operations</li>
+                        <li>Conduct both case sensitive and case insensitive search, and do a count on specific substrings in a given string</li>
+                        <li>Use regular expressions (regex) to describe a search pattern and look for substrings that match a given regex</li>
+                        <li>Recognize the importance of Object-Oriented Programming, along with the pros/cons</li>
+                        <li>Motivate from how OOP is one of the best solutions for writing and maintaining a piece of software, as opposed to maintaining a composite data structure like dictionaries</li>
+                        <li>Understand the key concepts in OOP including classes, attributes, methods, constructors, etc., as well as how client programs can use objects</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><a href="https://ossfiles.ca/index.php/s/QAr3dmrwDd9daNZ" target="_blank">String Search Slides</a></li>
+                        <li><a href="https://ossfiles.ca/index.php/s/BLXXbkxW2jjqAxH" target="_blank">Object-Oriented Programming Slides</a></li>
+                        <li>Starter codes: <a href="./codes/Advertisement.java" target="_blank">Advertisement.java</a>, <a href="./codes/Poem.java" target="_blank">Poem.java</a> </li>
+                        <li><a href="./codes/Car-java.zip" target="_blank">Car-java.zip</a></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5px;">
+                    <b>Week 8</b><br>
+                    (August 19th-25th, 2024) <br>
+                    <span class="alert"><b>FINAL EXAM: </b>August 22nd (Thursday)</span>
+                </td>
+                <td>
+                    <ul>
+                        <li>Errors and Software Testing</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Understand different kinds of errors (exceptions) that could occur prior or during the execution of a Java program</li>
+                        <li>Know how to handle and use some solutions and workarounds for avoiding exceptions</li>
+                        <li>Learn about the different types of software testing, including their key similarities and differences</li>
+                        <li>Get hands-on with the use of the debugger in Eclipse</li>
+                        <li>Apply everything learned in this course in a comprehensive final exam</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><a href="https://ossfiles.ca/index.php/s/jBANZ4eRJqWcJxq" target="_blank">Errors and Software Testing Slides</a></li>
+                        <li><a href="https://ossfiles.ca/index.php/s/j5qrtHW5CEWDjJz" target="_blank">Course Wrap-up</a></li>
+                        <li><a href="https://ossfiles.ca/index.php/s/Zet64MxCRB4pPpS" target="_blank">Sample Final Exam</a>, <a href="./codes/java-sample-exam-sol.txt" target="_blank">Sample Final Exam Solutions</a>, <a href="https://ossfiles.ca/index.php/s/iaeGefC25JfSt9q" target="_blank">Final Exam Announcements</a>, <a href="https://ossfiles.ca/index.php/s/MLQmRze4A8zZDZm" target="_blank">Final Exam Project Import and Submission Information</a></li>
+                        <li><a href="https://create.kahoot.it/share/java-final-exam-review/be35abc8-2c92-43a1-a90c-3087038f2005" target="_blank">Kahoot Final Exam Review Quiz</a></li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+        <hr>
+
+        <h3 id="otherRes">Other Resources</h3>
+        <p>For any other useful resources not found above, they will be posted below.</p>
+        <ul style="line-height:1.5;">
+            <li><a href="https://eclipseide.org/" target="_blank">The Eclipse IDE</a> - for this course, feel free to use other IDEs if they are already preinstalled in your machine. Here are other IDEs: <a href="https://www.jetbrains.com/idea/" target="_blank">IntelliJ</a>, <a href="https://netbeans.apache.org/front/main/index.html" target="_blank">Netbeans</a>, etc.  </li>
+            <li><a href="https://www.oracle.com/ca-en/java/technologies/downloads/" target="_blank">Java 22 JDK</a> - make sure you are able to install this on Week 1. To verify that the Java version and if it has been installed correctly in your machine, type <code class="inline">java --version</code> in your terminal/command prompt. See the following slides for more information about installation.</li>
+            <li><a href="https://www.programiz.com/java-programming/online-compiler/" target="_blank">Programiz</a> - an online Java compiler</li>
+            <li><a href="https://ossfiles.ca/index.php/s/mDKP4YPpZrKzRpE" target="_blank">Guide</a> for creating a new project in Eclipse (useful especially in tests)</li>
+            <li><a href="https://ossfiles.ca/index.php/s/kapoGXZb5aRYi4p" target="_blank">Instructions for submitting the Test</a> - What we will use for both midterm and final test (there's a different link for the final test)</li>
+            <li><a href="https://ossfiles.ca/index.php/s/MLQmRze4A8zZDZm" target="_blank">Final Exam Project Import and Submission Information</a> - You need to familiarize yourself with this ahead of time.</li>
+            <li>...</li>
+        </ul>
+        <hr>
+
+        <p id="dtModified" style="text-align:center;"><b>Loading...</b></p>
+
+
+    </body>
+</html>

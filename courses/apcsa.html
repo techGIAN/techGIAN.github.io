@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   
+  <meta charset="UTF-8">
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"> -->
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <title>AP Computer Science A - FW 2025-26</title>
+  <style>
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .tab-button {
+      padding: 10px 20px;
+      background-color: lightgray;
+      border: none;
+      cursor: pointer;
+    }
+
+    .tab-button.active {
+      background-color: dodgerblue;
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    #copyMessage {
+      display: none;
+      color: green;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    #myCode {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .copy-icon {
+      cursor: pointer;
+      font-size: 1.2em;
+      color: #555;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .custom-toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #5cb85c;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      display: none;
+      z-index: 9999;
+
+    }
+    .position-relative {
+      position: relative;
+    }
+    .copy-icon.position-absolute {
+      position: absolute;
+    }
+
+    .highlightYellow {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function calcScore() {
+    var maxMC = 42;
+    var minMC = 0;
+    var maxFR = 25;
+    var minFR = 0;
+    var mcScore = parseInt(document.getElementById("mcScore").value);
+    var frScore = parseInt(document.getElementById("frScore").value);
+    var weightedScore = (mcScore * 80 / 42 * 0.55) + (frScore * 80 / 25 * 0.45);
+    var subScore = Math.round(weightedScore);
+    var finalScore = 1;
+    if (subScore >= 62) {
+      finalScore = 5;
+    } else if (subScore >= 44) {
+      finalScore = 4;
+    } else if (subScore >= 31) {
+      finalScore = 3;
+    } else if (subScore >= 25) {
+      finalScore = 2;
+    } else {
+      finalScore = 1;
+    }
+    if (mcScore > maxMC || mcScore < minMC || frScore > maxFR || frScore < minFR) {
+      finalScore = "Error! Check your scores and recalculate.";
+    }
+    document.getElementById("score").innerHTML = finalScore;
+  }
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const toastEl = document.getElementById("copyToast");
+
+  // ⛔ Hide toast if it was shown prematurely
+  toastEl.classList.remove('show');
+
+  const toast = new bootstrap.Toast(toastEl, {
+    autohide: true,
+    delay: 2000
+  });
+
+  document.querySelector(".copy-icon").addEventListener("click", function () {
+    toast.show();
+  });
+});
+</script>
+<body> 
+<div class="container">
+  <div style="margin:auto; width:50%; text-align:center;">
+    <h1>AP Computer Science A</h1> 
+    <h3 style="margin-top: -2%;">(Fall 2025 - Winter 2026)</h3>
+  </div>
+  <b>Instructor:</b> Mr. Alix <br>
+  <b>Email:</b> <a href="mailto: galix@olympiadsmail.ca">galix@olympiadsmail.ca</a> <br>
+  <b>Class Times: </b> Saturdays, 7:00-9:30 PM <br>
+  <i>(Note: Dec 13th: 7:00-10:00 PM, Mar 21st and Mar 28th: 7:00-10:30 PM)</i> <br>
+  <b>Location: </b> Online Class (reach out to your Olympiads account for the Zoom link) <br>
+  <b>Term Duration: </b> This course will run for <i>23 classes</i>, starting from Oct 18th, 2025 to Apr 04th, 2026<br>
+  <b>Tutorial Schedule: </b> Tuesdays, 9:00-10:00 PM (reach out to your Olympiads account for the Zoom link)<br>
+  <hr>
+  <div class="tabs">
+    <button class="tab-button" onclick="showTab('1', this)">Course Description</button>
+    <button class="tab-button" onclick="showTab('2', this)">Course Webpage</button>
+    <button class="tab-button" onclick="showTab('3', this)">Class Times</button>
+    <button class="tab-button" onclick="showTab('4', this)">Important Dates</button>
+    <button class="tab-button" onclick="showTab('5', this)">Course Policies</button>
+    <button class="tab-button" onclick="showTab('6', this)">Homework Submission</button>
+    <button class="tab-button" onclick="showTab('7', this)">Weekly Content</button>
+    <button class="tab-button" onclick="showTab('8', this)">Other Resources</button>
+  </div>
+  <div id="content-1" class="tab-content">
+    <h3>Course Description</h3>
+    <p>
+      This course enables students to design, implement, and analyze solutions to problems, use and implement commonly used algorithms,  use standard data structures, develop and select appropriate algorithms and data structures to solve new problems, write solutions fluently in an object-oriented paradigm, write, run, test, and debug solutions in the Java programming language, utilizing standard Java library classes and interfaces from the AP Java subset, read and understand programs consisting of several classes and interacting objects, read, and understand a description of the design and development process leading to such a program, understand the ethical and social implications of computer use. 
+      <!-- <b class="text-success">No prior programming experience needed.</b> -->
+    </p>
+    <p>
+      <b>Prerequisites: </b> Course taken in Introduction to Programming (either Java, Python, or C++), Skills including logic thinking, reasoning abilities, mathematical aptitude are assets in this course.
+    </p>
+     <p class="text-success">
+      <i><b>Preferred Programming Language: </b>The course is run in Java, so that is preferred. If you are able to program in other programming languages, you are welcome to join this course. </i>
+    </p>
+    <p class="text-danger">
+      <i><b>Note: </b>Please contact your instructor if you have not completed the prerequisites for this course. </i>
+    </p>
+    <span class="highlightYellow"><b>Exam Date:</b> May 15th, 2026</span> (note: you do not need to write the exam to take this course!)
+  </div>
+  <div id="content-2" class="tab-content">
+    <h3>Course Webpage</h3>
+    <p>
+      Please bookmark the following link as it will be frequently used and updated throughout the duration of the course: <a href="https://techgian.github.io/courses/java" target="_blank">https://techgian.github.io/courses/apcsa</a>
+    </p>
+  </div>
+  <div id="content-3" class="tab-content">
+    <h3>Class Times</h3>
+    <p>
+      Our classes run online every Saturdays, from 7:00-9:30 PM. If for whatever reason, you cannot make it to class, please do reach out to your teacher by emailing him <a href="mailto: galix@olympiadsmail.ca">galix@olympiadsmail.ca</a>. In addition, please request for a link to the Zoom video recording of the class from the school as we do not offer make-up classes for this course. The following classes have a different schedule:
+      <ul style="line-height:1.5;">
+        <li><b>Class 9</b>: On Dec 13th, 2025, the class runs from 7:00-10:00 PM due to the <span class="text-danger"><b>midterm exam</b></span>.</li>
+        <li><b>Class 21</b>: On Mar 21st, 2026, the class runs from 7:00-10:30 PM due to the <span class="text-danger"><b>first mock exam</b></span>.</li>
+        <li><b>Class 22</b>: On Mar 28th, 2026, the class runs from 7:00-10:30 PM due to the <span class="text-danger"><b>second mock exam</b></span>.</li>
+      </ul>
+    </p>
+    <h3>Tutorials</h3>
+    <p>
+      We offer weekly online tutorials, every Tuesdays from 9:00-10:00 PM. This will be the schedule, until any changes are made (which I will announce if any changes are made). See your Olympiads accounts for the Zoom link. Tutorials begin on Oct 21st, 2025, and end on May 12th, 2026.
+    </p>
+  </div>
+  <div id="content-4" class="tab-content">
+    <h3>Important Dates</h3>
+    <table class="table table-hover table-striped">
+      <tr>
+          <td><b>Oct 18th, 2025</b></td>
+          <td>First day of Classes</td>
+      </tr>
+      <tr>
+          <td><b>Nov 15th, 2025</b></td>
+          <td>Fall Test</td>
+      </tr>
+      <tr>
+          <td><b>Nov 15th/22nd, 2025</b></td>
+          <td>Unit 1 Lab Post/Due</td>
+      </tr>
+      <tr>
+          <td><b>Dec 13th, 2025</b></td>
+          <td>Midterm Exam</td>
+      </tr>
+      <tr>
+          <td><b>Dec 20th, 2025</b></td>
+          <td>Unit 2 Lab Post/Due</td>
+      </tr>
+      <tr>
+          <td><b>Dec 22nd - Jan 5th</b></td>
+          <td>Winter Break</td>
+      </tr>
+      <tr>
+          <td><b>Jan 24th, 2026</b></td>
+          <td>Winter Test</td>
+      </tr>
+      <tr>
+          <td><b>Jan 24th/31st, 2026</b></td>
+          <td>Unit 3 Lab Post/Due</td>
+      </tr>
+      <tr>
+          <td><b>Feb 16th, 2026</b></td>
+          <td>Family Day</td>
+      </tr>
+       <tr>
+          <td><b>Mar 14th/21st, 2026</b></td>
+          <td>Unit 4 Lab Post/Due</td>
+      </tr>
+      <tr>
+          <td><b>Mar 21st, 2026</b></td>
+          <td>Mock Exam 1</td>
+      </tr>
+      <tr>
+          <td><b>Mar 28th, 2026</b>  </td>
+          <td>Mock Exam 2</td>
+      </tr>
+      <tr>
+          <td><b>Apr 03rd, 2026</b>  </td>
+          <td>Good Friday</td>
+      </tr>
+      <tr>
+          <td><b>Apr 04th, 2026</b>  </td>
+          <td>Last day of Classes</td>
+      </tr>
+    </table>
+    <p class="text-danger">
+      <i><b>Note: </b> The holidays observed in this term are <b>Family Day</b> and <b>Good Friday</b>. Meritus Academy is still open on these days/weekends, and we will still be conducting our classes at our usual time during these holidays. If you plan to be away on any of these days, please notify your teacher ahead of time (send an email to <a href="mailto: galix@olympiadsmail.ca">galix@olympiadsmail.ca</a>). It is strongly recommended to attend the makeup sessions in such cases to avoid falling behind.</i>
+      
+      <br><br>
+
+      We are closed during the Winter Break (Dec 22nd - Jan 5th).
+    </p>
+  </div>
+  <div id="content-5" class="tab-content">
+    <h3>Course Policies</h3>
+    <ol style="line-height:1.5;">
+      <li>This class requires that you have <b>stable internet connection</b>, as well as access to a <b>web camera</b> throughout the <i>duration of the lecture</i>. Please log in to Zoom ~10-15 minutes before the start of the class time. The Zoom link can be found in your Olympiads account; if you have any trouble accessing the link, please reach out to the school <a href="mailto: info@olympiads.ca">info@olympiads.ca</a>. </li>
+      <li>Load Java/Eclipse IDE before the class begins. Your teacher will go over the installation of the required software on the first day of class. If you miss it, please watch the video recording of the class as I will guide you through the installation process. Also see <a href="#otherRes">Other Resources</a> tab for more information about software installation. </li>
+      <li>The only electronic device permitted are laptops/desktop computers. Devices such as phones, mobile devices, gaming consoles, and tablets must be put away. If you feel the need to use them, please ask your instructor for permission.</li>
+      <li>Lecture materials like slides are provided by the school. They can be found in your Olympiads account; reach out to the school if you have trouble accessing them. Please download a copy to your local at the beginning of the class (note that they will be taken down from the Olympiads website at any point in time, so download a copy!). I will provide other necessary learning resources in this class like supplementary codes.</li>
+      <li>During class, please focus your attention on the teacher and avoid visiting unnecessary websites like YouTube, Facebook, social media platforms, or game sites. </li>
+      <li>The class is meant to be interactive. Participate in class discussions, and make sure to ask questions when you are not certain about something. Either type your question in the chatbox, OR click the "raise hand" button on your Zoom -- the instructor will call you and then you can feel free to unmute yourself and speak.</li>
+      <li>There will be exercises (e.g., multiple choice, short answers, fill in the blanks, coding exercises, etc.) throughout the lectures. You are expected to try working on these exercises (as I do not necessarily give out the solutions always). Because it will be hard to check if everybody is doing the work, then I will trust that you are actually working on these exercises. For those exercises that I provide solutions, that doesn't mean that you shouldn't try it; please still try and do your best because "doing" is the best way of "learning" coding and getting better at it.</li>
+      <li>There are homeworks expected to be submitted almost every class. More information about the Homeworks in the Homework section.</li>
+      <li>You will be assessed in: Fall Test, Winter Test, Midterm Exam, Mock Exams, and End-of-Unit Labs. More information will be provided closer to the dates.</li>
+      <li>The use of any chatbots or AI such as ChatGPT is <b class="text-danger">strongly discrouraged</b> in this course; and moreover, <b class="text-danger">any work that is submitted that contains content of a generative AI is strictly not allowed</b>. <i>When caught, this incident will be reported to the school for disciplinary action.</i> </li>
+      <li>...</li>
+    </ol>
+    <!-- <p>
+      <b><u>Tech Points (TP)</u>:</b> <br>
+      The Tech Points (TP for short) are points that students can earn throughout the course for participating in-class, and those points can be redeemed later for rewards. It is a point-based incentive system that works only for Mr. Alix's class. So TPs cannot be earned or redeemed in another Java class. They are also forfeited once you drop or switch to another class. Here are some ways (not limited to) that you can earn TPs online:
+      <ul>
+        <li>Attending a class</li>
+        <li>Answering my questions</li>
+        <li>Coding (and possibly presenting) challenging code solutions</li>
+        <li>Asking relevant and intelligent questions</li>
+        <li>End-of-class Activities</li>
+        <li>etc.</li>
+      </ul>
+      I will announce as we go throughout the term and I will keep track of everyone's TPs. Note that TPs are non-transferrable. Prizes can be claimed on Class 6, 12, 16 (prizes to be announced).
+    </p> -->
+  </div>
+  <div id="content-6" class="tab-content">
+    <h3>Homework Submission</h3>
+    <p>
+      The school provides you copy of the Homework questions. Please see your Olympiads account. I will also post the questions on Classkick. <span class="text-danger">All homeworks due every Saturdays at 6:45 PM; submission portal closes at this time.</span>
+    </p>
+    <table class="table table-hover table-striped">
+      <tr>
+          <th class="text-center">Homework</th>
+          <th class="text-center">Post Date</th>
+          <th class="text-center">Due Date</th>
+          <th class="text-center">Graded Date</th>
+          <th class="text-center">Take Up Date</th>
+      </tr>
+      <tr>
+          <td><b>Homework 01</b>: Unit 1.1 to Unit 1.4</td>
+          <td class="text-center">Oct 11th, 2025</td>
+          <td class="text-center">Oct 25th, 2025</td>
+          <td class="text-center">Nov 01st, 2025</td>
+          <td class="text-center">Nov 01st, 2025</td>
+      </tr>
+      <tr>
+          <td><b>Homework 02</b>: Unit 1.5 to Unit 1.10</td>
+          <td class="text-center">Oct 18th, 2025</td>
+          <td class="text-center">Nov 01st, 2025</td>
+          <td class="text-center">Nov 08th, 2025</td>
+          <td class="text-center">Nov 08th, 2025</td>
+      </tr>
+      <tr>
+          <td><b>Homework 03</b>: Unit 1.11 to Unit 1.14</td>
+          <td class="text-center">Oct 25th, 2025</td>
+          <td class="text-center">Nov 08th, 2025</td>
+          <td class="text-center">Nov 15th, 2025</td>
+          <td class="text-center">Nov 22nd, 2025</td>
+      </tr>
+      <tr>
+          <td><b>Homework 04</b>: Unit 1.15 and Unit 1 Summary</td>
+          <td class="text-center">Nov 01st, 2025</td>
+          <td class="text-center">Nov 15th, 2025</td>
+          <td class="text-center">Nov 22nd, 2025</td>
+          <td class="text-center">Nov 29th, 2025</td>
+      </tr>
+      <tr>
+          <td><b>Homework 05</b>: (None)</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+      </tr>
+      <tr>
+          <td><b>Homework 06</b>: Unit 2.1 to 2.6</td>
+          <td class="text-center">Nov 15th, 2025</td>
+          <td class="text-center">Nov 29th, 2025</td>
+          <td class="text-center">Dec 06th, 2025</td>
+          <td class="text-center">Dec 06th, 2025</td>
+      </tr>
+      <tr>
+          <td><b>Homework 07</b>: Unit 2.7 to 2.9</td>
+          <td class="text-center">Nov 22nd, 2025</td>
+          <td class="text-center">Dec 06th, 2025</td>
+          <td class="text-center">Dec 13th, 2025</td>
+          <td class="text-center">Dec 20th, 2025</td>
+      </tr>
+      <tr>
+          <td><b>Homework 08</b>: Unit 2.10 to 2.12 and Unit 2 Summary</td>
+          <td class="text-center">Nov 29th, 2025</td>
+          <td class="text-center">Dec 13th, 2025</td>
+          <td class="text-center">Dec 20th, 2025</td>
+          <td class="text-center">Jan 10th, 2026</td>
+      </tr>
+      <tr>
+          <td><b>Homework 09</b>: (None)</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+      </tr>
+      <tr>
+          <td><b>Homework 10</b>: (None)</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+      </tr>
+      <tr>
+          <td><b>Homework 11</b>: Unit 3.1 to 3.5</td>
+          <td class="text-center">Jan 03rd, 2026</td>
+          <td class="text-center">Jan 17th, 2026</td>
+          <td class="text-center">Jan 24th, 2026</td>
+          <td class="text-center">Jan 24th, 2026</td>
+      </tr>
+      <tr>
+          <td><b>Homework 12</b>: Unit 3.6 to 3.9 and Unit 3 Summary</td>
+          <td class="text-center">Jan 10th, 2026</td>
+          <td class="text-center">Jan 24th, 2026</td>
+          <td class="text-center">Jan 31st, 2026</td>
+          <td class="text-center">Jan 31st, 2026</td>
+      </tr>
+      <tr>
+          <td><b>Homework 13</b>: (None)</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+      </tr>
+      <tr>
+          <td><b>Homework 14</b>: Unit 4.1 to 4.3</td>
+          <td class="text-center">Jan 24th, 2026</td>
+          <td class="text-center">Feb 07th, 2026</td>
+          <td class="text-center">Feb 14th, 2026</td>
+          <td class="text-center">Feb 14th, 2026</td>
+      </tr>
+      <tr>
+          <td><b>Homework 15</b>: Unit 4.4 to 4.6</td>
+          <td class="text-center">Jan 31st, 2026</td>
+          <td class="text-center">Feb 14th, 2026</td>
+          <td class="text-center">Feb 21st, 2026</td>
+          <td class="text-center">Feb 21st, 2026</td>
+      </tr>
+      <tr>
+          <td><b>Homework 16</b>: Unit 4.7 to 4.10</td>
+          <td class="text-center">Feb 07th, 2026</td>
+          <td class="text-center">Feb 21st, 2026</td>
+          <td class="text-center">Feb 28th, 2026</td>
+          <td class="text-center">Feb 28th, 2026</td>
+      </tr>
+      <tr>
+          <td><b>Homework 17</b>: Unit 4.11 to 4.13</td>
+          <td class="text-center">Feb 14th, 2026</td>
+          <td class="text-center">Feb 28th, 2026</td>
+          <td class="text-center">Mar 07th, 2026</td>
+          <td class="text-center">Mar 07th, 2026</td>
+      </tr>
+      <tr>
+          <td><b>Homework 18</b>: Unit 4.14 to 4.15</td>
+          <td class="text-center">Feb 21st, 2026</td>
+          <td class="text-center">Mar 07th, 2026</td>
+          <td class="text-center">Mar 14th, 2026</td>
+          <td class="text-center">Mar 14th, 2026</td>
+      </tr>
+      <tr>
+          <td><b>Homework 19</b>: Unit 4.15 to 4.16 and Unit 4 Summary</td>
+          <td class="text-center">Feb 28th, 2026</td>
+          <td class="text-center">Mar 14th, 2026</td>
+          <td class="text-center">Mar 21st, 2026</td>
+          <td class="text-center">Apr 04th, 2026</td>
+      </tr>
+      <tr>
+          <td><b>Homework 20</b>: (None)</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+      </tr>
+      <tr>
+          <td><b>Homework 21</b>: (None)</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+      </tr>
+      <tr>
+          <td><b>Homework 22</b>: (None)</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+      </tr>
+      <tr>
+          <td><b>Homework 23</b>: (None)</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+      </tr>
+    </table>
+    <i>See "Important Dates" tab for the labs and test/exam dates. Usually, there is no Homework on those days. They are due on the same day posted, and are taken up either on the same day of or the week after (labs are an exception to this).</i><br><br>
+    
+    <div class="panel-group" id="accordionhw">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordionhw" href="#collapsehw1">
+              Instructions for Submission
+            </a>
+          </h4>
+        </div>
+        <div id="collapsehw1" class="panel-collapse collapse">
+          <div class="panel-body">
+            All Homeworks are submitted through Classkick, including tests and exams. Labs are not submitted on Classkick, and more information will be posted closer to the Unit 1 Lab date.
+            <!-- <ol>
+              <li>
+                First create a folder with the following filename:
+                <pre>firstname-lastname-homework-xx</pre>
+                where <code class="inline">xx</code> is the HW number. So for example, I will name my folder as
+                <pre>Gian-Alix-homework-01</pre>
+                for my first homework submission.
+              </li>
+              <li>Navigate to the <code class="inline">/eclipse-workspace</code> directory in your system, then you will be able to find the Java files that your wish to submit in one of the project folders.</li>
+              <li>Copy-paste all files that you would like to submit to the <code class="inline">firstname-lastname-homework-xx</code> folder.</li>
+              <li>Remember that each question should be in its own file.</li>
+              <li>Once all files that you would like to submit are now in the folder, compress it using any of the zipping softwares. For Windows such as: <a href="https://www.win-rar.com/start.html?&L=0">WinRar</a>, <a href="https://www.7-zip.org/">7zip</a>, or <a href="https://www.winzip.com/en/">WinZip</a> (no need to install if your machine already has one). For Mac, a compression utility software is already built-in so no need to install (simply right click on the folder, then click on <code class="inline">Compress</code>).</li>
+              <li>
+                Your compressed folder should have the following filename:
+                <pre>firstname-lastname-homework-xx.zip</pre>
+                where <code class="inline">xx</code> is the HW number. So for example, my compressed folder's filename is:
+                <pre>Gian-Alix-homework-01.zip</pre>
+                for my first homework submission.
+              </li>
+              <li>Upload the zipped folder to the OSSFiles directory specified on the Classkick Homework. Every Homework has a different link.</li>
+              <li>Feel free to upload as many times as you wish. Previously uploaded files are overwritten. Only the last submission will be graded.</li>
+              <li>Take screenshots of your code and code outputs onto Classkick.</li>
+              <li>Every step has to be followed in order to receive a Pass on the Homework.</li>
+            </ol> -->
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordionhw" href="#collapsehw2">
+              Setting Up Classkick
+            </a>
+          </h4>
+        </div>
+        <div id="collapsehw2" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>
+              <b><u>If you have a Classkick Account...</u></b><br>
+              If you have a previous Classkick account (possibly from a previous class that you took), then go <a href="https://app.classkick.com/account/login" target="_blank">here</a> to login. If you forgot your password, you can also click that link to try to recover your account. Once logged in, you will see a field on the top right corner where you can enter a Classkick code:
+            </p>
+            <div class="text-center">
+              <img src="img/classkick-code.png" alt="ClasskickCode" title="Classkick Code Field" height="100" class="img-thumbnail" style="margin-bottom:2%">
+            </div>
+            <p>
+              Add the following homework <b class="text-danger">Classkick code</b> for the first homework:
+              <div class="position-relative" style="position:relative;">
+                <pre><code id="myCode" class="bg-light p-3 rounded border d-block">5ZI B5V</code></pre>
+                <i class="fas fa-clipboard copy-icon position-absolute" title="Click to copy" onclick="copied();"></i>
+              </div>
+              By doing this, you would have gained access to future homeworks (no need to always input the Classkick homework code).
+            </p>
+            <p>
+              <b><u>If you don't have a Classkick Account...</u></b><br>
+              Create an account <a href="https://app.classkick.com/#/signup/student" target="_blank">here</a>. You should see the following page:
+            </p>
+            <div class="text-center">
+              <img src="img/classkick-create.png" alt="Classkick Signup Page" title="Classkick Sign up Page" height="150" class="img-thumbnail" style="margin-bottom:2%">
+            </div>
+            <p>
+              First specify the following Classkick code: 
+              <div class="position-relative" style="position:relative;">
+                <pre><code id="myCode" class="bg-light p-3 rounded border d-block">5ZI B5V</code></pre>
+                <i class="fas fa-clipboard copy-icon position-absolute" title="Click to copy" onclick="copied();"></i>
+              </div>
+              Then click on the third green button: <code class="inline">Sign Up with Username/Email</code>. 
+            </p>
+            <p>
+              Create a username that contains your name; write the username and password down in your notebook so you wouldn't forget. By doing this, you would have gained access to future homeworks (no need to always input the Classkick homework code).
+              <br>
+            </p>
+            <p>
+              <b><u>Did I do it correctly?</u></b><br>
+              Whether or not you first signed up for Classkick, it is expected that your account will be a "Portfolio" account instead of a "Basic" account. It is this that ensures that you do not need to input the Classkick homework code in order to receive future homeworks. I'll check this during the first day of classes to ensure everyone's account is correct. If it is not setup correctly, that is ok; I will let you know and we can fix it together.
+            </p>                
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordionhw" href="#collapsehw3">
+              Scoring
+            </a>
+          </h4>
+        </div>
+        <div id="collapsehw3" class="panel-collapse collapse">
+          <div class="panel-body">
+            <!-- <p>
+              <b><u>Homework Statuses</u></b><br>
+              There are three status for Homeworks, which you should see on the first page of any homework posted on Classkick:
+            </p>
+            <ul style="line-height:1.5;">
+              <li><b>Homework open</b> - depicted by a yellow background, which means that the Homework is available to be edited/submitted to and the deadline has not yet passed.</li>
+              <img src="img/classkick-open.png" alt="Classkick Homework open" title="Classkick Homework open" height="5%" class="img-thumbnail" style="margin-bottom:2%">
+              <li><b>Grading in process</b> - depicted by an orange background, which means that the due date has already passed and your teacher is currently grading it; currently not editable</li>
+              <img src="img/classkick-grading.png" alt="Classkick Homework grading" title="Classkick Homework grading" height="5%" class="img-thumbnail" style="margin-bottom:2%">
+              <li><b>Marked</b> - depicted by an green background, which means that your teacher has already graded it. Your teacher will make it editable again if in case you need to fix your corrections. </li>
+              <img src="img/classkick-marked.png" alt="Classkick Homework marked" title="Classkick Homework marked" height="5%" class="img-thumbnail" style="margin-bottom:2%">
+            </ul> -->
+            <p>
+              <b><u>Scoring</u></b><br>
+              <!-- For each question of the Homework, it is either a 0/1. Then you will be graded with a Pass (50% or above) or Incomplete (below 50%) or No HW for not handing in the HW. Note that you also need to follow the instructions carefully to get a Pass. Your teacher will be providing feedback on Classkick. -->
+               Homeworks are marked as a percentage score; multiple choice part is combined with the coding/free response part. This is similar in tests. For exams, the grades are separated into Multiple Choice and Free Response, and they are weighed according to the College Board's criterion - you are then assigned a grade of 5, 4, 3, 2, or 1 (similar to the College Board assessment). Labs are graded with Pass or Incomplete.<br><br>
+
+               Here's what they mean:
+              <ul>
+                <li><b>5</b> - Extremely Well Qualified</li>
+                <li><b>4</b> - Well Qualified</li>
+                <li><b>3</b> - Qualified</li>
+                <li><b>2</b> - Possibly Qualified</li>
+                <li><b>1</b> - No Recommendation</li>
+              </ul>
+
+              <b>Formula:</b> <b>ROUND</b>(<b>MC_Score</b> * 1.0476 + <b>FR_Score</b> * 1.44) <br><br><br>
+
+               <b>AP Exam Score Calculator:</b> <span id="score"></span> <br><br>
+               <label for="mcScore">Multiple Choice Score:</label>
+               <input type="number" id="mcScore" name="mcScore" min="0" max="42" value="0"> <br>
+               <label for="frScore">Free Response Score:</label>
+               <input type="number" id="frScore" name="frScore" min="0" max="25" value="0"> <br>
+               <button id="calcScore" onclick="calcScore();">Calculate Score</button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div id="content-7" class="tab-content">
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Class 01: October 18th, 2025</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body">
+          <ul class="fa-ul">
+            <li>
+              <span class="fa-li"> <i class="fas fa-file-alt" style="color: #4f7a28;"></i></span>
+                <b>Topics Covered:</b>
+                <ul>
+                  <li style="list-style-type: disc;"><b>Unit 1.1:</b> Introduction to Algorithms, Programming, and Compilers</li>
+                  <li style="list-style-type: disc;"><b>Unit 1.2:</b> Variables and Data Types</li>
+                  <li style="list-style-type: disc;"><b>Unit 1.3:</b> Expressions and Outputs</li>
+                  <li style="list-style-type: disc;"><b>Unit 1.4:</b> Assignment Statements and Inputs</li>
+                </ul>
+            </li>
+            <li>
+              <span class="fa-li"><i class="fas fa-file-pdf" style="color: #b51a00;"></i></span>
+                <a href="https://ossfiles.ca/index.php/s/CpdQykciXxfTBzA" target="_blank">Course Outline (Fall-Winter 2025/26)</a>
+            </li>
+            <li>
+              <span class="fa-li"><i class="fas fa-file-pdf" style="color: #b51a00;"></i></span>
+                <a href="https://ossfiles.ca/index.php/s/erx4s5JDj6mQo9e" target="_blank">AP Exam Description (for the 2026 Exam)</a>
+            </li>
+            <li>
+              <span class="fa-li"><i class="fas fa-file-powerpoint" style="color: #d95000;"></i></span> <a href="https://ossfiles.ca/index.php/s/Pi2snnFJPYxaEYW" target="_blank">Introduction Slide</a>
+            </li>
+            <li>
+              <span class="fa-li"><i class="fab fa-java"></i></span> <a href="https://ossfiles.ca/index.php/s/WZsTxJECXz2biNN" target="_blank">The Eclipse IDE and Java Installation Instructions</a>
+            </li>            
+            <li>
+              <span class="fa-li"><i class="fas fa-link" style="color:#6494e8;"></i></span> <a href="https://eclipseide.org" target="_blank">The Eclipse IDE site</a>
+            </li>
+            <li>
+              <span class="fa-li"><i class="fas fa-link" style="color:#6494e8;"></i></span> <a href="https://www.oracle.com/ca-en/java/technologies/downloads/" target="_blank">Latest Java version site</a>
+            </li>
+            <li>
+              <span class="fa-li"><i class="fas fa-file-pdf" style="color: #b51a00;"></i></span>
+                <a href="https://ossfiles.ca/index.php/s/P8QfSZcf7XzxME2" target="_blank">Java Keywords</a>
+            </li>
+            <li>
+              <span class="fa-li"><i class="fas fa-file-pdf" style="color: #b51a00;"></i></span>
+                <a href="https://ossfiles.ca/index.php/s/PMroq8XPSAMqeZX" target="_blank">Common Syntax Errors</a>
+            </li>
+            <li>
+              <span class="fa-li"><i class="fas fa-file-pdf" style="color: #b51a00;"></i></span>
+                <a href="https://ossfiles.ca/index.php/s/ECkbXj7nQa7PqKE" target="_blank">Java Language Features</a>
+            </li>
+            <li>
+              <span class="fa-li"><i class="fas fa-file-pdf" style="color: #b51a00;"></i></span>
+                <a href="https://ossfiles.ca/index.php/s/k7jsgdRcbeeqer2" target="_blank">AP Skillset</a>
+            </li>
+            <li>
+              <span class="fa-li"><i class="fas fa-calendar-check" style="color: #ff9300;"></i></span> <b>Agenda and Objectives:</b>
+              <ul>
+                <li style="list-style-type: disc;">Install the necessary softwares for programming in Java, including Classkick setup</li>
+                <li style="list-style-type: disc;">Introduce the course, including the AP Exam</li>
+                <li style="list-style-type: disc;">Write a quick Diagnostic Test to assess individual performance prior to the course, as a benchmark for measuring success and improvement</li>
+              </ul>
+            </li>
+            <li>
+              <span class="fa-li"><i class="fas fa-bell" style="color: #FFD43B;"></i></span> <b>Reminder:</b> Please ensure that you have Java and Eclipse installed in your machines by Class 2. Don't forget your Homework 1 everyone - due next week!
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Class 02: October 25th, 2025</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body">
+          <ul class="fa-ul">
+            <li>
+              <!-- ADD NEW STUFF HERE -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Class 03: November 01st, 2025</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body">
+          <ul class="fa-ul">
+            <li>
+              <!-- ADD NEW STUFF HERE -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Class 04: November 08th, 2025</a>
+        </h4>
+      </div>
+      <div id="collapse4" class="panel-collapse collapse">
+        <div class="panel-body">
+          <ul class="fa-ul">
+            <li>
+              <!-- ADD NEW STUFF HERE -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">Class 05: November 15th, 2025</a>
+        </h4>
+      </div>
+      <div id="collapse5" class="panel-collapse collapse">
+        <div class="panel-body">
+          <ul class="fa-ul">
+            <li>
+              <!-- ADD NEW STUFF HERE -->
+               <span class="text-danger"><i>Fall Test</i></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Class 06: November 22nd, 2025</a>
+        </h4>
+      </div>
+      <div id="collapse6" class="panel-collapse collapse">
+        <div class="panel-body">
+          <ul class="fa-ul">
+            <li>
+              <!-- ADD NEW STUFF HERE -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">Class 07: November 29th, 2025</a>
+        </h4>
+      </div>
+      <div id="collapse7" class="panel-collapse collapse">
+        <div class="panel-body">
+          <ul class="fa-ul">
+            <li>
+              <!-- ADD NEW STUFF HERE -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">Class 08: December 06th, 2025</a>
+        </h4>
+      </div>
+      <div id="collapse8" class="panel-collapse collapse">
+        <div class="panel-body">
+          <ul class="fa-ul">
+            <li>
+              <!-- ADD NEW STUFF HERE -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse9">Class 09: December 13th, 2025</a>
+        </h4>
+      </div>
+      <div id="collapse9" class="panel-collapse collapse">
+        <div class="panel-body">
+          <ul class="fa-ul">
+            <li>
+              <!-- ADD NEW STUFF HERE -->
+               <span class="text-danger"><i>Midterm Exam</i></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse10">Class 10: December 20th, 2025</a>
+        </h4>
+      </div>
+      <div id="collapse10" class="panel-collapse collapse">
+        <div class="panel-body">
+          <ul class="fa-ul">
+            <li>
+              <!-- ADD NEW STUFF HERE -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
+<div id="content-8" class="tab-content">
+  <h3 id="otherRes">Other Resources</h3>
+  <p>
+    For any other useful resources not found in other tabs, they will be posted below.
+  </p>
+  <ul style="line-height:1.5;">
+    <li><a href="https://eclipseide.org/" target="_blank">The Eclipse IDE</a> - for this course, feel free to use other IDEs if they are already preinstalled in your machine. Here are other IDEs: <a href="https://www.jetbrains.com/idea/" target="_blank">IntelliJ</a>, <a href="https://netbeans.apache.org/front/main/index.html" target="_blank">Netbeans</a>, etc.  </li>
+    <li><a href="https://www.oracle.com/ca-en/java/technologies/downloads/" target="_blank">Java 24 JDK</a> - make sure you are able to install this on Week 1. To verify that the Java version and if it has been installed correctly in your machine, type <code class="inline">java --version</code> in your terminal/command prompt. See the following slides for more information about installation.</li>
+    <li><a href="https://www.programiz.com/java-programming/online-compiler/" target="_blank">Programiz</a> - an online Java compiler</li>
+    <li><a href="https://codingbat.com/java/Recursion-1" target="_blank">CodingBat</a> - a good place to practice Recursion</li>
+    <li>
+      <span class="fa-li"><i class="fas fa-file-pdf" style="color: #b51a00;"></i></span>
+        <a href="https://ossfiles.ca/index.php/s/erx4s5JDj6mQo9e" target="_blank">AP Exam Description (for the 2026 Exam)</a>
+    </li>
+    <li>
+      <span class="fa-li"><i class="fas fa-file-pdf" style="color: #b51a00;"></i></span>
+        <a href="https://ossfiles.ca/index.php/s/P8QfSZcf7XzxME2" target="_blank">Java Keywords</a>
+    </li>
+    <li>
+      <span class="fa-li"><i class="fas fa-file-pdf" style="color: #b51a00;"></i></span>
+        <a href="https://ossfiles.ca/index.php/s/PMroq8XPSAMqeZX" target="_blank">Common Syntax Errors</a>
+    </li>
+    <li>
+      <span class="fa-li"><i class="fas fa-file-pdf" style="color: #b51a00;"></i></span>
+        <a href="https://ossfiles.ca/index.php/s/ECkbXj7nQa7PqKE" target="_blank">Java Language Features</a>
+    </li>
+    <li>
+      <span class="fa-li"><i class="fas fa-file-pdf" style="color: #b51a00;"></i></span>
+        <a href="https://ossfiles.ca/index.php/s/k7jsgdRcbeeqer2" target="_blank">AP Skillset</a>
+    </li>
+    <!-- <li><a href="https://ossfiles.ca/index.php/s/mDKP4YPpZrKzRpE" target="_blank">Guide</a> for creating a new project in Eclipse (useful especially in tests)</li> -->
+    <!-- <li><a href="https://ossfiles.ca/index.php/s/kapoGXZb5aRYi4p" target="_blank">Instructions for submitting the Test</a> - What we will use for both midterm and final test (there's a different link for the final test)</li> -->
+    <!-- <li><a href="https://ossfiles.ca/index.php/s/MLQmRze4A8zZDZm" target="_blank">Final Exam Project Import and Submission Information</a> - You need to familiarize yourself with this ahead of time.</li> -->
+    <li>...</li>
+  </ul>
+</div>
+</div>
+
+
+
+<script>
+  function showTab(tabId, button) {
+  // Hide all tab contents
+  const contents = document.querySelectorAll('.tab-content');
+  contents.forEach(c => c.classList.remove('active'));
+
+  // Remove active class from all buttons
+  const buttons = document.querySelectorAll('.tab-button');
+  buttons.forEach(b => b.classList.remove('active'));
+
+  // Show the selected tab's content
+  document.getElementById('content-' + tabId).classList.add('active');
+
+  // Directly activate the clicked button
+  button.classList.add('active');
+}
+
+  
+
+  // Show Tab A by default on load
+//   window.onload = function () {
+//     showTab('1', this);
+//   };
+window.onload = function () {
+  const button1 = document.querySelector('.tab-button:nth-child(1)');
+  if (button1) {
+    showTab('1', button1);
+  }
+};
+
+// $(document).ready(function(){
+//   $('.copy-icon').click(function(){
+//     $('.toast').toast({delay: 2000});
+//     $('.toast').toast('show');
+//   });
+// });
+
+// $(document).ready(function() {
+//     $('.copy-icon').click(function() {
+//         $('.toast-container').toast({
+//             animation: false,
+//             delay: 3000
+//         });
+//         $('.toast-container').toast('show');
+//     });
+// });
+
+$(document).ready(function () {
+      $('.copy-icon').click(function () {
+        var codeText = $('#myCode').text().trim();
+
+        // Try to copy to clipboard
+        navigator.clipboard.writeText(codeText).then(function () {
+          // Show toast
+          var toast = $('#customToast');
+          toast.fadeIn(200);
+
+          // Hide after 2 seconds
+          setTimeout(function () {
+            toast.fadeOut(400);
+          }, 2000);
+        }).catch(function () {
+          alert("Failed to copy to clipboard");
+        });
+      });
+    });
+
+// function copied() {
+//   var toast = document.getElementsByClassName('toast-container')[0];
+//   toast.toast('show');
+// }
+
+// $(document).ready(function(){
+//   $('.toast').toast({delay: 2000});
+//   $('.toast').toast('show');
+// });
+</script>
+
+<div id="customToast" class="custom-toast">
+    Copied to clipboard!
+  </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+Fall Test
+Date: Nov 15th, 2025
+
+What to Expect?
+* For the first 15 minutes of class, we will do a quick recap of the material covered in Class 4, while answering any questions you may have in terms of past material or anything about the Fall Test.
+* Then we will begin with the Fall Test, which should span for one hour, which will take us until Break time.
+
+Similar to the AP Exam, this Fall Test has two sections. The first section is a Multiple Choice, 1 point each. And the second section is a Free Response section, 7 points each. During the test, there are 16 questions in Section I and 2 questions in Section II. As this is only a test and not a mock exam, both sections are weighed equally. Note that everything we learned in the first four weeks are fair game questions during this Test. Furthermore, you will receive a % score by the end of the test after I mark the Section II manually - no 1/2/3/4/5 evaluation (only reserved for Mock Exams).
+
+I suggest allocating 30 mins for Section I and 30 mins for Section II, but feel free to go back and forth between the sections as much as you like within the time period. This is only a test so I would be ok with it. For the mock exams, this will be different.
+
+In preparing, I suggest revisiting Homework questions and the practice test that I posted on Classkick. If you need the solutions for the practice test, then send me an email and I can send it to you. I am unable to send you solutions to this practice test 24 hours before and after the said Fall Test.
+
+The Fall test is going to be done over on Classkick. It's similar to your Homeworks format. So make sure you are familiar to using the Classkick platform. If you have not set it up nor have you seen Homeworks 1-4 on Classkick, make sure to talk to me before class begins by Nov 15th. 
+
+For the Free Resonse Section, I recommend typing code directly onto Classkick using the textbox OR using the Carbon.now.sh might also help you post your code easily (check the video I posted on our course webpage about Carbon). Try not to use your IDE (like Eclipse, Netbeans, IntelliJ, etc.) or online compiler when typing the code - the key is to be able to practice yourself in tracing code, analyzing code, without the use of a compiler. The AP Exam will not provide that to you so you might as well get used to not having one as early as now when doing tests.
+
+During the test, please read all instructions carefully in order to receive full marks.
+
+The only aids you may use are the Java Quick Reference Sheet (I will provide a link to that but you should have it in the course webpage), as well as some scrap paper which you may use during the test. No calculators please (I trust that you will follow this). No AI either!
+* I will trust that you follow the rules.
+* I can only give you the benefit of the doubt. Trying to cheat in any way is just cheating yourself, you won't learn anything, nor I cannot guarantee your success in the upcoming AP Exam. 
+
+If you know you are unable to attend the test on Nov 15th (first half of the class), then please let me know right away through email. If you missed the test, you have three days after the test (Nov 18th) to notify me that you missed the test and wanted to write a makeup test. Note that there are no makeup tests given once it is already graded and taken up in class.
+
+If you have any questions about the test, please feel free to send me an email, or ask me during class, or possibly during the tutorial. Best of luck in the test!

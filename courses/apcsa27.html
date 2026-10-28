@@ -136,6 +136,16 @@
         }
 
   function generateSchedule() {
+
+          // for mod Date
+          var dateMod = "Oct 28th, 2026";
+          var timeMod = "2:53 AM";
+          document.getElementById("dateMod").innerHTML = dateMod;
+          document.getElementById("timeMod").innerHTML = timeMod;
+
+
+
+
            const startDate = new Date(2026, 9, 24); 
             const endDate = new Date(2027, 3, 10);   
             
@@ -541,7 +551,7 @@
     <hr>
     
     <div style="text-align: center;">
-      <i><b>Last updated: </b> Oct 21st, 2026 at 5:38 PM</i><br><br>
+      <i><b>Last updated: </b> <span id="dateMod"></span> at <span id="timeMod"></span></i><br><br>
     </div>
 
   <div class="tabs">
@@ -561,7 +571,7 @@
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Class 01: <span id="date1"></span></a>
         </h4>
       </div>
-      <div id="collapse1" class="panel-collapse collapse in">
+      <div id="collapse1" class="panel-collapse collapse">
         <div class="panel-body">
           <ul class="fa-ul">
             <li>
@@ -570,8 +580,6 @@
                 <ul>
                   <li style="list-style-type: disc;"><b>Unit 1.1:</b> Introduction to Algorithms, Programming, and Compilers</li>
                   <li style="list-style-type: disc;"><b>Unit 1.2:</b> Variables and Data Types</li>
-                  <li style="list-style-type: disc;"><b>Unit 1.3:</b> Expressions and Outputs</li>
-                  
                 </ul>
             </li>
             <li>
@@ -636,7 +644,7 @@
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Class 02: <span id="date2"></span></a>
         </h4>
       </div>
-      <div id="collapse2" class="panel-collapse collapse">
+      <div id="collapse2" class="panel-collapse collapse in">
         <div class="panel-body">
           <ul class="fa-ul">
             <li>
@@ -644,6 +652,7 @@
                 <b>Topics Covered:</b>
                 <ul>
                   <!-- <li style="list-style-type: disc;">(Any outstanding material from last class)</li> -->
+                  <li style="list-style-type: disc;"><b>Unit 1.3:</b> Expressions and Outputs</li>
                   <li style="list-style-type: disc;"><b>Unit 1.4:</b> Assignment Statements and Inputs</li>
                   <li style="list-style-type: disc;"><b>Unit 1.5:</b> Casting and Range of Variables</li>
                   <li style="list-style-type: disc;"><b>Unit 1.6:</b> Compound Assignment Operators</li>
@@ -661,36 +670,43 @@
                 <li style="list-style-type: disc;">Realize how casting and assignment operators work in Java</li>
               </ul>
             </li>
+            <li>
+              <span class="fa-li"><i class="fas fa-video" style="color: #ff2600;"></i></span> <b>Video Resource:</b>
+                <a href="https://ossfiles.ca/index.php/s/yRw5AtY6dHdeH2p" target="_blank"><i>Five Minute Video on How to Upload Code Solutions via Classkick</i> (Using Carbon) </a>
+            </li>
+            <li>
+              <span class="fa-li"><i class="fas fa-file-pdf" style="color: #b51a00;"></i></span>  
+                <b>Practice Problem:</b>
+                <a href="https://ossfiles.ca/index.php/s/JcHxLBCG3ddZtsf" target="_blank"> Kinetic Energy</a>
+            </li>
+            <li>
+              <span class="fa-li"><i class="fas fa-terminal" style="color: #7b219f;"></i></span> <b>Code Solutions:</b> <a href="https://ossfiles.ca/index.php/s/ZfAnfRZm5cqNKSD" target="_blank">Kinetic Energy Code Solutions</a>
+            </li>
+            <li>
+              <span class="fa-li"><i class="fas fa-video" style="color: #ff2600;"></i></span> <b>Video Solutions:</b>
+                <a href="https://ossfiles.ca/index.php/s/j9YF7WdMpeJ9Yst" target="_blank">Kinetic Energy Video Solutions</a>
+            </li>
+            <li>
+              <span class="fa-li"><i class="fas fa-file-pdf" style="color: #b51a00;"></i></span>
+                <a href="https://ossfiles.ca/index.php/s/NJKM8yyaCwddFzw" target="_blank">More Programming Practice Problems </a>
+            </li>
             <!-- <li>
-              <span class="fa-li"><i class="fas fa-file-pdf" style="color: #b51a00;"></i></span>
-                <a href="https://ossfiles.ca/index.php/s/3oA9Y3BbH6mL4cW" target="_blank">Example Problem: Kinetic Energy</a>
-            </li>
-            <li>
-              <span class="fa-li"><i class="fas fa-file-pdf" style="color: #b51a00;"></i></span>
-                <a href="https://ossfiles.ca/index.php/s/wLx9DEFRwEsyaWz" target="_blank">Programming Problems <i>(Optional Only) - for Practice Only</i></a>
-            </li>
-            <li>
-              <span class="fa-li"><i class="fas fa-terminal" style="color: #7b219f;"></i></span> <b>Solutions:</b> <a href="./codes/apcsa/KineticEnergy.java" target="_blank">KineticEnergy.java</a>
-            </li>
-            <li>
-              <span class="fa-li"><i class="fas fa-video" style="color: #ff2600;"></i></span>
-                <a href="https://ossfiles.ca/index.php/s/sYDSLHxpc4sRPLS" target="_blank">Video Solutions to the Kinetic Energy Problem Example</a> (highly recommend to watch if you find the coding question of Homework 1 hard)
-            </li>
-            <li>
               <span class="fa-li"><i class="fas fa-video" style="color: #ff2600;"></i></span>
                 <a href="https://ossfiles.ca/index.php/s/atcHrafKfaSXz5r" target="_blank">IPO Example</a> (highly recommend to watch to easily answer the Table Completion part of Homework 1)
-            </li>
+            </li>  -->
+
             <li>
-              <span class="fa-li"><i class="fas fa-bullhorn" style="color: #d58400;"></i></span> <b>Announcement:</b> Because we were not able to finish the materials up to Unit 1.4 last Saturday, we will finish that material this coming Saturday and I will grant an extension to Homework 1 (it is now due on <b>Oct 28th, 2025</b>!).
+              <span class="fa-li"><i class="fas fa-bullhorn" style="color: #d58400;"></i></span> <b>Announcement:</b> Homework 01 will be taken up this Sat (Oct 31st, 2026) right after the break. There is a 5-minute video link above that demonstrates how to submit Free Response solutions. Please let me know for questions.
             </li>
             <li>
               <span class="fa-li"><i class="fas fa-bell" style="color: #FFD43B;"></i></span> <b>Reminders:</b>
               <ul>
-                  <li style="list-style-type: disc;">Get Java installed in your machines (and any IDE would work like Eclipse, IntelliJ, NetBeans, VisualStudioCode, etc.) - but I use <b>Eclipse</b> in my classes. </li>
+                  <!-- <li style="list-style-type: disc;">Get Java installed in your machines (and any IDE would work like Eclipse, IntelliJ, NetBeans, VisualStudioCode, etc.) - but I use <b>Eclipse</b> in my classes. </li>
                   <li style="list-style-type: disc;">Make sure you are able to run simple <code class="inline">HelloWorld.java</code> program and try out the exercise <code class="inline">KineticEnergy.java</code> program example above as a Java programming practice. </li>
-                  <li style="list-style-type: disc;">Please drop by the Tuesday tutorial (9:00-10:00 PM) if you require assistance with the installation of the softwares. Let's have these ready by Class 3 at the latest. </li>
+                  <li style="list-style-type: disc;">Please drop by the Tuesday tutorial (9:00-10:00 PM) if you require assistance with the installation of the softwares. Let's have these ready by Class 3 at the latest. </li> -->
+                  <li style="list-style-type: disc;">While not required and not needing to submit, please still try some of the posted programming practice problems to enhance programming in Java. </li>
                 </ul>
-            </li> -->
+            </li> 
           </ul>
         </div>
       </div>
